@@ -89,9 +89,7 @@ class Register extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    isRegistering: this.state.isRegistering
-  };
+  return {};
 };
 
 export default connect(
