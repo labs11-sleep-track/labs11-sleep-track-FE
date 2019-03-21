@@ -8,7 +8,7 @@ import { registerUser } from "./actions";
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
-// import ProfileView from "./views/ProfileView";
+import ProfileView from "./views/ProfileView";
 
 class App extends React.Component {
   render() {
@@ -23,8 +23,8 @@ class App extends React.Component {
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         {/* <Route exact path="/blogs" component={BlogsView} />
-        <Route exact path="/home" component={DashboardView} />
-        <Route exact path="/profile" component={ProfileView} /> */}
+        <Route exact path="/home" component={DashboardView} /> */}
+        <Route exact path="/profile" component={ProfileView} />
       </div>
     );
   }
