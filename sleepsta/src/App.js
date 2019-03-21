@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import React from "react";
 import "./App.css";
+import { withRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { registerUser } from "./actions";
 
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
@@ -8,7 +10,7 @@ import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 // import ProfileView from "./views/ProfileView";
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -28,4 +30,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isRegistering: state.auth.isRegistering
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      registerUser
+    }
+  )(App)
+);
