@@ -1,12 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-import { withRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import {
-  registerUser
-} from './actions';
+import { withRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { registerUser } from "./actions";
 
-class App extends Component {
+// import DashboardView from "./views/DashboardView";
+// import BlogsView from "./views/BlogsView";
+import LoginView from "./views/LoginView";
+import RegisterView from "./views/RegisterView";
+// import ProfileView from "./views/ProfileView";
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -16,11 +20,15 @@ class App extends Component {
           sleep. It also has a web application that allows the user to visualize
           their sleep habits online.
         </p>
+        <Route exact path="/" component={LoginView} />
+        <Route path="/register" component={RegisterView} />
+        {/* <Route exact path="/blogs" component={BlogsView} />
+        <Route exact path="/home" component={DashboardView} />
+        <Route exact path="/profile" component={ProfileView} /> */}
       </div>
     );
   }
 }
-
 
 const mapStateToProps = state => {
   return {
