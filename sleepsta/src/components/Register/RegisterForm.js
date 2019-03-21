@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {} from "../../store/actions";
+// import {} from "../../store/actions";
 
 class Register extends Component {
   constructor(props) {
