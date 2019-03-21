@@ -24,7 +24,7 @@ class App extends React.Component {
         <Route path="/register" component={RegisterView} />
         {/* <Route exact path="/blogs" component={BlogsView} />
         <Route exact path="/home" component={DashboardView} /> */}
-        <Route exact path="/profile" component={ProfileView} />
+        <Route path="/profile" component={ProfileView} />
       </div>
     );
   }

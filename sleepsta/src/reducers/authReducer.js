@@ -8,7 +8,7 @@ import {
   LOGIN_USER_FAILURE
 } from "../actions";
 
-const initalState = {
+const initialState = {
   isRegistering: false,
   isLoggingIn: false,
   isUpdating: false,
