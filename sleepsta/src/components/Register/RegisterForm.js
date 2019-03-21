@@ -29,7 +29,9 @@ class Register extends Component {
     this.props.registerUser(newUser);
     this.setState({
       email: "",
-      password: ""
+      password: "",
+      f_name: "",
+      l_name: ""
     });
   };
 
@@ -46,9 +48,9 @@ class Register extends Component {
             <input
               type="text"
               name="email"
-              value={this.props.email}
+              value={this.state.email}
               placeholder="Email"
-              onChange={this.props.handleChanges}
+              onChange={this.handleChanges}
             />
           </div>
           <div className="passwordDiv">
@@ -56,9 +58,9 @@ class Register extends Component {
             <input
               type="text"
               name="password"
-              value={this.props.password}
+              value={this.state.password}
               placeholder="Password"
-              onChange={this.props.handleChanges}
+              onChange={this.handleChanges}
             />
           </div>
           <div className="fNameDiv">
@@ -66,9 +68,9 @@ class Register extends Component {
             <input
               type="text"
               name="f_name"
-              value={this.props.f_name}
+              value={this.state.f_name}
               placeholder="First Name"
-              onChange={this.props.handleChanges}
+              onChange={this.handleChanges}
             />
           </div>
           <div className="lNameDiv">
@@ -76,9 +78,9 @@ class Register extends Component {
             <input
               type="text"
               name="l_name"
-              value={this.props.l_name}
+              value={this.state.l_name}
               placeholder="Last Name"
-              onChange={this.props.handleChanges}
+              onChange={this.handleChanges}
             />
           </div>
           <button onClick={this.handleSubmit}>Register</button>
