@@ -18,10 +18,13 @@ export const registerUser = newUser => dispatch => {
 };
 
 export const loginUser = user => dispatch => {
+  console.log("logging in");
   dispatch({ type: LOGIN_USER_START });
   Axios.post("https://sleepsta.herokuapp.com/api/login/", user)
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
+      localStorage.setItem("id", res.data.user.id);
+      console.log("res", res);
       dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
