@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions";
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,11 +16,10 @@ export default class LoginForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = {
-      curEmail: this.state.email,
-      curPassword: this.state.password
+      email: this.state.curEmail,
+      password: this.state.curPassword
     };
-    console.log(user);
-    //LOGIN FUNCTION HERE
+    this.props.loginUser(user);
     this.setState({
       curEmail: "",
       curPassword: ""
@@ -36,6 +37,7 @@ export default class LoginForm extends Component {
             name="curEmail"
             value={this.state.curEmail}
             required
+            onChange={this.handleChange}
             placeholder="Type email here"
           />
           <input
@@ -44,6 +46,7 @@ export default class LoginForm extends Component {
             name="curPassword"
             value={this.state.curPassword}
             required
+            onChange={this.handleChange}
             placeholder="Password"
           />
           <button>Submit</button>
@@ -52,3 +55,12 @@ export default class LoginForm extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+export default connect(
+  mapStateToProps,
+  {
+    loginUser
+  }
+)(LoginForm);
