@@ -4,7 +4,7 @@ import "./App.css";
 
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
-// import LoginView from "./views/LoginView";
+import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 // import ProfileView from "./views/ProfileView";
 
@@ -18,7 +18,7 @@ class App extends Component {
           sleep. It also has a web application that allows the user to visualize
           their sleep habits online.
         </p>
-        {/* <Route exact path="/" component={LoginView} /> */}
+        <Route exact path="/" component={LoginView} />
         <Route exact path="/register" component={RegisterView} />
         {/* <Route exact path="/blogs" component={BlogsView} />
         <Route exact path="/home" component={DashboardView} />
