@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import registerUser from "../../actions/index";
 
 class Register extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Register extends Component {
       l_name: this.state.l_name
     };
     console.log(newUser);
-    /// Login Action
+    this.props.registerUser(newUser);
     this.setState({
       email: "",
       password: ""
@@ -80,10 +81,20 @@ class Register extends Component {
               onChange={this.props.handleChanges}
             />
           </div>
+          <button onClick={this.handleSubmit}>Register</button>
         </form>
       </div>
     );
   }
 }
 
-export default Register;
+const mapStateToProps = state => {
+  return {
+    isRegistering: this.state.isRegistering
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Register);
