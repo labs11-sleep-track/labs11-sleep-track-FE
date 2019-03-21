@@ -10,7 +10,7 @@ import Nav from './components/Nav/Nav.js';
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
-// import ProfileView from "./views/ProfileView";
+import ProfileView from "./views/ProfileView";
 
 class App extends Component {
   render() {
@@ -29,8 +29,8 @@ class App extends Component {
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         {/* <Route exact path="/blogs" component={BlogsView} />
-        <Route exact path="/home" component={DashboardView} />
-        <Route exact path="/profile" component={ProfileView} /> */}
+        <Route exact path="/home" component={DashboardView} /> */}
+        <Route path="/profile" component={ProfileView} />
       </div>
     );
   }
