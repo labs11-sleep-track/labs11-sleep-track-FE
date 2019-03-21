@@ -20,8 +20,8 @@ export const registerUser = newUser => dispatch => {
 export const loginUser = user => dispatch => {
   dispatch({ type: LOGIN_USER_START });
   Axios.post("https://sleepsta.herokuapp.com/api/login/", user)
-    .then(response => {
-      localStorage.setItem("jwt", response.data.token);
+    .then(res => {
+      localStorage.setItem("jwt", res.data.token);
       dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
