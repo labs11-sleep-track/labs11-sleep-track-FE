@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import { withRouter, Route, Switch } from "react-router-dom";
+import { withRouter, Route, Switch, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "./actions";
+
+import Nav from './components/Nav/Nav.js';
 
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
@@ -10,11 +12,15 @@ import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 // import ProfileView from "./views/ProfileView";
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1> Sleepsta</h1>
+       <Nav />
+
+       <br />
+       <br />
+
         <p>
           Sleepsta is a mobile application that uses motion tracking to measure
           sleep. It also has a web application that allows the user to visualize
