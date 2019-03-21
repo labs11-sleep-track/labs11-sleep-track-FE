@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
+import { withRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {
+  registerUser
+} from './actions';
 
 class App extends Component {
   render() {
@@ -16,4 +21,18 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    isRegistering: state.auth.isRegistering
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      registerUser
+    }
+  )(App)
+);

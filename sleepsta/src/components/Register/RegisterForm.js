@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import {} from "../../store/actions";
 
 class Register extends Component {
   constructor(props) {
@@ -87,11 +86,4 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  {}
-)(Register);
+export default Register;
