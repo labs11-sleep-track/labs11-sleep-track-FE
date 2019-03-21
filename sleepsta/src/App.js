@@ -20,11 +20,13 @@ class App extends React.Component {
           sleep. It also has a web application that allows the user to visualize
           their sleep habits online.
         </p>
-        <Route exact path="/" component={LoginView} />
-        <Route path="/register" component={RegisterView} />
-        {/* <Route exact path="/blogs" component={BlogsView} />
-        <Route exact path="/home" component={DashboardView} />
-        <Route exact path="/profile" component={ProfileView} /> */}
+        <Switch>
+          <Route exact path="/" component={LoginView} />
+          <Route exact path="/register" component={RegisterView} />
+          {/* <Route exact path="/blogs" component={BlogsView} />
+          <Route exact path="/home" component={DashboardView} />
+          <Route exact path="/profile" component={ProfileView} /> */}
+        </Switch>
       </div>
     );
   }
