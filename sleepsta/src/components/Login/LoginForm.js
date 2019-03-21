@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 
 class LoginForm extends Component {
   constructor() {
@@ -28,29 +29,35 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <label>Email:</label>
-          <input
-            type="email"
-            id="curEmail"
-            name="curEmail"
-            value={this.state.curEmail}
-            required
-            onChange={this.handleChange}
-            placeholder="Type email here"
-          />
-          <input
-            type="password"
-            id="curPassword"
-            name="curPassword"
-            value={this.state.curPassword}
-            required
-            onChange={this.handleChange}
-            placeholder="Password"
-          />
-          <button>Submit</button>
-        </form>
+      <div className="loginForm">
+        <h2>Login</h2>
+        <Form onSubmit={e => this.handleSubmit(e)}>
+            <FormGroup>
+              <Label>Email:</Label>
+              <Input
+                type="email"
+                id="curEmail"
+                name="curEmail"
+                value={this.state.curEmail}
+                required
+                onChange={this.handleChange}
+                placeholder="Type email here"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Password:</Label>
+              <Input
+                type="password"
+                id="curPassword"
+                name="curPassword"
+                value={this.state.curPassword}
+                required
+                onChange={this.handleChange}
+                placeholder="Password"
+              />
+            </FormGroup>
+            <Button color="success">Submit</Button>
+        </Form>
       </div>
     );
   }
