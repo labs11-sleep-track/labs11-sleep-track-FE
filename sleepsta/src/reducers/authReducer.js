@@ -1,6 +1,8 @@
 import {
   REGISTER_USER,
   USER_REGISTERED,
+  UPDATE_USER,
+  USER_UPDATED,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE
@@ -9,7 +11,10 @@ import {
 const initialState = {
   isRegistering: false,
   isLoggingIn: false,
-  error: null
+  isUpdating: false,
+  error: null,
+  jwt: null,
+  id: null
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -25,6 +30,18 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         error: "",
         isRegistering: false
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        error: "",
+        isUpdating: true
+      };
+    case USER_UPDATED:
+      return {
+        ...state,
+        error: "",
+        isUpdating: false
       };
     case LOGIN_USER_START:
       return {
