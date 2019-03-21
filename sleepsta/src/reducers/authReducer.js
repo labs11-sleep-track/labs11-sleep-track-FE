@@ -2,7 +2,10 @@ import {
   REGISTER_USER,
   USER_REGISTERED,
   UPDATE_USER,
-  USER_UPDATED
+  USER_UPDATED,
+  LOGIN_USER_START,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE
 } from "../actions";
 
 const initalState = {
@@ -14,7 +17,7 @@ const initalState = {
   id: null
 };
 
-export const authReducer = (state = initalState, action) => {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER_USER:
       return {
@@ -39,6 +42,24 @@ export const authReducer = (state = initalState, action) => {
         ...state,
         error: "",
         isUpdating: false
+      };
+    case LOGIN_USER_START:
+      return {
+        ...state,
+        error: "",
+        isLoggingIn: true
+      };
+    case LOGIN_USER_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isLoggingIn: false
+      };
+    case LOGIN_USER_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isLoggingIn: false
       };
     default:
       return state;
