@@ -57,15 +57,17 @@ class LoginForm extends Component {
               placeholder="Password"
             />
           </FormGroup>
+          <FormGroup>
           <Button color="success">Submit</Button>
-          <div>
-            <p>
-              Don't have an account?
-              <span>
-                <Link to="/register"> Register</Link>
-              </span>
-            </p>
-          </div>
+<br/>
+<br/>
+                <h6>
+                  Don't have an account?
+                </h6>
+  
+                  <Link to="/register"> <Button> Register</Button></Link>
+              </FormGroup>
+
         </Form>
       </div>
     );
