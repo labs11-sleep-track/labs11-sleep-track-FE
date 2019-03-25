@@ -4,22 +4,23 @@ import { withRouter, Route, Switch, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "./actions";
 
-import Nav from './components/Nav/Nav.js';
+import Nav from "./components/Nav/Nav.js";
 
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import ProfileView from "./views/ProfileView";
+import Graph from "./components/Dashboard/Graph";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-       <Nav />
+        <Nav />
 
-       <br />
-       <br />
+        <br />
+        <br />
 
         <p>
           Sleepsta is a mobile application that uses motion tracking to measure
@@ -31,6 +32,7 @@ class App extends Component {
         {/* <Route exact path="/blogs" component={BlogsView} />
         <Route exact path="/home" component={DashboardView} /> */}
         <Route path="/profile" component={ProfileView} />
+        <Route path="/graph" component={Graph} />
       </div>
     );
   }
