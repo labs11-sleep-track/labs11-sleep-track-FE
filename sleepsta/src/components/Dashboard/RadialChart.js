@@ -1,6 +1,12 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
+const ChartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 class RadialChart extends React.Component {
   constructor(props) {
     super(props);
@@ -110,7 +116,7 @@ class RadialChart extends React.Component {
   render() {
     return (
       <div id="card">
-        <div id="chart">
+        <ChartContainer id="chart">
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
@@ -118,7 +124,7 @@ class RadialChart extends React.Component {
             height="350"
           />
           <p>{this.state.day}</p>
-        </div>
+        </ChartContainer>
       </div>
     );
   }
