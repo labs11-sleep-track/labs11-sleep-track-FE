@@ -13,6 +13,7 @@ import {
 const initialState = {
   isRegistering: false,
   isLoggingIn: false,
+  isLoggedIn: false,
   isUpdating: false,
   isFetching: false,
   error: null,
@@ -51,19 +52,22 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isLoggingIn: true
+        isLoggingIn: true,
+        isLoggedIn: false
       };
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
         error: "",
-        isLoggingIn: false
+        isLoggingIn: false,
+        isLoggedIn: true
       };
     case LOGIN_USER_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoggingIn: false
+        isLoggingIn: false,
+        isLoggedIn: false
       };
     case FETCHING_USER:
       return {
