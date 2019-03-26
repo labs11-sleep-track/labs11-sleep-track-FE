@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 
 import RadialChart from "../components/Dashboard/RadialChart";
 import { fetchUserDailyData } from "../actions/index";
+import styled from "styled-components";
+
+const RadialCharts = styled.div`
+  display: flex;
+`;
 
 class DashboardView extends React.Component {
   constructor(props) {
@@ -21,11 +26,11 @@ class DashboardView extends React.Component {
   render() {
     console.log("daily data while rendering", this.props.userDailyData);
     return (
-      <div>
+      <RadialCharts>
         {this.props.userDailyData.map(dailyData => {
           return <RadialChart dailyData={dailyData} />;
         })}
-      </div>
+      </RadialCharts>
     );
   }
 }
