@@ -1,0 +1,32 @@
+.SideNav {
+    background-color: #252E4F;
+}
+
+p {
+    color:white;
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.SideOpen {
+    background-color: #252E4F;
+}
+
+.CardBody {
+    background-color: #252E4F;
+}
+
+.title {
+    font-size: 55px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-family: Roboto;
+    color: white;
+    cursor: pointer;
+}
+
+.title:hover {
+    color: #e34a6f;
+    text-decoration: none;
+}

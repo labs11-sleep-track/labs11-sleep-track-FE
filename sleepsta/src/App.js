@@ -6,7 +6,8 @@ import { registerUser } from "./actions";
 
 import Nav from "./components/Nav/Nav.js";
 
-//
+import SideNav from "./components/Dashboard/SideNavBar.js";
+
 
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
@@ -19,7 +20,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
+
+        <SideNav />
 
         <br />
         <br />
