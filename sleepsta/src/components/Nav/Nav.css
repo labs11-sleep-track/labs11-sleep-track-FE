@@ -34,11 +34,21 @@ a {
     padding-left: 20px;
 }
 
+a:hover { 
+    color: #e34a6f;
+    text-decoration: none;
+  }
+
 i {
     width: 55px;
     display: flex;
     align-items: center;
-    
+    font-size: 30px;
+}
+
+i:hover {
+    color: #e34a6f;
+    text-decoration: none;
 }
 
 .icons {
@@ -48,18 +58,4 @@ i {
     align-items: center;
     cursor: pointer;
 
-}
-
-input {
-    border: 1px solid rgb(248, 244, 244);
-    width: 400px;
-    height: 25px;
-    cursor: pointer;
-    background-color: #F7F7FF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 70px;
-    font-size: 15px;
-    color: #222222;
 }
