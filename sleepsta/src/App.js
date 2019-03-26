@@ -11,7 +11,7 @@ import Nav from "./components/Nav/Nav.js";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import ProfileView from "./views/ProfileView";
-import Graph from "./components/Dashboard/Graph";
+import RadialChart from "./components/Dashboard/RadialChart";
 
 class App extends Component {
   render() {
@@ -32,7 +32,7 @@ class App extends Component {
         {/* <Route exact path="/blogs" component={BlogsView} />
         <Route exact path="/home" component={DashboardView} /> */}
         <Route path="/profile" component={ProfileView} />
-        <Route path="/graph" component={Graph} />
+        <Route path="/graph" component={RadialChart} />
       </div>
     );
   }
