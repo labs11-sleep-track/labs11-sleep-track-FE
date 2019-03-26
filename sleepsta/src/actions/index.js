@@ -5,9 +5,11 @@ export const USER_REGISTERED = "USER_REGISTERED";
 export const LOGIN_USER_START = "LOGIN_USER_START";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
 export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
+
 export const FETCH_USER_DAILY_DATA_START = "FETCH_USER_DAILY_DATA_START";
 export const FETCH_USER_DAILY_DATA_SUCCESS = "FETCH_USER_DAILY_DATA_SUCCESS";
 export const FETCH_USER_DAILY_DATA_FAILURE = "FETCH_USER_DAILY_DATA_FAILURE";
+
 export const UPDATE_USER = "UPDATE_USER";
 export const USER_UPDATED = "USER_UPDATED";
 
@@ -42,11 +44,13 @@ export const updateUser = dispatch => {
 };
 
 export const loginUser = user => dispatch => {
+  console.log("Logging in");
   dispatch({ type: LOGIN_USER_START });
   Axios.post("https://sleepsta.herokuapp.com/api/login/", user)
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
       localStorage.setItem("id", res.data.user.id);
+      console.log("res", res);
       dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -64,7 +68,8 @@ export const fetchUserDailyData = user_id => dispatch => {
     .catch(err => {
       dispatch({ type: FETCH_USER_DAILY_DATA_FAILURE, payload: err });
     });
-    
+};
+
 export const getUser = () => dispatch => {
   console.log("Fetching");
   dispatch({ type: FETCHING_USER });

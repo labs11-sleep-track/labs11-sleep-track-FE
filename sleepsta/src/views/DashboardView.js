@@ -15,9 +15,11 @@ class DashboardView extends React.Component {
     //hardcoding in a user for now, but will later get the user_id after logging in
     const user_id = 1;
     this.props.fetchUserDailyData(user_id);
+    console.log("user data after mounting ", this.props.userDailyData);
   }
 
   render() {
+    console.log("daily data while rendering", this.props.userDailyData);
     return (
       <div>
         <RadialChart userDailyData={this.props.userDailyData} />
@@ -27,7 +29,7 @@ class DashboardView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userDailyData: state.userDailyData
+  userDailyData: state.compReducer.userDailyData
 });
 
 export default connect(
