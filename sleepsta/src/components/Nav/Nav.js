@@ -75,17 +75,12 @@ class LoggedOutNav extends React.Component {
 
                 <DropdownMenu right>
 
+                <div className="dropdown">
+
                 <DropdownItem>
                   <Link to="/profile">
                   <i class="fas fa-chart-bar"></i>&nbsp; 
                     Profile
-                    </Link>
-                  </DropdownItem>
-
-                  <DropdownItem>
-                  <Link to="/update">
-                  <i class="fas fa-user-edit"></i>&nbsp; 
-                    Update Account
                     </Link>
                   </DropdownItem>
 
@@ -95,15 +90,24 @@ class LoggedOutNav extends React.Component {
                   </DropdownItem>
 
                   <DropdownItem>
-                  <i class="fas fa-code"></i>&nbsp;
-                    SLEEPSTA Team
+                  <Link to="/update">
+                  <i class="fas fa-user-edit"></i>&nbsp; 
+                    Update Account
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem divider />
 
                   <DropdownItem>
+                  <i class="fas fa-code"></i>&nbsp;
+                    SLEEPSTA Team
+                  </DropdownItem>
+
+                  <DropdownItem>
                   <i onClick={this.logout} class="fas fa-sign-out-alt">&nbsp;Logout</i>
                   </DropdownItem>
+
+                  </div>
                   
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -115,7 +119,7 @@ class LoggedOutNav extends React.Component {
           <Route path="/login" component={LoginForm} />
           {/* <Route path="/register" component={Register} />  */}
           <Route path="/update" component={UserForm} /> 
-          {/* <Route path="/profile" component={Profile} />  */}
+          {/* <Route path="/profile" component={Profile} /> */}
           {/* <Route path="/blogs" component={Blogs} />
           <Route path="/about" component={About} />   */}
         </main>
@@ -130,61 +134,3 @@ logout = () => {
 }
 
 export default withRouter(LoggedOutNav);
-
-
-
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import { NavLink, Route, withRouter} from 'react-router-dom';
-
-// import './Nav.css';
-
-// import LoginForm from '../Login/LoginForm';
-// // import Reg from './about/Reg';
-// // import Blogs from './blogs/Blogs';
-// // import About from './about/About';
-
-
-// class Nav extends Component {
-//   render() {
-//     return (
-//       <div className="Nav">
-//         <header>
-//           <nav>
-//             <div className="navBar">
-
-//             <NavLink exact to='/'><h1>SLEEPSTA</h1></NavLink>
-
-//             <div className="navBar1">
-//             <NavLink to="/why">Why Sleep?</NavLink>
-//             <NavLink to="/blogs">Blogs</NavLink>
-
-
-//             <div className="icons">
-//               <Link exact to='/'><i class="fas fa-bed"></i></Link>
-//               <Link to="/login"><i className="far fa-user"></i></Link>
-//               <i onClick={this.logout} class="fas fa-sign-out-alt"></i>
-//             </div>
-//             </div>
-//             </div>
-//           </nav>
-//         </header>
-
-//         <main>
-//           <Route path="/login" component={LoginForm} />
-//           {/* <Route path="/register" component={Reg} /> */}
-//           {/* <Route path="/blogs" component={Blogs} />
-//           <Route path="/about" component={About} />  */}
-//         </main>
-          
-//       </div>
-//     );
-//   }
-
-//   logout = () => {
-//     localStorage.removeItem('jwt');
-//     this.props.history.push('/login');
-//   };
-// }
-
-// export default withRouter(Nav);

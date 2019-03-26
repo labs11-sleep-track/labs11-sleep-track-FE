@@ -22,7 +22,7 @@ import Profile from '../Profile/Profile';
 // import Blogs from './blogs/Blogs';
 // import About from './about/About';
 
-import './SideNavBar.css';
+import './LoggedOutNav.css';
 
 
 class LoggedOutNav extends React.Component {
@@ -76,47 +76,61 @@ class LoggedOutNav extends React.Component {
                 <DropdownMenu right>
 
                 <DropdownItem>
+                <div className="menuLinks">
                   <Link to="/profile">
                   <i class="fas fa-chart-bar"></i>&nbsp; 
                     Profile
                     </Link>
+                    </div>
                   </DropdownItem>
 
                 <DropdownItem>
+                  <div className="menuLinks">
                   <Link to="/login">
                   <i class="fas fa-user"></i>&nbsp; 
                     Login
                     </Link>
+                    </div>
                   </DropdownItem>
 
                   <DropdownItem>
+                  <div className="menuLinks">
                   <Link to="/register">
                   <i class="fas fa-user-plus"></i>&nbsp; 
                     Register
                     </Link>
+                    </div>
                   </DropdownItem>
 
                   <DropdownItem>
+                  <div className="menuLinks">
                   <Link to="/update">
                   <i class="fas fa-user-edit"></i>&nbsp; 
                     Update Account
                     </Link>
+                    </div>
                   </DropdownItem>
 
                   <DropdownItem>
-                  <i class="fas fa-bed"></i>&nbsp;
+                  <div className="menuLinks">
+                  <i class="fas fa-rss"></i>&nbsp;
                     Blogs
-                  </DropdownItem>
-
-                  <DropdownItem>
-                  <i class="fas fa-code"></i>&nbsp;
-                    SLEEPSTA Team
+                    </div>
                   </DropdownItem>
 
                   <DropdownItem divider />
 
                   <DropdownItem>
+                  <div className="menuLinks">
+                  <i class="fas fa-bed"></i>&nbsp;
+                    SLEEPSTA Team
+                    </div>
+                  </DropdownItem>
+
+                  <DropdownItem>
+                  <div className="menuLinks">
                   <i onClick={this.logout} class="fas fa-sign-out-alt">&nbsp;Logout</i>
+                  </div>
                   </DropdownItem>
                   
                 </DropdownMenu>

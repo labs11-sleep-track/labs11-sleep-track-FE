@@ -1,16 +1,9 @@
-.SideNav {
-    background-color: #252E4F;
-}
 
 p {
     color:white;
     font-family: Roboto;
     letter-spacing: 2px;
     font-size: 20px;
-}
-
-.SideOpen {
-    background-color: #252E4F;
 }
 
 .CardBody {
@@ -30,3 +23,20 @@ p {
     color: #e34a6f;
     text-decoration: none;
 }
+
+.menuLinks {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: Roboto;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.menuLinks:hover {
+    color: #e34a6f;
+    text-decoration: none;
+}
+

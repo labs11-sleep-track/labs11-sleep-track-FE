@@ -6,7 +6,7 @@ import { registerUser } from "./actions";
 
 import Nav from "./components/Nav/Nav.js";
 
-import SideNav from "./components/Dashboard/SideNavBar.js";
+import LoggedOutNav from "./components/Dashboard/LoggedOutNav";
 
 
 // import DashboardView from "./views/DashboardView";
@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         {/* <Nav /> */}
 
-        <SideNav />
+        <LoggedOutNav />
 
         <br />
         <br />
