@@ -9,6 +9,9 @@ export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
 export const UPDATE_USER = "UPDATE_USER";
 export const USER_UPDATED = "USER_UPDATED";
 
+export const FETCHING_USER = "FETCHING_USER";
+export const USER_FETCHED = "USER_FETCHED";
+
 export const registerUser = newUser => dispatch => {
   console.log("Registering");
   dispatch({ type: REGISTER_USER });
@@ -20,10 +23,15 @@ export const registerUser = newUser => dispatch => {
     .catch(err => console.log(err.response));
 };
 
-export const updateUser = (id, headersObj) => dispatch => {
-  console.log("Registering");
+export const updateUser = dispatch => {
+  console.log("Updating");
   dispatch({ type: UPDATE_USER });
-  Axios.put(`https://sleepsta.herokuapp.com/api/users/${id}`, headersObj)
+  Axios.put(
+    `https://sleepsta.herokuapp.com/api/users/${localStorage.getItem("id")}`,
+    {
+      headers: { Authorization: localStorage.getItem("jwt") }
+    }
+  )
     .then(res => {
       dispatch({ type: USER_UPDATED, payload: res.data });
       console.log(res);
@@ -44,4 +52,22 @@ export const loginUser = user => dispatch => {
     .catch(err => {
       dispatch({ type: LOGIN_USER_FAILURE, payload: err });
     });
+};
+
+export const getUser = () => dispatch => {
+  console.log("Fetching");
+  dispatch({ type: FETCHING_USER });
+  Axios.get(
+    `https://sleepsta.herokuapp.com/api/users/${localStorage.getItem("id")}`,
+    {
+      headers: {
+        Authorization: localStorage.getItem("jwt")
+      }
+    }
+  )
+    .then(res => {
+      dispatch({ type: USER_FETCHED, payload: res.data });
+      console.log(res);
+    })
+    .catch(err => console.log(err));
 };
