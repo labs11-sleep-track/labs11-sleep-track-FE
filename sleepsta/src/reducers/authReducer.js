@@ -82,6 +82,19 @@ export const authReducer = (state = initialState, action) => {
         isFetching: false,
         inputs: action.payload[0]
       };
+    case FETCHING_USER:
+      return {
+        ...state,
+        error: "",
+        isFetching: true
+      };
+    case USER_FETCHED:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        inputs: action.payload[0]
+      };
     default:
       return state;
   }
