@@ -22,7 +22,9 @@ class DashboardView extends React.Component {
     console.log("daily data while rendering", this.props.userDailyData);
     return (
       <div>
-        <RadialChart userDailyData={this.props.userDailyData} />
+        {this.props.userDailyData.map(dailyData => {
+          return <RadialChart dailyData={dailyData} />;
+        })}
       </div>
     );
   }

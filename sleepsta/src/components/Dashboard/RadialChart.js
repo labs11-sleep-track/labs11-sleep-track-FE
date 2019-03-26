@@ -5,6 +5,7 @@ class RadialChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      day: "",
       options: {
         chart: {
           toolbar: {
@@ -82,12 +83,28 @@ class RadialChart extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.userDailyData);
-    // const totalSleep =
-    //   this.props.userDailyData.waketime - this.state.userDailyData.sleeptime;
-    // //divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage
-    // const percentage = (totalSleep / 28800) * 100;
-    // this.setState({ series: [percentage] });
+    const timestamp = this.props.dailyData.sleeptime;
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    const date = new Date(timestamp * 1000);
+    const dayOfWeek = days[date.getDay()];
+    console.log("day", dayOfWeek);
+    const totalSleep =
+      this.props.dailyData.waketime - this.props.dailyData.sleeptime;
+    // divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage
+    const percentage = (totalSleep / 28800) * 100;
+    if (percentage >= 100) {
+      this.setState({ series: [100], day: dayOfWeek });
+    } else {
+      this.setState({ series: [percentage], day: dayOfWeek });
+    }
   }
 
   render() {
@@ -100,6 +117,7 @@ class RadialChart extends React.Component {
             type="radialBar"
             height="350"
           />
+          <p>{this.state.day}</p>
         </div>
       </div>
     );
