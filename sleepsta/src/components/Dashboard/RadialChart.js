@@ -9,7 +9,7 @@ class RadialChart extends React.Component {
       options: {
         chart: {
           toolbar: {
-            show: true
+            show: false
           }
         },
         plotOptions: {
