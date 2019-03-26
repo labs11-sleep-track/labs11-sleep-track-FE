@@ -5,14 +5,6 @@ class RadialChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sleepData: {
-        id: 1,
-        user_id: 1,
-        sleeptime: 1553639993,
-        waketime: 1553667653,
-        qos_score: 45934,
-        sleep_notes: null
-      },
       options: {
         chart: {
           toolbar: {
@@ -90,11 +82,12 @@ class RadialChart extends React.Component {
   }
 
   componentDidMount() {
-    const totalSleep =
-      this.state.sleepData.waketime - this.state.sleepData.sleeptime;
-    //divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage
-    const percentage = (totalSleep / 28800) * 100;
-    this.setState({ series: [percentage] });
+    console.log(this.props.userDailyData);
+    // const totalSleep =
+    //   this.props.userDailyData.waketime - this.state.userDailyData.sleeptime;
+    // //divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage
+    // const percentage = (totalSleep / 28800) * 100;
+    // this.setState({ series: [percentage] });
   }
 
   render() {
