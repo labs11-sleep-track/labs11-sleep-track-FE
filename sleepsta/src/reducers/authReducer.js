@@ -5,16 +5,20 @@ import {
   USER_UPDATED,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAILURE
+  LOGIN_USER_FAILURE,
+  FETCHING_USER,
+  USER_FETCHED
 } from "../actions";
 
 const initialState = {
   isRegistering: false,
   isLoggingIn: false,
   isUpdating: false,
+  isFetching: false,
   error: null,
   jwt: null,
-  id: null
+  id: null,
+  inputs: {}
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -60,6 +64,19 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         isLoggingIn: false
+      };
+    case FETCHING_USER:
+      return {
+        ...state,
+        error: "",
+        isFetching: true
+      };
+    case USER_FETCHED:
+      return {
+        ...state,
+        error: "",
+        isFetching: false,
+        inputs: action.payload[0]
       };
     default:
       return state;

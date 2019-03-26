@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/index";
+import axios from "axios";
 
 class UserForm extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class UserForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    axios.put(`https://sleepsta.herokuapp.com/api/users/${id}`, headersObj);
     const headersObj = {
       headers: {
         token: localStorage.getItem("jwt"),
