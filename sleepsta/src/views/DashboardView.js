@@ -18,15 +18,38 @@ class DashboardView extends React.Component {
     this.state = {
       dailyDisplayed: false,
       dailyDataId: null,
-      week: ""
+      week: moment().format("YYYY-[W]WW"),
+      firstWeekDay: null,
+      lastWeekDay: null,
+      filteredDailyData: []
     };
   }
 
+  componentDidMount() {
+    //hardcoding in a user for now, but will later get the user_id after logging in
+    const user_id = 1;
+    this.props.fetchUserDailyData(user_id);
+
+    //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
+    const time = moment(this.state.week)._d;
+    const first = moment(time).format("X");
+    const lastNumber = parseInt(moment(time).format("X")) + 604800;
+    const lastString = lastNumber.toString();
+    this.setState({ firstWeekDay: first, lastWeekDay: lastString });
+
+    //sets filteredDailyData to dates only within selected days of the week
+    const filtered = this.props.userDailyData.filter(dailyData => {
+      return this.state.firstWeekDay <= dailyData <= this.state.lastWeekDay;
+    });
+    this.setState({ filteredDailyData: filtered });
+  }
+
+  //used when clicking on daily radial chart to display line graph of sleep movement from that day
   showDailyGraph = (e, id) => {
     e.preventDefault();
     this.setState({ dailyDisplayed: true, dailyDataId: id });
   };
-
+  //used when clicking on "show weekly data" button to display weekly data again
   showWeeklyGraph = e => {
     e.preventDefault();
     this.setState({ dailyDisplayed: false, dailyDataId: null });
@@ -35,15 +58,7 @@ class DashboardView extends React.Component {
   handleInputChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
-    console.log("moment", moment("2019-W03")._d);
-    console.log(moment().format("YYYY-[W]WW"));
   };
-
-  componentDidMount() {
-    //hardcoding in a user for now, but will later get the user_id after logging in
-    const user_id = 1;
-    this.props.fetchUserDailyData(user_id);
-  }
 
   render() {
     return (
@@ -51,7 +66,7 @@ class DashboardView extends React.Component {
         <input
           type="week"
           name="week"
-          value={moment().format("YYYY-[W]WW")}
+          value={this.state.week}
           onChange={this.handleInputChange}
         />
         {this.state.dailyDisplayed ? (
@@ -63,7 +78,7 @@ class DashboardView extends React.Component {
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
         )}
         <RadialCharts>
-          {this.props.userDailyData.map(dailyData => {
+          {this.state.filteredDailyData.map(dailyData => {
             return (
               <RadialChart
                 dailyData={dailyData}
