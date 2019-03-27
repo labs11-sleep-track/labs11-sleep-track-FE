@@ -73,14 +73,12 @@ export const fetchUserDailyData = user_id => dispatch => {
 export const getUser = () => dispatch => {
   console.log("Fetching");
   dispatch({ type: FETCHING_USER });
-  Axios.get(
-    `https://sleepsta.herokuapp.com/api/users/${localStorage.getItem("id")}`,
-    {
-      headers: {
-        Authorization: localStorage.getItem("jwt")
-      }
+
+  return Axios.get(`https://sleepsta.herokuapp.com/api/users/me`, {
+    headers: {
+      Authorization: localStorage.getItem("jwt")
     }
-  )
+  })
     .then(res => {
       dispatch({ type: USER_FETCHED, payload: res.data });
       console.log(res);
