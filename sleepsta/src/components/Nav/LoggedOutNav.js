@@ -144,7 +144,7 @@ class LoggedOutNav extends React.Component {
                 <DropdownMenu right>
 
                 <DropdownItem>
-                  <Link to="/login">
+                  <Link style={{textDecoration: "none"}} to="/login">
                   <Menu>
                   <i class="fas fa-user"></i>&nbsp; 
                     Login
