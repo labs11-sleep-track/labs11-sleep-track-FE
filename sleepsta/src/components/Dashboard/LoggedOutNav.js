@@ -23,7 +23,68 @@ import Profile from '../Profile/Profile';
 // import Blogs from './blogs/Blogs';
 // import About from './about/About';
 
-import './LoggedOutNav.css';
+const NavBar = styled.div`
+background-color: #252E4F;
+`
+
+const Title = styled.div`
+font-size: 75px;
+letter-spacing: 5px;
+font-weight: bold;
+font-family: Roboto;
+color: white;
+cursor: pointer;
+text-shadow: 2px 2px 8px black;
+
+&:hover { 
+  color: #9EE493;
+  text-decoration: none;
+}
+
+&:active {
+  color: #E34A6F;
+  text-decoration: none;
+}
+`
+
+const Links = styled.p`
+    color: #F7F7FF;
+    font-family: Roboto;
+    letter-spacing: 3px;
+    font-size: 25px;
+    padding-top: 25px;
+    text-shadow: 2px 2px 8px black; 
+
+&:hover { 
+  color: #9EE493;
+  text-decoration: none;
+}
+
+&:active {
+  color: #E34A6F;
+  text-decoration: none;
+}
+`
+
+const Menu = styled.div`
+font-size: 20px;
+font-weight: bold;
+letter-spacing: 2px;
+font-family: Roboto;
+color: black;
+cursor: pointer;
+text-decoration: none;
+
+&:hover { 
+  color: #9EE493;
+  text-decoration: none;
+}
+
+&:active {
+  color: #E34A6F;
+  text-decoration: none;
+}
+`
 
 class LoggedOutNav extends React.Component {
   constructor(props) {
@@ -41,13 +102,13 @@ class LoggedOutNav extends React.Component {
   }
   render() {
     return (
-      <div className="NavBar">
+      <NavBar>
         <Navbar color="#4C546F" light expand="md">
 
         <NavLink href='/'>
-        <div className="title">
+        <Title>
         SLEEP<i>STA</i>
-        </div>
+        </Title>
         </NavLink>
        
 
@@ -57,81 +118,51 @@ class LoggedOutNav extends React.Component {
 
               <NavItem>
                 <NavLink href="/whysleep">
-                <p>Why Sleep?</p>
-                </NavLink>
-              </NavItem>
-
-
-              <NavItem>
-                <NavLink href="/blogs">
-                <p>Blogs</p>
+                <Links>Why Sleep?</Links>
                 </NavLink>
               </NavItem>
 
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  <p>Menu</p>
+                  <Links>Menu</Links>
                 </DropdownToggle>
 
                 <DropdownMenu right>
 
                 <DropdownItem>
-                  <Link to="/profile">
-                  <div className="menuLinks">
-                  <i class="fas fa-chart-bar"></i>&nbsp; 
-                    Profile
-                    </div>
-                    </Link>
-                  </DropdownItem>
-
-                <DropdownItem>
                   <Link to="/login">
-                  <div className="menuLinks">
+                  <Menu>
                   <i class="fas fa-user"></i>&nbsp; 
                     Login
-                    </div>
+                    </Menu>
                     </Link>
                   </DropdownItem>
 
                   <DropdownItem>
                   <Link to="/register">
-                  <div className="menuLinks">
+                  <Menu>
                   <i class="fas fa-user-plus"></i>&nbsp; 
                     Register
-                    </div>
+                    </Menu>
                     </Link>
-                  </DropdownItem>
-
-                  <DropdownItem>
-                  <Link to="/update">
-                  <div className="menuLinks">
-                  <i class="fas fa-user-edit"></i>&nbsp; 
-                    Update Account
-                    </div>
-                    </Link>
-                  </DropdownItem>
-
-                  <DropdownItem>
-                  <div className="menuLinks">
-                  <i class="fas fa-rss"></i>&nbsp;
-                    Blogs
-                    </div>
                   </DropdownItem>
 
                   <DropdownItem divider />
 
                   <DropdownItem>
-                  <div className="menuLinks">
+                  <Link to="/about">
+                  <Menu>
                   <i class="fas fa-bed"></i>&nbsp;
-                    SLEEPSTA Team
-                    </div>
+                    SLEEP<i>STA</i> Team
+                    </Menu>
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem>
-                  <div className="menuLinks">
+                  <Menu>
                   <i onClick={this.logout} class="fas fa-sign-out-alt">&nbsp;Logout</i>
-                  </div>
+                  </Menu>
                   </DropdownItem>
                   
                 </DropdownMenu>
@@ -148,7 +179,7 @@ class LoggedOutNav extends React.Component {
           {/* <Route path="/blogs" component={Blogs} />
           <Route path="/about" component={About} />   */}
         </main>
-      </div>
+      </NavBar>
     );
   }
 
