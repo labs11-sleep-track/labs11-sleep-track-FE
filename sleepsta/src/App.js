@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { registerUser } from "./actions";
 
 import Nav from "./components/Nav/Nav.js";
-
 import LoggedOutNav from "./components/Nav/LoggedOutNav";
+import SideNav from "./components/Nav/SideNav.js";
+import About from "./components/Nav/About.js";
 
 
 // import DashboardView from "./views/DashboardView";
@@ -21,8 +22,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         {/* <LoggedOutNav /> */}
+        <SideNav />
 
         <br />
         <br />

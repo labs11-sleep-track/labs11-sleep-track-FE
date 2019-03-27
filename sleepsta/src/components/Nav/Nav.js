@@ -21,7 +21,7 @@ import Register from '../Register/RegisterForm';
 import UserForm from '../Profile/UpdateUserForm';
 import Profile from '../Profile/Profile';
 // import Blogs from './blogs/Blogs';
-// import About from './about/About';
+import About from '../Nav/About';
 
 const NavBar = styled.div`
 background-color: #252E4F;
@@ -208,8 +208,8 @@ class LoggedOutNav extends React.Component {
           {/* <Route path="/register" component={Register} />  */}
           <Route path="/update" component={UserForm} /> 
           {/* <Route path="/profile" component={Profile} />  */}
-          {/* <Route path="/blogs" component={Blogs} />
-          <Route path="/about" component={About} />   */}
+          {/* <Route path="/blogs" component={Blogs} /> */}
+          <Route path="/about" component={About} />
         </main>
       </NavBar>
     );
