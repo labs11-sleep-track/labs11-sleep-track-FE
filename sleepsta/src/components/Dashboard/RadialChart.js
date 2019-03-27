@@ -6,6 +6,10 @@ const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 class RadialChart extends React.Component {
   constructor(props) {
@@ -124,6 +128,7 @@ class RadialChart extends React.Component {
             series={this.state.series}
             type="radialBar"
             height="350"
+            onClick={e => this.props.showDailyGraph(e, this.props.dailyData.id)}
           />
           <p>{this.state.day}</p>
         </ChartContainer>

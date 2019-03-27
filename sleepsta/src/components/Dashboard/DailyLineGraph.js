@@ -80,6 +80,7 @@ class DailyLineGraph extends React.Component {
     let options = this.state.options;
     let series = this.state.series;
     options.xaxis.categories = Object.keys(this.state.sleepData);
+    console.log("options.axis.categories", options.xaxis.categories);
     series[0].data = Object.values(this.state.sleepData);
 
     this.setState({ options, series });
