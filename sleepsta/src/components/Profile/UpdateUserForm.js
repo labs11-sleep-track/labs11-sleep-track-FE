@@ -8,7 +8,6 @@ class UserForm extends Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
       f_name: "",
       l_name: ""
     };
@@ -20,22 +19,23 @@ class UserForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    axios.put(`https://sleepsta.herokuapp.com/api/users/${id}`, headersObj);
-    const headersObj = {
-      headers: {
-        token: localStorage.getItem("jwt"),
-        id: localStorage.getItem("id")
-      }
+    const newInfo = {
+      email: this.state.email,
+      f_name: this.state.f_name,
+      l_name: this.state.l_name
     };
-    const id = localStorage.getItem("id");
-    this.props.updateUser(id, headersObj);
-    console.log(id, headersObj);
+    this.props.updateUser(newInfo);
+    this.setState({
+      email: "",
+      f_name: "",
+      l_name: ""
+    });
   };
 
   render() {
     return (
       <div>
-        <label>User Page</label>
+        <label>Update User Info</label>
         <form>
           <div className="emailDiv">
             <label>Email</label>
@@ -47,16 +47,7 @@ class UserForm extends Component {
               onChange={this.handleChanges}
             />
           </div>
-          <div className="passwordDiv">
-            <label>Password</label>
-            <input
-              type="text"
-              name="password"
-              value={this.state.password}
-              placeholder="Password"
-              onChange={this.handleChanges}
-            />
-          </div>
+
           <div className="fNameDiv">
             <label>First Name</label>
             <input
@@ -67,6 +58,7 @@ class UserForm extends Component {
               onChange={this.handleChanges}
             />
           </div>
+
           <div className="lNameDiv">
             <label>Last Name</label>
             <input
