@@ -86,6 +86,17 @@ text-decoration: none;
 }
 `
 
+const Spacer = styled.div`
+font-size: 45px;
+font-weight: lighter;
+padding-top: 20px;
+font-family: Roboto;
+color: white;
+cursor: pointer;
+text-shadow: 2px 2px 8px black;
+}
+`
+
 class LoggedOutNav extends React.Component {
   constructor(props) {
     super(props);
@@ -121,6 +132,8 @@ class LoggedOutNav extends React.Component {
                 <Links>Why Sleep?</Links>
                 </NavLink>
               </NavItem>
+
+              <Spacer>&nbsp;|&nbsp;</Spacer>
 
 
               <UncontrolledDropdown nav inNavbar>

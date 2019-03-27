@@ -86,6 +86,17 @@ text-decoration: none;
 }
 `
 
+const Spacer = styled.div`
+font-size: 45px;
+font-weight: lighter;
+padding-top: 20px;
+font-family: Roboto;
+color: white;
+cursor: pointer;
+text-shadow: 2px 2px 8px black;
+}
+`
+
 
 class LoggedOutNav extends React.Component {
   constructor(props) {
@@ -123,12 +134,16 @@ class LoggedOutNav extends React.Component {
                 </NavLink>
               </NavItem>
 
+              <Spacer>&nbsp;|&nbsp;</Spacer>
+
 
               <NavItem>
                 <NavLink href="/blogs">
                 <Links>Blogs</Links>
                 </NavLink>
               </NavItem>
+
+              <Spacer>&nbsp;|&nbsp;</Spacer>
 
 
               <UncontrolledDropdown nav inNavbar>
