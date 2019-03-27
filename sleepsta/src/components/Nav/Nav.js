@@ -154,7 +154,7 @@ class LoggedOutNav extends React.Component {
                 <DropdownMenu right>
 
                 <DropdownItem>
-                  <Link to="/profile">
+                  <Link style={{textDecoration: "none"}} to="/profile">
                   <Menu>
                   <i class="fas fa-chart-bar"></i>&nbsp; 
                     Profile
@@ -163,7 +163,7 @@ class LoggedOutNav extends React.Component {
                   </DropdownItem>
 
                   <DropdownItem>
-                  <Link to="/blogs">
+                  <Link style={{textDecoration: "none"}} to="/blogs">
                   <Menu>
                   <i class="fas fa-rss"></i>&nbsp;
                     Blogs
@@ -172,7 +172,7 @@ class LoggedOutNav extends React.Component {
                   </DropdownItem>
 
                   <DropdownItem>
-                  <Link to="/update">
+                  <Link style={{textDecoration: "none"}} to="/update">
                   <Menu>
                   <i class="fas fa-user-edit"></i>&nbsp; 
                     Update Account
@@ -183,7 +183,7 @@ class LoggedOutNav extends React.Component {
                   <DropdownItem divider />
 
                   <DropdownItem>
-                  <Link to="/about">
+                  <Link style={{textDecoration: "none"}} to="/about">
                   <Menu>
                   <i class="fas fa-bed"></i>&nbsp;
                     SLEEP<i>STA</i> Team
