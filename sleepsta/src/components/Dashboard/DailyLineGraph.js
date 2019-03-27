@@ -50,6 +50,11 @@ class DailyLineGraph extends React.Component {
         "2019-03-25T12:19:21Z": 5.797561165566246
       },
       options: {
+        chart: {
+          toolbar: {
+            show: false
+          }
+        },
         dataLabels: {
           enabled: false
         },

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import moment from "moment";
 
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
@@ -16,7 +17,8 @@ class DashboardView extends React.Component {
     super(props);
     this.state = {
       dailyDisplayed: false,
-      dailyDataId: null
+      dailyDataId: null,
+      week: ""
     };
   }
 
@@ -27,8 +29,14 @@ class DashboardView extends React.Component {
 
   showWeeklyGraph = e => {
     e.preventDefault();
-    console.log("click!");
     this.setState({ dailyDisplayed: false, dailyDataId: null });
+  };
+
+  handleInputChange = e => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+    console.log("moment", moment("2019-W03")._d);
+    console.log(moment().format("YYYY-[W]WW"));
   };
 
   componentDidMount() {
@@ -40,6 +48,12 @@ class DashboardView extends React.Component {
   render() {
     return (
       <div>
+        <input
+          type="week"
+          name="week"
+          value={moment().format("YYYY-[W]WW")}
+          onChange={this.handleInputChange}
+        />
         {this.state.dailyDisplayed ? (
           <DailyLineGraph dailyDataId={this.state.dailyDataId} />
         ) : (

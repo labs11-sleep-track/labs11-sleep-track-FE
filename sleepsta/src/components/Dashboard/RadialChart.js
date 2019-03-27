@@ -122,13 +122,15 @@ class RadialChart extends React.Component {
   render() {
     return (
       <div id="card">
-        <ChartContainer id="chart">
+        <ChartContainer
+          id="chart"
+          onClick={e => this.props.showDailyGraph(e, this.props.dailyData.id)}
+        >
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
             type="radialBar"
             height="350"
-            onClick={e => this.props.showDailyGraph(e, this.props.dailyData.id)}
           />
           <p>{this.state.day}</p>
         </ChartContainer>
