@@ -68,7 +68,7 @@ class LoginForm extends Component {
             </Link>
           </FormGroup>
         </Form>
-        <a href="http://localhost:4000/auth/google">
+        <a href="https://sleepsta.herokuapp.com/auth/google">
           <button>Login with Google</button>
         </a>
       </div>
