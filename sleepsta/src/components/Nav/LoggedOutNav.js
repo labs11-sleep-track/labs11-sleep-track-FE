@@ -97,7 +97,6 @@ text-shadow: 2px 2px 8px black;
 }
 `
 
-
 class LoggedOutNav extends React.Component {
   constructor(props) {
     super(props);
@@ -137,15 +136,6 @@ class LoggedOutNav extends React.Component {
               <Spacer>&nbsp;|&nbsp;</Spacer>
 
 
-              <NavItem>
-                <NavLink href="/blogs">
-                <Links>Blogs</Links>
-                </NavLink>
-              </NavItem>
-
-              <Spacer>&nbsp;|&nbsp;</Spacer>
-
-
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   <Links>Menu</Links>
@@ -154,28 +144,19 @@ class LoggedOutNav extends React.Component {
                 <DropdownMenu right>
 
                 <DropdownItem>
-                  <Link style={{textDecoration: "none"}} to="/profile">
+                  <Link style={{textDecoration: "none"}} to="/login">
                   <Menu>
-                  <i class="fas fa-chart-bar"></i>&nbsp; 
-                    Profile
+                  <i class="fas fa-user"></i>&nbsp; 
+                    Login
                     </Menu>
                     </Link>
                   </DropdownItem>
 
                   <DropdownItem>
-                  <Link style={{textDecoration: "none"}} to="/blogs">
+                  <Link style={{textDecoration: "none"}} to="/register">
                   <Menu>
-                  <i class="fas fa-rss"></i>&nbsp;
-                    Blogs
-                    </Menu>
-                    </Link>
-                  </DropdownItem>
-
-                  <DropdownItem>
-                  <Link style={{textDecoration: "none"}} to="/update">
-                  <Menu>
-                  <i class="fas fa-user-edit"></i>&nbsp; 
-                    Update Account
+                  <i class="fas fa-user-plus"></i>&nbsp; 
+                    Register
                     </Menu>
                     </Link>
                   </DropdownItem>

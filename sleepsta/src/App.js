@@ -6,6 +6,9 @@ import { registerUser } from "./actions";
 
 import Nav from "./components/Nav/Nav.js";
 
+import LoggedOutNav from "./components/Nav/LoggedOutNav";
+
+
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
@@ -19,6 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
+        {/* <LoggedOutNav /> */}
 
         <br />
         <br />
