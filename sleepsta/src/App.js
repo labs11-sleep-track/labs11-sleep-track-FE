@@ -12,6 +12,7 @@ import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
+import TokenView from "./views/TokenView";
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
         <Route exact path="/home" component={DashboardView} /> */}
         <Route path="/profile" component={ProfileView} />
         <Route path="/dashboard" component={DashboardView} />
+        <Route path="/auth/google/:token" component={TokenView} />
       </div>
     );
   }
