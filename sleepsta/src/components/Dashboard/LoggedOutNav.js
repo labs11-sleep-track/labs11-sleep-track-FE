@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 import {
   Collapse,
   Navbar,
@@ -23,7 +24,6 @@ import Profile from '../Profile/Profile';
 // import About from './about/About';
 
 import './LoggedOutNav.css';
-
 
 class LoggedOutNav extends React.Component {
   constructor(props) {
@@ -61,6 +61,7 @@ class LoggedOutNav extends React.Component {
                 </NavLink>
               </NavItem>
 
+
               <NavItem>
                 <NavLink href="/blogs">
                 <p>Blogs</p>
@@ -76,39 +77,39 @@ class LoggedOutNav extends React.Component {
                 <DropdownMenu right>
 
                 <DropdownItem>
-                <div className="menuLinks">
                   <Link to="/profile">
+                  <div className="menuLinks">
                   <i class="fas fa-chart-bar"></i>&nbsp; 
                     Profile
-                    </Link>
                     </div>
+                    </Link>
                   </DropdownItem>
 
                 <DropdownItem>
-                  <div className="menuLinks">
                   <Link to="/login">
+                  <div className="menuLinks">
                   <i class="fas fa-user"></i>&nbsp; 
                     Login
-                    </Link>
                     </div>
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem>
-                  <div className="menuLinks">
                   <Link to="/register">
+                  <div className="menuLinks">
                   <i class="fas fa-user-plus"></i>&nbsp; 
                     Register
-                    </Link>
                     </div>
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem>
-                  <div className="menuLinks">
                   <Link to="/update">
+                  <div className="menuLinks">
                   <i class="fas fa-user-edit"></i>&nbsp; 
                     Update Account
-                    </Link>
                     </div>
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem>
