@@ -74,6 +74,7 @@ class LoginForm extends Component {
             <h6>Don't have an account?</h6>
 
             <Link to="/register">
+              {" "}
               <Button> Register</Button>
             </Link>
           </FormGroup>
