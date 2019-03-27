@@ -58,17 +58,19 @@ class LoginForm extends Component {
             />
           </FormGroup>
           <FormGroup>
-          <Button color="success">Submit</Button>
-<br/>
-<br/>
-                <h6>
-                  Don't have an account?
-                </h6>
-  
-                  <Link to="/register"> <Button> Register</Button></Link>
-              </FormGroup>
+            <Button color="success">Submit</Button>
+            <br />
+            <br />
+            <h6>Don't have an account?</h6>
 
+            <Link to="/register">
+              <Button> Register</Button>
+            </Link>
+          </FormGroup>
         </Form>
+        <a href="https://sleepsta.herokuapp.com/auth/google">
+          <button>Login with Google</button>
+        </a>
       </div>
     );
   }
