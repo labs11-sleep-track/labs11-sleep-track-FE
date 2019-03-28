@@ -4,7 +4,9 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 const Cards = styled.div`
-width: 300px;
+// width: 300px;
+width: 90%;
+margin: 0 auto;
 height: auto;
 color: black;
 display: flex;
@@ -14,6 +16,8 @@ justify-content: space-evenly;
 `
 
 const SingleCard = styled.div`
+width: 350px;
+margin: 15px;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
@@ -41,7 +45,7 @@ const About = (props) => {
           <CardTitle>Kanek Perez</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <Button>Contact</Button>
         </CardBody>
       </Card>
       </SingleCard>
@@ -53,7 +57,7 @@ const About = (props) => {
           <CardTitle>Olivia Osborn</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <Button>Contact</Button>
         </CardBody>
       </Card>
       </SingleCard>
@@ -65,7 +69,7 @@ const About = (props) => {
           <CardTitle>Leland R.</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <Button>Contact</Button>
         </CardBody>
       </Card>
       </SingleCard>
@@ -77,7 +81,7 @@ const About = (props) => {
           <CardTitle>Dillon McElhinney</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <Button>Contact</Button>
         </CardBody>
       </Card>
       </SingleCard>
@@ -87,7 +91,7 @@ const About = (props) => {
         <CardImg src="https://avatars1.githubusercontent.com/u/44475921?s=460&v=4" alt="Card image cap" />
         <CardBody>
           <CardTitle>Kelli Rae Hanson</CardTitle>
-          <CardSubtitle>Lambda School Software Engineering student</CardSubtitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
           <Button>Contact</Button>
         </CardBody>

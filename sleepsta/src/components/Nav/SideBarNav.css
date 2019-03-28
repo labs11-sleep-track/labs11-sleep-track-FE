@@ -129,6 +129,12 @@ ul ul a {
     background-color: rgb(255,255,255,0.09);
 }
 
-.button {
-    color: red;
+.sleepTitle {
+    font-size: 25px;
+    font-family: Roboto;
+}
+
+.catchPhrase {
+    font-size: 14px;
+    font-family: Roboto;
 }

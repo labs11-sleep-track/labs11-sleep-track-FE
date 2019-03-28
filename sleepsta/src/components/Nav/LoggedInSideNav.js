@@ -25,7 +25,7 @@ import './SideBarNav.css';
 // import Blogs from './blogs/Blogs';
 // import About from '../About/About';
 
-class SideNav extends React.Component {
+class LoggedInSideNav extends React.Component {
   constructor(props) {
     super(props);
 
@@ -91,31 +91,44 @@ class SideNav extends React.Component {
                 </ul>
             </li>
 
+            <li class="active">
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blogs</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu3">
+                    <li>
+                    <Link style={{textDecoration: "none"}} to="/blogs">
+                        <div><i className="fas fa-rss"></i>&nbsp;&nbsp;Sleep Blogs</div>
+                    </Link>
+                    </li>
+                </ul>
+            </li>
+
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
+
                     <li>
-                        <Link style={{textDecoration: "none"}} to="/">
-                        <div><i className="fas fa-user"></i>&nbsp;&nbsp;Login</div>
+                        <Link style={{textDecoration: "none"}} to="/profile">
+                            <div><i className="fas fa-chart-bar"></i>&nbsp;&nbsp;Profile</div>
                         </Link>
                     </li>
 
                     <li>
-                        <Link style={{textDecoration: "none"}} to="/register">
-                        <div>
-                        <i className="fas fa-user-plus"></i>&nbsp;&nbsp;Register</div>
+                        <Link style={{textDecoration: "none"}} to="/update">
+                            <div><i className="fas fa-user-edit"></i>&nbsp;&nbsp;Update Account</div>
                         </Link>
                     </li>
+
                 </ul>
             </li>
 
             <li>
                 <a href="#pageTwoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
                 <ul class="collapse list-unstyled" id="pageTwoSubmenu">
+
                     <li>
-                    <Link style={{textDecoration: "none"}} to="/about">
-                    <div><i className="fas fa-bed"></i>&nbsp;&nbsp;SLEEP<i>STA</i> Team</div>
-                    </Link>
+                        <Link style={{textDecoration: "none"}} to="/about">
+                            <div><i className="fas fa-bed"></i>&nbsp;&nbsp;SLEEP<i>STA</i> Team</div>
+                        </Link>
                     </li>
                 </ul>
             </li>
@@ -128,6 +141,17 @@ class SideNav extends React.Component {
         </ul>
     </nav>
 
+    
+
+    {/* <main>
+          <Route path="/login" component={LoginForm} />
+          <Route path="/register" component={Register} />  
+          <Route path="/update" component={UserForm} />  
+          <Route path="/profile" component={Profile} />  
+          <Route path="/blogs" component={Blogs} />
+          <Route path="/about" component={About} />   
+     </main>  */}
+
 </div>
 
 )}
@@ -138,5 +162,4 @@ logout = () => {
   };
 }
 
-export default withRouter(SideNav);
-
+export default withRouter(LoggedInSideNav);

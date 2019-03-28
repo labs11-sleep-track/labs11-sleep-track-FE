@@ -16,12 +16,12 @@ import {
 import { Link } from 'react-router-dom';
 import { Route, withRouter} from 'react-router-dom';
 
-import LoginForm from '../Login/LoginForm';
-import Register from '../Register/RegisterForm';
-import UserForm from '../Profile/UpdateUserForm';
-import Profile from '../Profile/Profile';
+// import LoginForm from '../Login/LoginForm';
+// import Register from '../Register/RegisterForm';
+// import UserForm from '../Profile/UpdateUserForm';
+// import Profile from '../Profile/Profile';
 // import Blogs from './blogs/Blogs';
-import About from '../Nav/About';
+// import About from '../About/About';
 
 const NavBar = styled.div`
 background-color: #252E4F;
@@ -156,7 +156,7 @@ class LoggedOutNav extends React.Component {
                 <DropdownItem>
                   <Link style={{textDecoration: "none"}} to="/profile">
                   <Menu>
-                  <i class="fas fa-chart-bar"></i>&nbsp; 
+                  <i className="fas fa-chart-bar"></i>&nbsp; 
                     Profile
                     </Menu>
                     </Link>
@@ -165,8 +165,26 @@ class LoggedOutNav extends React.Component {
                   <DropdownItem>
                   <Link style={{textDecoration: "none"}} to="/blogs">
                   <Menu>
-                  <i class="fas fa-rss"></i>&nbsp;
+                  <i className="fas fa-rss"></i>&nbsp;
                     Blogs
+                    </Menu>
+                    </Link>
+                  </DropdownItem>
+
+                  <DropdownItem>
+                  <Link style={{textDecoration: "none"}} to="/">
+                  <Menu>
+                  <i className="fas fa-user"></i>&nbsp; 
+                    Login
+                    </Menu>
+                    </Link>
+                  </DropdownItem>
+
+                  <DropdownItem>
+                  <Link style={{textDecoration: "none"}} to="/register">
+                  <Menu>
+                  <i className="fas fa-user-plus"></i>&nbsp; 
+                    Register
                     </Menu>
                     </Link>
                   </DropdownItem>
@@ -174,7 +192,7 @@ class LoggedOutNav extends React.Component {
                   <DropdownItem>
                   <Link style={{textDecoration: "none"}} to="/update">
                   <Menu>
-                  <i class="fas fa-user-edit"></i>&nbsp; 
+                  <i className="fas fa-user-edit"></i>&nbsp; 
                     Update Account
                     </Menu>
                     </Link>
@@ -185,7 +203,7 @@ class LoggedOutNav extends React.Component {
                   <DropdownItem>
                   <Link style={{textDecoration: "none"}} to="/about">
                   <Menu>
-                  <i class="fas fa-bed"></i>&nbsp;
+                  <i className="fas fa-bed"></i>&nbsp;
                     SLEEP<i>STA</i> Team
                     </Menu>
                     </Link>
@@ -193,7 +211,7 @@ class LoggedOutNav extends React.Component {
 
                   <DropdownItem>
                   <Menu>
-                  <i onClick={this.logout} class="fas fa-sign-out-alt">&nbsp;Logout</i>
+                  <i onClick={this.logout} className="fas fa-sign-out-alt">&nbsp;Logout</i>
                   </Menu>
                   </DropdownItem>
                   
@@ -203,14 +221,14 @@ class LoggedOutNav extends React.Component {
           </Collapse>
         </Navbar>
 
-        <main>
+        {/* <main>
           <Route path="/login" component={LoginForm} />
-          {/* <Route path="/register" component={Register} />  */}
+          <Route path="/register" component={Register} /> 
           <Route path="/update" component={UserForm} /> 
-          {/* <Route path="/profile" component={Profile} />  */}
-          {/* <Route path="/blogs" component={Blogs} /> */}
+          <Route path="/profile" component={Profile} /> 
+          <Route path="/blogs" component={Blogs} />
           <Route path="/about" component={About} />
-        </main>
+        </main> */}
       </NavBar>
     );
   }
