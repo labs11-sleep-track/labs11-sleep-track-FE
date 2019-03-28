@@ -51,99 +51,98 @@ class SideNav extends React.Component {
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
+        
+            <p>Sleep Harder. 
+                <br/>
+            Live Smarter.</p>
+            
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Why Sleep?</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                    <NavItem>
+                        <NavLink href="/whysleep">
+                        <div><i class="fas fa-plus"></i>&nbsp;&nbsp;Learn More</div>
+                        </NavLink>
+                    </NavItem>
                     </li>
                 </ul>
             </li>
-            <li>
+
+            {/* <li>
                 <a href="#">About</a>
-            </li>
+            </li> */}
+
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <Link style={{textDecoration: "none"}} to="/login">
+                        <div><i class="fas fa-user"></i>&nbsp;&nbsp;Login</div>
+                        </Link>
                     </li>
+
                     <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                        <Link style={{textDecoration: "none"}} to="/register">
+                        <div>
+                        <i class="fas fa-user-plus"></i>&nbsp;&nbsp;Register</div>
+                        </Link>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
             </li>
 
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                    <Link style={{textDecoration: "none"}} to="/about">
+                    <div><i class="fas fa-bed"></i>&nbsp;&nbsp;SLEEP<i>STA</i> Team</div>
+                    </Link>
                     </li>
                 </ul>
             </li>
+        
             <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Logout</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
+                  <div>
+                  <a onClick={this.logout}>Logout</a>
+                  </div>
             </li>
         </ul>
     </nav>
 
     <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
         <div class="container-fluid">
 
             <button type="button" id="sidebarCollapse" class="btn btn-info">
                 <i class="fas fa-align-left"></i>
-                <span>Menuuuuuuuuuuuuuuuuuuu</span>
+                <span>&nbsp;Menu</span>
             </button>
 
         </div>
+        
     </nav>
 </div>
 
+<main>
+          <Route path="/login" component={LoginForm} />
+          {/* <Route path="/register" component={Register} />  */}
+          <Route path="/update" component={UserForm} /> 
+          {/* <Route path="/profile" component={Profile} />  */}
+          {/* <Route path="/blogs" component={Blogs} />
+          <Route path="/about" component={About} />   */}
+        </main>
+
 </div>
 
-)}}
+)}
+
+logout = () => {
+    localStorage.removeItem('jwt');
+    this.props.history.push('/login');
+  };
+}
 
 export default withRouter(SideNav);
 

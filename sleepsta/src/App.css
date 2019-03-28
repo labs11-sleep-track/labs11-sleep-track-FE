@@ -3,6 +3,8 @@ body {
   margin: auto;
   background-color: #252E4F;
   color: #F7F7FF;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .App h1 {

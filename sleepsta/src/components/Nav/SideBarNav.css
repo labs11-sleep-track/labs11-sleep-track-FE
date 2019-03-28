@@ -62,10 +62,12 @@ a[data-toggle="collapse"] {
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
+/* body {
+    font-family: Roboto, Arimo, Work Sans, Pacifico;
+    background: #252E4F;
+    margin-left: 400px;
+    margin-right: 400px;
+} */
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -83,14 +85,18 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #4C546F;
+    background-color: rgb(255,255,255,0.09);
     color: #fff;
     transition: all 0.3s;
+    letter-spacing: 1px;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #4C546F;
+    letter-spacing: 3px;
+    background-color: rgb(255,255,255,0.09);
+    display: flex;
+    justify-content: center;
 }
 
 #sidebar ul.components {
@@ -109,16 +115,20 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #E34A6F;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #4C546F;
+    background-color: rgb(255,255,255,0.09);
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #4C546F;
+    background-color: rgb(255,255,255,0.09);
+}
+
+.button {
+    color: red;
 }
