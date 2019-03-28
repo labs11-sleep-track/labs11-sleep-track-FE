@@ -27,11 +27,11 @@ export const registerUser = newUser => dispatch => {
     .catch(err => console.log(err.response));
 };
 
-export const updateUser = newInfo => dispatch => {
+export const updateUser = (id, newInfo) => dispatch => {
   console.log("Updating");
   dispatch({ type: UPDATE_USER });
   Axios.put(
-    `https://sleepsta.herokuapp.com/api/users/${localStorage.getItem("id")}`,
+    `https://sleepsta.herokuapp.com/api/users/${id}`,
     {
       headers: { Authorization: localStorage.getItem("jwt") }
     },

@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/index";
-import axios from "axios";
 
 class UserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
       f_name: "",
       l_name: ""
     };
@@ -20,13 +18,12 @@ class UserForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const newInfo = {
-      email: this.state.email,
       f_name: this.state.f_name,
       l_name: this.state.l_name
     };
-    this.props.updateUser(newInfo);
+    const id = this.props.inputs.id;
+    this.props.updateUser(id, newInfo);
     this.setState({
-      email: "",
       f_name: "",
       l_name: ""
     });
@@ -37,17 +34,6 @@ class UserForm extends Component {
       <div>
         <label>Update User Info</label>
         <form>
-          <div className="emailDiv">
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              placeholder="Email"
-              onChange={this.handleChanges}
-            />
-          </div>
-
           <div className="fNameDiv">
             <label>First Name</label>
             <input
@@ -77,7 +63,9 @@ class UserForm extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    inputs: state.auth.inputs
+  };
 };
 
 export default connect(

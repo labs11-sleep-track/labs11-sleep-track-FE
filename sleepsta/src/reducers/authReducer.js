@@ -80,7 +80,8 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         error: "",
         isFetching: false,
-        inputs: action.payload[0]
+        inputs: action.payload,
+        id: action.payload.id
       };
     default:
       return state;
