@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor() {
@@ -29,6 +29,16 @@ class LoginForm extends Component {
   }
 
   render() {
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/profile" />;
+    }
+    if (this.props.isLoggingIn) {
+      return (
+        <>
+          <h2>Logging In</h2>
+        </>
+      );
+    }
     return (
       <div className="loginForm">
         <h2>Login</h2>
@@ -64,6 +74,7 @@ class LoginForm extends Component {
             <h6>Don't have an account?</h6>
 
             <Link to="/register">
+              {" "}
               <Button> Register</Button>
             </Link>
           </FormGroup>
@@ -76,7 +87,12 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.auth.isLoggedIn,
+    isLoggingIn: state.auth.isLoggingIn
+  };
+};
 
 export default connect(
   mapStateToProps,
