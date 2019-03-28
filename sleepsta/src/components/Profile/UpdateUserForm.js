@@ -22,6 +22,7 @@ class UserForm extends Component {
       l_name: this.state.l_name
     };
     const id = this.props.inputs.id;
+
     this.props.updateUser(id, newInfo);
     this.setState({
       f_name: "",
@@ -57,6 +58,7 @@ class UserForm extends Component {
           </div>
           <button onClick={this.handleSubmit}>Update</button>
         </form>
+        {this.props.isUpdated ? null : <h3>Updated successfully.</h3>}
       </div>
     );
   }
@@ -64,7 +66,8 @@ class UserForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    inputs: state.auth.inputs
+    inputs: state.auth.inputs,
+    isUpdated: state.auth.isUpdated
   };
 };
 
