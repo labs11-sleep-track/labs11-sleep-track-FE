@@ -79,7 +79,7 @@ class LoggedInSideNav extends React.Component {
             </div>
             
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Why Sleep?</a>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                     <NavItem>
