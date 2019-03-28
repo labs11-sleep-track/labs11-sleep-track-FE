@@ -1,6 +1,4 @@
 import {
-  REGISTER_USER,
-  USER_REGISTERED,
   UPDATE_USER,
   USER_UPDATED,
   LOGIN_USER_START,
@@ -11,7 +9,6 @@ import {
 } from "../actions";
 
 const initialState = {
-  isRegistering: false,
   isLoggingIn: false,
   isUpdating: false,
   isFetching: false,
@@ -23,18 +20,6 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER:
-      return {
-        ...state,
-        error: "",
-        isRegistering: true
-      };
-    case USER_REGISTERED:
-      return {
-        ...state,
-        error: "",
-        isRegistering: false
-      };
     case UPDATE_USER:
       return {
         ...state,

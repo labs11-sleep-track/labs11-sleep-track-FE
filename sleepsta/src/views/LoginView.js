@@ -1,11 +1,11 @@
 import React from "react";
 
-import LoginForm from "../components/Login/LoginForm";
+import GoogleLogin from "../components/Login/GoogleLogin";
 
 function LoginView(props) {
   return (
     <div>
-      <LoginForm />
+      <GoogleLogin />
     </div>
   );
 }
