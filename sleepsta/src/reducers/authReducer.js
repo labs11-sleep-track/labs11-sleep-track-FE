@@ -1,19 +1,11 @@
 import {
-  REGISTER_USER,
-  USER_REGISTERED,
   UPDATE_USER,
   USER_UPDATED,
-  LOGIN_USER_START,
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAILURE,
   FETCHING_USER,
   USER_FETCHED
 } from "../actions";
 
 const initialState = {
-  isRegistering: false,
-  isLoggingIn: false,
-  isLoggedIn: false,
   isUpdating: false,
   isUpdated: false,
   isFetching: false,
@@ -25,18 +17,6 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER:
-      return {
-        ...state,
-        error: "",
-        isRegistering: true
-      };
-    case USER_REGISTERED:
-      return {
-        ...state,
-        error: "",
-        isRegistering: false
-      };
     case UPDATE_USER:
       return {
         ...state,
@@ -50,27 +30,6 @@ export const authReducer = (state = initialState, action) => {
         error: "",
         isUpdating: false,
         isUpdated: true
-      };
-    case LOGIN_USER_START:
-      return {
-        ...state,
-        error: "",
-        isLoggingIn: true,
-        isLoggedIn: false
-      };
-    case LOGIN_USER_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        isLoggingIn: false,
-        isLoggedIn: true
-      };
-    case LOGIN_USER_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isLoggingIn: false,
-        isLoggedIn: false
       };
     case FETCHING_USER:
       return {
