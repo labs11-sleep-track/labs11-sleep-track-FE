@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { withRouter, Route } from "react-router-dom";
 
-import Nav from "./components/Nav/Nav.js";
-import SideNav from "./components/Nav/SideNav.js";
 import About from "./components/About/About.js";
 import LoggedInSideNav from "./components/Nav/LoggedInSideNav.js";
 
@@ -18,9 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Nav /> */}
-        <SideNav />
-        {/* <LoggedInSideNav /> */}
+        <LoggedInSideNav />
 
         <br />
         <br />
@@ -31,6 +27,7 @@ class App extends Component {
           their sleep habits online.
         </p> */}
         <Route exact path="/" component={LoginView} />
+        <Route exact path="/about" component={About} />
         {/* {/* <Route exact path="/blogs" component={BlogsView} /> */}
         <Route path="/profile" component={ProfileView} />
         <Route path="/dashboard" component={DashboardView} />

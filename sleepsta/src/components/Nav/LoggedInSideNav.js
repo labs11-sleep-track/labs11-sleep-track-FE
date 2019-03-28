@@ -74,7 +74,7 @@ class LoggedInSideNav extends React.Component {
           <ul className="list-unstyled components">
             <div className="catchPhrase">
               <p>Sleep Harder. Live Smarter.</p>
-            </div>
+
 
             <li className="active">
               <a
@@ -97,6 +97,7 @@ class LoggedInSideNav extends React.Component {
                   </NavItem>
                 </li>
               </ul>
+
             </li>
 
             <li className="active">
