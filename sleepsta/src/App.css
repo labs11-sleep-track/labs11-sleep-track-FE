@@ -1,8 +1,9 @@
 body {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   background-color: #252E4F;
   color: #F7F7FF;
+  margin: 0 auto;
+  padding: 0 300px;
 }
 
 .App h1 {

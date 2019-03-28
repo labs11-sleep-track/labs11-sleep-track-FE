@@ -3,21 +3,24 @@ import "./App.css";
 import { withRouter, Route } from "react-router-dom";
 
 import Nav from "./components/Nav/Nav.js";
-
-import LoggedOutNav from "./components/Nav/LoggedOutNav";
+import SideNav from "./components/Nav/SideNav.js";
+import About from "./components/About/About.js";
+import LoggedInSideNav from "./components/Nav/LoggedInSideNav.js";
 
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
 import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
+import UserForm from './components/Profile/UpdateUserForm';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
-        {/* <LoggedOutNav /> */}
+        {/* <Nav /> */}
+        <SideNav />
+        {/* <LoggedInSideNav /> */}
 
         <br />
         <br />
