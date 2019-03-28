@@ -9,7 +9,6 @@ import SideNav from "./components/Nav/SideNav.js";
 import About from "./components/About/About.js";
 import LoggedInSideNav from "./components/Nav/LoggedInSideNav.js";
 
-
 // import DashboardView from "./views/DashboardView";
 // import BlogsView from "./views/BlogsView";
 import LoginView from "./views/LoginView";
@@ -30,11 +29,11 @@ class App extends Component {
         <br />
         <br />
 
-        <p>
+        {/* <p>
           Sleepsta is a mobile application that uses motion tracking to measure
           sleep. It also has a web application that allows the user to visualize
           their sleep habits online.
-        </p>
+        </p> */}
         <Route exact path="/" component={LoginView} />
         <Route path="/register" component={RegisterView} />
         {/* <Route exact path="/blogs" component={BlogsView} />

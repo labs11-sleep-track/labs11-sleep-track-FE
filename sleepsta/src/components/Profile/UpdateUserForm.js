@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions/index";
-import axios from "axios";
 
 class UserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
       f_name: "",
       l_name: ""
     };
@@ -20,43 +17,23 @@ class UserForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    axios.put(`https://sleepsta.herokuapp.com/api/users/${id}`, headersObj);
-    const headersObj = {
-      headers: {
-        token: localStorage.getItem("jwt"),
-        id: localStorage.getItem("id")
-      }
+    const newInfo = {
+      f_name: this.state.f_name,
+      l_name: this.state.l_name
     };
-    const id = localStorage.getItem("id");
-    this.props.updateUser(id, headersObj);
-    console.log(id, headersObj);
+    const id = this.props.inputs.id;
+    this.props.updateUser(id, newInfo);
+    this.setState({
+      f_name: "",
+      l_name: ""
+    });
   };
 
   render() {
     return (
       <div>
-        <label>User Page</label>
+        <label>Update User Info</label>
         <form>
-          <div className="emailDiv">
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              placeholder="Email"
-              onChange={this.handleChanges}
-            />
-          </div>
-          <div className="passwordDiv">
-            <label>Password</label>
-            <input
-              type="text"
-              name="password"
-              value={this.state.password}
-              placeholder="Password"
-              onChange={this.handleChanges}
-            />
-          </div>
           <div className="fNameDiv">
             <label>First Name</label>
             <input
@@ -67,6 +44,7 @@ class UserForm extends Component {
               onChange={this.handleChanges}
             />
           </div>
+
           <div className="lNameDiv">
             <label>Last Name</label>
             <input
@@ -85,7 +63,9 @@ class UserForm extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    inputs: state.auth.inputs
+  };
 };
 
 export default connect(

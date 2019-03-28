@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import RadialChart from "../components/Dashboard/RadialChart";
-import { fetchUserDailyData } from "../actions/index";
 import styled from "styled-components";
+import moment from "moment";
+
+import { fetchUserDailyData } from "../actions/index";
+import RadialChart from "../components/Dashboard/RadialChart";
+import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
+import WeeklyLineGraph from "../components/Dashboard/WeeklyLineGraph";
 
 const RadialCharts = styled.div`
   display: flex;
@@ -12,25 +15,64 @@ const RadialCharts = styled.div`
 class DashboardView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      dailyDisplayed: false,
+      dailyDataId: null,
+      week: ""
+    };
   }
 
+  showDailyGraph = (e, id) => {
+    e.preventDefault();
+    this.setState({ dailyDisplayed: true, dailyDataId: id });
+  };
+
+  showWeeklyGraph = e => {
+    e.preventDefault();
+    this.setState({ dailyDisplayed: false, dailyDataId: null });
+  };
+
+  handleInputChange = e => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+    console.log("moment", moment("2019-W03")._d);
+    console.log(moment().format("YYYY-[W]WW"));
+  };
+
   componentDidMount() {
-    console.log("mounting");
     //hardcoding in a user for now, but will later get the user_id after logging in
     const user_id = 1;
     this.props.fetchUserDailyData(user_id);
-    console.log("user data after mounting ", this.props.userDailyData);
   }
 
   render() {
-    console.log("daily data while rendering", this.props.userDailyData);
     return (
-      <RadialCharts>
-        {this.props.userDailyData.map(dailyData => {
-          return <RadialChart dailyData={dailyData} />;
-        })}
-      </RadialCharts>
+      <div>
+        <input
+          type="week"
+          name="week"
+          value={moment().format("YYYY-[W]WW")}
+          onChange={this.handleInputChange}
+        />
+        {this.state.dailyDisplayed ? (
+          <DailyLineGraph dailyDataId={this.state.dailyDataId} />
+        ) : (
+          <WeeklyLineGraph />
+        )}
+        {this.state.dailyDisplayed && (
+          <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
+        )}
+        <RadialCharts>
+          {this.props.userDailyData.map(dailyData => {
+            return (
+              <RadialChart
+                dailyData={dailyData}
+                showDailyGraph={this.showDailyGraph}
+              />
+            );
+          })}
+        </RadialCharts>
+      </div>
     );
   }
 }
