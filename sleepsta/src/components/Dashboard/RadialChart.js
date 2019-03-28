@@ -6,6 +6,10 @@ const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 class RadialChart extends React.Component {
   constructor(props) {
@@ -89,6 +93,7 @@ class RadialChart extends React.Component {
   }
 
   componentDidMount() {
+    //formats sleeptime timestamp to day of the week:
     const timestamp = this.props.dailyData.sleeptime;
     const days = [
       "Sunday",
@@ -101,10 +106,11 @@ class RadialChart extends React.Component {
     ];
     const date = new Date(timestamp * 1000);
     const dayOfWeek = days[date.getDay()];
-    console.log("day", dayOfWeek);
+
+    //calculates total time spent asleep:
     const totalSleep =
       this.props.dailyData.waketime - this.props.dailyData.sleeptime;
-    // divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage
+    // divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage"
     const percentage = (totalSleep / 28800) * 100;
     if (percentage >= 100) {
       this.setState({ series: [100], day: dayOfWeek });
@@ -116,7 +122,10 @@ class RadialChart extends React.Component {
   render() {
     return (
       <div id="card">
-        <ChartContainer id="chart">
+        <ChartContainer
+          id="chart"
+          onClick={e => this.props.showDailyGraph(e, this.props.dailyData.id)}
+        >
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
