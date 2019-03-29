@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-// import { Button } from "reactstrap";
+import normalImage from "./images/btn_google_signin_dark_normal_web.png";
+import pressedImage from "./images/btn_google_signin_dark_pressed_web.png";
+import focusImage from "./images/btn_google_signin_dark_focus_web.png";
 
-const Button = styled.button`
-  padding: 10px;
-  background: #4c546f;
-  color: white;
-  border-radius: 5px;
-  font-size: 16px;
-  :hover {
-    background: white;
-    color: #e34a6f;
+const GoogleButton = styled.div`
+  width: 191px;
+  height: 46px;
+  background-image: url(${normalImage});
+
+  :active {
+    background-image: url(${pressedImage});
+  }
+
+  :focus {
+    background-image: url(${focusImage});
   }
 `;
+
 class LoginForm extends Component {
   render() {
     return (
@@ -24,8 +29,7 @@ class LoginForm extends Component {
               : "https://sleepsta.herokuapp.com/auth/google"
           }
         >
-          {/* <button>Login with Google</button> */}
-          <Button>Login with Google </Button>
+          <GoogleButton />
         </a>
       </div>
     );
