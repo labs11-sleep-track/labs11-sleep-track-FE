@@ -2,7 +2,8 @@ import {
   UPDATE_USER,
   USER_UPDATED,
   FETCHING_USER,
-  USER_FETCHED
+  USER_FETCHED,
+  USER_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   error: null,
   jwt: null,
   id: null,
+  currentUser: null,
   inputs: {}
 };
 
@@ -42,7 +44,14 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         error: "",
         isFetching: false,
+        currentUser: action.payload,
         inputs: action.payload
+      };
+    case USER_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
       };
     default:
       return state;
