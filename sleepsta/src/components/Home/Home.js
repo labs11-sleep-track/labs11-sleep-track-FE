@@ -47,9 +47,9 @@ const Home = () => {
         <p> Sleep Harder. Live Smarter</p>
         <br />
         <Span>
-          Mobile application that uses motion tracking to measure sleep
+          Mobile application that uses motion tracking to measure sleep.
         </Span>
-        <Span>Web application allows you to visualize your sleep data</Span>
+        <Span>Web application allows you to visualize your sleep data.</Span>
 
         <LoginButtonWrapper>
           <LoginForm />
