@@ -64,7 +64,7 @@ class LoggedInSideNav extends React.Component {
 
         <nav id="sidebar">
           <div className="sidebar-header">
-            <NavLink href="/">
+            <NavLink href="/dashboard">
               <div className="sleepTitle">
                 SLEEP<i>STA</i>
               </div>
