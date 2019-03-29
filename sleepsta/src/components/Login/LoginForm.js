@@ -1,5 +1,18 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+// import { Button } from "reactstrap";
 
+const Button = styled.button`
+  padding: 10px;
+  background: #4c546f;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  :hover {
+    background: white;
+    color: #e34a6f;
+  }
+`;
 class LoginForm extends Component {
   render() {
     return (
@@ -11,7 +24,8 @@ class LoginForm extends Component {
               : "https://sleepsta.herokuapp.com/auth/google"
           }
         >
-          <button>Login with Google</button>
+          {/* <button>Login with Google</button> */}
+          <Button>Login with Google </Button>
         </a>
       </div>
     );
