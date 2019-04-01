@@ -17,6 +17,7 @@ class DashboardView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      dailyData: [],
       dailyDisplayed: false,
       dailyDataId: null,
       week: moment().format("YYYY-[W]WW"),
@@ -43,6 +44,31 @@ class DashboardView extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
+    if (prevProps.userDailyData.length !== this.props.userDailyData.length) {
+      const time = moment(this.state.week)._d;
+      const first = parseInt(moment(time).format("X"));
+      const last = parseInt(moment(time).format("X")) + 604800;
+      this.setState(
+        {
+          firstWeekDay: first,
+          lastWeekDay: last
+        },
+        () => {
+          const filtered = this.props.userDailyData.filter(dailyData => {
+            return (
+              this.state.firstWeekDay <= dailyData.sleeptime &&
+              dailyData.sleeptime <= this.state.lastWeekDay
+            );
+          });
+          let newFiltered = [0, 0, 0, 0, 0, 0, 0];
+          for (let i = 0; i < filtered.length; i++) {
+            newFiltered[i] = filtered[i];
+          }
+          this.setState({ filteredDailyData: newFiltered });
+        }
+      );
+    }
+
     if (prevState.week !== this.state.week) {
       const time = moment(this.state.week)._d;
       const first = parseInt(moment(time).format("X"));
@@ -66,9 +92,8 @@ class DashboardView extends React.Component {
           this.setState({ filteredDailyData: newFiltered });
         }
       );
-
-      // sets filteredDailyData to dates only within selected days of the week
     }
+    // sets filteredDailyData to dates only within selected days of the week
   }
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
   showDailyGraph = (e, id) => {
