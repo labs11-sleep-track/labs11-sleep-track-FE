@@ -21,7 +21,7 @@ class DashboardView extends React.Component {
       week: moment().format("YYYY-[W]WW"),
       firstWeekDay: null,
       lastWeekDay: null,
-      filteredDailyData: []
+      filteredDailyData: [0, 0, 0, 0, 0, 0, 0]
     };
   }
 
@@ -32,16 +32,22 @@ class DashboardView extends React.Component {
 
     //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
     const time = moment(this.state.week)._d;
-    const first = moment(time).format("X");
-    const lastNumber = parseInt(moment(time).format("X")) + 604800;
-    const lastString = lastNumber.toString();
-    this.setState({ firstWeekDay: first, lastWeekDay: lastString });
-
-    //sets filteredDailyData to dates only within selected days of the week
-    const filtered = this.props.userDailyData.filter(dailyData => {
-      return this.state.firstWeekDay <= dailyData <= this.state.lastWeekDay;
+    console.log("mounting", time);
+    const first = parseInt(moment(time).format("X"));
+    const last = parseInt(moment(time).format("X")) + 604800;
+    this.setState({
+      firstWeekDay: first,
+      lastWeekDay: last
     });
-    this.setState({ filteredDailyData: filtered });
+
+    // sets filteredDailyData to dates only within selected days of the week
+    // const filtered = this.props.userDailyData.filter(dailyData => {
+    //   console.log("it's working!!!!");
+    //   return (
+    //     this.state.firstWeekDay <= dailyData.sleeptime <= this.state.lastWeekDay
+    //   );
+    // });
+    // this.setState({ filteredDailyData: filtered });
   }
 
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
@@ -78,14 +84,21 @@ class DashboardView extends React.Component {
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
         )}
         <RadialCharts>
-          {this.state.filteredDailyData.map(dailyData => {
-            return (
-              <RadialChart
-                dailyData={dailyData}
-                showDailyGraph={this.showDailyGraph}
-              />
-            );
-          })}
+          {this.props.userDailyData
+            .filter(dailyData => {
+              return (
+                this.state.firstWeekDay < dailyData.sleeptime &&
+                dailyData.sleeptime < this.state.lastWeekDay
+              );
+            })
+            .map(dailyData => {
+              return (
+                <RadialChart
+                  dailyData={dailyData}
+                  showDailyGraph={this.showDailyGraph}
+                />
+              );
+            })}
         </RadialCharts>
       </div>
     );

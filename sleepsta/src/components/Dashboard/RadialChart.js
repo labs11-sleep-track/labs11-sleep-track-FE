@@ -11,6 +11,7 @@ const ChartContainer = styled.div`
     cursor: pointer;
   }
 `;
+
 class RadialChart extends React.Component {
   constructor(props) {
     super(props);
