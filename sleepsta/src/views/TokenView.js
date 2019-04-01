@@ -8,6 +8,7 @@ class TokenView extends Component {
     const token = this.props.match.params.token;
     localStorage.setItem("jwt", token);
 
+    // verifying token and allowing users in app to dashboard
     this.props.getUser().then(() => {
       this.props.history.push("/dashboard");
     });
