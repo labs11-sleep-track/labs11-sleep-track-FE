@@ -12,6 +12,11 @@ const ChartContainer = styled.div`
   }
 `;
 
+const Chart = styled.div`
+  height: 200px;
+  width: 200px;
+`;
+
 class RadialChart extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +24,9 @@ class RadialChart extends React.Component {
       day: "",
       options: {
         chart: {
+          height: 80,
+          width: "100%",
+
           toolbar: {
             show: false
           }
@@ -29,7 +37,8 @@ class RadialChart extends React.Component {
             endAngle: 225,
             hollow: {
               margin: 0,
-              size: "70%",
+              padding: 0,
+              size: "40%",
               background: "#fff",
               position: "front",
               dropShadow: {
@@ -42,8 +51,9 @@ class RadialChart extends React.Component {
             },
             track: {
               background: "#fff",
-              strokeWidth: "67%",
+              strokeWidth: "40%",
               margin: 0, // margin is in pixels
+              padding: 0,
               dropShadow: {
                 enabled: true,
                 top: -3,
@@ -65,7 +75,7 @@ class RadialChart extends React.Component {
                   return parseInt(val);
                 },
                 color: "#111",
-                fontSize: "36px",
+                fontSize: "17px",
                 show: true
               }
             }
@@ -127,12 +137,15 @@ class RadialChart extends React.Component {
           id="chart"
           onClick={e => this.props.showDailyGraph(e, this.props.dailyData.id)}
         >
-          <ReactApexChart
-            options={this.state.options}
-            series={this.state.series}
-            type="radialBar"
-            height="350"
-          />
+          <Chart>
+            <ReactApexChart
+              options={this.state.options}
+              series={this.state.series}
+              type="radialBar"
+              height="350"
+            />
+          </Chart>
+
           <p>{this.state.day}</p>
         </ChartContainer>
       </div>
