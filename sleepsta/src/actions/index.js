@@ -55,7 +55,6 @@ export const fetchUserDailyData = user_id => dispatch => {
   dispatch({ type: FETCH_USER_DAILY_DATA_START });
   Axios.get(`${baseURL}/api/daily/user/${user_id}`)
     .then(res => {
-      console.log("res", res);
       dispatch({ type: FETCH_USER_DAILY_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
