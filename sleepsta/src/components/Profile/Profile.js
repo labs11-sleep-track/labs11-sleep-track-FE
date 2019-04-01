@@ -7,10 +7,12 @@ import UserForm from "./UpdateUserForm";
 class Profile extends Component {
   componentDidMount() {
     this.props.getUser();
+    console.log("while mounting", this.props.inputs);
   }
 
   render() {
-    console.log(this.props.inputs);
+    console.log("while rendering", this.props.inputs);
+    console.log(localStorage);
     return (
       <div>
         <div className="userInfo">
@@ -23,7 +25,6 @@ class Profile extends Component {
           <h6>Account Type</h6>
           <p>{this.props.inputs.account_type}</p>
         </div>
-        <UserForm />
       </div>
     );
   }
