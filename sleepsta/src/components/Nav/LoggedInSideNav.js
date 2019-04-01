@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 import {
   Collapse,
   Navbar,
@@ -11,12 +11,13 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from "reactstrap";
 
-import { Link } from 'react-router-dom';
-import { Route, withRouter} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 
-import './SideBarNav.css';
+import "./SideBarNav.css";
 
 // import LoginForm from '../Login/LoginForm';
 // import Register from '../Register/RegisterForm';
@@ -46,24 +47,25 @@ class LoggedInSideNav extends React.Component {
 
 <div class="wrapper">
 
-<div id="content">
-    <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
+    <div id="content">
+        <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
 
-        <div className="container-fluid">
+            <div className="container-fluid">
 
-        <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a>
+            <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a>
 
-            {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
-            <div className="buttonTitle">
-                <span>SLEEPSTA</span>
-                </div>
-            </button> */}
-            
+                {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
+                <div className="buttonTitle">
+                    <span>SLEEPSTA</span>
+                    </div>
+                </button> */}
+                
 
-        </div>
+            </div>
         
-    </nav>
-</div>
+            
+        </nav>
+    </div>
 
 
 
@@ -76,10 +78,18 @@ class LoggedInSideNav extends React.Component {
         </NavLink>
         </div>
 
-        <ul class="list-unstyled components">
-        
-        <div className="catchPhrase">
-            <p>Sleep Harder. Live Smarter.</p>
+        <nav id="sidebar">
+          <div className="sidebar-header">
+            <NavLink href="/dashboard">
+              <div className="sleepTitle">
+                SLEEP<i>STA</i>
+              </div>
+            </NavLink>
+          </div>
+
+          <ul className="list-unstyled components">
+            <div className="catchPhrase">
+              <p>Sleep Harder. Live Smarter.</p>
             </div>
             
             <li class="active">
@@ -95,15 +105,25 @@ class LoggedInSideNav extends React.Component {
                 </ul>
             </li>
 
-            <li class="active">
-                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blogs</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu3">
-                    <li>
-                    <Link style={{textDecoration: "none"}} to="/blogs">
-                        <div><i className="fas fa-rss"></i>&nbsp;&nbsp;Sleep Blogs</div>
-                    </Link>
-                    </li>
-                </ul>
+            <li className="active">
+              <a
+                href="#pageSubmenu3"
+                data-toggle="collapse"
+                aria-expanded="false"
+                className="dropdown-toggle"
+              >
+                Blogs
+              </a>
+              <ul className="collapse list-unstyled" id="pageSubmenu3">
+                <li>
+                  <Link style={{ textDecoration: "none" }} to="/blogs">
+                    <div>
+                      <i className="fas fa-rss" />
+                      &nbsp;&nbsp;Sleep Blogs
+                    </div>
+                  </Link>
+                </li>
+              </ul>
             </li>
 
             <li>
@@ -144,31 +164,21 @@ class LoggedInSideNav extends React.Component {
             </li> */}
         
             <li>
-                  <div>
-                  <a onClick={this.logout}>Logout</a>
-                  </div>
+              <div>
+                <a onClick={this.logout}>Logout</a>
+              </div>
             </li>
-        </ul>
-    </nav>
-
-    
-
-    {/* <main>
-          <Route path="/login" component={LoginForm} />
-          <Route path="/register" component={Register} />  
-          <Route path="/update" component={UserForm} />  
-          <Route path="/profile" component={Profile} />  
-          <Route path="/blogs" component={Blogs} />
-          <Route path="/about" component={About} />   
-     </main>  */}
-
+          </ul>
+        </nav></nav>
 </div>
+      
 
-)}
+    );
+  }
 
-logout = () => {
-    localStorage.removeItem('jwt');
-    this.props.history.push('/');
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.props.history.push("/");
   };
 }
 

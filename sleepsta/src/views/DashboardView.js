@@ -7,6 +7,7 @@ import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
 import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
 import WeeklyLineGraph from "../components/Dashboard/WeeklyLineGraph";
+import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 
 const RadialCharts = styled.div`
   display: flex;
@@ -48,6 +49,9 @@ class DashboardView extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <LoggedInSideNav />
+        </div>
         <input
           type="week"
           name="week"

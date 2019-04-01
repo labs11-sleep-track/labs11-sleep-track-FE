@@ -9,14 +9,17 @@ export const USER_UPDATED = "USER_UPDATED";
 
 export const FETCHING_USER = "FETCHING_USER";
 export const USER_FETCHED = "USER_FETCHED";
+export const USER_FAILURE = "USER_FAILURE";
 
 export const updateUser = (id, newInfo) => dispatch => {
   console.log("Updating");
   dispatch({ type: UPDATE_USER });
-  Axios.put(
+  return Axios.put(
     `https://sleepsta.herokuapp.com/api/users/${id}`,
     {
-      headers: { Authorization: localStorage.getItem("jwt") }
+      headers: {
+        Authorization: localStorage.getItem("jwt")
+      }
     },
     newInfo
   )
@@ -52,5 +55,8 @@ export const getUser = () => dispatch => {
       dispatch({ type: USER_FETCHED, payload: res.data });
       console.log(res);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: USER_FAILURE, payload: err });
+    });
 };

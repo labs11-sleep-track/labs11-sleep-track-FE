@@ -2,15 +2,18 @@ import {
   UPDATE_USER,
   USER_UPDATED,
   FETCHING_USER,
-  USER_FETCHED
+  USER_FETCHED,
+  USER_FAILURE
 } from "../actions";
 
 const initialState = {
   isUpdating: false,
+  isUpdated: false,
   isFetching: false,
   error: null,
   jwt: null,
   id: null,
+  currentUser: null,
   inputs: {}
 };
 
@@ -20,13 +23,15 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isUpdating: true
+        isUpdating: true,
+        isUpdated: false
       };
     case USER_UPDATED:
       return {
         ...state,
         error: "",
-        isUpdating: false
+        isUpdating: false,
+        isUpdated: true
       };
     case FETCHING_USER:
       return {
@@ -39,8 +44,14 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         error: "",
         isFetching: false,
-        inputs: action.payload,
-        id: action.payload.id
+        currentUser: action.payload,
+        inputs: action.payload
+      };
+    case USER_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
       };
     default:
       return state;
