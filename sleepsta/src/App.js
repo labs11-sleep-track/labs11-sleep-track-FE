@@ -10,6 +10,7 @@ import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
 import UserForm from "./components/Profile/UpdateUserForm";
+import PremiumPage from "./views/PremiumPage";
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -46,6 +47,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/auth/google/:token" component={TokenView} />
+        <Route path="/premium" component={PremiumPage} />
 
         {/* Following are protected routes, user must be logged in to route */}
         {user && <Route exact path="/about" component={About} />}
