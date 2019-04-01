@@ -62,13 +62,6 @@ a[data-toggle="collapse"] {
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
-/* body {
-    font-family: Roboto, Arimo, Work Sans, Pacifico;
-    background: #252E4F;
-    margin-left: 400px;
-    margin-right: 400px;
-} */
-
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -101,7 +94,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    /* border-bottom: 1px solid white; */
 }
 
 #sidebar ul p {
@@ -138,3 +131,29 @@ ul ul a {
     font-size: 14px;
     font-family: Roboto;
 }
+
+.buttonTitle {
+    color: white;
+    background-color:#252E4F;
+    border: 3px solid #252E4F;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 55px;
+  }
+  .buttonTitle:hover {
+    background-color: #252E4F;
+    border: 3px solid #252E4F;
+  }
+
+  .buttonTitle:active {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+  }
+
+  .SleepstaTitle {
+      font-size: 55px;
+      letter-spacing: 3px;
+      font-family: Roboto;
+      text-shadow: 2px 2px 5px black;
+  }

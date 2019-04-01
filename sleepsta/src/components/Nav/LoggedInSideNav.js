@@ -49,18 +49,22 @@ class LoggedInSideNav extends React.Component {
 <div id="content">
     <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
 
-        <div class="container-fluid">
+        <div className="container-fluid">
 
+        <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a>
 
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i className="fas fa-align-left"></i>
-                <span>&nbsp;Menu</span>
-            </button>
+            {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
+            <div className="buttonTitle">
+                <span>SLEEPSTA</span>
+                </div>
+            </button> */}
+            
 
         </div>
         
     </nav>
 </div>
+
 
 
     <nav id="sidebar">
@@ -83,8 +87,8 @@ class LoggedInSideNav extends React.Component {
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                     <NavItem>
-                        <NavLink href="/whysleep">
-                        <div><i className="fas fa-plus"></i>&nbsp;&nbsp;Learn More</div>
+                        <NavLink href="/">
+                        <div><i class="fas fa-home"></i>&nbsp;&nbsp;Home</div>
                         </NavLink>
                     </NavItem>
                     </li>
@@ -108,7 +112,13 @@ class LoggedInSideNav extends React.Component {
 
                     <li>
                         <Link style={{textDecoration: "none"}} to="/profile">
-                            <div><i className="fas fa-chart-bar"></i>&nbsp;&nbsp;Profile</div>
+                            <div><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</div>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link style={{textDecoration: "none"}} to="/update">
+                            <div><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</div>
                         </Link>
                     </li>
 
@@ -121,7 +131,7 @@ class LoggedInSideNav extends React.Component {
                 </ul>
             </li>
 
-            <li>
+            {/* <li>
                 <a href="#pageTwoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
                 <ul class="collapse list-unstyled" id="pageTwoSubmenu">
 
@@ -131,7 +141,7 @@ class LoggedInSideNav extends React.Component {
                         </Link>
                     </li>
                 </ul>
-            </li>
+            </li> */}
         
             <li>
                   <div>
