@@ -43,23 +43,39 @@ class LoggedInSideNav extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div id="content">
-          <nav
-            id="menuButton"
-            className="navbar navbar-expand-lg navbar-light "
-          >
+
+
+<div class="wrapper">
+
+    <div id="content">
+        <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
+
             <div className="container-fluid">
-              <button
-                type="button"
-                id="sidebarCollapse"
-                className="btn btn-info"
-              >
-                <i className="fas fa-align-left" />
-                <span>&nbsp;Menu</span>
-              </button>
+
+            <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a>
+
+                {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
+                <div className="buttonTitle">
+                    <span>SLEEPSTA</span>
+                    </div>
+                </button> */}
+                
+
             </div>
-          </nav>
+        
+            
+        </nav>
+    </div>
+
+
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+        <NavLink href='/'>
+        <div className="sleepTitle">
+        SLEEP<i>STA</i>
+        </div>
+        </NavLink>
         </div>
 
         <nav id="sidebar">
@@ -75,28 +91,18 @@ class LoggedInSideNav extends React.Component {
             <div className="catchPhrase">
               <p>Sleep Harder. Live Smarter.</p>
             </div>
-
-            <li className="active">
-              <a
-                href="#homeSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                className="dropdown-toggle"
-              >
-                Why Sleep?
-              </a>
-              <ul className="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                  <NavItem>
-                    <NavLink href="/whysleep">
-                      <div>
-                        <i className="fas fa-plus" />
-                        &nbsp;&nbsp;Learn More
-                      </div>
-                    </NavLink>
-                  </NavItem>
-                </li>
-              </ul>
+            
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                    <NavItem>
+                        <NavLink href="/">
+                        <div><i class="fas fa-home"></i>&nbsp;&nbsp;Home</div>
+                        </NavLink>
+                    </NavItem>
+                    </li>
+                </ul>
             </li>
 
             <li className="active">
@@ -121,64 +127,52 @@ class LoggedInSideNav extends React.Component {
             </li>
 
             <li>
-              <a
-                href="#pageSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                className="dropdown-toggle"
-              >
-                Account
-              </a>
-              <ul className="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                  <Link style={{ textDecoration: "none" }} to="/profile">
-                    <div>
-                      <i className="fas fa-chart-bar" />
-                      &nbsp;&nbsp;Profile
-                    </div>
-                  </Link>
-                </li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
 
-                <li>
-                  <Link style={{ textDecoration: "none" }} to="/update">
-                    <div>
-                      <i className="fas fa-user-edit" />
-                      &nbsp;&nbsp;Update Account
-                    </div>
-                  </Link>
-                </li>
-              </ul>
+                    <li>
+                        <Link style={{textDecoration: "none"}} to="/profile">
+                            <div><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</div>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link style={{textDecoration: "none"}} to="/update">
+                            <div><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</div>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link style={{textDecoration: "none"}} to="/update">
+                            <div><i className="fas fa-user-edit"></i>&nbsp;&nbsp;Update Account</div>
+                        </Link>
+                    </li>
+
+                </ul>
             </li>
 
-            <li>
-              <a
-                href="#pageTwoSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                className="dropdown-toggle"
-              >
-                Contact
-              </a>
-              <ul className="collapse list-unstyled" id="pageTwoSubmenu">
-                <li>
-                  <Link style={{ textDecoration: "none" }} to="/about">
-                    <div>
-                      <i className="fas fa-bed" />
-                      &nbsp;&nbsp;SLEEP<i>STA</i> Team
-                    </div>
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            {/* <li>
+                <a href="#pageTwoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
+                <ul class="collapse list-unstyled" id="pageTwoSubmenu">
 
+                    <li>
+                        <Link style={{textDecoration: "none"}} to="/about">
+                            <div><i className="fas fa-bed"></i>&nbsp;&nbsp;SLEEP<i>STA</i> Team</div>
+                        </Link>
+                    </li>
+                </ul>
+            </li> */}
+        
             <li>
               <div>
                 <a onClick={this.logout}>Logout</a>
               </div>
             </li>
           </ul>
-        </nav>
-      </div>
+        </nav></nav>
+</div>
+      
+
     );
   }
 
