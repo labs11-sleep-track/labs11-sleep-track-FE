@@ -9,7 +9,6 @@ import BlogsView from "./views/BlogsView";
 import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
-import UserForm from "./components/Profile/UpdateUserForm";
 import PremiumPage from "./views/PremiumPage";
 
 class App extends Component {
