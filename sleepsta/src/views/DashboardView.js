@@ -30,7 +30,9 @@ class DashboardView extends React.Component {
     //hardcoding in a user for now, but will later get the user_id after logging in
     const user_id = 1;
     this.props.fetchUserDailyData(user_id);
+  }
 
+  componentDidUpdate() {
     //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
     const time = moment(this.state.week)._d;
     console.log("mounting", time);
@@ -50,7 +52,6 @@ class DashboardView extends React.Component {
     // });
     // this.setState({ filteredDailyData: filtered });
   }
-
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
   showDailyGraph = (e, id) => {
     e.preventDefault();
