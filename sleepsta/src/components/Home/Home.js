@@ -10,19 +10,19 @@ const Main = styled.div`
   width: 100%;
   height: 600px;
   font-family: "Roboto", sans-serif;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
   
   @media (max-width: 500px) {
         display: flex;
         flex-direction: column;
         align-items: center;
         align-content: center;
-        width: 100%;
-        height: 50%;
-       	text-decoration: none;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        margin-left: 50%;
-        margin-right: 50%;
   }
 `;
 
@@ -32,15 +32,13 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (max-width: 800px) {
+    margin-top: 30px;
+  }
   
   @media (max-width: 500px) {
-    display: flex;
-		flex-direction: column;
-		align-content: center;
-		align-items: center;
     margin-top: 30px;
-    margin-left: 50%;
-    margin-right: 50%;
   }
 `;
 
@@ -48,13 +46,13 @@ const H5 = styled.h5`
   padding: 40px 0;
   color: #4c546f;
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     font-size: 15px;
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 50%;
-    margin-right: 50%;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 10px;
     margin-top: 50px;
   }
 `;
@@ -62,31 +60,33 @@ const H5 = styled.h5`
 const H2 = styled.h2`
   font-size: 50px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     font-size: 45px;
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 50%;
-    margin-right: 50%;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 35px;
   }
 `;
 
 const LoginButtonWrapper = styled.div`
   padding-top: 20px;
+
+  @media (max-width: 800px) {
+    margin-top: -40px;
+  }
+
   @media (max-width: 500px) {
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 50%;
-    margin-right: 50%;
     margin-top: -60px;
-    // margin-bottom: 50px;
   }
 `;
 
 const Span = styled.div`
   font-size: 16px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 
   @media (max-width: 500px) {
     display: none;
@@ -94,11 +94,13 @@ const Span = styled.div`
 `;
 
 const P = styled.p`
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   font-size: 15px;
-  display: flex; 
-  flex-direction: row;
-  justify-content: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+  font-size: 10px;
   margin-top: 10px;
   margin-bottom: 50px;
 }
@@ -110,7 +112,7 @@ const Home = () => {
       <Header>
         <H5> INTRODUCING</H5>
         <H2>
-          SLEEP<i>STA</i> APP
+          SLEEP<i>STA</i>&nbsp;APP
         </H2>
         <P> Sleep Harder. Live Smarter</P>
         <br />
