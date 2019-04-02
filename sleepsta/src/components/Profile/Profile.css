@@ -1,0 +1,17 @@
+@media (max-width: 800px) {
+  .profile {
+    max-width: 100%;
+  }
+}
+
+.header {
+  color: black;
+}
+
+.label {
+  color: black;
+}
+
+.span {
+  color: black;
+}

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, updateUser } from "../../actions";
-// import UserForm from "./UpdateUserForm";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import "./Profile.css";
+import Notifications, { notify } from "../Notifications/index";
 
 class Profile extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Profile extends Component {
     this.state = {
       modal: false,
       f_name: "",
-      l_name: ""
+      l_name: "",
+      update: 0
     };
 
     this.toggle = this.toggle.bind(this);
@@ -39,22 +41,32 @@ class Profile extends Component {
       l_name: this.state.l_name,
       id: this.props.inputs.id
     };
-    this.props.updateUser(user);
-    this.setState({
-      f_name: "",
-      l_name: ""
-    });
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
-    this.props.history.push("/profile");
+    if (!user.f_name || !user.l_name) {
+      this.setState({
+        update: 1
+      });
+    } else {
+      this.props.updateUser(user);
+      this.setState({
+        f_name: "",
+        l_name: ""
+      });
+      this.setState(prevState => ({
+        modal: !prevState.modal
+      }));
+      this.props.getUser();
+      this.setState({
+        update: 0
+      });
+    }
   };
 
   render() {
     console.log("while rendering", this.props.inputs);
     console.log(localStorage);
+
     return (
-      <div>
+      <div className="profile">
         <div className="userInfo">
           <h6>Email</h6>
           <p>{this.props.inputs.email}</p>
@@ -68,41 +80,53 @@ class Profile extends Component {
         <Button color="danger" onClick={this.toggle}>
           Edit Profile
         </Button>
+
         <Modal
           isOpen={this.state.modal}
           fade={false}
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Update User Form</ModalHeader>
+          <ModalHeader toggle={this.toggle} className="header">
+            Update User Form
+          </ModalHeader>
           <ModalBody>
             <Form>
               <div className="fNameDiv">
-                <Label>First Name</Label>
+                <Label className="label">First name</Label>
                 <Input
                   type="text"
                   name="f_name"
                   value={this.state.f_name}
-                  placeholder="First Name"
+                  placeholder={this.props.inputs.f_name}
                   onChange={this.handleChanges}
                 />
               </div>
-
+              <br />
               <div className="lNameDiv">
-                <Label>Last Name</Label>
+                <Label className="label">Last name</Label>
                 <Input
                   type="text"
                   name="l_name"
                   value={this.state.l_name}
-                  placeholder="Last Name"
+                  placeholder={this.props.inputs.l_name}
                   onChange={this.handleChanges}
                 />
               </div>
+              <br />
+              <span className="span">
+                Please do not leave blank. You may use the same name.
+              </span>
+
+              <br />
             </Form>
-            {this.props.isUpdated ? <h3>Updated successfully.</h3> : null}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleSubmit}>
+            <Button
+              color="primary"
+              onClick={this.handleSubmit}
+              onMouseUp={() => notify("notif")}
+            >
               Update
             </Button>
             <Button color="secondary" onClick={this.toggle}>
@@ -110,6 +134,10 @@ class Profile extends Component {
             </Button>
           </ModalFooter>
         </Modal>
+
+        <div className="notif">
+          <Notifications update={this.state.update} />
+        </div>
       </div>
     );
   }
