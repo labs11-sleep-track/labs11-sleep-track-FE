@@ -35,30 +35,26 @@ export const getUser = () => dispatch => {
     });
 };
 
-export const updateUser = (id, newInfo) => dispatch => {
-  console.log("Updating");
-  dispatch({ type: UPDATE_USER });
-  return Axios.put(
-    `${baseURL}/api/users/${id}`,
-    {
+export const updateUser = user => {
+  return dispatch => {
+    console.log("Updating");
+    dispatch({ type: UPDATE_USER });
+    return Axios.put(`${baseURL}/api/users/${user.id}`, user, {
       headers: {
         Authorization: localStorage.getItem("jwt")
       }
-    },
-    newInfo
-  )
-    .then(res => {
-      dispatch({ type: USER_UPDATED, payload: res.data });
-      console.log(res);
     })
-    .catch(err => console.log(err.response));
+      .then(res => {
+        dispatch({ type: USER_UPDATED, payload: res.data });
+        console.log(res);
+      })
+      .catch(err => console.log(err.response));
+  };
 };
-
 export const fetchUserDailyData = user_id => dispatch => {
   dispatch({ type: FETCH_USER_DAILY_DATA_START });
   Axios.get(`${baseURL}/api/daily/user/${user_id}`)
     .then(res => {
-      console.log("res", res);
       dispatch({ type: FETCH_USER_DAILY_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
