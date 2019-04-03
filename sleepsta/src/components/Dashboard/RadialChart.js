@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
+import moment from "moment";
 
 const ChartContainer = styled.div`
   display: flex;
@@ -100,7 +101,7 @@ class RadialChart extends React.Component {
         stroke: {
           lineCap: "round"
         },
-        labels: ["Percent"]
+        labels: ["Quality of Sleep"]
       },
       series: []
     };
@@ -108,32 +109,16 @@ class RadialChart extends React.Component {
 
   componentDidMount() {
     //formats sleeptime timestamp to day of the week:
-    if (isNaN(this.props.dailyData.sleeptime) == true) {
+    if (isNaN(this.props.dailyData.sleeptime) === true) {
       this.setState({ series: [0] });
     } else {
-      const timestamp = this.props.dailyData.sleeptime;
-      const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ];
-      const date = new Date(timestamp * 1000);
-      const dayOfWeek = days[date.getDay()];
-
-      //calculates total time spent asleep:
-      const totalSleep =
-        this.props.dailyData.waketime - this.props.dailyData.sleeptime;
-      // divide total sleep by 8 hours (in seconds) multiplied by 100 for percentage"
-      const percentage = (totalSleep / 28800) * 100;
-      if (percentage >= 100) {
-        this.setState({ series: [100], day: dayOfWeek });
-      } else {
-        this.setState({ series: [percentage], day: dayOfWeek });
-      }
+      let dayOfWeek = moment
+        .unix(this.props.dailyData.sleeptime)
+        .format("dddd");
+      this.setState({
+        series: [this.props.dailyData.qos_score],
+        day: dayOfWeek
+      });
     }
   }
 
