@@ -34,6 +34,8 @@ class LoggedInSideNav extends React.Component {
 
             <div className="container-fluid">
 
+            {/* possible title */}
+
             {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
 
                 {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
