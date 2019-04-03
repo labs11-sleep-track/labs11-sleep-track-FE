@@ -44,8 +44,6 @@ class LoggedInSideNav extends React.Component {
                 
 
             </div>
-        
-            
         </nav>
     </div>
 
