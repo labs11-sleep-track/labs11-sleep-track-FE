@@ -4,7 +4,7 @@
 }
 
 #sidebar {
-  width: 250px;
+  width: 190px;
   position: fixed;
   top: 0;
   left: 0;
@@ -63,7 +63,7 @@ a[data-toggle="collapse"] {
 
 p {
   font-family: "Poppins", sans-serif;
-  font-size: 1.1em;
+  font-size: 0.8em;
   font-weight: 300;
   line-height: 1.7em;
   color: #999;
@@ -104,8 +104,8 @@ a:focus {
 }
 
 #sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
+  padding: 20px;
+  font-size: 1em;
   display: block;
 }
 #sidebar ul li a:hover {
@@ -125,12 +125,12 @@ ul ul a {
 }
 
 .sleepTitle {
-  font-size: 25px;
+  font-size: 22px;
   font-family: Roboto;
 }
 
 .catchPhrase {
-  font-size: 14px;
+  font-size: 12px;
   font-family: Roboto;
 }
 
@@ -154,7 +154,8 @@ ul ul a {
 }
 
 .SleepstaTitle {
-  font-size: 55px;
+  font-size: 40px;
+  margin-bottom: 20px;
   letter-spacing: 3px;
   font-family: Roboto;
   text-shadow: 2px 2px 5px black;
