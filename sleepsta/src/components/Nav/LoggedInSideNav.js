@@ -50,20 +50,12 @@ class LoggedInSideNav extends React.Component {
     </div>
 
 
-
-        {/* <div class="sidebar-header">
-        <NavLink href='/'>
-        <div className="sleepTitle">
-        {/* SLEEP<i>STA</i> */}
-        {/* </div>
-        </NavLink>
-        </div> */}
-
         <nav id="sidebar">
           <div className="sidebar-header">
             <NavLink href="/dashboard">
               <div className="sleepTitle">
                 <img src={logo} alt="sleep"></img>
+                {/* SLEEP<i>STA</i> */}
               </div>
             </NavLink>
           </div>
