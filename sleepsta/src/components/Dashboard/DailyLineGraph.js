@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class DynamicLineChart extends Component {
+class DailyLineGraph extends Component {
   constructor() {
     super();
     this.state = {
@@ -34,7 +34,6 @@ class DynamicLineChart extends Component {
 
     return (
       <div>
-        <h1>React Dynamic Line Chart</h1>
         <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
@@ -42,4 +41,4 @@ class DynamicLineChart extends Component {
   }
 }
 
-export default DynamicLineChart;
+export default DailyLineGraph;

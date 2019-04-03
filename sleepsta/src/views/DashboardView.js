@@ -22,7 +22,7 @@ class DashboardView extends React.Component {
       week: moment().format("YYYY-[W]WW"),
       firstWeekDay: null,
       lastWeekDay: null,
-      filteredDailyData: Array(7).fill(0)
+      filteredDailyData: []
     };
   }
 
@@ -129,7 +129,7 @@ class DashboardView extends React.Component {
         {this.state.dailyDisplayed ? (
           <DailyLineGraph sleepData={this.state.sleepData} />
         ) : (
-          <WeeklyLineGraph />
+          <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
         )}
         {this.state.dailyDisplayed && (
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
