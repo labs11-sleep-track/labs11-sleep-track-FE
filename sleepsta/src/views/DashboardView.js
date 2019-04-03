@@ -42,7 +42,10 @@ class DashboardView extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
-    if (prevProps.userDailyData.length !== this.props.userDailyData.length) {
+    if (
+      prevProps.userDailyData.length !== this.props.userDailyData.length ||
+      prevState.week !== this.state.week
+    ) {
       const time = moment(this.state.week)._d;
       const first = parseInt(moment(time).format("X"));
       const last = parseInt(moment(time).format("X")) + 604800;
@@ -52,32 +55,6 @@ class DashboardView extends React.Component {
           lastWeekDay: last
         },
         () => {
-          const filtered = this.props.userDailyData.filter(dailyData => {
-            return (
-              this.state.firstWeekDay <= dailyData.sleeptime &&
-              dailyData.sleeptime <= this.state.lastWeekDay
-            );
-          });
-          let newFiltered = Array(7).fill(0);
-          for (let i = 0; i < filtered.length; i++) {
-            newFiltered[i] = filtered[i];
-          }
-          this.setState({ filteredDailyData: newFiltered });
-        }
-      );
-    }
-
-    if (prevState.week !== this.state.week) {
-      const time = moment(this.state.week)._d;
-      const first = parseInt(moment(time).format("X"));
-      const last = parseInt(moment(time).format("X")) + 604800;
-      this.setState(
-        {
-          firstWeekDay: first,
-          lastWeekDay: last
-        },
-        () => {
-          // sets filteredDailyData to dates only within selected days of the week
           const filtered = this.props.userDailyData.filter(dailyData => {
             return (
               this.state.firstWeekDay <= dailyData.sleeptime &&
@@ -96,7 +73,6 @@ class DashboardView extends React.Component {
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
   showDailyGraph = (e, data) => {
     e.preventDefault();
-    console.log("show daily graph");
     this.setState({
       dailyDisplayed: true,
       sleepData: data
@@ -105,7 +81,7 @@ class DashboardView extends React.Component {
   //used when clicking on "show weekly data" button to display weekly data again
   showWeeklyGraph = e => {
     e.preventDefault();
-    this.setState({ dailyDisplayed: false, sleepData: [] });
+    this.setState({ dailyDisplayed: false });
   };
 
   handleInputChange = e => {
@@ -114,7 +90,6 @@ class DashboardView extends React.Component {
   };
 
   render() {
-    console.log("rendering dashboard");
     return (
       <div>
         <div>
