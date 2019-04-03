@@ -14,15 +14,33 @@ const ArticlesWrapper = styled.div`
   display: flex;
   margin-top: 40px;
   letter-spacing: 1px;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 const H2 = styled.div`
   font-size: 25px;
   color: black;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 const H3 = styled.h3`
   font-size: 20px;
   padding-bottom: 10px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 const PopularArticlesWrapper = styled.div`
@@ -30,8 +48,13 @@ const PopularArticlesWrapper = styled.div`
   padding-right: 40px;
   width: 70%;
   align-items: center;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding-right: 0;
+  }
 `;
-const Articles = styled.div`
+const PopularArticles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -44,6 +67,12 @@ const EditorsPicksWrapper = styled.div`
   border-left: 1px solid grey;
   padding-left: 40px;
   height: fit-content;
+
+   @media (max-width: 800px) {
+    border-left: none;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0;
 `;
 
 const CardWrapper = styled.div`
@@ -52,14 +81,22 @@ const CardWrapper = styled.div`
 
 const CardTitle = styled.div`
   font-size: 18px;
-
   color: black;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 const CardSubtitle = styled.div`
   font-size: 14px;
   color: #999;
   padding-top: 10px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: 12px;
+  }
 `;
 
 class BlogView extends React.Component {
@@ -296,7 +333,7 @@ class BlogView extends React.Component {
         <ArticlesWrapper>
           <PopularArticlesWrapper>
             <H3> Popular Articles</H3>
-            <Articles>
+            <PopularArticles>
               <CardColumns>
                 {this.state.articles.map(article => {
                   return (
@@ -323,7 +360,7 @@ class BlogView extends React.Component {
                   );
                 })}
               </CardColumns>
-            </Articles>
+            </PopularArticles>
           </PopularArticlesWrapper>
 
           <EditorsPicksWrapper>
@@ -387,12 +424,6 @@ class BlogView extends React.Component {
             </CardWrapper>
           </EditorsPicksWrapper>
         </ArticlesWrapper>
-        {/* <div>
-          <H4>Fun Facts About Sleep</H4>
-          <a href="https://www.sleepfoundation.org/articles/25-random-facts-about-sleep">
-            <button> Learn more</button>
-          </a>
-        </div> */}
 
         <CardWrapper>
           <Card>

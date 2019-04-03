@@ -44,24 +44,22 @@ class LoggedInSideNav extends React.Component {
 
   render() {
     return (
-
-
-<div class="wrapper">
-
-    <div id="content">
-        <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
-
+      <div class="wrapper">
+        <div id="content">
+          <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
+              <a href="#" id="sidebarCollapse" className="SleepstaTitle">
+                SLEEPSTA
+              </a>
 
             {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
 
                 {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
+
                 <div className="buttonTitle">
                     <span>SLEEPSTA</span>
                     </div>
                 </button> */}
-                
-
             </div>
         
             
@@ -79,18 +77,23 @@ class LoggedInSideNav extends React.Component {
         </NavLink>
         </div> */}
 
+
         <nav id="sidebar">
-          <div className="sidebar-header">
-            <NavLink href="/dashboard">
+          <div class="sidebar-header">
+            <NavLink href="/">
               <div className="sleepTitle">
                 <img src={logo} alt="sleep"></img>
               </div>
             </NavLink>
           </div>
 
-          <ul className="list-unstyled components">
-            <div className="catchPhrase">
-              <p>Sleep Harder. Live Smarter.</p>
+          <nav id="sidebar">
+            <div className="sidebar-header">
+              <NavLink href="/dashboard">
+                <div className="sleepTitle">
+                  SLEEP<i>STA</i>
+                </div>
+              </NavLink>
             </div>
 
             <li>
@@ -122,10 +125,11 @@ class LoggedInSideNav extends React.Component {
                         </Link>
                     </li>
 
-                </ul>
-            </li>
 
-            {/* <li>
+                </ul>
+              </li>
+
+              {/* <li>
                 <a href="#pageTwoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
                 <ul class="collapse list-unstyled" id="pageTwoSubmenu">
 
@@ -146,9 +150,6 @@ class LoggedInSideNav extends React.Component {
         </nav></nav>
 </div>
       
-
-    );
-  }
 
   logout = () => {
     localStorage.removeItem("jwt");
