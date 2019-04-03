@@ -14,15 +14,33 @@ const ArticlesWrapper = styled.div`
   display: flex;
   margin-top: 40px;
   letter-spacing: 1px;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 const H2 = styled.div`
   font-size: 25px;
-  padding-bottom: 20px;
+  color: black;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
-const H4 = styled.div`
+const H3 = styled.h3`
   font-size: 20px;
   padding-bottom: 10px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 const PopularArticlesWrapper = styled.div`
@@ -30,11 +48,17 @@ const PopularArticlesWrapper = styled.div`
   padding-right: 40px;
   width: 70%;
   align-items: center;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding-right: 0;
+  }
 `;
-const Articles = styled.div`
+const PopularArticles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 15px;
 `;
 
 const EditorsPicksWrapper = styled.div`
@@ -43,6 +67,12 @@ const EditorsPicksWrapper = styled.div`
   border-left: 1px solid grey;
   padding-left: 40px;
   height: fit-content;
+
+   @media (max-width: 800px) {
+    border-left: none;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0;
 `;
 
 const CardWrapper = styled.div`
@@ -51,13 +81,22 @@ const CardWrapper = styled.div`
 
 const CardTitle = styled.div`
   font-size: 18px;
-  padding-bottom: 10px;
   color: black;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 const CardSubtitle = styled.div`
   font-size: 14px;
   color: #999;
+  padding-top: 10px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: 12px;
+  }
 `;
 
 class BlogView extends React.Component {
@@ -196,7 +235,7 @@ class BlogView extends React.Component {
         {
           title: "27 Easy Ways to Sleep Better Tonight",
           author: "Kissairis Munoz",
-          published_date: "NOVEMBER 2, 2015",
+          published_date: "November 2, 2015",
           url:
             "https://greatist.com/happiness/27-easy-ways-sleep-better-tonight",
           image:
@@ -225,22 +264,76 @@ class BlogView extends React.Component {
       <div>
         <LoggedInSideNav />
         <div>
-          <H2>About Sleep</H2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
-          </p>
+          <Card>
+            <CardImg
+              top
+              width="100%"
+              src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
+              alt="Humans and Animals Sleeping "
+            />
+            <CardBody>
+              <H2>About Sleep</H2>
+              <hr />
+              <CardText>
+                Sleep plays a vital role in good health and well-being
+                throughout your life. Sleeping offers the body a chance to
+                recover from wear and tear of daily life. It facilitates
+                learning and memory that helps your brain function properly,
+                increasing your productivity during daytime.
+              </CardText>
+              <br />
+              <CardText>
+                When people don’t get enough sleep, it increases their health
+                risks. Symptoms of depression, seizures, high blood pressure and
+                migraines worsen. Immunity is compromised, increasing the
+                likelihood of illness and infection. Sleep also plays an
+                important role in metabolism. Therefore, getting good quality
+                sleep at the right times can help protect your mental health,
+                physical health, and quality of life.
+              </CardText>
+            </CardBody>
+          </Card>
+
+          <CardWrapper>
+            <Card>
+              <CardBody>
+                <H2>Quick tips to maintain healthy sleep habits:</H2>
+                <hr />
+                <CardText>
+                  <li>
+                    Keep a consistent sleep schedule, even on weekends and
+                    during vacations.
+                  </li>
+                  <li>
+                    Set a bedtime that is early enough to get at least 7 hours
+                    of sleep.
+                  </li>
+                  <li> Don't go to bed unless you are sleepy. </li>
+                  <li>
+                    If you don't fall alseep after 20 munites, get out of bed.
+                  </li>
+                  <li> Establish a relaxing bedtime routine. </li>
+                  <li>
+                    Make your bedroom quiet and relaxing. Keep the room at a
+                    comfortable, cool temperature.
+                  </li>
+                  <li> Exercise regularly and maintain a healthy diet. </li>
+                  <li>
+                    Turn off electronic devices at least 30 minutes before
+                    bedtime.
+                  </li>
+                  <li>Avoid consuming caffeine and alcohol before bedtime. </li>
+                </CardText>
+                <br />
+              </CardBody>
+            </Card>
+          </CardWrapper>
         </div>
 
         <ArticlesWrapper>
           <PopularArticlesWrapper>
-            <H4> Popular Articles</H4>
-            <Articles>
+            <H3> Popular Articles</H3>
+            <PopularArticles>
               <CardColumns>
                 {this.state.articles.map(article => {
                   return (
@@ -267,11 +360,11 @@ class BlogView extends React.Component {
                   );
                 })}
               </CardColumns>
-            </Articles>
+            </PopularArticles>
           </PopularArticlesWrapper>
 
           <EditorsPicksWrapper>
-            <H4>Editors Picks</H4>
+            <H3>Editors Picks</H3>
             <CardWrapper>
               <Card>
                 <CardImg
@@ -331,12 +424,34 @@ class BlogView extends React.Component {
             </CardWrapper>
           </EditorsPicksWrapper>
         </ArticlesWrapper>
-        {/* <div>
-          <H4>Fun Facts About Sleep</H4>
-          <a href="https://www.sleepfoundation.org/articles/25-random-facts-about-sleep">
-            <button> Learn more</button>
-          </a>
-        </div> */}
+
+        <CardWrapper>
+          <Card>
+            <CardBody>
+              <CardTitle>To Learn More About Sleep Visit: </CardTitle>
+              <hr />
+              <CardText>
+                <a href="https://www.sleepfoundation.org/">
+                  <CardSubtitle>
+                    <li>National Sleep Foundation </li>
+                  </CardSubtitle>
+                </a>
+
+                <a href="https://www.sleepassociation.org/">
+                  <CardSubtitle>
+                    <li>American Sleep Association </li>
+                  </CardSubtitle>
+                </a>
+              </CardText>
+            </CardBody>
+            <CardImg
+              top
+              width="100%"
+              src="http://easysleepinc.com/images/banner_1NEW.png"
+              alt="Night sketch"
+            />
+          </Card>
+        </CardWrapper>
       </div>
     );
   }
