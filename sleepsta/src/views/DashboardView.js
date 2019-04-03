@@ -55,21 +55,28 @@ class DashboardView extends React.Component {
           lastWeekDay: last
         },
         () => {
+          //filters dailyData to only include days selected by week input
           const filtered = this.props.userDailyData.filter(dailyData => {
             return (
               this.state.firstWeekDay <= dailyData.sleeptime &&
               dailyData.sleeptime <= this.state.lastWeekDay
             );
           });
+          //this makes it so incomplete weeks will show data for first few days and 0 for the rest:
           let newFiltered = Array(7).fill(0);
           for (let i = 0; i < filtered.length; i++) {
             newFiltered[i] = filtered[i];
           }
-          this.setState({ filteredDailyData: newFiltered });
+          //this sorts the days by sleeptime so they display in order
+          let sortedFiltered = newFiltered.sort(function(a, b) {
+            return a.sleeptime - b.sleeptime;
+          });
+          this.setState({ filteredDailyData: sortedFiltered });
         }
       );
     }
   }
+
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
   showDailyGraph = (e, data) => {
     e.preventDefault();
@@ -78,6 +85,7 @@ class DashboardView extends React.Component {
       sleepData: data
     });
   };
+
   //used when clicking on "show weekly data" button to display weekly data again
   showWeeklyGraph = e => {
     e.preventDefault();
