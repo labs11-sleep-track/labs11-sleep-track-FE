@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
-import DailyLineGraph2 from "../components/Dashboard/DailyLineGraph2";
+import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
 import WeeklyLineGraph from "../components/Dashboard/WeeklyLineGraph";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 
@@ -127,7 +127,7 @@ class DashboardView extends React.Component {
           onChange={this.handleInputChange}
         />
         {this.state.dailyDisplayed ? (
-          <DailyLineGraph2 sleepData={this.state.sleepData} />
+          <DailyLineGraph sleepData={this.state.sleepData} />
         ) : (
           <WeeklyLineGraph />
         )}

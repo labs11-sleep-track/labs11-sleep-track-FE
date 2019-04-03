@@ -1,96 +1,45 @@
-import React from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { Component } from "react";
+import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class DailyLineGraph extends React.Component {
-  constructor(props) {
-    super(props);
-
+class DynamicLineChart extends Component {
+  constructor() {
+    super();
     this.state = {
-      toggle: true,
-      options: {
-        chart: {
-          toolbar: {
-            show: false
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: "smooth"
-        },
-
-        xaxis: {
-          //   type: "datetime",
-          categories: []
-        }
-        // tooltip: {
-        //   x: {
-        //     format: "dd/MM/yy HH:mm"
-        //   }
-        // }
-      },
-      series: [
-        {
-          name: "series1",
-          data: []
-        }
-      ]
+      dps: []
     };
   }
-
-  // console.log("updating");
-  // let options = this.state.options;
-  // let series = this.state.series;
-  // options.xaxis.categories = this.props.sleepData.map(data => {
-  //   return data.timestamp;
-  // });
-  // series[0].data = this.props.sleepData.map(data => {
-  //   return data.motion;
-  // });
-  // this.setState({ options, series });
   componentDidMount() {
-    console.log("mounting");
-    let options = this.state.options;
-    let series = this.state.series;
-    options.xaxis.categories = this.props.sleepData.map(data => {
-      return data.timestamp;
-    });
-    series[0].data = this.props.sleepData.map(data => {
-      return data.motion;
-    });
-    this.setState({ options, series, toggle: !this.state.toggle });
+    this.setState({ dps: this.props.sleepData });
   }
+
   componentDidUpdate(prevProps, prevState) {
-    console.log("updating");
-    console.log("updating", this.state.series);
     if (prevProps.sleepData !== this.props.sleepData) {
-      let options = this.state.options;
-      let series = this.state.series;
-      options.xaxis.categories = this.props.sleepData.map(data => {
-        return data.timestamp;
-      });
-      series[0].data = this.props.sleepData.map(data => {
-        return data.motion;
-      });
-      this.setState({ options, series, toggle: !this.state.toggle });
+      this.setState({ dps: this.props.sleepData });
     }
   }
 
   render() {
-    console.log("rendering daily line graph");
-    console.log("series", this.state.series);
+    const options = {
+      title: {
+        text: "Motion Data"
+      },
+      data: [
+        {
+          type: "line",
+          dataPoints: this.state.dps
+        }
+      ]
+    };
+
     return (
-      <div id="chart">
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type="area"
-          height="350"
-        />
+      <div>
+        <h1>React Dynamic Line Chart</h1>
+        <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
+        {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
     );
   }
 }
 
-export default DailyLineGraph;
+export default DynamicLineChart;
