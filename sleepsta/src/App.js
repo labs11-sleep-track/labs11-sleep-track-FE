@@ -10,6 +10,9 @@ import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
 import PremiumPage from "./views/PremiumPage";
+import Sleep from "./components/Survey/Sleep";
+import Wake from "./components/Survey/Wake";
+import {StripeProvider} from 'react-stripe-elements';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -46,7 +49,11 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/auth/google/:token" component={TokenView} />
-        <Route path="/premium" component={PremiumPage} />
+        <StripeProvider apiKey="pk_test_IuV3H4bcKKItAUmS8Mxxb2yl00E18jGeXN">
+          <Route path="/premium" component={PremiumPage} />
+        </StripeProvider>
+        <Route path="/sleep" component={Sleep} />
+        <Route path="/wake" component={Wake} />
 
         {/* Following are protected routes, user must be logged in to route */}
         {user && <Route exact path="/about" component={About} />}
