@@ -6,7 +6,9 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   padding-top: 20px;
+  padding-right: 200px;
   width: 100%;
   height: 600px;
   font-family: "Roboto", sans-serif;
@@ -16,13 +18,14 @@ const Main = styled.div`
     flex-direction: column;
     align-items: center;
     align-content: center;
-}
-  
+    padding-right: 0;
+  }
+
   @media (max-width: 500px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
   }
 `;
 
@@ -36,32 +39,33 @@ const Header = styled.div`
   @media (max-width: 800px) {
     margin-top: 30px;
   }
-  
+
   @media (max-width: 500px) {
     margin-top: 30px;
   }
 `;
 
 const H5 = styled.h5`
-  padding: 40px 0;
+  padding: 20px 0;
   color: #4c546f;
+  font-size: 16px;
 
   @media (max-width: 800px) {
-    font-size: 15px;
     margin-top: 50px;
+    padding: 20px 0;
   }
 
   @media (max-width: 500px) {
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 50px;
   }
 `;
 
 const H2 = styled.h2`
-  font-size: 50px;
+  font-size: 40px;
 
   @media (max-width: 800px) {
-    font-size: 45px;
+    font-size: 35px;
   }
 
   @media (max-width: 500px) {
@@ -82,7 +86,9 @@ const LoginButtonWrapper = styled.div`
 `;
 
 const Span = styled.div`
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: 0.75px;
+  padding-bottom: 5px;
 
   @media (max-width: 800px) {
     display: none;
@@ -94,17 +100,18 @@ const Span = styled.div`
 `;
 
 const P = styled.p`
-@media (max-width: 800px) {
   font-size: 15px;
-  margin-top: 10px;
-}
 
-@media (max-width: 500px) {
-  font-size: 10px;
-  margin-top: 10px;
-  margin-bottom: 50px;
-}
-`
+  @media (max-width: 800px) {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+`;
 
 const Home = () => {
   return (
