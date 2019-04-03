@@ -1,4 +1,5 @@
 import React from "react";
+import logo from './sleep.png';
 import styled from "styled-components";
 import {
   Collapse,
@@ -52,7 +53,7 @@ class LoggedInSideNav extends React.Component {
 
             <div className="container-fluid">
 
-            <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a>
+            {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
 
                 {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
                 <div className="buttonTitle">
@@ -70,19 +71,19 @@ class LoggedInSideNav extends React.Component {
 
 
     <nav id="sidebar">
-        <div class="sidebar-header">
+        {/* <div class="sidebar-header">
         <NavLink href='/'>
         <div className="sleepTitle">
-        SLEEP<i>STA</i>
-        </div>
+        {/* SLEEP<i>STA</i> */}
+        {/* </div>
         </NavLink>
-        </div>
+        </div> */}
 
         <nav id="sidebar">
           <div className="sidebar-header">
             <NavLink href="/dashboard">
               <div className="sleepTitle">
-                SLEEP<i>STA</i>
+                <img src={logo} alt="sleep"></img>
               </div>
             </NavLink>
           </div>
@@ -91,43 +92,22 @@ class LoggedInSideNav extends React.Component {
             <div className="catchPhrase">
               <p>Sleep Harder. Live Smarter.</p>
             </div>
-            
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                    <NavItem>
-                        <NavLink href="/">
-                        <div><i class="fas fa-home"></i>&nbsp;&nbsp;Home</div>
-                        </NavLink>
-                    </NavItem>
-                    </li>
-                </ul>
+
+            <li>
+                        <Link style={{textDecoration: "none"}} to="/dashboard">
+                            <div><i class="fas fa-chart-bar"></i>&nbsp;&nbsp;Dashboard</div>
+                        </Link>
             </li>
 
-            <li className="active">
-              <a
-                href="#pageSubmenu3"
-                data-toggle="collapse"
-                aria-expanded="false"
-                className="dropdown-toggle"
-              >
-                Blogs
-              </a>
-              <ul className="collapse list-unstyled" id="pageSubmenu3">
-                <li>
-                  <Link style={{ textDecoration: "none" }} to="/blogs">
-                    <div>
-                      <i className="fas fa-rss" />
-                      &nbsp;&nbsp;Sleep Blogs
-                    </div>
-                  </Link>
-                </li>
-              </ul>
+
+            <li>
+                        <Link style={{textDecoration: "none"}} to="/blogs">
+                            <div><i className="fas fa-bed"></i>&nbsp;&nbsp;Sleep Blogs</div>
+                        </Link>
             </li>
 
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Account</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 
                     <li>
@@ -137,14 +117,8 @@ class LoggedInSideNav extends React.Component {
                     </li>
 
                     <li>
-                        <Link style={{textDecoration: "none"}} to="/update">
+                        <Link style={{textDecoration: "none"}} to="/stripe">
                             <div><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</div>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link style={{textDecoration: "none"}} to="/update">
-                            <div><i className="fas fa-user-edit"></i>&nbsp;&nbsp;Update Account</div>
                         </Link>
                     </li>
 
@@ -165,7 +139,7 @@ class LoggedInSideNav extends React.Component {
         
             <li>
               <div>
-                <a onClick={this.logout}>Logout</a>
+                <a onClick={this.logout}><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
               </div>
             </li>
           </ul>
