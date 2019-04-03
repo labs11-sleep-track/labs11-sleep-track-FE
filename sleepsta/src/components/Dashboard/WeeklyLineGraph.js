@@ -92,24 +92,37 @@ class WeeklyBarChart extends Component {
   }
   render() {
     const options = {
-      theme: "dark2",
+      backgroundColor: "#4C546F",
       title: {
-        text: "CPU Usage"
+        fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontColor: "#F7F7FF",
+        text: "Weekly Sleep Analysis"
       },
       subtitles: [
         {
-          text: "Intel Core i7 980X @ 3.33GHz"
+          // text: "Total hours slept each night"
         }
       ],
       axisY: {
         title: "Hours Slept",
+        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontColor: "#F7F7FF",
+        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontColor: "#F7F7FF",
         suffix: "hr",
         maximum: 12
+      },
+      axisX: {
+        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "column",
-          yValueFormatString: "#.##'hr'",
+          indexLabelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          indexLabelFontColor: "#F7F7FF",
+          labelFontColor: "#F7F7FF",
+          yValueFormatString: "#.## 'hr'",
           indexLabel: "{y}",
           dataPoints: this.state.dps
         }
@@ -118,7 +131,6 @@ class WeeklyBarChart extends Component {
 
     return (
       <div>
-        <h1>React Dynamic Line Chart</h1>
         <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
