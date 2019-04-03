@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
-import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
+import DailyLineGraph2 from "../components/Dashboard/DailyLineGraph2";
 import WeeklyLineGraph from "../components/Dashboard/WeeklyLineGraph";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 
@@ -97,7 +97,10 @@ class DashboardView extends React.Component {
   showDailyGraph = (e, data) => {
     e.preventDefault();
     console.log("show daily graph");
-    this.setState({ dailyDisplayed: true, sleepData: data });
+    this.setState({
+      dailyDisplayed: true,
+      sleepData: data
+    });
   };
   //used when clicking on "show weekly data" button to display weekly data again
   showWeeklyGraph = e => {
@@ -124,7 +127,7 @@ class DashboardView extends React.Component {
           onChange={this.handleInputChange}
         />
         {this.state.dailyDisplayed ? (
-          <DailyLineGraph sleepData={this.state.sleepData} />
+          <DailyLineGraph2 sleepData={this.state.sleepData} />
         ) : (
           <WeeklyLineGraph />
         )}

@@ -6,6 +6,7 @@ class DailyLineGraph extends React.Component {
     super(props);
 
     this.state = {
+      toggle: true,
       options: {
         chart: {
           toolbar: {
@@ -38,7 +39,17 @@ class DailyLineGraph extends React.Component {
     };
   }
 
-  componentWillMount() {
+  // console.log("updating");
+  // let options = this.state.options;
+  // let series = this.state.series;
+  // options.xaxis.categories = this.props.sleepData.map(data => {
+  //   return data.timestamp;
+  // });
+  // series[0].data = this.props.sleepData.map(data => {
+  //   return data.motion;
+  // });
+  // this.setState({ options, series });
+  componentDidMount() {
     console.log("mounting");
     let options = this.state.options;
     let series = this.state.series;
@@ -48,10 +59,11 @@ class DailyLineGraph extends React.Component {
     series[0].data = this.props.sleepData.map(data => {
       return data.motion;
     });
-    this.setState({ options, series });
+    this.setState({ options, series, toggle: !this.state.toggle });
   }
   componentDidUpdate(prevProps, prevState) {
     console.log("updating");
+    console.log("updating", this.state.series);
     if (prevProps.sleepData !== this.props.sleepData) {
       let options = this.state.options;
       let series = this.state.series;
@@ -61,13 +73,13 @@ class DailyLineGraph extends React.Component {
       series[0].data = this.props.sleepData.map(data => {
         return data.motion;
       });
-      this.setState({ options, series });
+      this.setState({ options, series, toggle: !this.state.toggle });
     }
   }
 
   render() {
     console.log("rendering daily line graph");
-
+    console.log("series", this.state.series);
     return (
       <div id="chart">
         <ReactApexChart
