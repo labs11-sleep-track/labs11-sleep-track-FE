@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
+import moment from "moment";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class DailyLineGraph extends Component {
@@ -10,6 +11,9 @@ class DailyLineGraph extends Component {
     };
   }
   componentDidMount() {
+    let data = this.props.sleepData.map(datapoint => {
+      return (datapoint.x = new Date(datapoint.x * 1000));
+    });
     this.setState({ dps: this.props.sleepData });
   }
 
@@ -44,6 +48,7 @@ class DailyLineGraph extends Component {
       data: [
         {
           type: "spline",
+          xValueType: "dateTime",
           lineColor: "#9AD2CB",
           markerColor: "#9AD2CB",
           dataPoints: this.state.dps
