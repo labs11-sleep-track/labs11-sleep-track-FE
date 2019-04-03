@@ -160,3 +160,26 @@ ul ul a {
   font-family: Roboto;
   text-shadow: 2px 2px 5px black;
 }
+
+@media (max-width: 800px) {
+  #sidebar {
+    width: 200px;
+  }
+  .SleepstaTitle {
+    font-size: 2.5rem;
+  }
+  #menuButton {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  #sidebar {
+    width: 150px;
+  }
+
+  .SleepstaTitle {
+    font-size: 30px;
+    margin: 10px;
+  }
+}
