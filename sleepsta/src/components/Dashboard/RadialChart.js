@@ -11,6 +11,10 @@ const ChartContainer = styled.div`
   :hover {
     cursor: pointer;
   }
+
+  @media (min-width: 1920px) {
+    max-width: 880px;
+  }
 `;
 
 const Chart = styled.div`

@@ -4,7 +4,7 @@
 }
 
 #sidebar {
-  width: 190px;
+  width: 230px;
   position: fixed;
   top: 0;
   left: 0;
@@ -94,8 +94,7 @@ a:focus {
 }
 
 #sidebar ul.components {
-  padding: 20px 0;
-  /* border-bottom: 1px solid white; */
+  border-top: 1px solid darkgrey;
 }
 
 #sidebar ul p {
@@ -105,8 +104,9 @@ a:focus {
 
 #sidebar ul li a {
   padding: 20px;
-  font-size: 1em;
+  font-size: 20px;
   display: block;
+  /* border-top: 1px solid darkgrey; */
 }
 #sidebar ul li a:hover {
   color: #e34a6f;
@@ -119,9 +119,10 @@ a[aria-expanded="true"] {
   background-color: rgb(255, 255, 255, 0.09);
 }
 ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
+  font-size: 16px !important;
+  padding-left: 50px !important;
   background-color: rgb(255, 255, 255, 0.09);
+  border-top: 1px solid grey;
 }
 
 .sleepTitle {
@@ -135,6 +136,11 @@ ul ul a {
   /* font-style: italic; */
   display: flex;
   justify-content: center;
+  border-bottom: 1px solid darkgrey;
+}
+
+.catchPhrase p {
+  font-size: 13px;
 }
 
 .buttonTitle {
@@ -177,9 +183,9 @@ ul ul a {
 }
 
 @media (max-width: 500px) {
-    .wrapper {
-        display: none;
-    }
+  .wrapper {
+    display: none;
+  }
   #sidebar {
     width: 150px;
   }
@@ -191,18 +197,18 @@ ul ul a {
 }
 
 .navBarMobile {
-    padding: 0;
-    width: 100%;
+  padding: 0;
+  width: 100%;
 }
 
 .navBarBrand {
-    padding: 0;
-    width: 100%;
+  padding: 0;
+  width: 100%;
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    border: 3px solid white;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  border: 3px solid white;
 }

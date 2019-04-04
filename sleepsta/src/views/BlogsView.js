@@ -11,6 +11,14 @@ import {
   Button
 } from "reactstrap";
 
+const BlogViews = styled.div`
+  @media (min-width: 1920px) {
+    max-width: 1250px;
+    margin: 50px auto;
+  }
+`;
+
+const Blog = styled.div``;
 const DashboardNav = styled.div`
   width: 100%;
 `;
@@ -40,6 +48,10 @@ const H2 = styled.div`
   font-size: 25px;
   color: black;
 
+  @media (min-width: 1920px) {
+    font-size: 30px;
+  }
+
   @media (max-width: 500px) {
     text-align: center;
   }
@@ -48,6 +60,10 @@ const H2 = styled.div`
 const H3 = styled.h3`
   font-size: 20px;
   padding-bottom: 10px;
+
+  @media (min-width: 1920px) {
+    font-size: 25px;
+  }
 
   @media (max-width: 500px) {
     text-align: center;
@@ -94,6 +110,10 @@ const CardTitle = styled.div`
   font-size: 18px;
   color: black;
 
+  @media (min-width: 1920px) {
+    font-size: 22px;
+  }
+
   @media (max-width: 500px) {
     text-align: center;
   }
@@ -103,6 +123,10 @@ const CardSubtitle = styled.div`
   font-size: 14px;
   color: #999;
   padding-top: 10px;
+
+  @media (min-width: 1920px) {
+    font-size: 16px;
+  }
 
   @media (max-width: 500px) {
     text-align: center;
@@ -272,7 +296,7 @@ class BlogView extends React.Component {
 
   render() {
     return (
-      <div>
+      <BlogViews>
         <DashboardNav>
           <LoggedInSideNav />
           <MobileNav />
@@ -347,7 +371,6 @@ class BlogView extends React.Component {
               </Card>
             </CardWrapper>
           </div>
-
           <ArticlesWrapper>
             <PopularArticlesWrapper>
               <H3> Popular Articles</H3>
@@ -474,7 +497,7 @@ class BlogView extends React.Component {
             </Card>
           </CardWrapper>
         </BlogsWrapper>
-      </div>
+      </BlogViews>
     );
   }
 }
