@@ -11,14 +11,37 @@ import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
-const RadialCharts = styled.div`
+const DashboardWrapper = styled.div`
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
+`;
+const RadialChartsWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const WeekInput = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  &:hover {
+    color: white;
+    background-color: #999;
+  }
 `;
 
 const DashboardNav = styled.div`
-width: 100%;
-
-`
+  width: 100%;
+`;
 
 class DashboardView extends React.Component {
   constructor(props) {
@@ -143,47 +166,52 @@ class DashboardView extends React.Component {
           <LoggedInSideNav />
           <MobileNav />
         </DashboardNav>
-        <input
-          type="week"
-          name="week"
-          value={this.state.week}
-          onChange={this.handleInputChange}
-        />
-        {this.props.currentUser.account_type === "user" && (
-          <input
-            type="month"
-            name="month"
-            value={this.state.month}
-            onChange={this.handleInputChange}
-          />
-        )}
-        {this.state.dailyDisplayed ? (
-          <DailyLineGraph sleepData={this.state.sleepData} />
-        ) : (
-          <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
-        )}
-        {this.state.dailyDisplayed && (
-          <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
-        )}
-        {this.props.currentUser.account_type === "user" && (
-          <MonthlyBarChart
-            filteredMonthlyData={this.state.filteredMonthlyData}
-            firstMonthDay={this.state.firstMonthDay}
-            lastMonthDay={this.state.lastMonthDay}
-          />
-        )}
 
-        <RadialCharts>
-          {this.state.filteredDailyData.map(dailyData => {
-            return (
-              <RadialChart
-                key={dailyData.id}
-                dailyData={dailyData}
-                showDailyGraph={this.showDailyGraph}
-              />
-            );
-          })}
-        </RadialCharts>
+        <DashboardWrapper>
+          <WeekInput>
+            <input
+              type="week"
+              name="week"
+              value={this.state.week}
+              onChange={this.handleInputChange}
+            />
+          </WeekInput>
+          {this.props.currentUser.account_type === "user" && (
+            <input
+              type="month"
+              name="month"
+              value={this.state.month}
+              onChange={this.handleInputChange}
+            />
+          )}
+          {this.state.dailyDisplayed ? (
+            <DailyLineGraph sleepData={this.state.sleepData} />
+          ) : (
+            <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
+          )}
+          {this.state.dailyDisplayed && (
+            <Button onClick={this.showWeeklyGraph}>View Weekly Data</Button>
+          )}
+          {this.props.currentUser.account_type === "user" && (
+            <MonthlyBarChart
+              filteredMonthlyData={this.state.filteredMonthlyData}
+              firstMonthDay={this.state.firstMonthDay}
+              lastMonthDay={this.state.lastMonthDay}
+            />
+          )}
+
+          <RadialChartsWrapper>
+            {this.state.filteredDailyData.map(dailyData => {
+              return (
+                <RadialChart
+                  key={dailyData.id}
+                  dailyData={dailyData}
+                  showDailyGraph={this.showDailyGraph}
+                />
+              );
+            })}
+          </RadialChartsWrapper>
+        </DashboardWrapper>
       </div>
     );
   }
