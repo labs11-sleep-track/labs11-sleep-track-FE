@@ -1,48 +1,61 @@
 import React from "react";
-import axios from "axios";
 import InjectForm from "./InjectForm";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import styled from "styled-components";
 
-const H1 = styled.h1`
-  @media (min-width: 1920px) {
-    text-align: center;
-    margin-bottom: 25px;
-    
-  @media (max-width: 500px) {
-    font-size: 18px;
-  }
+const keyPublishable = process.env.REACT_APP_PUBLISHABLE_KEY;
+const keySecret = process.env.REACT_APP_SECRET_KEY;
+
+const RealH1 = styled.h1`
+  font-size: 3.75em;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 `;
 
-export default class Checkout extends React.Component {
-  onToken = (token, addresses) => {
-    const body = {
-      amount: 1000,
-      token: token
-    };
+const RealH2 = styled.h2`
+  font-size: 1.8em;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  margin: 7.5px 3px;
+`;
 
-    axios
-      .post("http://sleepsta.herokuapp.com/api/stripe/charge", body)
-      .then(response => {
-        console.log(response);
-        alert("Payment Success");
-      })
-      .catch(error => {
-        console.log("Payment Error: ", error);
-        alert("Payment Error");
-      });
-  };
+const RealH3 = styled.h3`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  font-size: 1.5em;
+  padding: 3px;
+`;
 
+const NewOL = styled.ol`
+  font-family: "Rubik";
+  list-style-type: upper-roman;
+  list-style-position: inside;
+  margin-left: 15px;
+`;
+
+const NewLI = styled.li``;
+
+class Stripe extends React.Component {
   render() {
     return (
       <div>
-        <H1>Buy Premium</H1>
-        <StripeProvider apiKey="pk_test_IuV3H4bcKKItAUmS8Mxxb2yl00E18jGeXN">
+        <RealH1>Premium</RealH1>
+        <RealH2>The Benefits:</RealH2>
+        <NewOL>
+          <NewLI>You get to be premium.</NewLI>
+          <NewLI>You're cool cause you're premium.</NewLI>
+          <NewLI>You're apart of the premium club</NewLI>
+        </NewOL>
+
+        <RealH3>Cost? $10.</RealH3>
+        <StripeProvider apiKey="${keyPublishable}">
           <Elements>
-            <InjectForm />
+            <InjectForm inputs={this.props.inputs} />
           </Elements>
         </StripeProvider>
       </div>
     );
   }
 }
+
+export default Stripe;
