@@ -4,17 +4,18 @@ import styled from 'styled-components';
 import { connect } from "react-redux";
 import { updateUser } from "../../actions";
 
+
 const FormHold = styled.div`
-    margin: 10px;
-    padding: 20px;
-    background-color: rgb(0,0,0,.25);
-    border-radius: 15px;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgb(0, 0, 0, 0.25);
+  border-radius: 15px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 `;
 
 const TheForm = styled.form`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TopForm = styled.div`
@@ -26,14 +27,14 @@ const TopForm = styled.div`
 `;
 
 const StripeInput = styled.input`
-    padding: 10px;
-    border-radius: 10px;
-    margin: 3px 3px;
-    border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 3px 3px;
+  border: none;
 `;
 
 const StripeLabel = styled.label`
-    font-size: 1.25em;
+  font-size: 1.25em;
 `;
 
 const StripeButton = styled.button`
@@ -60,6 +61,10 @@ const NewH6 = styled.h6`
     color: rgb(244,244,244);
 `;
 
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
+`;
 
 class InjectForm extends Component {
     constructor(props){
@@ -76,6 +81,9 @@ class InjectForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
       };
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
     handleSubmit = async e => {
         e.preventDefault();
@@ -119,7 +127,7 @@ class InjectForm extends Component {
             <StripeButton>Buy Premium</StripeButton>
         </TheForm>
       </FormHold>
-    )
+    );
   }
 }
 

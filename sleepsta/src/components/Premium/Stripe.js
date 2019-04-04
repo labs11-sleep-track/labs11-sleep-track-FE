@@ -67,9 +67,8 @@ class Stripe extends React.Component {
           </Elements>
         </StripeProvider>
       </div>
-
-    )
-}
+    );
+  }
 }
 
 export default Stripe;

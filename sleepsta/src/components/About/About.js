@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
+import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
+import MobileNav from "../Nav/MobileNav.js";
 
 const Cards = styled.div`
 // width: 300px;
@@ -23,8 +25,20 @@ flex-direction: row;
 flex-wrap: wrap;
 `
 
+const AboutNav = styled.div`
+width: 100%;
+
+`
+
 const About = (props) => {
   return (
+
+    <div>
+    <AboutNav>
+          <LoggedInSideNav />
+          <MobileNav />
+        </AboutNav>
+
     <Cards>
         <SingleCard>
         <Card>
@@ -99,6 +113,8 @@ const About = (props) => {
       </SingleCard>
 
     </Cards>
+
+    </div>
   );
 };
 
