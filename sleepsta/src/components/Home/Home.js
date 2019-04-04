@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LoginForm from "../Login/LoginForm";
+import { Link } from "react-router-dom";
 
 const Main = styled.div`
   display: flex;
@@ -129,6 +130,21 @@ const P = styled.p`
   }
 `;
 
+const Team = styled.div`
+color: white;
+font-size: 12px;
+padding-top: 20px;
+font-family: "Roboto", sans-serif;
+
+@media (max-width: 500px) {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  font-size: 10px;
+}
+`;
+
 const Home = () => {
   return (
     <Main>
@@ -149,6 +165,8 @@ const Home = () => {
         <LoginButtonWrapper>
           <LoginForm />
         </LoginButtonWrapper>
+
+        <Team>Meet the <Link to="/about">SLEEPSTA Team</Link></Team>
       </Header>
     </Main>
   );

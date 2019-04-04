@@ -48,6 +48,37 @@ const Month = styled.div`
     width: 49%;
   }
 `;
+const DashboardWrapper = styled.div`
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
+`;
+const RadialChartsWrapper = styled.div`
+  display: flex;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const WeekInput = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  &:hover {
+    color: white;
+    background-color: #999;
+  }
+`;
+
+const DashboardNav = styled.div`
+  width: 100%;
+`;
 
 class DashboardView extends React.Component {
   constructor(props) {

@@ -8,6 +8,9 @@ const H1 = styled.h1`
   @media (min-width: 1920px) {
     text-align: center;
     margin-bottom: 25px;
+    
+  @media (max-width: 500px) {
+    font-size: 18px;
   }
 `;
 

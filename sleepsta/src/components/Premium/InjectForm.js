@@ -36,6 +36,10 @@ const StripeButton = styled.button`
   border-radius: 10px;
   width: 150px;
   margin: 0 auto;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 class InjectForm extends Component {

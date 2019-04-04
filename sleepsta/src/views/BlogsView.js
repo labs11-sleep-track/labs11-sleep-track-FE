@@ -1,5 +1,6 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
+import MobileNav from "../components/Nav/MobileNav.js";
 import styled from "styled-components";
 import {
   Card,
@@ -18,6 +19,15 @@ const BlogViews = styled.div`
 `;
 
 const Blog = styled.div``;
+const DashboardNav = styled.div`
+  width: 100%;
+`;
+
+const BlogsWrapper = styled.div`
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
+`;
 
 const ArticlesWrapper = styled.div`
   display: flex;
@@ -286,10 +296,14 @@ class BlogView extends React.Component {
 
   render() {
     return (
-      <div>
-        <LoggedInSideNav />
-        <BlogViews>
-          <Blog>
+      <BlogViews>
+        <DashboardNav>
+          <LoggedInSideNav />
+          <MobileNav />
+        </DashboardNav>
+
+        <BlogsWrapper>
+          <div>
             <Card>
               <CardImg
                 top
@@ -356,8 +370,7 @@ class BlogView extends React.Component {
                 </CardBody>
               </Card>
             </CardWrapper>
-          </Blog>
-
+          </div>
           <ArticlesWrapper>
             <PopularArticlesWrapper>
               <H3> Popular Articles</H3>
@@ -483,8 +496,8 @@ class BlogView extends React.Component {
               />
             </Card>
           </CardWrapper>
-        </BlogViews>
-      </div>
+        </BlogsWrapper>
+      </BlogViews>
     );
   }
 }
