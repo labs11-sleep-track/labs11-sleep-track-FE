@@ -54,8 +54,7 @@ class DashboardView extends React.Component {
 
   componentDidMount() {
     //hardcoding in a user for now, but will later get the user_id after logging in
-    const user_id = 1;
-    this.props.fetchUserDailyData(user_id);
+    this.props.fetchUserDailyData(this.props.currentUser.id);
     this.setDay();
   }
 
