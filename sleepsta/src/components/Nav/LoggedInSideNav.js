@@ -54,7 +54,7 @@ class LoggedInSideNav extends React.Component {
           <div className="sidebar-header">
             <NavLink href="/dashboard">
               <div className="sleepTitle">
-                <img src={logo} alt="sleep"></img>
+                <img src={logo} className="logo" alt="sleep"></img>
                 {/* SLEEP<i>STA</i> */}
               </div>
             </NavLink>
@@ -89,7 +89,7 @@ class LoggedInSideNav extends React.Component {
                     </li>
 
                     <li>
-                        <Link style={{textDecoration: "none"}} to="/stripe">
+                        <Link style={{textDecoration: "none"}} to="/premium">
                             <div><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</div>
                         </Link>
                     </li>
