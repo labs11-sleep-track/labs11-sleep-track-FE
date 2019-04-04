@@ -1,7 +1,15 @@
-import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import React from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 
-import logo from './sleep.png';
+import logo from "./sleep.png";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
@@ -19,45 +27,44 @@ const NavAll = styled.div`
   width: 100%;
   font-family: "Roboto", sans-serif;
 
-@media (min-width: 500px) {
-  display: none;
-}
-    
-@media (max-width: 500px) {
-background: #4c546f;
-color: white;
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-font-family: "Roboto", sans-serif;
-margin-bottom: 10px;
-}
+  @media (min-width: 500px) {
+    display: none;
+  }
 
+  @media (max-width: 500px) {
+    background: #4c546f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 const Title = styled.h2`
-font-size: 25px;
-padding-top: 20px;
-padding-left: 20px;
-display: flex;
-text-align: center;
-color: white;
-font-family: "Roboto", sans-serif;
-width: 100%;
-cursor: pointer;
-`
+  font-size: 25px;
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  cursor: pointer;
+`;
 
-const Links = styled.div `
-font-size: 20px;
-padding-top: 20px;
-padding-bottom: 10px;
-border-top: 2px solid #252E4F;
-display: flex;
-justify-content: center;
-cursor: pointer;
-
-`
+const Links = styled.div`
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 2px solid #252e4f;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+`;
 
 class MobileNav extends React.Component {
   constructor(props) {
@@ -78,39 +85,51 @@ class MobileNav extends React.Component {
     return (
       <NavAll>
         <Navbar className="navBarMobile" color="faded" light>
-        {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
+          {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
 
-          <NavbarBrand href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand> 
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> 
+          <NavbarBrand href="/dashboard" className="mr-auto">
+            <Title>SLEEPSTA</Title>
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
           <Collapse isOpen={!this.state.collapsed} navbar>
-            
             <Nav navbar>
-            <br />
+              <br />
               <NavItem>
-                  <Link style={{textDecoration: "none"}} to="/dashboard">
-                            <Links><i class="fas fa-chart-bar"></i>&nbsp;&nbsp;Dashboard</Links>
-                  </Link>
+                <Link style={{ textDecoration: "none" }} to="/dashboard">
+                  <Links>
+                    <i class="fas fa-chart-bar" />
+                    &nbsp;&nbsp;Dashboard
+                  </Links>
+                </Link>
               </NavItem>
-              <br/>
+              <br />
               <NavItem>
-                   <Link style={{textDecoration: "none"}} to="/blogs">
-                            <Links><i className="fas fa-bed"></i>&nbsp;&nbsp;Sleep Blogs</Links>
-                   </Link>
+                <Link style={{ textDecoration: "none" }} to="/blogs">
+                  <Links>
+                    <i className="fas fa-bed" />
+                    &nbsp;&nbsp;Sleep Blogs
+                  </Links>
+                </Link>
               </NavItem>
-              <br/>
+              <br />
               <NavItem>
-                  <Link style={{textDecoration: "none"}} to="/profile">
-                            <Links><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</Links>
-                  </Link>
+                <Link style={{ textDecoration: "none" }} to="/profile">
+                  <Links>
+                    <i class="fas fa-user" />
+                    &nbsp;&nbsp;Profile
+                  </Links>
+                </Link>
               </NavItem>
-              <br/>
+              <br />
               <NavItem>
-                  <Link style={{textDecoration: "none"}} to="/premium">
-                            <Links><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</Links>
-                  </Link>
+                <Link style={{ textDecoration: "none" }} to="/premium">
+                  <Links>
+                    <i className="fas fa-dollar-sign" />
+                    &nbsp;&nbsp;Payment
+                  </Links>
+                </Link>
               </NavItem>
-    
             </Nav>
           </Collapse>
         </Navbar>

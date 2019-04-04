@@ -1,5 +1,6 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
+import MobileNav from "../components/Nav/MobileNav.js";
 import styled from "styled-components";
 import {
   Card,
@@ -9,6 +10,10 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
+
+const DashboardNav = styled.div`
+  width: 100%;
+`;
 
 const ArticlesWrapper = styled.div`
   display: flex;
@@ -262,7 +267,11 @@ class BlogView extends React.Component {
   render() {
     return (
       <div>
-        <LoggedInSideNav />
+        <DashboardNav>
+          <LoggedInSideNav />
+          <MobileNav />
+        </DashboardNav>
+
         <div>
           <Card>
             <CardImg

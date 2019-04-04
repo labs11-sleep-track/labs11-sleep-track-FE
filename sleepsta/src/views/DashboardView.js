@@ -11,14 +11,32 @@ import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
-const RadialCharts = styled.div`
+const RadialChartsWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const WeekInput = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  &:hover {
+    color: white;
+    background-color: #999;
+  }
 `;
 
 const DashboardNav = styled.div`
-width: 100%;
-
-`
+  width: 100%;
+`;
 
 class DashboardView extends React.Component {
   constructor(props) {
@@ -143,12 +161,14 @@ class DashboardView extends React.Component {
           <LoggedInSideNav />
           <MobileNav />
         </DashboardNav>
-        <input
-          type="week"
-          name="week"
-          value={this.state.week}
-          onChange={this.handleInputChange}
-        />
+        <WeekInput>
+          <input
+            type="week"
+            name="week"
+            value={this.state.week}
+            onChange={this.handleInputChange}
+          />
+        </WeekInput>
         {this.props.currentUser.account_type === "user" && (
           <input
             type="month"
@@ -163,7 +183,7 @@ class DashboardView extends React.Component {
           <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
         )}
         {this.state.dailyDisplayed && (
-          <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
+          <Button onClick={this.showWeeklyGraph}>View Weekly Data</Button>
         )}
         {this.props.currentUser.account_type === "user" && (
           <MonthlyBarChart
@@ -173,7 +193,7 @@ class DashboardView extends React.Component {
           />
         )}
 
-        <RadialCharts>
+        <RadialChartsWrapper>
           {this.state.filteredDailyData.map(dailyData => {
             return (
               <RadialChart
@@ -183,7 +203,7 @@ class DashboardView extends React.Component {
               />
             );
           })}
-        </RadialCharts>
+        </RadialChartsWrapper>
       </div>
     );
   }
