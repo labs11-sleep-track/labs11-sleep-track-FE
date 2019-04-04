@@ -33,7 +33,9 @@ const NewOL = styled.ol`
   margin-left: 15px;
 `;
 
-const NewLI = styled.li``;
+const NewLI = styled.li`
+
+`;
 
 class Stripe extends React.Component {
   render() {

@@ -88,9 +88,7 @@ class InjectForm extends Component {
       return alert("You already are premium!");
     } else {
       try {
-        let { token } = await this.props.stripe.createToken({
-          name: this.state.email
-        });
+        let { token } = await this.props.stripe.createToken({ name: this.state.email });
         console.log(token);
         await fetch("https://sleepsta.herokuapp.com/api/stripe/", {
           method: "POST",
