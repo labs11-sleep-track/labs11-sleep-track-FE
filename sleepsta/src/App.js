@@ -13,6 +13,7 @@ import PremiumPage from "./views/PremiumPage";
 import Sleep from "./components/Survey/Sleep";
 import Wake from "./components/Survey/Wake";
 
+
 class App extends Component {
   componentWillReceiveProps(nextProps) {
     // redirect to home page if we get an error with 401 status
@@ -48,15 +49,15 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/auth/google/:token" component={TokenView} />
-        <Route path="/premium" component={PremiumPage} />
-        <Route path="/sleep" component={Sleep} />
-        <Route path="/wake" component={Wake} />
+        {/* <Route path="/sleep" component={Sleep} />
+        <Route path="/wake" component={Wake} /> */}
 
         {/* Following are protected routes, user must be logged in to route */}
         {user && <Route exact path="/about" component={About} />}
         {user && <Route exact path="/blogs" component={BlogsView} />}
         {user && <Route path="/profile" component={ProfileView} />}
         {user && <Route path="/dashboard" component={DashboardView} />}
+        {user && <Route path="/premium" component={PremiumPage} />}
       </div>
     );
   }

@@ -64,19 +64,34 @@ class Profile extends Component {
   render() {
     console.log("while rendering", this.props.inputs);
     console.log(localStorage);
-
+    console.log(document.getElementsByClassName("notif"));
     return (
       <div className="profile">
-        <div className="userInfo">
-          <h6>Email</h6>
-          <p>{this.props.inputs.email}</p>
-          <h6>First Name</h6>
-          <p>{this.props.inputs.f_name}</p>
-          <h6>Last Name</h6>
-          <p>{this.props.inputs.l_name}</p>
-          <h6>Account Type</h6>
-          <p>{this.props.inputs.account_type}</p>
+        <div className="title">
+          <h1>Profile</h1>
         </div>
+
+        <br />
+        <br />
+
+        <div className="userInfo">
+          <br />
+          <h6>Email:</h6>
+          <p>{this.props.inputs.email}</p>
+          <br />
+          <h6>First Name:</h6>
+          <p>{this.props.inputs.f_name}</p>
+          <br />
+          <h6>Last Name:</h6>
+          <p>{this.props.inputs.l_name}</p>
+          <br />
+          <h6>Account Type:</h6>
+          <p>{this.props.inputs.account_type}</p>
+          <br />
+        </div>
+
+        <br />
+
         <Button color="danger" onClick={this.toggle}>
           Edit Profile
         </Button>
@@ -90,10 +105,11 @@ class Profile extends Component {
           <ModalHeader toggle={this.toggle} className="header">
             Update User Form
           </ModalHeader>
+
           <ModalBody>
             <Form>
               <div className="fNameDiv">
-                <Label className="label">First name</Label>
+                <Label className="label">First Name *</Label>
                 <Input
                   type="text"
                   name="f_name"
@@ -102,9 +118,11 @@ class Profile extends Component {
                   onChange={this.handleChanges}
                 />
               </div>
+
               <br />
+
               <div className="lNameDiv">
-                <Label className="label">Last name</Label>
+                <Label className="label">Last Name *</Label>
                 <Input
                   type="text"
                   name="l_name"
@@ -113,15 +131,10 @@ class Profile extends Component {
                   onChange={this.handleChanges}
                 />
               </div>
-              <br />
-              <span className="span">
-                Please do not leave blank. You may use the same name.
-              </span>
-
-              <br />
             </Form>
-          </ModalBody>
-          <ModalFooter>
+
+            <br />
+
             <Button
               color="primary"
               onClick={this.handleSubmit}
@@ -129,10 +142,11 @@ class Profile extends Component {
             >
               Update
             </Button>
+
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
-          </ModalFooter>
+          </ModalBody>
         </Modal>
 
         <div className="notif">
