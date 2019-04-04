@@ -50,7 +50,7 @@ class Stripe extends React.Component {
         </NewOL>
 
         <RealH3>Cost? $10.</RealH3>
-        <StripeProvider apiKey="${keyPublishable}">
+        <StripeProvider apiKey={toString(keyPublishable)}>
           <Elements>
             <InjectForm />
           </Elements>
