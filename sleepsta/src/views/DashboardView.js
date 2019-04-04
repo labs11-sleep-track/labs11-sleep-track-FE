@@ -6,8 +6,9 @@ import moment from "moment";
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
 import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
-import WeeklyLineGraph from "../components/Dashboard/WeeklyLineGraph";
+import WeeklyLineGraph from "../components/Dashboard/WeeklyBarChart";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
+import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
 const RadialCharts = styled.div`
   display: flex;
@@ -19,62 +20,94 @@ class DashboardView extends React.Component {
     this.state = {
       sleepData: [],
       dailyDisplayed: false,
+      month: moment().format("YYYY-MM"),
       week: moment().format("YYYY-[W]WW"),
       firstWeekDay: null,
       lastWeekDay: null,
+      firstMonthDay: null,
+      lastMonthDay: null,
+      filteredMonthlyData: [],
       filteredDailyData: []
     };
   }
 
-  componentDidMount() {
-    //hardcoding in a user for now, but will later get the user_id after logging in
-    const user_id = 1;
-    this.props.fetchUserDailyData(user_id);
+  setDay = () => {
+    //get first/last day of the week based on what week is selected:
+    const week = moment(this.state.week)._d;
+    const firstWeekDay = parseInt(moment(week).format("X"));
+    const lastWeekDay = parseInt(moment(week).format("X")) + 604800;
 
-    const time = moment(this.state.week)._d;
-    const first = parseInt(moment(time).format("X"));
-    const last = parseInt(moment(time).format("X")) + 604800;
+    //get first/last day of the week based on what week is selected:
+    const month = moment(this.state.month).format("M");
+    const year = moment(this.state.month).format("YYYY");
+    const firstMonthDay = parseInt(
+      moment(new Date(year, month - 1, 1)).format("X")
+    );
+    const lastMonthDay = parseInt(moment(new Date(year, month, 0)).format("X"));
     this.setState({
-      firstWeekDay: first,
-      lastWeekDay: last
+      firstWeekDay,
+      lastWeekDay,
+      firstMonthDay,
+      lastMonthDay
     });
+  };
+
+  componentDidMount() {
+    this.props.fetchUserDailyData(this.props.currentUser.id);
+    this.setDay();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps, prevState) {
     //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
     if (
       prevProps.userDailyData.length !== this.props.userDailyData.length ||
-      prevState.week !== this.state.week
+      prevState.week !== this.state.week ||
+      prevState.month !== this.state.month
     ) {
-      const time = moment(this.state.week)._d;
-      const first = parseInt(moment(time).format("X"));
-      const last = parseInt(moment(time).format("X")) + 604800;
-      this.setState(
-        {
-          firstWeekDay: first,
-          lastWeekDay: last
-        },
-        () => {
-          //filters dailyData to only include days selected by week input
-          const filtered = this.props.userDailyData.filter(dailyData => {
-            return (
-              this.state.firstWeekDay <= dailyData.sleeptime &&
-              dailyData.sleeptime <= this.state.lastWeekDay
-            );
-          });
-          //this makes it so incomplete weeks will show data for first few days and 0 for the rest:
-          let newFiltered = Array(7).fill(0);
-          for (let i = 0; i < filtered.length; i++) {
-            newFiltered[i] = filtered[i];
-          }
-          //this sorts the days by sleeptime so they display in order
-          let sortedFiltered = newFiltered.sort(function(a, b) {
-            return a.sleeptime - b.sleeptime;
-          });
-          this.setState({ filteredDailyData: sortedFiltered });
-        }
-      );
+      await this.setDay();
+
+      const filteredMonth = this.props.userDailyData.filter(dailyData => {
+        return (
+          this.state.firstMonthDay <= dailyData.sleeptime &&
+          dailyData.sleeptime <= this.state.lastMonthDay
+        );
+      });
+
+      let sortedFilteredMonth = filteredMonth.sort(function(a, b) {
+        return a.sleeptime - b.sleeptime;
+      });
+      //filters dailyData to only include days selected by week input
+      const filteredWeek = this.props.userDailyData.filter(dailyData => {
+        return (
+          this.state.firstWeekDay <= dailyData.sleeptime &&
+          dailyData.sleeptime <= this.state.lastWeekDay
+        );
+      });
+      //this makes it so incomplete weeks will show data for first few days and 0 for the rest:
+      let newFilteredWeek = Array(7).fill(0);
+      for (let i = 0; i < filteredWeek.length; i++) {
+        newFilteredWeek[i] = filteredWeek[i];
+      }
+      //this sorts the days by sleeptime so they display in order
+      let sortedFilteredWeek = newFilteredWeek.sort(function(a, b) {
+        return a.sleeptime - b.sleeptime;
+      });
+      this.setState({
+        filteredDailyData: sortedFilteredWeek,
+        filteredMonthlyData: sortedFilteredMonth
+      });
     }
+    // else if (prevState.month !== this.state.month) {
+    //   const filteredMonth = this.props.userDailyData.filter(dailyData => {
+    //     console.log("filtering Month");
+    //     return (
+    //       this.state.firstMonthDay <= dailyData.sleeptime &&
+    //       dailyData.sleeptime <= this.state.lastMonthDay
+    //     );
+    //   });
+    //   console.log("filtered month", filteredMonth);
+    //   this.setState({ filteredMonthlyData: filteredMonth });
+    // }
   }
 
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
@@ -109,6 +142,14 @@ class DashboardView extends React.Component {
           value={this.state.week}
           onChange={this.handleInputChange}
         />
+        {this.props.currentUser.account_type === "user" && (
+          <input
+            type="month"
+            name="month"
+            value={this.state.month}
+            onChange={this.handleInputChange}
+          />
+        )}
         {this.state.dailyDisplayed ? (
           <DailyLineGraph sleepData={this.state.sleepData} />
         ) : (
@@ -117,6 +158,14 @@ class DashboardView extends React.Component {
         {this.state.dailyDisplayed && (
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
         )}
+        {this.props.currentUser.account_type === "user" && (
+          <MonthlyBarChart
+            filteredMonthlyData={this.state.filteredMonthlyData}
+            firstMonthDay={this.state.firstMonthDay}
+            lastMonthDay={this.state.lastMonthDay}
+          />
+        )}
+
         <RadialCharts>
           {this.state.filteredDailyData.map(dailyData => {
             return (
@@ -134,7 +183,8 @@ class DashboardView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userDailyData: state.compReducer.userDailyData
+  userDailyData: state.compReducer.userDailyData,
+  currentUser: state.auth.currentUser
 });
 
 export default connect(
