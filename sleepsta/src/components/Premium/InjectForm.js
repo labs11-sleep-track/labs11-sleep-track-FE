@@ -57,7 +57,7 @@ const NewH6 = styled.h6`
     justify-content: center;
     font-size: .7em;
     margin-top: 5px;
-    color: rgb(244,244,244)
+    color: rgb(244,244,244);
 `;
 
 
@@ -65,7 +65,7 @@ class InjectForm extends Component {
     constructor(props){
         super(props);
         this.state = {
-            email: '',
+            email: this.props.inputs.email,
             fname: this.props.inputs.f_name,
             lname: this.props.inputs.l_name
         }
@@ -99,7 +99,7 @@ class InjectForm extends Component {
                 account_type: 'premium'
             }
             await this.props.updateUser(user);
-            return alert('Premium Purchased!')
+            alert('Premium Purchased!')
         } catch (e) {
             throw e;
         }
