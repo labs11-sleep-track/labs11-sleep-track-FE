@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import InjectForm from './InjectForm';
+import { StripeProvider, Elements } from 'react-stripe-elements';
 export default class Checkout extends React.Component {
 
   onToken = (token, addresses) => {
@@ -22,7 +24,14 @@ export default class Checkout extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <h1>Buy Premium</h1>
+        <StripeProvider apiKey="pk_test_IuV3H4bcKKItAUmS8Mxxb2yl00E18jGeXN">
+          <Elements>
+            <InjectForm />
+          </Elements>
+        </StripeProvider>
+      </div>
 
     )
 }

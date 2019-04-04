@@ -8,11 +8,17 @@ import RadialChart from "../components/Dashboard/RadialChart";
 import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
 import WeeklyLineGraph from "../components/Dashboard/WeeklyBarChart";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
+import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
 const RadialCharts = styled.div`
   display: flex;
 `;
+
+const DashboardNav = styled.div`
+width: 100%;
+
+`
 
 class DashboardView extends React.Component {
   constructor(props) {
@@ -133,9 +139,10 @@ class DashboardView extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <DashboardNav>
           <LoggedInSideNav />
-        </div>
+          <MobileNav />
+        </DashboardNav>
         <input
           type="week"
           name="week"
