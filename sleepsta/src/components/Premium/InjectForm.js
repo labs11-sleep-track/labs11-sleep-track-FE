@@ -61,11 +61,6 @@ const NewH6 = styled.h6`
     color: rgb(244,244,244);
 `;
 
-  @media (max-width: 500px) {
-    font-size: 14px;
-  }
-`;
-
 class InjectForm extends Component {
     constructor(props){
         super(props);
