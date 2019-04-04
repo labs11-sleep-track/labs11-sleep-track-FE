@@ -13,6 +13,10 @@ const Main = styled.div`
   height: 600px;
   font-family: "Roboto", sans-serif;
 
+  @media (min-width: 1920px) {
+    margin: 100px auto;
+  }
+
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
@@ -64,6 +68,10 @@ const H5 = styled.h5`
 const H2 = styled.h2`
   font-size: 40px;
 
+  @media (min-width: 1920px) {
+    font-size: 60px;
+  }
+
   @media (max-width: 800px) {
     font-size: 35px;
   }
@@ -90,6 +98,10 @@ const Span = styled.div`
   letter-spacing: 0.75px;
   padding-bottom: 5px;
 
+  @media (min-width: 1920px) {
+    font-size: 20px;
+  }
+
   @media (max-width: 800px) {
     display: none;
   }
@@ -101,6 +113,10 @@ const Span = styled.div`
 
 const P = styled.p`
   font-size: 15px;
+
+  @media (min-width: 1920px) {
+    font-size: 20px;
+  }
 
   @media (max-width: 800px) {
     font-size: 14px;

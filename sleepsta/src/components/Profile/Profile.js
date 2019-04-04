@@ -68,21 +68,26 @@ class Profile extends Component {
     return (
       <div className="profile">
         <div className="title">
-          <h1>{this.props.inputs.f_name}'s Profile</h1>
+          <h1>Profile</h1>
         </div>
 
         <br />
         <br />
 
         <div className="userInfo">
-          <h6>Email</h6>
+          <br />
+          <h6>Email:</h6>
           <p>{this.props.inputs.email}</p>
-          <h6>First Name</h6>
+          <br />
+          <h6>First Name:</h6>
           <p>{this.props.inputs.f_name}</p>
-          <h6>Last Name</h6>
+          <br />
+          <h6>Last Name:</h6>
           <p>{this.props.inputs.l_name}</p>
-          <h6>Account Type</h6>
+          <br />
+          <h6>Account Type:</h6>
           <p>{this.props.inputs.account_type}</p>
+          <br />
         </div>
 
         <br />

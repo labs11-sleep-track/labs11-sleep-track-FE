@@ -1,3 +1,19 @@
+.profile {
+  margin: 100px auto;
+  max-width: 800px;
+  border: 5px solid lightgrey;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: center;
+}
+
+.title {
+}
+
+.userInfo {
+  margin-bottom: 15px;
+}
+
 .header {
   color: black;
 }
@@ -16,6 +32,22 @@ button {
 
 .notif {
   display: none;
+}
+
+p {
+  color: lightgray;
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: 24px;
+  }
+  h6 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 800px) {

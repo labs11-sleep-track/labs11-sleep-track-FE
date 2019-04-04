@@ -1,9 +1,17 @@
-import React from 'react';
-import axios from 'axios';
-import InjectForm from './InjectForm';
-import { StripeProvider, Elements } from 'react-stripe-elements';
-export default class Checkout extends React.Component {
+import React from "react";
+import axios from "axios";
+import InjectForm from "./InjectForm";
+import { StripeProvider, Elements } from "react-stripe-elements";
+import styled from "styled-components";
 
+const H1 = styled.h1`
+  @media (min-width: 1920px) {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+`;
+
+export default class Checkout extends React.Component {
   onToken = (token, addresses) => {
     const body = {
       amount: 1000,
@@ -25,14 +33,13 @@ export default class Checkout extends React.Component {
   render() {
     return (
       <div>
-        <h1>Buy Premium</h1>
+        <H1>Buy Premium</H1>
         <StripeProvider apiKey="pk_test_IuV3H4bcKKItAUmS8Mxxb2yl00E18jGeXN">
           <Elements>
             <InjectForm />
           </Elements>
         </StripeProvider>
       </div>
-
-    )
-}
+    );
+  }
 }
