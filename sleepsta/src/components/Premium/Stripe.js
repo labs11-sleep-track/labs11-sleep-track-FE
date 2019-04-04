@@ -34,7 +34,7 @@ const NewOL = styled.ol`
 `;
 
 const NewLI = styled.li`
-
+  font-size: .95em;
 `;
 
 class Stripe extends React.Component {
@@ -50,9 +50,9 @@ class Stripe extends React.Component {
         </NewOL>
 
         <RealH3>Cost? $10.</RealH3>
-        <StripeProvider apiKey="${keyPublishable}">
+        <StripeProvider apiKey={toString(keyPublishable)}>
           <Elements>
-            <InjectForm inputs={this.props.inputs} />
+            <InjectForm />
           </Elements>
         </StripeProvider>
       </div>
