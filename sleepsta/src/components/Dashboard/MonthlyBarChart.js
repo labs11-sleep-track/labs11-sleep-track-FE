@@ -37,6 +37,29 @@ class MonthlyBarChart extends Component {
     this.setState({ dps: dataArr });
   };
 
+  // initializeState = () => {
+  //   let dataArr = [];
+  //   let monthLength =
+  //     (this.props.lastMonthDay - this.props.firstMonthDay) / 86400;
+  //   for (let i = monthLength + 1; i >= 0; i--) {
+  //     if (this.props.filteredMonthlyData[i]) {
+  //       let wakeTime = this.props.filteredMonthlyData[i].waketime;
+  //       let sleepTime = this.props.filteredMonthlyData[i].sleeptime;
+  //       let dayOfMonth = new Date(sleepTime * 1000).getDate();
+  //       let totalSleep = (wakeTime - sleepTime) / 3600;
+  //       dataArr.unshift({
+  //         label: i + 1,
+  //         y: totalSleep
+  //       });
+  //     } else {
+  //       let totalSleep = 0;
+  //       dataArr.unshift({ label: i + 1, y: totalSleep });
+  //     }
+  //   }
+  //   console.log("dataArr", dataArr);
+  //   this.setState({ dps: dataArr });
+  // };
+
   componentDidMount() {
     this.initializeState();
   }
@@ -69,6 +92,9 @@ class MonthlyBarChart extends Component {
         maximum: 12
       },
       axisX: {
+        title: "Day of Month",
+        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontColor: "#F7F7FF",
         labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         labelFontColor: "#F7F7FF",
         interval: 1

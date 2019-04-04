@@ -144,12 +144,14 @@ class DashboardView extends React.Component {
           value={this.state.week}
           onChange={this.handleInputChange}
         />
-        <input
-          type="month"
-          name="month"
-          value={this.state.month}
-          onChange={this.handleInputChange}
-        />
+        {this.props.currentUser.account_type === "premium" && (
+          <input
+            type="month"
+            name="month"
+            value={this.state.month}
+            onChange={this.handleInputChange}
+          />
+        )}
         {this.state.dailyDisplayed ? (
           <DailyLineGraph sleepData={this.state.sleepData} />
         ) : (
@@ -158,11 +160,14 @@ class DashboardView extends React.Component {
         {this.state.dailyDisplayed && (
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
         )}
-        <MonthlyBarChart
-          filteredMonthlyData={this.state.filteredMonthlyData}
-          firstMonthDay={this.state.firstMonthDay}
-          lastMonthDay={this.state.lastMonthDay}
-        />
+        {this.props.currentUser.account_type === "premium" && (
+          <MonthlyBarChart
+            filteredMonthlyData={this.state.filteredMonthlyData}
+            firstMonthDay={this.state.firstMonthDay}
+            lastMonthDay={this.state.lastMonthDay}
+          />
+        )}
+
         <RadialCharts>
           {this.state.filteredDailyData.map(dailyData => {
             return (
@@ -180,7 +185,8 @@ class DashboardView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userDailyData: state.compReducer.userDailyData
+  userDailyData: state.compReducer.userDailyData,
+  currentUser: state.auth.currentUser
 });
 
 export default connect(
