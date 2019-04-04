@@ -9,6 +9,15 @@
 .span {
   color: black;
 }
+
+button {
+  margin: 0 5px;
+}
+
+.notif {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .profile {
     max-width: 100%;
