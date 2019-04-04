@@ -12,6 +12,9 @@ import {
 } from "reactstrap";
 
 const BlogViews = styled.div`
+  max-width: 75%;
+  margin: 25px auto;
+
   @media (min-width: 1920px) {
     max-width: 1250px;
     margin: 50px auto;

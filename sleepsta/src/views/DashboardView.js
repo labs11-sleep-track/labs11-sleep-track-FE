@@ -12,6 +12,9 @@ import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
 const Div = styled.div`
+  max-width: 90%;
+  margin: 0 auto;
+
   @media (min-width: 1920px) {
     max-width: 1450px;
     margin: 0 auto;
@@ -19,6 +22,11 @@ const Div = styled.div`
 `;
 
 const RadialCharts = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+
   @media (min-width: 1920px) {
     display: flex;
     justify-content: center;
