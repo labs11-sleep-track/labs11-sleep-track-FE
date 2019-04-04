@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './sleep.png';
+import logo from "./sleep.png";
 import styled from "styled-components";
 import { NavLink } from "reactstrap";
 
@@ -25,30 +25,22 @@ class LoggedInSideNav extends React.Component {
 
   render() {
     return (
-
-
-<div class="wrapper">
-
-    <div id="content">
-        <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
-
+      <div class="wrapper">
+        <div id="content">
+          <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
+              {/* possible title */}
 
-            {/* possible title */}
+              {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
 
-            {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
-
-                {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
+              {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
                 <div className="buttonTitle">
                     <span>SLEEPSTA</span>
                     </div>
                 </button> */}
-                
-
             </div>
-        </nav>
-    </div>
-
+          </nav>
+        </div>
 
         <nav id="sidebar">
           <div className="sidebar-header">
@@ -66,16 +58,19 @@ class LoggedInSideNav extends React.Component {
             </div>
 
             <li>
-                        <Link style={{textDecoration: "none"}} to="/dashboard">
-                            <div><i class="fas fa-chart-bar"></i>&nbsp;&nbsp;Dashboard</div>
-                        </Link>
+              <Link style={{ textDecoration: "none" }} to="/dashboard">
+                <div>
+                  <i class="fas fa-chart-bar" />&nbsp;&nbsp;Dashboard
+                </div>
+              </Link>
             </li>
 
-
             <li>
-                        <Link style={{textDecoration: "none"}} to="/blogs">
-                            <div><i className="fas fa-bed"></i>&nbsp;&nbsp;Sleep Blogs</div>
-                        </Link>
+              <Link style={{ textDecoration: "none" }} to="/blogs">
+                <div>
+                  <i className="fas fa-bed" />&nbsp;&nbsp;Sleep Blogs
+                </div>
+              </Link>
             </li>
 
             <li>
@@ -96,17 +91,17 @@ class LoggedInSideNav extends React.Component {
 
                 </ul>
             </li>
-        
+
             <li>
               <div>
-                <a onClick={this.logout}><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                <a onClick={this.logout}>
+                  <i class="fas fa-sign-out-alt" />&nbsp;&nbsp;Logout
+                </a>
               </div>
             </li>
           </ul>
         </nav>
-</div>
-      
-
+      </div>
     );
   }
 
