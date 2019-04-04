@@ -50,8 +50,15 @@ class InjectForm extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         try {
-            let token = await this.props.stripe.createToken({ stripeEmail: this.state.email });
+            let { token } = await this.props.stripe.createToken({ name: this.state.email });
             console.log(token)
+            await fetch('https://sleepsta.herokuapp.com/api/stripe/', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({ token })
+            })
         } catch (e) {
             throw e;
         }
