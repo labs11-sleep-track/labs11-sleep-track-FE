@@ -1,5 +1,6 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
+import MobileNav from "../components/Nav/MobileNav.js";
 import styled from "styled-components";
 import {
   Card,
@@ -9,6 +10,16 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
+
+const DashboardNav = styled.div`
+  width: 100%;
+`;
+
+const BlogsWrapper = styled.div`
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
+`;
 
 const ArticlesWrapper = styled.div`
   display: flex;
@@ -278,196 +289,207 @@ class BlogView extends React.Component {
   render() {
     return (
       <div>
-        <LoggedInSideNav />
-        <div>
-          <Card>
-            <CardImg
-              top
-              width="100%"
-              src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
-              alt="Humans and Animals Sleeping "
-            />
-            <CardBody>
-              <H2>About Sleep</H2>
-              <hr />
-              <CardText>
-                Sleep plays a vital role in good health and well-being
-                throughout your life. Sleeping offers the body a chance to
-                recover from wear and tear of daily life. It facilitates
-                learning and memory that helps your brain function properly,
-                increasing your productivity during daytime.
-              </CardText>
-              <br />
-              <CardText>
-                When people don’t get enough sleep, it increases their health
-                risks. Symptoms of depression, seizures, high blood pressure and
-                migraines worsen. Immunity is compromised, increasing the
-                likelihood of illness and infection. Sleep also plays an
-                important role in metabolism. Therefore, getting good quality
-                sleep at the right times can help protect your mental health,
-                physical health, and quality of life.
-              </CardText>
-            </CardBody>
-          </Card>
+        <DashboardNav>
+          <LoggedInSideNav />
+          <MobileNav />
+        </DashboardNav>
+
+        <BlogsWrapper>
+          <div>
+            <Card>
+              <CardImg
+                top
+                width="100%"
+                src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
+                alt="Humans and Animals Sleeping "
+              />
+              <CardBody>
+                <H2>About Sleep</H2>
+                <hr />
+                <CardText>
+                  Sleep plays a vital role in good health and well-being
+                  throughout your life. Sleeping offers the body a chance to
+                  recover from wear and tear of daily life. It facilitates
+                  learning and memory that helps your brain function properly,
+                  increasing your productivity during daytime.
+                </CardText>
+                <br />
+                <CardText>
+                  When people don’t get enough sleep, it increases their health
+                  risks. Symptoms of depression, seizures, high blood pressure
+                  and migraines worsen. Immunity is compromised, increasing the
+                  likelihood of illness and infection. Sleep also plays an
+                  important role in metabolism. Therefore, getting good quality
+                  sleep at the right times can help protect your mental health,
+                  physical health, and quality of life.
+                </CardText>
+              </CardBody>
+            </Card>
+
+            <CardWrapper>
+              <Card>
+                <CardBody>
+                  <H2>Quick tips to maintain healthy sleep habits:</H2>
+                  <hr />
+                  <CardText>
+                    <li>
+                      Keep a consistent sleep schedule, even on weekends and
+                      during vacations.
+                    </li>
+                    <li>
+                      Set a bedtime that is early enough to get at least 7 hours
+                      of sleep.
+                    </li>
+                    <li> Don't go to bed unless you are sleepy. </li>
+                    <li>
+                      If you don't fall alseep after 20 munites, get out of bed.
+                    </li>
+                    <li> Establish a relaxing bedtime routine. </li>
+                    <li>
+                      Make your bedroom quiet and relaxing. Keep the room at a
+                      comfortable, cool temperature.
+                    </li>
+                    <li> Exercise regularly and maintain a healthy diet. </li>
+                    <li>
+                      Turn off electronic devices at least 30 minutes before
+                      bedtime.
+                    </li>
+                    <li>
+                      Avoid consuming caffeine and alcohol before bedtime.{" "}
+                    </li>
+                  </CardText>
+                  <br />
+                </CardBody>
+              </Card>
+            </CardWrapper>
+          </div>
+
+          <ArticlesWrapper>
+            <PopularArticlesWrapper>
+              <H3> Popular Articles</H3>
+              <PopularArticles>
+                <CardColumns>
+                  {this.state.articles.map(article => {
+                    return (
+                      <Card key={article.id}>
+                        <CardImg
+                          top
+                          width="100%"
+                          src={article.image}
+                          alt="Flowers and essential oil"
+                        />
+                        <CardBody>
+                          <CardTitle>{article.title}</CardTitle>
+                          <CardSubtitle>
+                            Author: {article.author}, {article.published_date}
+                          </CardSubtitle>
+                          <hr />
+                          <CardText>{article.description}</CardText>
+                          <br />
+                          <a href={article.url}>
+                            <Button>Read more</Button>
+                          </a>
+                        </CardBody>
+                      </Card>
+                    );
+                  })}
+                </CardColumns>
+              </PopularArticles>
+            </PopularArticlesWrapper>
+
+            <EditorsPicksWrapper>
+              <H3>Editors Picks</H3>
+              <CardWrapper>
+                <Card>
+                  <CardImg
+                    top
+                    width="100%"
+                    src="https://gkng5olag22mpz1r551iq1dd-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/iStock-480396254.jpg"
+                    alt="Waking up"
+                  />
+                  <CardBody>
+                    <CardTitle>All About Sleep: Why is it Important?</CardTitle>
+                    <CardSubtitle>
+                      Author: Leah Perri, Nov 5th, 2017
+                    </CardSubtitle>
+                    <hr />
+                    <CardText>
+                      Quality sleep is the foundation for good health. Catching
+                      the right amount of zzzs is vital for your body to rebuild
+                      tissues, replenish cells and reclaim lost energy. Although
+                      you will spend about one-third of your life doing it, the
+                      importance of sleep is often ignored. This article
+                      provides you with some of the top reasons why sleep is so
+                      important.
+                    </CardText>
+                    <br />
+                    <a href="https://www.sleepscore.com/all-about-sleep-why-is-it-important/">
+                      <Button>Read more</Button>
+                    </a>
+                  </CardBody>
+                </Card>
+              </CardWrapper>
+              <CardWrapper>
+                <Card>
+                  <CardImg
+                    top
+                    width="100%"
+                    src="https://www.mattressclarity.com/wp-content/uploads/2018/12/sleepstages-01.jpg"
+                    alt="Sleep Stages"
+                  />
+                  <CardBody>
+                    <CardTitle>
+                      Listening to Your Sleep Cycles: A Wellness Guide
+                    </CardTitle>
+                    <CardSubtitle>
+                      Author: Molly Livingston, Nov 22, 2017
+                    </CardSubtitle>
+                    <hr />
+                    <CardText>
+                      Why should you care about the science behind snoozing?
+                      Understanding your sleep cycles allows you to refine and
+                      perfect your rest. It’s part of being sleep conscious.
+                      Here’s exactly what happens during each sleep cycle — and
+                      why it matters for your tomorrow.
+                    </CardText>
+                    <br />
+                    <a href="https://www.tomorrowsleep.com/magazine/sleep-cycle-stages">
+                      <Button>Read more</Button>
+                    </a>
+                  </CardBody>
+                </Card>
+              </CardWrapper>
+            </EditorsPicksWrapper>
+          </ArticlesWrapper>
 
           <CardWrapper>
             <Card>
               <CardBody>
-                <H2>Quick tips to maintain healthy sleep habits:</H2>
+                <CardTitle>To Learn More About Sleep Visit: </CardTitle>
                 <hr />
                 <CardText>
-                  <li>
-                    Keep a consistent sleep schedule, even on weekends and
-                    during vacations.
-                  </li>
-                  <li>
-                    Set a bedtime that is early enough to get at least 7 hours
-                    of sleep.
-                  </li>
-                  <li> Don't go to bed unless you are sleepy. </li>
-                  <li>
-                    If you don't fall alseep after 20 munites, get out of bed.
-                  </li>
-                  <li> Establish a relaxing bedtime routine. </li>
-                  <li>
-                    Make your bedroom quiet and relaxing. Keep the room at a
-                    comfortable, cool temperature.
-                  </li>
-                  <li> Exercise regularly and maintain a healthy diet. </li>
-                  <li>
-                    Turn off electronic devices at least 30 minutes before
-                    bedtime.
-                  </li>
-                  <li>Avoid consuming caffeine and alcohol before bedtime. </li>
+                  <a href="https://www.sleepfoundation.org/">
+                    <CardSubtitle>
+                      <li>National Sleep Foundation </li>
+                    </CardSubtitle>
+                  </a>
+
+                  <a href="https://www.sleepassociation.org/">
+                    <CardSubtitle>
+                      <li>American Sleep Association </li>
+                    </CardSubtitle>
+                  </a>
                 </CardText>
-                <br />
               </CardBody>
+              <CardImg
+                top
+                width="100%"
+                src="http://easysleepinc.com/images/banner_1NEW.png"
+                alt="Night sketch"
+              />
             </Card>
           </CardWrapper>
-        </div>
-
-        <ArticlesWrapper>
-          <PopularArticlesWrapper>
-            <H3> Popular Articles</H3>
-            <PopularArticles>
-              <CardColumns>
-                {this.state.articles.map(article => {
-                  return (
-                    <Card key={article.id}>
-                      <CardImg
-                        top
-                        width="100%"
-                        src={article.image}
-                        alt="Flowers and essential oil"
-                      />
-                      <CardBody>
-                        <CardTitle>{article.title}</CardTitle>
-                        <CardSubtitle>
-                          Author: {article.author}, {article.published_date}
-                        </CardSubtitle>
-                        <hr />
-                        <CardText>{article.description}</CardText>
-                        <br />
-                        <a href={article.url}>
-                          <Button>Read more</Button>
-                        </a>
-                      </CardBody>
-                    </Card>
-                  );
-                })}
-              </CardColumns>
-            </PopularArticles>
-          </PopularArticlesWrapper>
-
-          <EditorsPicksWrapper>
-            <H3>Editors Picks</H3>
-            <CardWrapper>
-              <Card>
-                <CardImg
-                  top
-                  width="100%"
-                  src="https://gkng5olag22mpz1r551iq1dd-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/iStock-480396254.jpg"
-                  alt="Waking up"
-                />
-                <CardBody>
-                  <CardTitle>All About Sleep: Why is it Important?</CardTitle>
-                  <CardSubtitle>Author: Leah Perri, Nov 5th, 2017</CardSubtitle>
-                  <hr />
-                  <CardText>
-                    Quality sleep is the foundation for good health. Catching
-                    the right amount of zzzs is vital for your body to rebuild
-                    tissues, replenish cells and reclaim lost energy. Although
-                    you will spend about one-third of your life doing it, the
-                    importance of sleep is often ignored. This article provides
-                    you with some of the top reasons why sleep is so important.
-                  </CardText>
-                  <br />
-                  <a href="https://www.sleepscore.com/all-about-sleep-why-is-it-important/">
-                    <Button>Read more</Button>
-                  </a>
-                </CardBody>
-              </Card>
-            </CardWrapper>
-            <CardWrapper>
-              <Card>
-                <CardImg
-                  top
-                  width="100%"
-                  src="https://www.mattressclarity.com/wp-content/uploads/2018/12/sleepstages-01.jpg"
-                  alt="Sleep Stages"
-                />
-                <CardBody>
-                  <CardTitle>
-                    Listening to Your Sleep Cycles: A Wellness Guide
-                  </CardTitle>
-                  <CardSubtitle>
-                    Author: Molly Livingston, Nov 22, 2017
-                  </CardSubtitle>
-                  <hr />
-                  <CardText>
-                    Why should you care about the science behind snoozing?
-                    Understanding your sleep cycles allows you to refine and
-                    perfect your rest. It’s part of being sleep conscious.
-                    Here’s exactly what happens during each sleep cycle — and
-                    why it matters for your tomorrow.
-                  </CardText>
-                  <br />
-                  <a href="https://www.tomorrowsleep.com/magazine/sleep-cycle-stages">
-                    <Button>Read more</Button>
-                  </a>
-                </CardBody>
-              </Card>
-            </CardWrapper>
-          </EditorsPicksWrapper>
-        </ArticlesWrapper>
-
-        <CardWrapper>
-          <Card>
-            <CardBody>
-              <CardTitle>To Learn More About Sleep Visit: </CardTitle>
-              <hr />
-              <CardText>
-                <a href="https://www.sleepfoundation.org/">
-                  <CardSubtitle>
-                    <li>National Sleep Foundation </li>
-                  </CardSubtitle>
-                </a>
-
-                <a href="https://www.sleepassociation.org/">
-                  <CardSubtitle>
-                    <li>American Sleep Association </li>
-                  </CardSubtitle>
-                </a>
-              </CardText>
-            </CardBody>
-            <CardImg
-              top
-              width="100%"
-              src="http://easysleepinc.com/images/banner_1NEW.png"
-              alt="Night sketch"
-            />
-          </Card>
-        </CardWrapper>
+        </BlogsWrapper>
       </div>
     );
   }
