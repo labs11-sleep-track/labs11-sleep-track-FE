@@ -156,3 +156,10 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 3em;
 }
+
+.stripeCard {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 3px;
+}
