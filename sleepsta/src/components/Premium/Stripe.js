@@ -3,6 +3,9 @@ import InjectForm from './InjectForm';
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import styled from 'styled-components';
 
+const keyPublishable = process.env.REACT_APP_PUBLISHABLE_KEY;
+const keySecret = process.env.REACT_APP_SECRET_KEY;
+
 const RealH1 = styled.h1`
   font-size: 3.75em;
   font-family: 'Rubik', Arial, Helvetica, sans-serif;
@@ -58,7 +61,7 @@ class Stripe extends React.Component {
         <RealH3>
           Cost? $10.
         </RealH3>
-        <StripeProvider apiKey="pk_test_IuV3H4bcKKItAUmS8Mxxb2yl00E18jGeXN">
+        <StripeProvider apiKey="${keyPublishable}">
           <Elements>
             <InjectForm inputs={this.props.inputs} />
           </Elements>
