@@ -25,10 +25,6 @@ const RadialCharts = styled.div`
   }
 `;
 
-const DashboardNav = styled.div`
-  width: 100%;
-`;
-
 const Chart = styled.div`
   @media (min-width: 1920px) {
     display: flex;
