@@ -130,7 +130,9 @@ class RadialChart extends React.Component {
           onClick={e =>
             this.props.showDailyGraph(
               e,
-              JSON.parse(this.props.dailyData.night_data)
+              window.location.hostname === "localhost"
+                ? JSON.parse(this.props.dailyData.night_data)
+                : this.props.dailyData.night_data
             )
           }
         >
