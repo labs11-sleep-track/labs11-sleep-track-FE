@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 import styled from 'styled-components';
+import { connect } from "react-redux";
+import { updateUser } from "../../actions";
 
 const FormHold = styled.div`
     margin: 10px;
@@ -15,6 +17,14 @@ const TheForm = styled.form`
     flex-direction: column;
 `;
 
+const TopForm = styled.div`
+    width: 100%;
+    display: flex;
+    input {
+        width: 50%;
+    }
+`;
+
 const StripeInput = styled.input`
     padding: 10px;
     border-radius: 10px;
@@ -27,17 +37,37 @@ const StripeLabel = styled.label`
 `;
 
 const StripeButton = styled.button`
+    text-align: center;
+    font-family: 'Rubik';
+    width: 50%;
     border: none;
     padding: 10px;
     border-radius: 10px;
+    margin: auto;
+    margin-top: 12.5px;
+
+    &:hover {
+        background-color: teal;
+        color: white;
+    }
+`;
+
+const NewH6 = styled.h6`
+    display: flex;
+    justify-content: center;
+    font-size: .7em;
+    margin-top: 5px;
+    color: rgb(244,244,244)
 `;
 
 
 class InjectForm extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            email: ''
+            email: '',
+            fname: this.props.inputs.f_name,
+            lname: this.props.inputs.l_name
         }
     }
 
@@ -49,6 +79,9 @@ class InjectForm extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
+        if(this.props.inputs.account_type === 'premium') {
+            return alert('You already are premium!')
+        } else {
         try {
             let { token } = await this.props.stripe.createToken({ name: this.state.email });
             console.log(token)
@@ -59,16 +92,30 @@ class InjectForm extends Component {
                 },
                 body: JSON.stringify({ token })
             })
+            const user = {
+                id: this.props.inputs.id,
+                f_name: this.state.fname,
+                l_name: this.state.lname,
+                account_type: 'premium'
+            }
+            await this.props.updateUser(user);
+            return alert('Premium Purchased!')
         } catch (e) {
             throw e;
         }
+    }
     }
   render() {
     return (
       <FormHold>
         <TheForm onSubmit={this.handleSubmit}>
-            <StripeInput value={this.state.email} onChange={this.handleChange} name="email" />
+            {/* <StripeInput value={this.state.email} onChange={this.handleChange} name="email" /> */}
+            <TopForm>
+                <StripeInput value={this.state.fname} onChange={this.handleChange} name="fname" />
+                <StripeInput value={this.state.lname} onChange={this.handleChange} name="lname" />
+            </TopForm>
             <CardElement className="stripeCard"/>
+            <NewH6>Payments handled securely through Stripe</NewH6>
             <StripeButton>Buy Premium</StripeButton>
         </TheForm>
       </FormHold>
@@ -76,4 +123,14 @@ class InjectForm extends Component {
   }
 }
 
-export default injectStripe(InjectForm);
+const mapStateToProps = state => {
+    return {
+      inputs: state.auth.inputs,
+      isUpdated: state.auth.isUpdated
+    };
+  };
+  
+  export default connect(
+    mapStateToProps,
+    { updateUser }
+  )(injectStripe(InjectForm));
