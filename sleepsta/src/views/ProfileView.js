@@ -9,6 +9,12 @@ const DashboardNav = styled.div`
   width: 100%;
 `;
 
+const ProfileWrapper = styled.div`
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
+`;
+
 function ProfileView(props) {
   return (
     <div>
@@ -18,7 +24,9 @@ function ProfileView(props) {
           <MobileNav />
         </DashboardNav>
       </div>
-      <Profile />
+      <ProfileWrapper>
+        <Profile />
+      </ProfileWrapper>
     </div>
   );
 }
