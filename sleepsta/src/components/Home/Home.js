@@ -131,18 +131,18 @@ const P = styled.p`
 `;
 
 const Team = styled.div`
-color: white;
-font-size: 12px;
-padding-top: 20px;
-font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 12px;
+  padding-top: 20px;
+  font-family: "Roboto", sans-serif;
 
-@media (max-width: 500px) {
-  display: none;
-}
+  @media (max-width: 500px) {
+    display: none;
+  }
 
-@media (max-width: 800px) {
-  font-size: 10px;
-}
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 const Home = () => {
@@ -166,7 +166,9 @@ const Home = () => {
           <LoginForm />
         </LoginButtonWrapper>
 
-        <Team>Meet the <Link to="/about">SLEEPSTA Team</Link></Team>
+        <Team>
+          Meet the <Link to="/about">SLEEPSTA Team</Link>
+        </Team>
       </Header>
     </Main>
   );

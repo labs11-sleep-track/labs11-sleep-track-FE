@@ -227,7 +227,7 @@ class DashboardView extends React.Component {
               <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
             )}
           </Week>
-
+          <br />
           <Month>
             {this.props.currentUser.account_type === "user" && (
               <input
