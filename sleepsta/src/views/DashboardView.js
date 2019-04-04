@@ -13,12 +13,17 @@ import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 
 const RadialCharts = styled.div`
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const DashboardNav = styled.div`
-width: 100%;
+  width: 100%;
+`;
 
-`
+const GraphWrapper = styled.div`
+  margin-bottom: 20px;
+`;
 
 class DashboardView extends React.Component {
   constructor(props) {
@@ -90,7 +95,15 @@ class DashboardView extends React.Component {
         );
       });
       //this makes it so incomplete weeks will show data for first few days and 0 for the rest:
-      let newFilteredWeek = Array(7).fill(0);
+      let newFilteredWeek = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ];
       for (let i = 0; i < filteredWeek.length; i++) {
         newFilteredWeek[i] = filteredWeek[i];
       }
@@ -103,17 +116,6 @@ class DashboardView extends React.Component {
         filteredMonthlyData: sortedFilteredMonth
       });
     }
-    // else if (prevState.month !== this.state.month) {
-    //   const filteredMonth = this.props.userDailyData.filter(dailyData => {
-    //     console.log("filtering Month");
-    //     return (
-    //       this.state.firstMonthDay <= dailyData.sleeptime &&
-    //       dailyData.sleeptime <= this.state.lastMonthDay
-    //     );
-    //   });
-    //   console.log("filtered month", filteredMonth);
-    //   this.setState({ filteredMonthlyData: filteredMonth });
-    // }
   }
 
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
@@ -157,21 +159,25 @@ class DashboardView extends React.Component {
             onChange={this.handleInputChange}
           />
         )}
-        {this.state.dailyDisplayed ? (
-          <DailyLineGraph sleepData={this.state.sleepData} />
-        ) : (
-          <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
-        )}
+        <GraphWrapper>
+          {this.state.dailyDisplayed ? (
+            <DailyLineGraph sleepData={this.state.sleepData} />
+          ) : (
+            <WeeklyLineGraph filteredDailyData={this.state.filteredDailyData} />
+          )}
+        </GraphWrapper>
         {this.state.dailyDisplayed && (
           <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
         )}
-        {this.props.currentUser.account_type === "user" && (
-          <MonthlyBarChart
-            filteredMonthlyData={this.state.filteredMonthlyData}
-            firstMonthDay={this.state.firstMonthDay}
-            lastMonthDay={this.state.lastMonthDay}
-          />
-        )}
+        <GraphWrapper>
+          {this.props.currentUser.account_type === "user" && (
+            <MonthlyBarChart
+              filteredMonthlyData={this.state.filteredMonthlyData}
+              firstMonthDay={this.state.firstMonthDay}
+              lastMonthDay={this.state.lastMonthDay}
+            />
+          )}
+        </GraphWrapper>
 
         <RadialCharts>
           {this.state.filteredDailyData.map(dailyData => {

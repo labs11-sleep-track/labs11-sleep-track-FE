@@ -110,7 +110,7 @@ class RadialChart extends React.Component {
   componentDidMount() {
     //formats sleeptime timestamp to day of the week:
     if (isNaN(this.props.dailyData.sleeptime) === true) {
-      this.setState({ series: [0] });
+      this.setState({ series: [0], day: this.props.dailyData });
     } else {
       let dayOfWeek = moment
         .unix(this.props.dailyData.sleeptime)

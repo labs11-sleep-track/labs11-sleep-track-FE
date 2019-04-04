@@ -22,14 +22,14 @@ class WeeklyBarChart extends Component {
       { label: "Sunday", y: 0 }
     ];
     for (let i = 0; i < 7; i++) {
-      if (this.props.filteredDailyData[i]) {
+      if (isNaN(this.props.filteredDailyData[i]) === true) {
+        dataArr[i].y = 0;
+      } else {
         let sleepTime =
           (this.props.filteredDailyData[i].waketime -
             this.props.filteredDailyData[i].sleeptime) /
           3600;
         dataArr[i].y = sleepTime;
-      } else {
-        dataArr[i].y = 0;
       }
     }
     this.setState({ dps: dataArr });
