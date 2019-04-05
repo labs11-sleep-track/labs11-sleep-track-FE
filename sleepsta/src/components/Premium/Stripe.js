@@ -3,6 +3,7 @@ import InjectForm from "./InjectForm";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import styled from "styled-components";
 
+
 const keyPublishable = process.env.REACT_APP_PUBLISHABLE_KEY;
 const keySecret = process.env.REACT_APP_SECRET_KEY;
 
@@ -50,7 +51,7 @@ class Stripe extends React.Component {
         </NewOL>
 
         <RealH3>Cost? $10.</RealH3>
-        <StripeProvider apiKey={toString(keyPublishable)}>
+        <StripeProvider apiKey={keyPublishable}>
           <Elements>
             <InjectForm />
           </Elements>
