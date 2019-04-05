@@ -55,6 +55,10 @@ const H2 = styled.div`
   @media (max-width: 500px) {
     text-align: center;
   }
+
+  @media (max-width: 2500px) {
+    font-size: 28px;
+  }
 `;
 
 const H3 = styled.h3`
@@ -67,6 +71,10 @@ const H3 = styled.h3`
 
   @media (max-width: 500px) {
     text-align: center;
+  }
+
+  @media (max-width: 2500px) {
+    font-size: 24px;
   }
 `;
 
@@ -117,6 +125,10 @@ const CardTitle = styled.div`
   @media (max-width: 500px) {
     text-align: center;
   }
+
+  @media (max-width: 2500px) {
+    font-size: 22px;
+  }
 `;
 
 const CardSubtitle = styled.div`
@@ -131,6 +143,10 @@ const CardSubtitle = styled.div`
   @media (max-width: 500px) {
     text-align: center;
     font-size: 12px;
+  }
+
+  @media (max-width: 2500px) {
+    font-size: 16px;
   }
 `;
 

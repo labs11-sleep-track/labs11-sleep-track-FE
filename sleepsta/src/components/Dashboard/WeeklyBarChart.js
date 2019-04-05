@@ -75,7 +75,7 @@ class WeeklyBarChart extends Component {
           indexLabelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
-          yValueFormatString: "#.# 'hr'",
+          yValueFormatString: "#.## 'hr'",
           indexLabel: "{y}",
           dataPoints: this.state.dps
         }
