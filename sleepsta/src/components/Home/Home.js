@@ -23,7 +23,7 @@ const Main = styled.div`
     flex-direction: column;
     align-items: center;
     align-content: center;
-    padding-right: 0;
+    padding-right: 215px;
   }
 
   @media (max-width: 500px) {
@@ -31,6 +31,7 @@ const Main = styled.div`
     flex-direction: column;
     align-items: center;
     align-content: center;
+    padding-left: 215px;
   }
 `;
 
