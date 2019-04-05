@@ -6,17 +6,13 @@ class MonthlyBarChart extends Component {
   constructor() {
     super();
     this.state = {
-      dps: []
+      dps: [],
+      average: 0
     };
   }
 
   initializeState = () => {
-    let time = new Date(3243232157);
-    console.log(time.getDate());
     let dataArr = [];
-    let count = 1;
-    // let monthLength =
-    //   (this.props.lastMonthDay - this.props.firstMonthDay + 1) / 86400;
     for (let i = 0; i < this.props.filteredMonthlyData.length; i++) {
       if (this.props.filteredMonthlyData[i]) {
         let wakeTime = this.props.filteredMonthlyData[i].waketime;
@@ -27,46 +23,31 @@ class MonthlyBarChart extends Component {
           y: totalSleep
         });
       }
-      // else {
-      //   let sleepTime = 0;
-      //   dataArr.push({ label: count, y: sleepTime });
-      // }
-      count++;
     }
-    console.log("dataArr", dataArr);
     this.setState({ dps: dataArr });
   };
 
-  // initializeState = () => {
-  //   let dataArr = [];
-  //   let monthLength =
-  //     (this.props.lastMonthDay - this.props.firstMonthDay) / 86400;
-  //   for (let i = monthLength + 1; i >= 0; i--) {
-  //     if (this.props.filteredMonthlyData[i]) {
-  //       let wakeTime = this.props.filteredMonthlyData[i].waketime;
-  //       let sleepTime = this.props.filteredMonthlyData[i].sleeptime;
-  //       let dayOfMonth = new Date(sleepTime * 1000).getDate();
-  //       let totalSleep = (wakeTime - sleepTime) / 3600;
-  //       dataArr.unshift({
-  //         label: i + 1,
-  //         y: totalSleep
-  //       });
-  //     } else {
-  //       let totalSleep = 0;
-  //       dataArr.unshift({ label: i + 1, y: totalSleep });
-  //     }
-  //   }
-  //   console.log("dataArr", dataArr);
-  //   this.setState({ dps: dataArr });
-  // };
-
-  componentDidMount() {
-    this.initializeState();
+  setAvg() {
+    let total = 0;
+    let count = 0;
+    for (let i = 0; i < this.state.dps.length; i++) {
+      if (this.state.dps[i].y !== 0) {
+        total += this.state.dps[i].y;
+        count++;
+      }
+    }
+    this.setState({ average: (total / count).toFixed(1) });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  async componentDidMount() {
+    await this.initializeState();
+    this.setAvg();
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
     if (prevProps.filteredMonthlyData !== this.props.filteredMonthlyData) {
-      this.initializeState();
+      await this.initializeState();
+      this.setAvg();
     }
   }
   render() {
@@ -79,7 +60,9 @@ class MonthlyBarChart extends Component {
       },
       subtitles: [
         {
-          // text: "Total hours slept each night"
+          fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontColor: "#F7F7FF",
+          text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
