@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-// var updateInterval = 500;
 class WeeklyBarChart extends Component {
   constructor() {
     super();
     this.state = {
-      dps: []
+      dps: [],
+      average: 0
     };
   }
 
-  initializeState = () => {
+  initializeState() {
     let dataArr = [
       { label: "Monday", y: 0 },
       { label: "Tuesday", y: 0 },
@@ -22,7 +22,7 @@ class WeeklyBarChart extends Component {
       { label: "Sunday", y: 0 }
     ];
     for (let i = 0; i < 7; i++) {
-      if (this.props.filteredDailyData[i]) {
+      if (typeof this.props.filteredDailyData[i] === "object") {
         let sleepTime =
           (this.props.filteredDailyData[i].waketime -
             this.props.filteredDailyData[i].sleeptime) /
@@ -33,14 +33,29 @@ class WeeklyBarChart extends Component {
       }
     }
     this.setState({ dps: dataArr });
-  };
-  componentDidMount() {
-    this.initializeState();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  setAvg() {
+    let total = 0;
+    let count = 0;
+    for (let i = 0; i < this.state.dps.length; i++) {
+      if (this.state.dps[i].y !== 0) {
+        total += this.state.dps[i].y;
+        count++;
+      }
+    }
+    this.setState({ average: (total / count).toFixed(1) });
+  }
+
+  async componentDidMount() {
+    await this.initializeState();
+    this.setAvg();
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
     if (prevProps.filteredDailyData !== this.props.filteredDailyData) {
-      this.initializeState();
+      await this.initializeState();
+      this.setAvg();
     }
   }
   render() {
@@ -53,7 +68,9 @@ class WeeklyBarChart extends Component {
       },
       subtitles: [
         {
-          // text: "Total hours slept each night"
+          fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontColor: "#F7F7FF",
+          text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
@@ -75,7 +92,7 @@ class WeeklyBarChart extends Component {
           indexLabelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
-          yValueFormatString: "#.## 'hr'",
+          yValueFormatString: "#.# 'hr'",
           indexLabel: "{y}",
           dataPoints: this.state.dps
         }

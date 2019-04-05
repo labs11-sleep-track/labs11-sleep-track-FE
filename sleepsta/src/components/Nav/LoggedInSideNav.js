@@ -46,7 +46,7 @@ class LoggedInSideNav extends React.Component {
           <div className="sidebar-header">
             <NavLink href="/dashboard">
               <div className="sleepTitle">
-                <img src={logo} className="logo" alt="sleep"></img>
+                <img src={logo} className="logo" alt="sleep" />
                 {/* SLEEP<i>STA</i> */}
               </div>
             </NavLink>
@@ -58,44 +58,56 @@ class LoggedInSideNav extends React.Component {
             </div>
 
             <li>
-              <Link style={{ textDecoration: "none" }} to="/dashboard">
+              <NavLink style={{ textDecoration: "none" }} href="/dashboard">
                 <div>
-                  <i class="fas fa-chart-bar" />&nbsp;&nbsp;Dashboard
+                  <i class="fas fa-chart-bar" />
+                  &nbsp;&nbsp;Dashboard
                 </div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
               <Link style={{ textDecoration: "none" }} to="/blogs">
                 <div>
-                  <i className="fas fa-bed" />&nbsp;&nbsp;Sleep Blogs
+                  <i className="fas fa-bed" />
+                  &nbsp;&nbsp;Sleep Blogs
                 </div>
               </Link>
             </li>
 
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Account</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+              <a
+                href="#pageSubmenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+              >
+                <i class="fas fa-user-circle" />&nbsp;&nbsp;Account
+              </a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                  <Link style={{ textDecoration: "none" }} to="/profile">
+                    <div>
+                      <i class="fas fa-user" />&nbsp;&nbsp;Profile
+                    </div>
+                  </Link>
+                </li>
 
-                    <li>
-                        <Link style={{textDecoration: "none"}} to="/profile">
-                            <div><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</div>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link style={{textDecoration: "none"}} to="/premium">
-                            <div><i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;Payment</div>
-                        </Link>
-                    </li>
-
-                </ul>
+                <li>
+                  <Link style={{ textDecoration: "none" }} to="/premium">
+                    <div>
+                      <i className="fas fa-dollar-sign" />&nbsp;&nbsp;Payment
+                    </div>
+                  </Link>
+                </li>
+              </ul>
             </li>
 
             <li>
               <div>
                 <a onClick={this.logout}>
-                  <i class="fas fa-sign-out-alt" />&nbsp;&nbsp;Logout
+                  <i class="fas fa-sign-out-alt" />
+                  &nbsp;&nbsp;Logout
                 </a>
               </div>
             </li>

@@ -223,7 +223,7 @@ class DashboardView extends React.Component {
             </Week>
             <br />
             <Month>
-              {this.props.currentUser.account_type === "user" && (
+              {this.props.currentUser.account_type == "premium" && (
                 <input
                   type="month"
                   name="month"
@@ -231,7 +231,7 @@ class DashboardView extends React.Component {
                   onChange={this.handleInputChange}
                 />
               )}
-              {this.props.currentUser.account_type === "user" && (
+              {this.props.currentUser.account_type == "premium" && (
                 <MonthlyBarChart
                   filteredMonthlyData={this.state.filteredMonthlyData}
                   firstMonthDay={this.state.firstMonthDay}
