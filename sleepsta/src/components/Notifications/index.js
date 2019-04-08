@@ -4,12 +4,12 @@ import ee from "event-emitter";
 import { connect } from "react-redux";
 
 const Container = styled.div`
-  background-color: transparent;
-  color: white;
+  background-color: #e34a6f;
+  color: #252e4f;
   padding: 16px;
   position: absolute;
   top: ${props => props.top}px;
-  right: 50%;
+  right: 16px;
   z-index: 999;
   transition: top 0.5s ease;
 
@@ -28,7 +28,7 @@ class Notifications extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      top: 200,
+      top: -100,
       msg: ""
     };
     this.timeout = null;
@@ -43,7 +43,7 @@ class Notifications extends Component {
       clearTimeout(this.timeout);
       this.setState(
         {
-          top: 200
+          top: -100
         },
         () => {
           this.timeout = setTimeout(() => {
@@ -59,41 +59,32 @@ class Notifications extends Component {
   showNotification = msg => {
     this.setState(
       {
-        top: 300,
+        top: 16,
         msg
       },
       () => {
         this.timeout = setTimeout(() => {
           this.setState({
-            top: 200
+            top: -100
           });
         }, 3000);
       }
     );
   };
 
-  hide = e => {
-    e.preventDefault();
-    const x = document.getElementsByClassName("notif");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  };
-
   render() {
     if (this.props.update > 0) {
       return (
         <Container top={this.state.top} className="notif">
+          {console.log("failed")}
           <span>Failed to update profile. </span>
-
           <i className="fa fa-bell" />
         </Container>
       );
     } else {
       return (
         <Container top={this.state.top} className="notif">
+          {console.log("success")}
           <span>Profile successfully updated. </span>
           <i className="fa fa-bell" />
         </Container>
