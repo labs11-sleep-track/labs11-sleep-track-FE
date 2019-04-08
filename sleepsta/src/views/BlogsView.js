@@ -47,7 +47,7 @@ const ArticlesWrapper = styled.div`
 `;
 const H2 = styled.div`
   font-size: 25px;
-  color: black;
+  color: white;
 
   @media (min-width: 1920px) {
     font-size: 30px;
@@ -134,7 +134,7 @@ const CardTitle = styled.div`
 
 const CardSubtitle = styled.div`
   font-size: 14px;
-  color: black;
+  color: white;
   padding-top: 10px;
 
   @media (min-width: 1920px) {
