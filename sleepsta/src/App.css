@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 html,
 body,
 div,
@@ -161,5 +161,6 @@ body {
 
 * {
   -webkit-font-smoothing: antialiased;
+  /* font-family: "Roboto", "Arimo", "Work Sans", "Pacifico"; */
   -moz-osx-font-smoothing: grayscale;
 }
