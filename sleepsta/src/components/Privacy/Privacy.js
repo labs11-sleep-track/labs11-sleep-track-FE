@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
+import MobileNav from "../Nav/MobileNav.js";
+
 const All = styled.div`
 background-color: #4C546F;
 margin: 30px;
 padding: 10px;
 border-radius: 30px;
-width: 80%;
+// width: 80%;
 `
 
 const Title = styled.h1`
@@ -123,7 +126,12 @@ font-weight: bold;
 const Privacy = (props) => {
   return (
 
+
+
     <All>
+<LoggedInSideNav />
+<MobileNav />
+
 
 <Title>Sleepsta Privacy Policy</Title>
 <P>This policy applies to all information collected or submitted on Sleepsta’s website and our apps for iPhone and any other devices and platforms.</P>
