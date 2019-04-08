@@ -116,7 +116,7 @@ const CardWrapper = styled.div`
 
 const CardTitle = styled.div`
   font-size: 18px;
-  color: black;
+  color: white;
 
   @media (min-width: 1920px) {
     font-size: 22px;
