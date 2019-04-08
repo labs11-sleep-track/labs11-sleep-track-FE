@@ -4,6 +4,7 @@ import { withRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "./actions/index";
 import About from "./components/About/About.js";
+import Privacy from "./components/Privacy/Privacy.js";
 import Home from "./views/HomeView";
 import BlogsView from "./views/BlogsView";
 import ProfileView from "./views/ProfileView";
@@ -49,6 +50,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/auth/google/:token" component={TokenView} />
+        <Route path="/privacy" component={Privacy} />
         {/* <Route path="/sleep" component={Sleep} />
         <Route path="/wake" component={Wake} /> */}
 

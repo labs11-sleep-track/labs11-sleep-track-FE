@@ -168,7 +168,8 @@ const Home = () => {
         </LoginButtonWrapper>
 
         <Team>
-          Meet the <Link to="/about">SLEEPSTA Team</Link>
+          Meet the <Link to="/about">SLEEPSTA Team</Link>&nbsp;|&nbsp;
+          <Link to="/privacy">Privacy Policy</Link>
         </Team>
       </Header>
     </Main>
