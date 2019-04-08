@@ -1,0 +1,16 @@
+.card {
+  border: none;
+  border-radius: 18px;
+}
+
+.card-body {
+  background-color: #485a7a;
+}
+
+.card-text {
+  color: white;
+}
+
+.li {
+  color: white;
+}
