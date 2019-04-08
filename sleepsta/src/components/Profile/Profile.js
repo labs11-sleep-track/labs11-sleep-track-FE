@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, updateUser } from "../../actions";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import { Form, Label, Input } from "reactstrap";
 import "./Profile.css";
 import Notifications, { notify } from "../Notifications/index";
 
@@ -13,7 +13,7 @@ class Profile extends Component {
       modal: false,
       f_name: "",
       l_name: "",
-      update: 0
+      update: null
     };
 
     this.toggle = this.toggle.bind(this);
@@ -56,15 +56,17 @@ class Profile extends Component {
       }));
       this.props.getUser();
       this.setState({
-        update: 0
+        update: null
       });
+      this.toggle();
     }
+    this.toggle();
   };
 
   render() {
     console.log("while rendering", this.props.inputs);
-    console.log(localStorage);
-    console.log(document.getElementsByClassName("notif"));
+    // console.log(localStorage);
+    // console.log(document.getElementsByClassName("notif"));
     return (
       <div className="profile">
         <div className="title">
@@ -101,6 +103,7 @@ class Profile extends Component {
           fade={false}
           toggle={this.toggle}
           className={this.props.className}
+          id="modal"
         >
           <ModalHeader toggle={this.toggle} className="header">
             Update User Form
@@ -132,6 +135,12 @@ class Profile extends Component {
                 />
               </div>
             </Form>
+
+            <br />
+
+            {/* {this.state.update ? (
+              <p className="fail">Failed to update profile.</p>
+            ) : null} */}
 
             <br />
 

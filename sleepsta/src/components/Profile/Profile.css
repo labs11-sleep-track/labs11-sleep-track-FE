@@ -31,8 +31,12 @@ button {
   margin: 0 5px;
 }
 
-.notif {
+/* .notif {
   display: none;
+} */
+
+#modal {
+  background-color: #4c546f;
 }
 
 h6 {
