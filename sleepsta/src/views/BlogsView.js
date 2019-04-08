@@ -10,6 +10,7 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
+import "../components/CSS/blogs.css";
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
@@ -133,7 +134,7 @@ const CardTitle = styled.div`
 
 const CardSubtitle = styled.div`
   font-size: 14px;
-  color: #999;
+  color: black;
   padding-top: 10px;
 
   @media (min-width: 1920px) {
@@ -493,13 +494,13 @@ class BlogView extends React.Component {
                 <CardText>
                   <a href="https://www.sleepfoundation.org/">
                     <CardSubtitle>
-                      <li>National Sleep Foundation </li>
+                      <li className="li">National Sleep Foundation </li>
                     </CardSubtitle>
                   </a>
 
                   <a href="https://www.sleepassociation.org/">
                     <CardSubtitle>
-                      <li>American Sleep Association </li>
+                      <li className="li">American Sleep Association </li>
                     </CardSubtitle>
                   </a>
                 </CardText>
