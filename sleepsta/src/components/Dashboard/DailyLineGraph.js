@@ -25,8 +25,8 @@ class DailyLineGraph extends Component {
       backgroundColor: "#4C546F",
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
-        fontColor: "#F7F7FF",
-        text: "Nightly Sleep Motion Analysis"
+        fontColor: "#F7F7FF"
+        // text: "Nightly Sleep Motion Analysis"
       },
       axisY: {
         title: "Movement",

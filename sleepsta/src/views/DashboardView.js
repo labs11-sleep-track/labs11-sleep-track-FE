@@ -10,6 +10,7 @@ import WeeklyLineGraph from "../components/Dashboard/WeeklyBarChart";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
+import DailyDataModal from "../components/Dashboard/DailyDataModal";
 
 const Div = styled.div`
   @media (min-width: 1920px) {
@@ -183,8 +184,8 @@ class DashboardView extends React.Component {
     });
   };
 
-  //used when clicking on "show weekly data" button to display weekly data again
-  showWeeklyGraph = e => {
+  // //used when clicking on "show weekly data" button to display weekly data again
+  hideDailyGraph = e => {
     e.preventDefault();
     this.setState({ dailyDisplayed: false });
   };
@@ -210,20 +211,20 @@ class DashboardView extends React.Component {
                 value={this.state.week}
                 onChange={this.handleInputChange}
               />
-              {this.state.dailyDisplayed ? (
+              {/* {this.state.dailyDisplayed ? (
                 <DailyLineGraph sleepData={this.state.sleepData} />
-              ) : (
-                <WeeklyLineGraph
-                  filteredDailyData={this.state.filteredDailyData}
-                />
-              )}
-              {this.state.dailyDisplayed && (
+              ) : ( */}
+              <WeeklyLineGraph
+                filteredDailyData={this.state.filteredDailyData}
+              />
+              {/* )} */}
+              {/* {this.state.dailyDisplayed && (
                 <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
-              )}
+              )} */}
             </Week>
             <br />
             <Month>
-              {this.props.currentUser.account_type == "premium" && (
+              {this.props.currentUser.account_type === "premium" && (
                 <input
                   type="month"
                   name="month"
@@ -231,7 +232,7 @@ class DashboardView extends React.Component {
                   onChange={this.handleInputChange}
                 />
               )}
-              {this.props.currentUser.account_type == "premium" && (
+              {this.props.currentUser.account_type === "premium" && (
                 <MonthlyBarChart
                   filteredMonthlyData={this.state.filteredMonthlyData}
                   firstMonthDay={this.state.firstMonthDay}
@@ -252,6 +253,12 @@ class DashboardView extends React.Component {
               );
             })}
           </RadialCharts>
+          <DailyDataModal
+            sleepData={this.state.sleepData}
+            dailyDisplayed={this.state.dailyDisplayed}
+            // showDailyGraph={this.showDailyGraph}
+            hideDailyGraph={this.hideDailyGraph}
+          />
         </DashboardWrapper>
       </Div>
     );

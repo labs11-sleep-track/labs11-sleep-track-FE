@@ -14,7 +14,6 @@ import PremiumPage from "./views/PremiumPage";
 import Sleep from "./components/Survey/Sleep";
 import Wake from "./components/Survey/Wake";
 
-
 class App extends Component {
   componentWillReceiveProps(nextProps) {
     // redirect to home page if we get an error with 401 status
