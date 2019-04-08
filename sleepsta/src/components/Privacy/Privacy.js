@@ -129,7 +129,7 @@ const Privacy = (props) => {
 <P>This policy applies to all information collected or submitted on Sleepsta’s website and our apps for iPhone and any other devices and platforms.</P>
 <SubTitle>Information we collect</SubTitle>
 <P>We store your name and email as a part of your account. We also store information about your sleep: times you went to sleep and woke up, motion throughout the night, and any notes you make. We sync this information between the website and your devices.</P>
-<P><b>Technical basics</b></P>
+<H4>Technical basics</H4>
 <P>We use cookies on the site and similar tokens in the app to keep you logged in. Our server software may also store basic technical information, such as your IP address, in temporary memory or logs.</P>
 <H4>Netlify</H4>
 <P>Our website is hosted on Netlify and your data is displayed there when you are logged in. You can find <A href="https://www.netlify.com/privacy/">Netlify’s privacy policy here</A>.</P>
