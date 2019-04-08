@@ -138,7 +138,7 @@ const Team = styled.div`
   font-family: "Roboto", sans-serif;
 
   @media (max-width: 500px) {
-    display: none;
+    font-size: 10px;
   }
 
   @media (max-width: 800px) {
