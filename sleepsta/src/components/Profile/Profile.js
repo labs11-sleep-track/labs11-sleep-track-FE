@@ -78,32 +78,41 @@ class Profile extends Component {
 
         <div className="userInfo">
           <br />
-          <h6>Email:</h6>
-          <p>{this.props.inputs.email}</p>
+          <div className="box">
+            <h6>Email:</h6>
+            <p className="item">{this.props.inputs.email}</p>
+          </div>
+
           <br />
-          <h6>First Name:</h6>
-          <p>{this.props.inputs.f_name}</p>
+          <div className="box">
+            <h6>First Name:</h6>
+            <p>{this.props.inputs.f_name}</p>
+          </div>
           <br />
-          <h6>Last Name:</h6>
-          <p>{this.props.inputs.l_name}</p>
+
+          <div className="box">
+            <h6>Last Name:</h6>
+            <p>{this.props.inputs.l_name}</p>
+          </div>
           <br />
-          <h6>Account Type:</h6>
-          <p>{this.props.inputs.account_type}</p>
+
+          <div className="box">
+            <h6>Account Type:</h6>
+            <p>{this.props.inputs.account_type}</p>
+          </div>
           <br />
         </div>
-
-        <br />
-
-        <Button color="danger" onClick={this.toggle}>
-          Edit Profile
-        </Button>
+        <div className="butn">
+          <Button color="primary" onClick={this.toggle}>
+            Edit Profile
+          </Button>
+        </div>
 
         <Modal
           isOpen={this.state.modal}
           fade={false}
           toggle={this.toggle}
           className={this.props.className}
-          id="modal"
         >
           <ModalHeader toggle={this.toggle} className="header">
             Update User Form
