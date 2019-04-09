@@ -165,3 +165,7 @@ body {
   /* font-family: "Roboto", "Arimo", "Work Sans", "Pacifico"; */
   -moz-osx-font-smoothing: grayscale;
 }
+
+.card-body {
+  background-color: #303848;
+}

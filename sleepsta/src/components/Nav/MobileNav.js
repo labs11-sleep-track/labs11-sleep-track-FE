@@ -18,7 +18,7 @@ import { withRouter } from "react-router-dom";
 import "./SideBarNav.css";
 
 const NavAll = styled.div`
-  background: #4c546f;
+  background-color: #303848;
   color: white;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ const NavAll = styled.div`
   }
 
   @media (max-width: 500px) {
-    background: #4c546f;
+    background-color: #303848;
     color: white;
     display: flex;
     justify-content: center;
@@ -51,19 +51,29 @@ const Title = styled.h2`
   display: flex;
   text-align: center;
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins";
+  font-weight: bold;
+  letter-spacing: 2px;
   width: 100%;
   cursor: pointer;
+
+  &:hover { 
+    color: #E34A6F;
+  }
 `;
 
 const Links = styled.div`
   font-size: 20px;
   padding-top: 20px;
   padding-bottom: 10px;
-  border-top: 2px solid #252e4f;
+  border-top: 2px solid #070f1e;
   display: flex;
   justify-content: center;
   cursor: pointer;
+
+  &:hover { 
+    color: #E34A6F;
+  }
 `;
 
 class MobileNav extends React.Component {
@@ -169,7 +179,7 @@ class MobileNav extends React.Component {
           <NavItem>
             <Link style={{ textDecoration: "none" }} to="/about">
               <Links>
-              <i class="fas fa-bed"></i>&nbsp;About
+              <i class="fas fa-bed"></i>&nbsp;About Us
               </Links>
             </Link>
           </NavItem>
@@ -181,7 +191,6 @@ class MobileNav extends React.Component {
               </Links>
             </Link>
           </NavItem>
-          <br />
         </Nav>
       </Collapse>
     </Navbar>
