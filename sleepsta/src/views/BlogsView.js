@@ -6,11 +6,12 @@ import {
   Card,
   CardImg,
   CardText,
+  CardTitle,
   CardBody,
   CardColumns,
   Button
 } from "reactstrap";
-import "../components/CSS/blogs.css";
+// import "../components/CSS/blogs.css";
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
@@ -19,7 +20,6 @@ const BlogViews = styled.div`
   }
 `;
 
-const Blog = styled.div``;
 const DashboardNav = styled.div`
   width: 100%;
 `;
@@ -46,7 +46,7 @@ const ArticlesWrapper = styled.div`
   }
 `;
 const H2 = styled.div`
-  font-size: 25px;
+  font-size: 24px;
   color: white;
 
   @media (min-width: 1920px) {
@@ -57,14 +57,21 @@ const H2 = styled.div`
     text-align: center;
   }
 
-  @media (max-width: 2500px) {
-    font-size: 28px;
-  }
+  // @media (max-width: 2500px) {
+  //   font-size: 28px;
+  // }
+`;
+
+const P = styled.p`
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  color: white;
 `;
 
 const H3 = styled.h3`
-  font-size: 20px;
+  font-size: 22px;
   padding-bottom: 10px;
+  font-weight: bold;
 
   @media (min-width: 1920px) {
     font-size: 25px;
@@ -74,9 +81,9 @@ const H3 = styled.h3`
     text-align: center;
   }
 
-  @media (max-width: 2500px) {
-    font-size: 24px;
-  }
+  // @media (max-width: 2500px) {
+  //   font-size: 26px;
+  // }
 `;
 
 const PopularArticlesWrapper = styled.div`
@@ -115,40 +122,63 @@ const CardWrapper = styled.div`
   padding: 15px 0;
 `;
 
-const CardTitle = styled.div`
-  font-size: 18px;
-  color: white;
+const Title = styled(CardTitle)`
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
 
   @media (min-width: 1920px) {
     font-size: 22px;
   }
-
   @media (max-width: 500px) {
     text-align: center;
   }
 
-  @media (max-width: 2500px) {
-    font-size: 22px;
-  }
+  // @media (max-width: 2500px) {
+  //   font-size: 22px;
+  // }
 `;
 
 const CardSubtitle = styled.div`
-  font-size: 14px;
-  color: white;
-  padding-top: 10px;
+  font-size: 13px;
+  color: #999;
 
   @media (min-width: 1920px) {
     font-size: 16px;
   }
-
   @media (max-width: 500px) {
     text-align: center;
     font-size: 12px;
   }
 
-  @media (max-width: 2500px) {
-    font-size: 16px;
+  // @media (max-width: 2500px) {
+  //   font-size: 16px;
+  // }
+`;
+
+const Text = styled(CardText)`
+  font-size: 13px;
+  color: white;
+  font-weight: 300;
+`;
+
+const DarkCard = styled(Card)`
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.12);
+`;
+
+const PinkButton = styled(Button)`
+  background: #e34a6f;
+  color: white;
+  &:hover {
+    background: white;
+    color: #e34a6f;
   }
+`;
+
+const HR = styled.hr`
+  background: #e34a6f;
 `;
 
 class BlogView extends React.Component {
@@ -321,7 +351,7 @@ class BlogView extends React.Component {
 
         <BlogsWrapper>
           <div>
-            <Card>
+            <DarkCard>
               <CardImg
                 top
                 width="100%"
@@ -330,16 +360,16 @@ class BlogView extends React.Component {
               />
               <CardBody>
                 <H2>About Sleep</H2>
-                <hr />
-                <CardText>
+                <HR />
+                <P>
                   Sleep plays a vital role in good health and well-being
                   throughout your life. Sleeping offers the body a chance to
                   recover from wear and tear of daily life. It facilitates
                   learning and memory that helps your brain function properly,
                   increasing your productivity during daytime.
-                </CardText>
+                </P>
                 <br />
-                <CardText>
+                <P>
                   When people don’t get enough sleep, it increases their health
                   risks. Symptoms of depression, seizures, high blood pressure
                   and migraines worsen. Immunity is compromised, increasing the
@@ -347,16 +377,16 @@ class BlogView extends React.Component {
                   important role in metabolism. Therefore, getting good quality
                   sleep at the right times can help protect your mental health,
                   physical health, and quality of life.
-                </CardText>
+                </P>
               </CardBody>
-            </Card>
+            </DarkCard>
 
             <CardWrapper>
-              <Card>
+              <DarkCard>
                 <CardBody>
-                  <H2>Quick tips to maintain healthy sleep habits:</H2>
-                  <hr />
-                  <CardText>
+                  <H2>Quick Tips To Maintain Healthy Sleep Habits</H2>
+                  <HR />
+                  <P>
                     <li>
                       Keep a consistent sleep schedule, even on weekends and
                       during vacations.
@@ -382,10 +412,10 @@ class BlogView extends React.Component {
                     <li>
                       Avoid consuming caffeine and alcohol before bedtime.{" "}
                     </li>
-                  </CardText>
+                  </P>
                   <br />
                 </CardBody>
-              </Card>
+              </DarkCard>
             </CardWrapper>
           </div>
           <ArticlesWrapper>
@@ -395,7 +425,7 @@ class BlogView extends React.Component {
                 <CardColumns>
                   {this.state.articles.map(article => {
                     return (
-                      <Card key={article.id}>
+                      <DarkCard key={article.id}>
                         <CardImg
                           top
                           width="100%"
@@ -403,18 +433,18 @@ class BlogView extends React.Component {
                           alt="Flowers and essential oil"
                         />
                         <CardBody>
-                          <CardTitle>{article.title}</CardTitle>
+                          <Title>{article.title}</Title>
                           <CardSubtitle>
                             Author: {article.author}, {article.published_date}
                           </CardSubtitle>
-                          <hr />
-                          <CardText>{article.description}</CardText>
+                          <HR />
+                          <Text>{article.description}</Text>
                           <br />
                           <a href={article.url}>
-                            <Button>Read more</Button>
+                            <PinkButton>Read more</PinkButton>
                           </a>
                         </CardBody>
-                      </Card>
+                      </DarkCard>
                     );
                   })}
                 </CardColumns>
@@ -424,7 +454,7 @@ class BlogView extends React.Component {
             <EditorsPicksWrapper>
               <H3>Editors Picks</H3>
               <CardWrapper>
-                <Card>
+                <DarkCard>
                   <CardImg
                     top
                     width="100%"
@@ -436,8 +466,8 @@ class BlogView extends React.Component {
                     <CardSubtitle>
                       Author: Leah Perri, Nov 5th, 2017
                     </CardSubtitle>
-                    <hr />
-                    <CardText>
+                    <HR />
+                    <Text>
                       Quality sleep is the foundation for good health. Catching
                       the right amount of zzzs is vital for your body to rebuild
                       tissues, replenish cells and reclaim lost energy. Although
@@ -445,16 +475,16 @@ class BlogView extends React.Component {
                       importance of sleep is often ignored. This article
                       provides you with some of the top reasons why sleep is so
                       important.
-                    </CardText>
+                    </Text>
                     <br />
                     <a href="https://www.sleepscore.com/all-about-sleep-why-is-it-important/">
-                      <Button>Read more</Button>
+                      <PinkButton>Read more</PinkButton>
                     </a>
                   </CardBody>
-                </Card>
+                </DarkCard>
               </CardWrapper>
               <CardWrapper>
-                <Card>
+                <DarkCard>
                   <CardImg
                     top
                     width="100%"
@@ -468,50 +498,50 @@ class BlogView extends React.Component {
                     <CardSubtitle>
                       Author: Molly Livingston, Nov 22, 2017
                     </CardSubtitle>
-                    <hr />
-                    <CardText>
+                    <HR />
+                    <Text>
                       Why should you care about the science behind snoozing?
                       Understanding your sleep cycles allows you to refine and
                       perfect your rest. It’s part of being sleep conscious.
                       Here’s exactly what happens during each sleep cycle — and
                       why it matters for your tomorrow.
-                    </CardText>
+                    </Text>
                     <br />
                     <a href="https://www.tomorrowsleep.com/magazine/sleep-cycle-stages">
-                      <Button>Read more</Button>
+                      <PinkButton>Read more</PinkButton>
                     </a>
                   </CardBody>
-                </Card>
+                </DarkCard>
               </CardWrapper>
             </EditorsPicksWrapper>
           </ArticlesWrapper>
 
           <CardWrapper>
-            <Card>
+            <DarkCard>
               <CardBody>
-                <CardTitle>To Learn More About Sleep Visit: </CardTitle>
-                <hr />
-                <CardText>
-                  <a href="https://www.sleepfoundation.org/">
-                    <CardSubtitle>
-                      <li className="li">National Sleep Foundation </li>
-                    </CardSubtitle>
-                  </a>
+                <H3>To Learn More About Sleep Visit: </H3>
+                <HR />
 
-                  <a href="https://www.sleepassociation.org/">
-                    <CardSubtitle>
-                      <li className="li">American Sleep Association </li>
-                    </CardSubtitle>
-                  </a>
-                </CardText>
+                <a href="https://www.sleepfoundation.org/">
+                  <P>
+                    <li>National Sleep Foundation </li>
+                  </P>
+                </a>
+
+                <a href="https://www.sleepassociation.org/">
+                  <P>
+                    <li>American Sleep Association </li>
+                  </P>
+                </a>
               </CardBody>
               <CardImg
                 top
                 width="100%"
+                height="150px"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
               />
-            </Card>
+            </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
       </BlogViews>
