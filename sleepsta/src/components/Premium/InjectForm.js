@@ -53,7 +53,7 @@ const StripeButton = styled.button`
   margin-top: 12.5px;
 
   &:hover {
-    background-color: rgb(150,232,232,1);
+    background-color: #E34A6F;
     color: white;
   }
 `;

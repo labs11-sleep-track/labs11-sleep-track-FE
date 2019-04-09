@@ -30,7 +30,8 @@ const RealH1 = styled.h1`
   padding-right: 10px;
   padding-top: 10px;
   font-size: 3.75em;
-  color: rgb(0,0,0,0.75);
+  color: white;
+  text-shadow: 2px 2px 3px #000000;
   font-family: "Roboto", "Rubik", Arial, Helvetica, sans-serif;
 `;
 
