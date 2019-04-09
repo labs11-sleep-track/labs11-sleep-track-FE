@@ -169,7 +169,7 @@ class LoggedInSideNav extends React.Component {
                   <li>
                     <Link style={{ textDecoration: "none" }} to="/about">
                       <div>
-                      <i class="fas fa-bed"></i>&nbsp;About
+                      <i class="fas fa-bed"></i>&nbsp;About Us
                       </div>
                     </Link>
                   </li>

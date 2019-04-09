@@ -64,6 +64,10 @@ const Links = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+
+  &:hover { 
+    color: #E34A6F;
+  }
 `;
 
 class MobileNav extends React.Component {
@@ -169,7 +173,7 @@ class MobileNav extends React.Component {
           <NavItem>
             <Link style={{ textDecoration: "none" }} to="/about">
               <Links>
-              <i class="fas fa-bed"></i>&nbsp;About
+              <i class="fas fa-bed"></i>&nbsp;About Us
               </Links>
             </Link>
           </NavItem>
