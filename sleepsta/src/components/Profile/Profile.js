@@ -21,6 +21,8 @@ const DarkCard = styled(Card)`
   font-weight: bold;
   background-color: rgb(255, 255, 255, 0.12);
   padding: 10px;
+  margin: 0 auto;
+  width: 90%;
 `;
 
 const CardTitle = styled.h2`
