@@ -23,13 +23,25 @@ class WeeklyBarChart extends Component {
     ];
     for (let i = 0; i < 7; i++) {
       if (typeof this.props.filteredDailyData[i] === "object") {
-        let sleepTime =
-          (this.props.filteredDailyData[i].waketime -
-            this.props.filteredDailyData[i].sleeptime) /
-          3600;
-        dataArr[i].y = sleepTime;
-      } else {
-        dataArr[i].y = 0;
+        let sleepTime = this.props.filteredDailyData[i].sleeptime;
+        let formattedTime = new Date(sleepTime * 1000);
+        var days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ];
+        let dayOfWeek = days[formattedTime.getDay()];
+        let totalSleep =
+          (this.props.filteredDailyData[i].waketime - sleepTime) / 3600;
+        for (let x = 0; x < 7; x++) {
+          if (dataArr[x].label === dayOfWeek) {
+            dataArr[x].y = totalSleep;
+          }
+        }
       }
     }
     this.setState({ dps: dataArr });
@@ -38,15 +50,14 @@ class WeeklyBarChart extends Component {
   setAvg() {
     let total = 0;
     let count = 0;
-    let average = (total / count).toFixed(1);
+
     for (let i = 0; i < this.state.dps.length; i++) {
       if (this.state.dps[i].y !== 0) {
         total += this.state.dps[i].y;
         count++;
-      } else {
-        average = 0;
       }
     }
+    let average = count === 0 ? 0 : (total / count).toFixed(1);
     this.setState({ average });
   }
 
