@@ -10,14 +10,15 @@ const keySecret = process.env.REACT_APP_SECRET_KEY;
 
 const PremJumbo = styled.div`
   background-image: url(${jumboImage});
-  background-position: center;
+  background-position: 50% 75%;
   background-size: cover;
-  height: 350px;
+  height: 390px;
   margin: 0px 30px;
   margin-bottom: 15px;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-	   -moz-box-shadow: 0 8px 6px -6px black;
-          box-shadow: 0 8px 6px -6px black;
+  -webkit-box-shadow: 0 8px 6px -6px rgb(0,0,0,.5);
+	   -moz-box-shadow: 0 8px 6px -6px rgb(0,0,0,.5);
+          box-shadow: 0 8px 6px -6px rgb(0,0,0,.5);
+  border-radius: 15px;
 `;
 
 const PremBene = styled.div`
@@ -31,7 +32,7 @@ const RealH1 = styled.h1`
   padding-top: 10px;
   font-size: 3.75em;
   color: white;
-  text-shadow: 2px 2px 3px #000000;
+  text-shadow: 3px 1px 3px #000000;
   font-family: "Roboto", "Rubik", Arial, Helvetica, sans-serif;
 `;
 
