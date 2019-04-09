@@ -1,10 +1,61 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, updateUser } from "../../actions";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import { Form, Label, Input } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  Label,
+  Input
+} from "reactstrap";
+
 import "./Profile.css";
 import Notifications, { notify } from "../Notifications/index";
+import styled from "styled-components";
+
+const DarkCard = styled(Card)`
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.12);
+  padding: 10px;
+`;
+
+const CardTitle = styled.h2`
+  font-size: 26px;
+  @media (max-width: 800px) {
+    font-size: 26px;
+  }
+  @media (max-width: 500px) {
+    font-size: 22px;
+  }
+`;
+
+const CardText = styled.p`
+  font-size: 16px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
+`;
+
+const HR = styled.hr`
+  background: #e34a6f;
+`;
+
+const PinkButton = styled(Button)`
+  background: #e34a6f;
+  color: white;
+  &:hover {
+    background: white;
+    color: #e34a6f;
+  }
+`;
 
 class Profile extends Component {
   constructor(props) {
@@ -69,14 +120,25 @@ class Profile extends Component {
     // console.log(document.getElementsByClassName("notif"));
     return (
       <div className="profile">
-        <div className="title">
-          <h1>Profile</h1>
-        </div>
+        <DarkCard>
+          <CardBody>
+            <CardTitle>Profile </CardTitle>
+            <HR />
+            <CardText>
+              <h6>Email: {this.props.inputs.email}</h6>
 
-        <br />
-        <br />
+              <h6>First Name: {this.props.inputs.f_name}</h6>
 
-        <div className="userInfo">
+              <h6>Last Name: {this.props.inputs.l_name}</h6>
+
+              <h6>Account Type: {this.props.inputs.account_type}</h6>
+              <br />
+              <PinkButton onClick={this.toggle}>Edit Profile</PinkButton>
+            </CardText>
+          </CardBody>
+        </DarkCard>
+
+        {/* <div className="userInfo">
           <br />
           <div className="box">
             <h6>Email:</h6>
@@ -106,7 +168,7 @@ class Profile extends Component {
           <Button color="primary" onClick={this.toggle}>
             Edit Profile
           </Button>
-        </div>
+        </div> */}
 
         <Modal
           isOpen={this.state.modal}
@@ -153,17 +215,14 @@ class Profile extends Component {
 
             <br />
 
-            <Button
-              color="primary"
+            <PinkButton
               onClick={this.handleSubmit}
               onMouseUp={() => notify("notif")}
             >
               Update
-            </Button>
+            </PinkButton>
 
-            <Button color="secondary" onClick={this.toggle}>
-              Cancel
-            </Button>
+            <PinkButton onClick={this.toggle}>Cancel</PinkButton>
           </ModalBody>
         </Modal>
 
