@@ -11,12 +11,20 @@ class DailyLineGraph extends Component {
     };
   }
   componentDidMount() {
-    this.setState({ dps: this.props.sleepData });
+    let multipliedTimeArr = this.props.sleepData.map(data => {
+      data.x = data.x * 1000;
+      return data;
+    });
+    this.setState({ dps: multipliedTimeArr });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.sleepData !== this.props.sleepData) {
-      this.setState({ dps: this.props.sleepData });
+      let multipliedTimeArr = this.props.sleepData.map(data => {
+        data.x = data.x * 1000;
+        return data;
+      });
+      this.setState({ dps: multipliedTimeArr });
     }
   }
 
@@ -44,7 +52,7 @@ class DailyLineGraph extends Component {
       },
       data: [
         {
-          type: "spline",
+          type: "splineArea",
           xValueType: "dateTime",
           lineColor: "#9AD2CB",
           markerColor: "#9AD2CB",

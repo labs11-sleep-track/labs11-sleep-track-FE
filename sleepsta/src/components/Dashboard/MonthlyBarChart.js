@@ -30,16 +30,15 @@ class MonthlyBarChart extends Component {
   setAvg() {
     let total = 0;
     let count = 0;
-    let average = (total / count).toFixed(1);
-    for (let i = 0; i < this.state.dps.length; i++) {
-      if (this.state.dps[i].y !== 0) {
+    if (this.state.dps.length) {
+      for (let i = 0; i < this.state.dps.length; i++) {
         total += this.state.dps[i].y;
         count++;
-      } else {
-        average = 0;
       }
+      this.setState({ average: (total / count).toFixed(1) });
+    } else {
+      this.setState({ average: 0 });
     }
-    this.setState({ average });
   }
 
   async componentDidMount() {
