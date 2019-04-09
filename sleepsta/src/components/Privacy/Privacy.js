@@ -5,11 +5,11 @@ import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
 
 const All = styled.div`
-background-color: #4C546F;
+background-color: #303848;
+border: 3px solid white;
+font-family: Roboto;
 margin: 30px;
 padding: 10px;
-border-radius: 30px;
-// width: 80%;
 `
 
 const Title = styled.h1`
@@ -39,9 +39,6 @@ border-bottom: 2px solid white;
 
 const SubTitle = styled.h3`
 display: flex;
-// flex-wrap: wrap;
-// flex-direction: row;
-// justify-content: space-evenly;
 font-size: 25px;
 padding-top: 20px;
 padding-bottom: 5px;
@@ -79,7 +76,7 @@ letter-spacing: 1px;
   }
 
   @media (max-width: 500px) {
-    font-size: 10px;
+    font-size: 15px;
   }
 `
 
@@ -98,7 +95,7 @@ padding-top: 10px;
   }
 
   @media (max-width: 500px) {
-    font-size: 10px;
+    font-size: 15px;
   }
 
 `
@@ -117,7 +114,7 @@ font-weight: bold;
   }
 
   @media (max-width: 500px) {
-    font-size: 10px;
+    font-size: 15px;
   }
 `
 
