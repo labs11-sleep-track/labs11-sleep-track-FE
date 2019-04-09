@@ -53,7 +53,7 @@ letter-spacing: 2px;
 display: flex;
 justify-content: space-evenly;
 padding-bottom: 5px;
-text-shadow: 2px 2px #252E4F;
+text-shadow: 2px 2px #0A1428;
 
 `
 
@@ -64,7 +64,7 @@ letter-spacing: 2px;
 display: flex;
 justify-content: space-evenly;
 padding-bottom: 10px;
-text-shadow: 2px 2px #252E4F;
+text-shadow: 2px 2px #0A1428;
 
 `
 
@@ -95,7 +95,7 @@ width: 90px;
 background-color: #E34A6F;
 border-radius: 5px;
 color: white;
-box-shadow: 2px 2px #252E4F;
+box-shadow: 2px 2px #0A1428;
 
 &:hover { 
   color: #E34A6F;

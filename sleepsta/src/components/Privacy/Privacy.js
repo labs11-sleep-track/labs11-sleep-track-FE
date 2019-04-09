@@ -5,7 +5,7 @@ import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
 
 const All = styled.div`
-background-color: #4C546F;
+background-color: #303848;
 border: 3px solid white;
 font-family: Roboto;
 margin: 30px;
