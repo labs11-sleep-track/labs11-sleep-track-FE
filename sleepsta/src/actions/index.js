@@ -17,7 +17,6 @@ const baseURL =
     : "https://sleepsta.herokuapp.com";
 
 export const getUser = () => dispatch => {
-  console.log("Fetching");
   dispatch({ type: FETCHING_USER });
 
   return Axios.get(`${baseURL}/api/users/me`, {
@@ -27,17 +26,14 @@ export const getUser = () => dispatch => {
   })
     .then(res => {
       dispatch({ type: USER_FETCHED, payload: res.data });
-      console.log(res);
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: USER_FAILURE, payload: err });
     });
 };
 
 export const updateUser = user => {
   return dispatch => {
-    console.log("Updating");
     dispatch({ type: UPDATE_USER });
     return Axios.put(`${baseURL}/api/users/${user.id}`, user, {
       headers: {
@@ -46,7 +42,6 @@ export const updateUser = user => {
     })
       .then(res => {
         dispatch({ type: USER_UPDATED, payload: res.data });
-        console.log(res);
       })
       .catch(err => console.log(err.response));
   };

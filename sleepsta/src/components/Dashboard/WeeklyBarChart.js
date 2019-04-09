@@ -23,11 +23,26 @@ class WeeklyBarChart extends Component {
     ];
     for (let i = 0; i < 7; i++) {
       if (typeof this.props.filteredDailyData[i] === "object") {
-        let sleepTime =
-          (this.props.filteredDailyData[i].waketime -
-            this.props.filteredDailyData[i].sleeptime) /
-          3600;
-        dataArr[i].y = sleepTime;
+        let sleepTime = this.props.filteredDailyData[i].sleeptime;
+        let formattedTime = new Date(sleepTime * 1000);
+        var days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ];
+        let dayOfWeek = days[formattedTime.getDay()];
+        let totalSleep =
+          (this.props.filteredDailyData[i].waketime - sleepTime) / 3600;
+        for (let x = 0; x < dataArr.length; x++) {
+          console.log(dataArr[x]);
+          if (dataArr[x].label === dayOfWeek) {
+            dataArr[x].y = totalSleep;
+          }
+        }
       } else {
         dataArr[i].y = 0;
       }
