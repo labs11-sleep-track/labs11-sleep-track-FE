@@ -12,6 +12,7 @@ const FormHold = styled.div`
   margin: 10px;
   padding: 20px;
   background-color: rgb(0, 0, 0, 0.25);
+  border: 1.25px solid rgb(255, 255, 255, 0.15);
   border-radius: 15px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 `;
@@ -29,16 +30,26 @@ const FormLabel = styled.p`
 const TopForm = styled.div`
   width: 100%;
   display: flex;
+  margin-bottom: 5px;
   input {
     width: 50%;
   }
+
+  @media(max-width: 900px){
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 100%;
+    }
+  }
+
 `;
 
 const StripeInput = styled.input`
   padding: 10px;
   border-radius: 10px;
   margin: 3px 3px;
-  border: none;
+  border: 1.25px solid rgb(0, 0, 0, 0.15);
 `;
 
 
