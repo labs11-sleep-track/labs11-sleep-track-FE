@@ -35,7 +35,7 @@ const TopForm = styled.div`
     width: 50%;
   }
 
-  @media(max-width: 900px){
+  @media(max-width: 920px){
     display: flex;
     flex-direction: column;
     input {
@@ -56,16 +56,28 @@ const StripeInput = styled.input`
 const StripeButton = styled.button`
   text-align: center;
   font-family: "Roboto", "Rubik";
-  width: 50%;
+  width: 125px;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin: auto;
   margin-top: 12.5px;
+  border: 2px solid white;
 
   &:hover {
-    background-color: #E34A6F;
-    color: white;
+    animation: awesome .15s ease-in 0s 1 alternate both running;
+  }
+
+  @keyframes awesome {
+    from{
+      border: 2px solid white;
+      background-color: white;
+      color: black;
+    } to {
+      border: 2px solid rgb(0,0,0,.5);
+      background-color: #E34A6F;
+      color: white;
+    }
   }
 `;
 
