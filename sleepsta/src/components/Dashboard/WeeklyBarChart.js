@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+const CanvasJS = CanvasJSReact.CanvasJS;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+CanvasJS.addColorSet("sleepstaShades", [
+  //colorSet Array
+
+  "#9EE493",
+  "#E34A6F",
+  "#9AD2CB"
+]);
 
 class WeeklyBarChart extends Component {
   constructor() {
@@ -72,9 +81,11 @@ class WeeklyBarChart extends Component {
       this.setAvg();
     }
   }
+
   render() {
     const options = {
-      backgroundColor: "#4C546F",
+      colorSet: "sleepstaShades",
+      backgroundColor: "rgb(255, 255, 255, 0.12)",
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",

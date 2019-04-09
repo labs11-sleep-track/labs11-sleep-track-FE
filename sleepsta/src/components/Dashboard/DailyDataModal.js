@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DailyLineGraph from "./DailyLineGraph";
-import "./DailyDataModal.css";
 
 class DailyDataModal extends React.Component {
   constructor(props) {

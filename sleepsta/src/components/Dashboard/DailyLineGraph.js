@@ -54,8 +54,7 @@ class DailyLineGraph extends Component {
         {
           type: "splineArea",
           xValueType: "dateTime",
-          lineColor: "#9AD2CB",
-          markerColor: "#9AD2CB",
+          color: "#9EE493",
           dataPoints: this.state.dps
         }
       ]
