@@ -11,7 +11,6 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
-// import "../components/CSS/blogs.css";
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
@@ -30,6 +29,11 @@ const BlogsWrapper = styled.div`
   }
 `;
 
+const DarkCard = styled(Card)`
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.12);
+`;
+
 const ArticlesWrapper = styled.div`
   display: flex;
   margin-top: 40px;
@@ -45,6 +49,7 @@ const ArticlesWrapper = styled.div`
     font-size: 15px;
   }
 `;
+
 const H2 = styled.div`
   font-size: 24px;
   color: white;
@@ -161,11 +166,6 @@ const Text = styled(CardText)`
   font-size: 13px;
   color: white;
   font-weight: 300;
-`;
-
-const DarkCard = styled(Card)`
-  font-weight: bold;
-  background-color: rgb(255, 255, 255, 0.12);
 `;
 
 const PinkButton = styled(Button)`
