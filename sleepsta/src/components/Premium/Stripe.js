@@ -10,9 +10,9 @@ const keySecret = process.env.REACT_APP_SECRET_KEY;
 
 const PremJumbo = styled.div`
   background-image: url(${jumboImage});
-  background-position: center;
+  background-position: 50% 75%;
   background-size: cover;
-  height: 350px;
+  height: 390px;
   margin: 0px 30px;
   margin-bottom: 15px;
   -webkit-box-shadow: 0 8px 6px -6px rgb(0,0,0,.5);
