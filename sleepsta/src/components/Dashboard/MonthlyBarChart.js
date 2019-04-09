@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
+const CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
+CanvasJS.addColorSet("sleepstaShades", [
+  //colorSet Array
+
+  "#9EE493",
+  "#CEF1C9",
+  "#B0E9A8",
+  "#6D9F66"
+]);
 class MonthlyBarChart extends Component {
   constructor() {
     super();
@@ -54,7 +63,8 @@ class MonthlyBarChart extends Component {
   }
   render() {
     const options = {
-      backgroundColor: "#4C546F",
+      colorSet: "sleepstaShades",
+      backgroundColor: "rgb(255, 255, 255, 0.12)",
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
