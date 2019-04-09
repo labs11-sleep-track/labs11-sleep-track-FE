@@ -37,14 +37,11 @@ class WeeklyBarChart extends Component {
         let dayOfWeek = days[formattedTime.getDay()];
         let totalSleep =
           (this.props.filteredDailyData[i].waketime - sleepTime) / 3600;
-        for (let x = 0; x < dataArr.length; x++) {
-          console.log(dataArr[x]);
+        for (let x = 0; x < 7; x++) {
           if (dataArr[x].label === dayOfWeek) {
             dataArr[x].y = totalSleep;
           }
         }
-      } else {
-        dataArr[i].y = 0;
       }
     }
     this.setState({ dps: dataArr });
@@ -53,15 +50,14 @@ class WeeklyBarChart extends Component {
   setAvg() {
     let total = 0;
     let count = 0;
-    let average = (total / count).toFixed(1);
+
     for (let i = 0; i < this.state.dps.length; i++) {
       if (this.state.dps[i].y !== 0) {
         total += this.state.dps[i].y;
         count++;
-      } else {
-        average = 0;
       }
     }
+    let average = count === 0 ? 0 : (total / count).toFixed(1);
     this.setState({ average });
   }
 
