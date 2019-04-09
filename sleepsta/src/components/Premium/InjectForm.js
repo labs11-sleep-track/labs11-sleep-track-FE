@@ -21,6 +21,11 @@ const TheForm = styled.form`
   flex-direction: column;
 `;
 
+const FormLabel = styled.p`
+  color: white;
+  padding: 3px;
+`;
+
 const TopForm = styled.div`
   width: 100%;
   display: flex;
@@ -36,13 +41,10 @@ const StripeInput = styled.input`
   border: none;
 `;
 
-const StripeLabel = styled.label`
-  font-size: 1.25em;
-`;
 
 const StripeButton = styled.button`
   text-align: center;
-  font-family: "Rubik";
+  font-family: "Roboto", "Rubik";
   width: 50%;
   border: none;
   padding: 10px;
@@ -51,7 +53,7 @@ const StripeButton = styled.button`
   margin-top: 12.5px;
 
   &:hover {
-    background-color: teal;
+    background-color: #E34A6F;
     color: white;
   }
 `;
@@ -117,11 +119,13 @@ class InjectForm extends Component {
         <TheForm onSubmit={this.handleSubmit}>
           {/* <StripeInput value={this.state.email} onChange={this.handleChange} name="email" /> */}
           <TopForm>
+            <FormLabel>First Name</FormLabel>
             <StripeInput
               value={this.state.fname}
               onChange={this.handleChange}
               name="fname"
             />
+            <FormLabel>Last Name</FormLabel>
             <StripeInput
               value={this.state.lname}
               onChange={this.handleChange}
