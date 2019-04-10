@@ -16,29 +16,24 @@ import jum3 from './img/jum3.jpg';
 
 const Main = styled.div`
   font-family: "Roboto", "Poppins";
+  background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%);
+  position: sticky;
+  position: absolute;
+  z-index: -5;
+  width: 100%;
+  height: 100%;
+`;
+
+const TopBar = styled.div`
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  width: 100%;
 `;
 
 const JumboHome = styled.div`
   width: 100%;
   height: 200px;
-  background-color: rgb(255,255,255,.1);
-
-    h1 {
-      text-align: center;
-      padding-top: 90px;
-      font-family: "Poppins", "Roboto";
-      font-size: 7em;
-      height: 100%;
-
-      @media (max-width: 800px) {
-        padding-top: 70px;
-        font-size: 5em;
-      }
-
-      @media (max-width: 500px) {
-        padding-top: 50px;
-        font-size: 3em;
-      }
     }
 
       @media (max-width: 800px) {
@@ -50,6 +45,25 @@ const JumboHome = styled.div`
       }
 `;
 
+const HeaderH1 = styled.h1` 
+  text-align: center;
+  padding: 35px;
+  font-family: "Poppins", "Roboto";
+  font-size: 7em;
+  z-index: 1;
+  height: 100%;
+
+  @media (max-width: 800px) {
+    padding-top: 10px;
+    font-size: 5em;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 5px;
+    font-size: 3em;
+  }
+  `;
+
 const TaglineBar = styled.div`
   width: 100%;
   padding: 10px 5px;
@@ -57,6 +71,7 @@ const TaglineBar = styled.div`
   text-align: center;
   font-family: "Poppins", "Roboto";
   border-top: 1px solid #e34a6f;
+  z-index: 1;
 `;
 
 const SecondDiv = styled.div`
@@ -65,6 +80,7 @@ const SecondDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  z-index: 1;
 `;
 
 const DivBlock0 = styled.div`
@@ -79,6 +95,7 @@ const DivBlock1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const ScreenShotHold = styled.div`
@@ -152,9 +169,12 @@ class Home extends Component {
 render() {
   return (
     <Main>
-      <JumboHome>
-        <h1>SLEEPSTA</h1>
-      </JumboHome>
+      <TopBar>
+      <LoginButtonWrapper>
+            <LoginForm />
+          </LoginButtonWrapper>
+        </TopBar>
+      <HeaderH1>SLEEPSTA</HeaderH1>
       <TaglineBar>
         Sleep Hard. Live Smarter.
         </TaglineBar>
@@ -165,22 +185,12 @@ render() {
             </ScreenShotHold>
           </DivBlock0>
           <DivBlock1>
-            CONTENT
-          </DivBlock1>
+            <p>In tandem with the IOS app</p>
+            <ul>
+              <li>Track nightly sleep data</li>
+              </ul>
+              </DivBlock1>
         </SecondDiv>
-        <SecondDiv>
-          <DivBlock1>
-            CONTENT
-          </DivBlock1>
-          <DivBlock0>
-            <ScreenShotHold>
-              <ScreenShot2 />
-            </ScreenShotHold>
-          </DivBlock0>
-        </SecondDiv>
-        <LoginButtonWrapper>
-            <LoginForm />
-          </LoginButtonWrapper>
         <Team>
           <TeamP>
             Meet the <Link to="/about">SLEEPSTA Team</Link>

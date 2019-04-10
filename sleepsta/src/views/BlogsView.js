@@ -14,7 +14,7 @@ import {
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
-    max-width: 1250px;
+    max-width: 1650px;
     margin: 50px auto;
   }
 `;
