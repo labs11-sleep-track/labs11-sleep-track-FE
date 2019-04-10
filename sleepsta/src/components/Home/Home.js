@@ -1,137 +1,111 @@
-import React from "react";
+import React, { Component } from 'react';
 import styled from "styled-components";
 import LoginForm from "../Login/LoginForm";
 import { Link } from "react-router-dom";
+import "./Home.css";
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from 'reactstrap';
+import jum1 from './img/jum1.jpg';
+import jum2 from './img/jum2.jpg';
+import jum3 from './img/jum3.jpg';
 
 const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  padding-right: 200px;
+  font-family: "Roboto", "Poppins";
+`;
+
+const JumboHome = styled.div`
   width: 100%;
-  height: 600px;
-  font-family: "Roboto", sans-serif;
+  height: 200px;
+  background-color: rgb(255,255,255,.1);
 
-  @media (min-width: 1920px) {
-    margin: 100px auto;
-  }
+    h1 {
+      text-align: center;
+      padding-top: 90px;
+      font-family: "Poppins", "Roboto";
+      font-size: 7em;
+      height: 100%;
 
-  @media (max-width: 800px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    padding-right: 215px;
-  }
+      @media (max-width: 800px) {
+        padding-top: 70px;
+        font-size: 5em;
+      }
 
-  @media (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    padding-left: 215px;
-  }
+      @media (max-width: 500px) {
+        padding-top: 50px;
+        font-size: 3em;
+      }
+    }
+
+    @media (max-width: 800px) {
+        height: 150px;
+      }
+
+      @media (max-width: 500px) {
+        height: 100px;
+      }
 `;
 
-const Header = styled.div`
+const TaglineBar = styled.div`
+  width: 100%;
+  padding: 10px 5px;
+  background-color: rgb(255,255,255,.05);
+  text-align: center;
+  font-family: "Poppins", "Roboto";
+  border-top: 1px solid #e34a6f;
+`;
+
+const SecondDiv = styled.div`
+  margin-top: 25px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-
-  @media (max-width: 800px) {
-    margin-top: 30px;
-  }
-
-  @media (max-width: 500px) {
-    margin-top: 30px;
-  }
+  justify-content: center;
+  width: 100%;
 `;
 
-const H5 = styled.h5`
-  padding: 20px 0;
-  color: #4c546f;
-  font-size: 16px;
+const HoldCaro = styled.div`
+  width: 650px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgb(0,0,0,.1);
 
   @media (max-width: 800px) {
-    margin-top: 50px;
-    padding: 20px 0;
-  }
+        width: 500px;
+      }
 
-  @media (max-width: 500px) {
-    font-size: 14px;
-    margin-top: 50px;
-  }
-`;
-
-const H2 = styled.h2`
-  font-size: 40px;
-
-  @media (min-width: 1920px) {
-    font-size: 60px;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 35px;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 35px;
-  }
+      @media (max-width: 500px) {
+        display: none;
+      }
 `;
 
 const LoginButtonWrapper = styled.div`
   padding-top: 20px;
-
-  @media (max-width: 800px) {
-    margin-top: -40px;
-  }
-
-  @media (max-width: 500px) {
-    margin-top: -60px;
-  }
 `;
 
-const Span = styled.div`
-  font-size: 15px;
-  letter-spacing: 0.75px;
-  padding-bottom: 5px;
 
-  @media (min-width: 1920px) {
-    font-size: 20px;
-  }
+const TeamP = styled.p`
+  font-size: .9em;
 
   @media (max-width: 800px) {
-    display: none;
+    font-size: .8em;
   }
 
   @media (max-width: 500px) {
-    display: none;
-  }
-`;
-
-const P = styled.p`
-  font-size: 15px;
-
-  @media (min-width: 1920px) {
-    font-size: 20px;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 12px;
-    margin-bottom: 50px;
+    font-size: .75em;
   }
 `;
 
 const Team = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 12px;
   padding-top: 20px;
@@ -146,34 +120,118 @@ const Team = styled.div`
   }
 `;
 
-const Home = () => {
+
+const items = [
+  {
+    src: jum1,
+    altText: 'Sleep Tracking',
+    caption: 'Sleep Tracking'
+  },
+  {
+    src: jum2,
+    altText: 'Motion Data',
+    caption: 'Motion Data from App'
+  },
+  {
+    src: jum3,
+    altText: 'Sleep Blogs',
+    caption: 'Sleep Blogs'
+  }
+];
+
+class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
+  }
+
+  onExiting() {
+    this.animating = true;
+  }
+
+  onExited() {
+    this.animating = false;
+  }
+
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
+
+render() {
+  const { activeIndex } = this.state;
+
+  const slides = items.map((item) => {
+    return (
+      <CarouselItem
+        onExiting={this.onExiting}
+        onExited={this.onExited}
+        key={item.src}
+      >
+        <img src={item.src} alt={item.altText} />
+        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+      </CarouselItem>
+    );
+  });
   return (
     <Main>
-      <Header>
-        <H5> INTRODUCING</H5>
-        <H2>
-          SLEEP<i>STA</i>&nbsp;APP
-        </H2>
-        <P> Sleep Harder. Live Smarter</P>
-        <br />
-        <Span>
-          Mobile application that uses motion tracking to measure sleep.
-        </Span>
-        <Span>
-          Web application allows you to visualize your sleep analysis.
-        </Span>
+      <JumboHome>
+        <h1>SLEEPSTA</h1>
+      </JumboHome>
+      <TaglineBar>
+        Sleep Hard. Live Smarter.
+        </TaglineBar>
+        <SecondDiv>
 
-        <LoginButtonWrapper>
-          <LoginForm />
-        </LoginButtonWrapper>
+
+        <HoldCaro>
+          <Carousel
+          activeIndex={activeIndex}
+          next={this.next}
+          previous={this.previous}
+        >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+          {slides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        </Carousel>
+        </HoldCaro>
+
+
+
+          <LoginButtonWrapper>
+            <LoginForm />
+          </LoginButtonWrapper>
+        </SecondDiv>
 
         <Team>
-          Meet the <Link to="/about">SLEEPSTA Team</Link>&nbsp;|&nbsp;
-          <Link to="/privacy">Privacy Policy</Link>
+          <TeamP>
+            Meet the <Link to="/about">SLEEPSTA Team</Link>
+          </TeamP>
+          <TeamP>
+            <Link to="/privacy">Privacy Policy</Link>
+          </TeamP>
         </Team>
-      </Header>
     </Main>
   );
 };
+}
 
 export default Home;
