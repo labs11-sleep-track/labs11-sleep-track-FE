@@ -64,7 +64,7 @@ const NewLI = styled.li`
 `;
 
 const StripeHold = styled.div`
-  margin: 0px 30px;
+  margin: auto;
 `;
 
 class Stripe extends React.Component {

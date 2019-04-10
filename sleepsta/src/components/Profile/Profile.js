@@ -18,7 +18,7 @@ import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
 
 const DarkCard = styled(Card)`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #0a1429;
   padding: 10px;
   margin: 15px auto;
   width: 90%;
@@ -284,7 +284,9 @@ class Profile extends Component {
               <CardText>
                 Get access to premium features.
                 <br />
+                <br />
                 See your sleep data in a monthly chart.
+                <br />
                 <br />
                 One time fee of $10 USD.
                 <br />
