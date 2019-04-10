@@ -37,8 +37,8 @@ const NavAll = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    // margin-bottom: 20px;
+    // padding-bottom: 20px;
   }
 `;
 
@@ -106,7 +106,7 @@ class MobileNav extends React.Component {
             {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
-                <br />
+                
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/dashboard">
                     <Links>
@@ -115,7 +115,7 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-                <br />
+                
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/blogs">
                     <Links>
@@ -124,7 +124,7 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-                <br />
+                
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/profile">
                     <Links>
@@ -133,7 +133,7 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-                <br />
+                
                 {/* <NavItem>
                 <Link style={{ textDecoration: "none" }} to="/premium">
                   <Links>
@@ -177,7 +177,7 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-                <br />
+               
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/about">
                     <Links>
@@ -185,7 +185,7 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-                <br />
+                
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/privacy">
                     <Links>
