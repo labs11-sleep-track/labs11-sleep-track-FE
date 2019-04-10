@@ -54,6 +54,7 @@ const Title = styled.h2`
   letter-spacing: 3px;
   width: 100%;
   cursor: pointer;
+  padding-bottom: 20px;
 
   &:hover {
     color: #e34a6f;
