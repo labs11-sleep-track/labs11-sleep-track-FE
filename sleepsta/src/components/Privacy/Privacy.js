@@ -105,6 +105,10 @@ font-size: 15px;
 color: #9EE493;
 font-weight: bold;
 
+&:hover { 
+    color: #E34A6F;
+  }
+
 @media (min-width: 1920px) {
     font-size: 15px;
   }
