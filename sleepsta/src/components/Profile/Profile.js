@@ -284,7 +284,9 @@ class Profile extends Component {
               <CardText>
                 Get access to premium features.
                 <br />
+                <br />
                 See your sleep data in a monthly chart.
+                <br />
                 <br />
                 One time fee of $10 USD.
                 <br />
