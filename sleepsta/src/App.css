@@ -140,6 +140,10 @@ body {
   padding-right: 40px;
 }
 
+hr {
+  background: #e34a6f;
+}
+
 @media (max-width: 800px) {
   /* body {
     padding: 0 215px;
@@ -165,7 +169,6 @@ body {
   /* font-family: "Roboto", "Arimo", "Work Sans", "Pacifico"; */
   -moz-osx-font-smoothing: grayscale;
 }
-
-.card-body {
+/* .card-body {
   background-color: #303848;
-}
+} */

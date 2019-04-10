@@ -89,7 +89,7 @@ class WeeklyBarChart extends Component {
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
-        text: "Weekly Sleep Analysis"
+        text: "Week: Picked week range"
       },
       subtitles: [
         {

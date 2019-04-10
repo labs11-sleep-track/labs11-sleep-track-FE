@@ -177,10 +177,6 @@ const PinkButton = styled(Button)`
   }
 `;
 
-const HR = styled.hr`
-  background: #e34a6f;
-`;
-
 class BlogView extends React.Component {
   constructor(props) {
     super(props);
@@ -360,7 +356,7 @@ class BlogView extends React.Component {
               />
               <CardBody>
                 <H2>About Sleep</H2>
-                <HR />
+                <hr />
                 <P>
                   Sleep plays a vital role in good health and well-being
                   throughout your life. Sleeping offers the body a chance to
@@ -385,7 +381,7 @@ class BlogView extends React.Component {
               <DarkCard>
                 <CardBody>
                   <H2>Quick Tips To Maintain Healthy Sleep Habits</H2>
-                  <HR />
+                  <hr />
                   <P>
                     <li>
                       Keep a consistent sleep schedule, even on weekends and
@@ -437,7 +433,7 @@ class BlogView extends React.Component {
                           <CardSubtitle>
                             Author: {article.author}, {article.published_date}
                           </CardSubtitle>
-                          <HR />
+                          <hr />
                           <Text>{article.description}</Text>
                           <br />
                           <a href={article.url}>
@@ -466,7 +462,7 @@ class BlogView extends React.Component {
                     <CardSubtitle>
                       Author: Leah Perri, Nov 5th, 2017
                     </CardSubtitle>
-                    <HR />
+                    <hr />
                     <Text>
                       Quality sleep is the foundation for good health. Catching
                       the right amount of zzzs is vital for your body to rebuild
@@ -498,7 +494,7 @@ class BlogView extends React.Component {
                     <CardSubtitle>
                       Author: Molly Livingston, Nov 22, 2017
                     </CardSubtitle>
-                    <HR />
+                    <hr />
                     <Text>
                       Why should you care about the science behind snoozing?
                       Understanding your sleep cycles allows you to refine and
@@ -520,7 +516,7 @@ class BlogView extends React.Component {
             <DarkCard>
               <CardBody>
                 <H3>To Learn More About Sleep Visit: </H3>
-                <HR />
+                <hr />
 
                 <a href="https://www.sleepfoundation.org/">
                   <P>

@@ -25,7 +25,7 @@ const DarkCard = styled(Card)`
   width: 90%;
 `;
 
-const CardTitle = styled.h2`
+const CardTitle = styled.div`
   font-size: 26px;
   @media (max-width: 800px) {
     font-size: 26px;
@@ -44,10 +44,6 @@ const CardText = styled.p`
   @media (max-width: 500px) {
     font-size: 14px;
   }
-`;
-
-const HR = styled.hr`
-  background: #e34a6f;
 `;
 
 const PinkButton = styled(Button)`
@@ -125,7 +121,7 @@ class Profile extends Component {
         <DarkCard>
           <CardBody>
             <CardTitle>Profile </CardTitle>
-            <HR />
+            <hr />
             <CardText>
               <h6>Email: {this.props.inputs.email}</h6>
 
