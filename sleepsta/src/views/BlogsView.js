@@ -24,13 +24,14 @@ const DashboardNav = styled.div`
 `;
 
 const BlogsWrapper = styled.div`
+  margin: 0 auto;
+  width: 90%;
   @media (max-width: 500px) {
-    padding: 0 20px;
+    padding: 20px;
   }
 `;
 
 const DarkCard = styled(Card)`
-  font-weight: bold;
   background-color: rgb(255, 255, 255, 0.09);
 `;
 
@@ -39,7 +40,7 @@ const ArticlesWrapper = styled.div`
   margin-top: 40px;
   letter-spacing: 1px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1042px) {
     display: flex;
     flex-direction: column-reverse;
     padding: 0;
@@ -58,13 +59,12 @@ const H2 = styled.div`
     font-size: 30px;
   }
 
+  @media (max-width: 800px) {
+    font-size: 22px;
+  }
   @media (max-width: 500px) {
     text-align: center;
   }
-
-  // @media (max-width: 2500px) {
-  //   font-size: 28px;
-  // }
 `;
 
 const P = styled.p`
@@ -76,19 +76,18 @@ const P = styled.p`
 const H3 = styled.h3`
   font-size: 22px;
   padding-bottom: 10px;
-  font-weight: bold;
 
   @media (min-width: 1920px) {
     font-size: 25px;
   }
 
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
+
   @media (max-width: 500px) {
     text-align: center;
   }
-
-  // @media (max-width: 2500px) {
-  //   font-size: 26px;
-  // }
 `;
 
 const PopularArticlesWrapper = styled.div`
@@ -101,6 +100,11 @@ const PopularArticlesWrapper = styled.div`
     width: 100%;
     padding-right: 0;
   }
+
+  @media (max-width: 1042px) {
+    width: 100%;
+    padding-right: 0;
+  }
 `;
 const PopularArticles = styled.div`
   display: flex;
@@ -109,6 +113,11 @@ const PopularArticles = styled.div`
   padding-top: 15px;
 `;
 
+const Columns = styled(CardColumns)`
+  @media (max-width: 770px) {
+    column-count: 1;
+  }
+`;
 const EditorsPicksWrapper = styled.div`
   padding: 20px 0;
   width: 30%;
@@ -116,7 +125,7 @@ const EditorsPicksWrapper = styled.div`
   padding-left: 40px;
   height: fit-content;
 
-   @media (max-width: 800px) {
+   @media (max-width: 1042px) {
     border-left: none;
     width: 100%;
     padding-left: 0;
@@ -130,7 +139,6 @@ const CardWrapper = styled.div`
 const Title = styled(CardTitle)`
   font-size: 16px;
   line-height: 22px;
-  font-weight: bold;
   letter-spacing: 1px;
 
   @media (min-width: 1920px) {
@@ -139,10 +147,6 @@ const Title = styled(CardTitle)`
   @media (max-width: 500px) {
     text-align: center;
   }
-
-  // @media (max-width: 2500px) {
-  //   font-size: 22px;
-  // }
 `;
 
 const CardSubtitle = styled.div`
@@ -156,10 +160,6 @@ const CardSubtitle = styled.div`
     text-align: center;
     font-size: 12px;
   }
-
-  // @media (max-width: 2500px) {
-  //   font-size: 16px;
-  // }
 `;
 
 const Text = styled(CardText)`
@@ -351,6 +351,7 @@ class BlogView extends React.Component {
               <CardImg
                 top
                 width="100%"
+                height="100px"
                 src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
                 alt="Humans and Animals Sleeping "
               />
@@ -418,7 +419,7 @@ class BlogView extends React.Component {
             <PopularArticlesWrapper>
               <H3> Popular Articles</H3>
               <PopularArticles>
-                <CardColumns>
+                <Columns>
                   {this.state.articles.map(article => {
                     return (
                       <DarkCard key={article.id}>
@@ -443,7 +444,7 @@ class BlogView extends React.Component {
                       </DarkCard>
                     );
                   })}
-                </CardColumns>
+                </Columns>
               </PopularArticles>
             </PopularArticlesWrapper>
 
@@ -533,7 +534,7 @@ class BlogView extends React.Component {
               <CardImg
                 top
                 width="100%"
-                height="150px"
+                height="120px"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
               />
