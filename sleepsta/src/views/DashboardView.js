@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import moment from "moment";
-
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
 import WeeklyBarChart from "../components/Dashboard/WeeklyBarChart";
@@ -197,7 +196,7 @@ class DashboardView extends React.Component {
 
   render() {
     return (
-      <Div>
+      <Div className="navHolder">
         <DashboardNav>
           <LoggedInSideNav />
           <MobileNav />

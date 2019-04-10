@@ -339,7 +339,7 @@ class BlogView extends React.Component {
 
   render() {
     return (
-      <BlogViews>
+      <BlogViews className="navHolder">
         <DashboardNav>
           <LoggedInSideNav />
           <MobileNav />
