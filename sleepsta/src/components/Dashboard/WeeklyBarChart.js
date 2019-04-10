@@ -85,11 +85,11 @@ class WeeklyBarChart extends Component {
   render() {
     const options = {
       colorSet: "sleepstaShades",
-      backgroundColor: "rgb(255, 255, 255, 0.12)",
+      backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
-        text: "Weekly Sleep Analysis"
+        text: "Week: Picked week range"
       },
       subtitles: [
         {

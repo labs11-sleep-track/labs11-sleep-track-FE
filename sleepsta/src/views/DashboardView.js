@@ -24,10 +24,15 @@ const RadialCharts = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   max-width: 100%;
+  background-color: rgb(255, 255, 255, 0.09);
+  padding-bottom: 40px;
 
   @media (min-width: 1920px) {
     display: flex;
     justify-content: center;
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
   }
 `;
 
@@ -40,46 +45,41 @@ const Chart = styled.div`
 `;
 
 const Week = styled.div`
+  padding: 20px;
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Month = styled.div`
+  padding: 20px;
+
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
+
+const Daily = styled.div`
+  padding: 20px;
+`;
+
 const DashboardWrapper = styled.div`
   @media (max-width: 500px) {
     padding: 0 20px;
   }
 `;
-const RadialChartsWrapper = styled.div`
-  display: flex;
 
-  @media (max-width: 500px) {
-    flex-direction: column;
-  }
-`;
-
-const WeekInput = styled.div`
-  margin-bottom: 20px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 5px;
-
-  &:hover {
-    color: white;
-    background-color: #999;
-  }
+const LineGraphwrapper = styled.div`
+  margin-top: 30px;
 `;
 
 const DashboardNav = styled.div`
   width: 100%;
+`;
+
+const H2 = styled.div`
+  font-size: 24px;
+  padding-bottom: 20px;
 `;
 
 class DashboardView extends React.Component {
@@ -205,18 +205,23 @@ class DashboardView extends React.Component {
         <DashboardWrapper>
           <Chart>
             <Week>
+              <H2> Weekly Sleep Analysis </H2>
               <input
                 type="week"
                 name="week"
                 value={this.state.week}
                 onChange={this.handleInputChange}
               />
+
               {/* {this.state.dailyDisplayed ? (
                 <DailyLineGraph sleepData={this.state.sleepData} />
               ) : ( */}
-              <WeeklyLineGraph
-                filteredDailyData={this.state.filteredDailyData}
-              />
+              <LineGraphwrapper>
+                <WeeklyLineGraph
+                  filteredDailyData={this.state.filteredDailyData}
+                />
+              </LineGraphwrapper>
+
               {/* )} */}
               {/* {this.state.dailyDisplayed && (
                 <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
@@ -225,12 +230,15 @@ class DashboardView extends React.Component {
             <br />
             <Month>
               {this.props.currentUser.account_type === "premium" && (
-                <input
-                  type="month"
-                  name="month"
-                  value={this.state.month}
-                  onChange={this.handleInputChange}
-                />
+                <div>
+                  <h2> Monthly Sleep Analysis</h2>
+                  <input
+                    type="month"
+                    name="month"
+                    value={this.state.month}
+                    onChange={this.handleInputChange}
+                  />
+                </div>
               )}
               {this.props.currentUser.account_type === "premium" && (
                 <MonthlyBarChart
@@ -242,17 +250,21 @@ class DashboardView extends React.Component {
             </Month>
           </Chart>
 
-          <RadialCharts>
-            {this.state.filteredDailyData.map(dailyData => {
-              return (
-                <RadialChart
-                  key={dailyData.id}
-                  dailyData={dailyData}
-                  showDailyGraph={this.showDailyGraph}
-                />
-              );
-            })}
-          </RadialCharts>
+          <Daily>
+            <H2> Daily Sleep Analysis</H2>
+            <RadialCharts>
+              {this.state.filteredDailyData.map(dailyData => {
+                return (
+                  <RadialChart
+                    key={dailyData.id}
+                    dailyData={dailyData}
+                    showDailyGraph={this.showDailyGraph}
+                  />
+                );
+              })}
+            </RadialCharts>
+          </Daily>
+
           <DailyDataModal
             sleepData={this.state.sleepData}
             dailyDisplayed={this.state.dailyDisplayed}
