@@ -16,14 +16,17 @@ const HeaderContainer = styled.div`
 `;
 
 const XButton = styled(Button)`
-  background: "rgb(255, 255, 255, 0.09)",
-  border: "rgb(255, 255, 255, 0.09)",
-  color: "white"
+  background: transparent;
+  border: transparent;
+  color: white;
   font-size: 24px;
   padding: 1rem;
 
   :hover {
     cursor: pointer;
+    background: transparent;
+    border: transparent;
+    color: #e34a6f;
   }
 `;
 
@@ -46,7 +49,7 @@ class DailyDataModal extends React.Component {
         >
           <HeaderContainer>
             <Header>Daily Sleep Analysis</Header>
-            <XButton>X</XButton>
+            <XButton onClick={this.props.hideDailyGraph}>X</XButton>
           </HeaderContainer>
           <ModalBody style={{ border: "#4C546F" }}>
             {this.props.sleepData.sleep_notes}

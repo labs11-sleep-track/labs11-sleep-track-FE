@@ -26,6 +26,7 @@ const Day = styled.p`
 `;
 
 const ViewDetails = styled.p`
+  margin-top: 10px;
   :hover {
     color: #e34a6f;
   }
