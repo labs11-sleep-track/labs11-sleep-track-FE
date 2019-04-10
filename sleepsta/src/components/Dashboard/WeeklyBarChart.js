@@ -90,6 +90,7 @@ class WeeklyBarChart extends Component {
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
+        fontSize: 24,
         fontFamily: fontFamily,
         fontColor: "#F7F7FF",
         text: `${moment
@@ -115,6 +116,9 @@ class WeeklyBarChart extends Component {
         maximum: 12
       },
       axisX: {
+        title: "Day of Week",
+        titleFontFamily: fontFamily,
+        titleFontColor: "#F7F7FF",
         labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF"
       },

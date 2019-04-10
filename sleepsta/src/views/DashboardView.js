@@ -27,7 +27,6 @@ const RadialCharts = styled.div`
   max-width: 100%;
   background-color: rgb(255, 255, 255, 0.09);
   padding-bottom: 40px;
-
   @media (min-width: 1920px) {
     display: flex;
     justify-content: center;
@@ -213,10 +212,6 @@ class DashboardView extends React.Component {
                 value={this.state.week}
                 onChange={this.handleInputChange}
               />
-
-              {/* {this.state.dailyDisplayed ? (
-                <DailyLineGraph sleepData={this.state.sleepData} />
-              ) : ( */}
               <Graphwrapper>
                 <WeeklyBarChart
                   filteredDailyData={this.state.filteredDailyData}
@@ -224,11 +219,6 @@ class DashboardView extends React.Component {
                   lastWeekDay={this.state.lastWeekDay}
                 />
               </Graphwrapper>
-
-              {/* )} */}
-              {/* {this.state.dailyDisplayed && (
-                <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
-              )} */}
             </Week>
 
             <Month>

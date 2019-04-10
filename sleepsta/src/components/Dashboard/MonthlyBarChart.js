@@ -70,6 +70,7 @@ class MonthlyBarChart extends Component {
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
+        fontSize: 24,
         fontFamily: fontFamily,
         fontColor: "#F7F7FF",
         text: `${moment

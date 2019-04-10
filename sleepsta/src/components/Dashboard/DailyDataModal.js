@@ -14,7 +14,7 @@ class DailyDataModal extends React.Component {
           size="lg"
           style={{
             backgroundColor: "rgb(255, 255, 255, 0.09)",
-            width: "800px",
+            width: "80%",
             fontSize: "18px"
           }}
           isOpen={this.props.dailyDisplayed}
