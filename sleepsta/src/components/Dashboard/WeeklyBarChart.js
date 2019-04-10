@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 const CanvasJS = CanvasJSReact.CanvasJS;
@@ -10,6 +11,8 @@ CanvasJS.addColorSet("sleepstaShades", [
   "#E34A6F",
   "#9AD2CB"
 ]);
+
+const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
 
 class WeeklyBarChart extends Component {
   constructor() {
@@ -87,58 +90,42 @@ class WeeklyBarChart extends Component {
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
-        fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontSize: 24,
+        fontFamily: fontFamily,
         fontColor: "#F7F7FF",
-        text: "Picked week date range"
+        text: `${moment
+          .unix(this.props.firstWeekDay)
+          .format("MMM Do")} - ${moment
+          .unix(this.props.lastWeekDay)
+          .format("MMM Do")}`
       },
       subtitles: [
         {
-          fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontFamily: fontFamily,
           fontColor: "#F7F7FF",
           text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
         title: "Hours Slept",
-        titleFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
-        labelFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF",
         suffix: "hr",
         maximum: 12
       },
       axisX: {
-        labelFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        title: "Day of Week",
+        titleFontFamily: fontFamily,
+        titleFontColor: "#F7F7FF",
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "column",
-          indexLabelFontFamily: [
-            "Poppins",
-            "Roboto",
-            "Arimo",
-            "Work Sans",
-            "Pacifico"
-          ],
+          indexLabelFontFamily: fontFamily,
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
           yValueFormatString: "#.# 'hr'",

@@ -1,6 +1,34 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DailyLineGraph from "./DailyLineGraph";
+import styled from "styled-components";
+import "./DailyDataModal.css";
+
+const Header = styled(ModalHeader)`
+  border: rgb(255, 255, 255, 0.09);
+  font-family: Poppins, Roboto, Arimo, Work Sans, Pacifico;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const XButton = styled(Button)`
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 24px;
+  padding: 1rem;
+
+  :hover {
+    cursor: pointer;
+    background: transparent;
+    border: transparent;
+    color: #e34a6f;
+  }
+`;
 
 class DailyDataModal extends React.Component {
   constructor(props) {
@@ -14,21 +42,15 @@ class DailyDataModal extends React.Component {
           size="lg"
           style={{
             backgroundColor: "rgb(255, 255, 255, 0.09)",
-            width: "800px",
-            fontSize: "18px"
+            width: "70%"
           }}
           isOpen={this.props.dailyDisplayed}
           className={this.props.className}
         >
-          <ModalHeader
-            style={{
-              border: "#4C546F",
-              fontFamily: "Poppins"
-            }}
-            toggle={this.props.hideDailyGraph}
-          >
-            Daily Sleep Analysis
-          </ModalHeader>
+          <HeaderContainer>
+            <Header>Daily Sleep Analysis</Header>
+            <XButton onClick={this.props.hideDailyGraph}>X</XButton>
+          </HeaderContainer>
           <ModalBody style={{ border: "#4C546F" }}>
             {this.props.sleepData.sleep_notes}
             <DailyLineGraph sleepData={this.props.sleepData} />

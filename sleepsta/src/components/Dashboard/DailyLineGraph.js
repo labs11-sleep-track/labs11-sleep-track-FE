@@ -3,6 +3,8 @@ import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
+const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
+
 class DailyLineGraph extends Component {
   constructor() {
     super();
@@ -32,45 +34,21 @@ class DailyLineGraph extends Component {
     const options = {
       backgroundColor: "rgb(255, 255, 255, 0.00)",
       title: {
-        fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontFamily: fontFamily,
         fontColor: "#F7F7FF"
       },
       axisY: {
         title: "Movement",
-        titleFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
-        labelFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF"
       },
       axisX: {
         title: "Time",
-        titleFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
-        labelFontFamily: [
-          "Poppins",
-          "Roboto",
-          "Arimo",
-          "Work Sans",
-          "Pacifico"
-        ],
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF"
       },
       data: [
