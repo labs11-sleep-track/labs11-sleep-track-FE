@@ -12,7 +12,7 @@ import {
   Label,
   Input
 } from "reactstrap";
-
+import Stripe from "../Premium/Stripe";
 import "./Profile.css";
 import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
@@ -21,7 +21,7 @@ const DarkCard = styled(Card)`
   font-weight: bold;
   background-color: rgb(255, 255, 255, 0.09);
   padding: 10px;
-  margin: 0 auto;
+  margin: 15px auto;
   width: 90%;
 `;
 
@@ -40,6 +40,7 @@ const CardText = styled.p`
   color: white;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
+  margin-left: 15px;
 
   @media (max-width: 500px) {
     font-size: 14px;
@@ -49,6 +50,12 @@ const CardText = styled.p`
 const PinkButton = styled(Button)`
   background: #e34a6f;
   color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Roboto", "Rubik";
+  width: 125px;
+  border: none;
+
   &:hover {
     background: white;
     color: #e34a6f;
@@ -116,119 +123,181 @@ class Profile extends Component {
     console.log("while rendering", this.props.inputs);
     // console.log(localStorage);
     // console.log(document.getElementsByClassName("notif"));
-    return (
-      <div className="profile">
-        <DarkCard>
-          <CardBody>
-            <CardTitle>Profile </CardTitle>
-            <hr />
-            <CardText>
-              <h6>Email: {this.props.inputs.email}</h6>
 
-              <h6>First Name: {this.props.inputs.f_name}</h6>
+    if (this.props.inputs.account_type === "premium") {
+      return (
+        <div className="profile">
+          <DarkCard>
+            <CardBody>
+              <CardTitle>Profile </CardTitle>
+              <hr />
+              <CardText>
+                <h6>Email: {this.props.inputs.email}</h6>
+                <br />
+                <h6>First Name: {this.props.inputs.f_name}</h6>
+                <br />
+                <h6>Last Name: {this.props.inputs.l_name}</h6>
+                <br />
+                <h6>Account Type: {this.props.inputs.account_type}</h6>
+                <br />
+                <PinkButton onClick={this.toggle}>Edit Profile</PinkButton>
+              </CardText>
+            </CardBody>
+          </DarkCard>
 
-              <h6>Last Name: {this.props.inputs.l_name}</h6>
+          <Modal
+            isOpen={this.state.modal}
+            fade={false}
+            toggle={this.toggle}
+            className={this.props.className}
+          >
+            <ModalHeader toggle={this.toggle} className="header">
+              Update User Form
+            </ModalHeader>
 
-              <h6>Account Type: {this.props.inputs.account_type}</h6>
-              <br />
-              <PinkButton onClick={this.toggle}>Edit Profile</PinkButton>
-            </CardText>
-          </CardBody>
-        </DarkCard>
+            <ModalBody>
+              <Form>
+                <div className="fNameDiv">
+                  <Label className="label">First Name *</Label>
+                  <Input
+                    type="text"
+                    name="f_name"
+                    value={this.state.f_name}
+                    placeholder={this.props.inputs.f_name}
+                    onChange={this.handleChanges}
+                  />
+                </div>
 
-        {/* <div className="userInfo">
-          <br />
-          <div className="box">
-            <h6>Email:</h6>
-            <p className="item">{this.props.inputs.email}</p>
-          </div>
+                <br />
 
-          <br />
-          <div className="box">
-            <h6>First Name:</h6>
-            <p>{this.props.inputs.f_name}</p>
-          </div>
-          <br />
-
-          <div className="box">
-            <h6>Last Name:</h6>
-            <p>{this.props.inputs.l_name}</p>
-          </div>
-          <br />
-
-          <div className="box">
-            <h6>Account Type:</h6>
-            <p>{this.props.inputs.account_type}</p>
-          </div>
-          <br />
-        </div>
-        <div className="butn">
-          <Button color="primary" onClick={this.toggle}>
-            Edit Profile
-          </Button>
-        </div> */}
-
-        <Modal
-          isOpen={this.state.modal}
-          fade={false}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
-          <ModalHeader toggle={this.toggle} className="header">
-            Update User Form
-          </ModalHeader>
-
-          <ModalBody>
-            <Form>
-              <div className="fNameDiv">
-                <Label className="label">First Name *</Label>
-                <Input
-                  type="text"
-                  name="f_name"
-                  value={this.state.f_name}
-                  placeholder={this.props.inputs.f_name}
-                  onChange={this.handleChanges}
-                />
-              </div>
+                <div className="lNameDiv">
+                  <Label className="label">Last Name *</Label>
+                  <Input
+                    type="text"
+                    name="l_name"
+                    value={this.state.l_name}
+                    placeholder={this.props.inputs.l_name}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+              </Form>
 
               <br />
 
-              <div className="lNameDiv">
-                <Label className="label">Last Name *</Label>
-                <Input
-                  type="text"
-                  name="l_name"
-                  value={this.state.l_name}
-                  placeholder={this.props.inputs.l_name}
-                  onChange={this.handleChanges}
-                />
-              </div>
-            </Form>
+              <br />
 
-            <br />
+              <PinkButton
+                onClick={this.handleSubmit}
+                onMouseUp={() => notify("notif")}
+              >
+                Update
+              </PinkButton>
 
-            {/* {this.state.update ? (
-              <p className="fail">Failed to update profile.</p>
-            ) : null} */}
+              <PinkButton onClick={this.toggle}>Cancel</PinkButton>
+            </ModalBody>
+          </Modal>
 
-            <br />
-
-            <PinkButton
-              onClick={this.handleSubmit}
-              onMouseUp={() => notify("notif")}
-            >
-              Update
-            </PinkButton>
-
-            <PinkButton onClick={this.toggle}>Cancel</PinkButton>
-          </ModalBody>
-        </Modal>
-
-        <div className="notif">
-          <Notifications update={this.state.update} />
+          <div className="notif">
+            <Notifications update={this.state.update} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="profile">
+          <DarkCard>
+            <CardBody>
+              <CardTitle>Profile </CardTitle>
+              <hr />
+              <CardText>
+                <h6>Email: {this.props.inputs.email}</h6>
+                <br />
+                <h6>First Name: {this.props.inputs.f_name}</h6>
+                <br />
+                <h6>Last Name: {this.props.inputs.l_name}</h6>
+                <br />
+                <h6>Account Type: {this.props.inputs.account_type}</h6>
+                <br />
+                <PinkButton onClick={this.toggle}>Edit Profile</PinkButton>
+              </CardText>
+            </CardBody>
+          </DarkCard>
+
+          <Modal
+            isOpen={this.state.modal}
+            fade={false}
+            toggle={this.toggle}
+            className={this.props.className}
+          >
+            <ModalHeader toggle={this.toggle} className="header">
+              Update User Form
+            </ModalHeader>
+
+            <ModalBody>
+              <Form>
+                <div className="fNameDiv">
+                  <Label className="label">First Name *</Label>
+                  <Input
+                    type="text"
+                    name="f_name"
+                    value={this.state.f_name}
+                    placeholder={this.props.inputs.f_name}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+
+                <br />
+
+                <div className="lNameDiv">
+                  <Label className="label">Last Name *</Label>
+                  <Input
+                    type="text"
+                    name="l_name"
+                    value={this.state.l_name}
+                    placeholder={this.props.inputs.l_name}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+              </Form>
+
+              <br />
+
+              <br />
+
+              <PinkButton
+                onClick={this.handleSubmit}
+                onMouseUp={() => notify("notif")}
+              >
+                Update
+              </PinkButton>
+
+              <PinkButton onClick={this.toggle}>Cancel</PinkButton>
+            </ModalBody>
+          </Modal>
+
+          <div className="notif">
+            <Notifications update={this.state.update} />
+          </div>
+
+          <DarkCard>
+            <CardBody>
+              <CardTitle>Upgrade?</CardTitle>
+              <hr />
+              <CardText>
+                Get access to premium features.
+                <br />
+                See your sleep data in a monthly chart.
+                <br />
+                One time fee of $10 USD.
+                <br />
+                <br />
+              </CardText>
+              <Stripe />
+            </CardBody>
+          </DarkCard>
+        </div>
+      );
+    }
   }
 }
 
