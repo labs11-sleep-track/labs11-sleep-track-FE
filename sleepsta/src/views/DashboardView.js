@@ -13,6 +13,8 @@ import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 import DailyDataModal from "../components/Dashboard/DailyDataModal";
 
 const Div = styled.div`
+  margin: 0 auto;
+  width: 90%;
   @media (min-width: 1920px) {
     max-width: 1450px;
     margin: 0 auto;
@@ -45,32 +47,31 @@ const Chart = styled.div`
 `;
 
 const Week = styled.div`
-  padding: 20px;
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Month = styled.div`
-  padding: 20px;
-
+  padding-top: 15px;
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Daily = styled.div`
-  padding: 20px;
+  padding-top: 15px;
 `;
 
 const DashboardWrapper = styled.div`
+  padding-bottom: 15px;
   @media (max-width: 500px) {
     padding: 0 20px;
   }
 `;
 
-const LineGraphwrapper = styled.div`
-  margin-top: 30px;
+const Graphwrapper = styled.div`
+  margin-top: 15px;
 `;
 
 const DashboardNav = styled.div`
@@ -79,7 +80,8 @@ const DashboardNav = styled.div`
 
 const H2 = styled.div`
   font-size: 24px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 15px;
 `;
 
 class DashboardView extends React.Component {
@@ -216,22 +218,22 @@ class DashboardView extends React.Component {
               {/* {this.state.dailyDisplayed ? (
                 <DailyLineGraph sleepData={this.state.sleepData} />
               ) : ( */}
-              <LineGraphwrapper>
+              <Graphwrapper>
                 <WeeklyLineGraph
                   filteredDailyData={this.state.filteredDailyData}
                 />
-              </LineGraphwrapper>
+              </Graphwrapper>
 
               {/* )} */}
               {/* {this.state.dailyDisplayed && (
                 <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
               )} */}
             </Week>
-            <br />
+
             <Month>
               {this.props.currentUser.account_type === "premium" && (
                 <div>
-                  <h2> Monthly Sleep Analysis</h2>
+                  <H2> Monthly Sleep Analysis</H2>
                   <input
                     type="month"
                     name="month"
@@ -241,11 +243,13 @@ class DashboardView extends React.Component {
                 </div>
               )}
               {this.props.currentUser.account_type === "premium" && (
-                <MonthlyBarChart
-                  filteredMonthlyData={this.state.filteredMonthlyData}
-                  firstMonthDay={this.state.firstMonthDay}
-                  lastMonthDay={this.state.lastMonthDay}
-                />
+                <Graphwrapper>
+                  <MonthlyBarChart
+                    filteredMonthlyData={this.state.filteredMonthlyData}
+                    firstMonthDay={this.state.firstMonthDay}
+                    lastMonthDay={this.state.lastMonthDay}
+                  />
+                </Graphwrapper>
               )}
             </Month>
           </Chart>

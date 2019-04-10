@@ -68,7 +68,7 @@ class MonthlyBarChart extends Component {
       title: {
         fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
-        text: "Monthly Sleep Analysis"
+        text: "Picked Month"
       },
       subtitles: [
         {
