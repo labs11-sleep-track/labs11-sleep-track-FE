@@ -21,17 +21,17 @@ const Main = styled.div`
 const JumboHome = styled.div`
   width: 100%;
   height: 200px;
-  background-color: rgb(0,0,0,.1);
+  background-color: rgb(255,255,255,.1);
 
     h1 {
       text-align: center;
-      padding-top: 100px;
+      padding-top: 90px;
       font-family: "Poppins", "Roboto";
       font-size: 7em;
       height: 100%;
 
       @media (max-width: 800px) {
-        padding-top: 75px;
+        padding-top: 70px;
         font-size: 5em;
       }
 
@@ -53,9 +53,10 @@ const JumboHome = styled.div`
 const TaglineBar = styled.div`
   width: 100%;
   padding: 10px 5px;
-  background-color: rgb(0,0,0,.05);
+  background-color: rgb(255,255,255,.05);
   text-align: center;
   font-family: "Poppins", "Roboto";
+  border-top: 1px solid #e34a6f;
 `;
 
 const SecondDiv = styled.div`
