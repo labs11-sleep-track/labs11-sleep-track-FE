@@ -81,7 +81,13 @@ class LoggedInSideNav extends React.Component {
               </li>
 
               <li>
-                <a
+                <Link style={{ textDecoration: "none" }} to="/profile">
+                  <div>
+                    <i class="fas fa-user-circle" />
+                    &nbsp;&nbsp;Account
+                  </div>
+                </Link>
+                {/* <a
                   href="#pageSubmenu"
                   data-toggle="collapse"
                   aria-expanded="false"
@@ -108,7 +114,7 @@ class LoggedInSideNav extends React.Component {
                       </div>
                     </Link>
                   </li>
-                </ul>
+                </ul> */}
               </li>
 
               <li>
@@ -169,7 +175,8 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/about">
                   <div>
-                    <i class="fas fa-bed" />&nbsp;About
+                    <i class="fas fa-bed" />
+                    &nbsp;About
                   </div>
                 </Link>
               </li>
@@ -177,7 +184,8 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/privacy">
                   <div>
-                    <i class="fas fa-user-shield" />&nbsp;Privacy Policy
+                    <i class="fas fa-user-shield" />
+                    &nbsp;Privacy Policy
                   </div>
                 </Link>
               </li>

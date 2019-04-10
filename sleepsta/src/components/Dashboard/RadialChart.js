@@ -8,10 +8,6 @@ const ChartContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  :hover {
-    cursor: pointer;
-  }
-
   @media (min-width: 1920px) {
     max-width: 880px;
   }
@@ -21,6 +17,21 @@ const Chart = styled.div`
   height: 220px;
   width: 220px;
   margin-bottom: 40px;
+`;
+
+const Day = styled.p`
+  font-size: 18px;
+  &:hover {
+    cursor: pointer;
+    color: #e34a6f;
+  }
+`;
+const ViewDetails = styled.p`
+  color: green;
+  &:hover {
+    cursor: pointer;
+    color: #e34a6f;
+  }
 `;
 
 class RadialChart extends React.Component {
@@ -130,31 +141,18 @@ class RadialChart extends React.Component {
 
   render() {
     return (
-      <div id="card">
-        <ChartContainer
-          id="chart"
-          onClick={e =>
-            this.props.showDailyGraph(
-              e,
-              window.location.hostname === "localhost"
-                ? JSON.parse(this.props.dailyData.night_data)
-                : this.props.dailyData.night_data
-            )
-          }
-        >
-          <Chart>
-            <ReactApexChart
-              options={this.state.options}
-              series={this.state.series}
-              type="radialBar"
-              height="320"
-            />
-          </Chart>
-
-          <p>{this.state.day}</p>
-          {this.state.viewDetails && <p>View Details</p>}
-        </ChartContainer>
-      </div>
+      <ChartContainer>
+        <Chart>
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="radialBar"
+            height="320"
+          />
+        </Chart>
+        <Day>{this.state.day}</Day>
+        {this.state.viewDetails && <ViewDetails>View Details</ViewDetails>}
+      </ChartContainer>
     );
   }
 }

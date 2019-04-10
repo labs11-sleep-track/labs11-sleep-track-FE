@@ -115,22 +115,13 @@ class WeeklyBarChart extends Component {
         maximum: 12
       },
       axisX: {
-        title: "Day of Week",
-        titleFontFamily: fontFamily,
-        titleFontColor: "#F7F7FF",
         labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "column",
-          indexLabelFontFamily: [
-            "Poppins",
-            "Roboto",
-            "Arimo",
-            "Work Sans",
-            "Pacifico"
-          ],
+          indexLabelFontFamily: fontFamily,
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
           yValueFormatString: "#.# 'hr'",
