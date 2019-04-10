@@ -55,8 +55,8 @@ const Title = styled.h2`
   width: 100%;
   cursor: pointer;
 
-  &:hover { 
-    color: #E34A6F;
+  &:hover {
+    color: #e34a6f;
   }
 `;
 
@@ -93,119 +93,118 @@ class MobileNav extends React.Component {
     });
   }
   render() {
-    if(localStorage.getItem("jwt")) {
-    return (
-      <NavAll>
-        <Navbar className="navBarMobile" color="faded" light>
-          {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
+    if (localStorage.getItem("jwt")) {
+      return (
+        <NavAll>
+          <Navbar className="navBarMobile" color="faded" light>
+            {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
 
-          <NavbarBrand href="/dashboard" className="mr-auto">
-            <Title>SLEEPSTA</Title>
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
-          <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav navbar>
-              <br />
-              <NavItem>
-                <Link style={{ textDecoration: "none" }} to="/dashboard">
-                  <Links>
-                    <i class="fas fa-chart-bar" />
-                    &nbsp;&nbsp;Dashboard
-                  </Links>
-                </Link>
-              </NavItem>
-              <br />
-              <NavItem>
-                <Link style={{ textDecoration: "none" }} to="/blogs">
-                  <Links>
-                    <i className="fas fa-bed" />
-                    &nbsp;&nbsp;Sleep Blogs
-                  </Links>
-                </Link>
-              </NavItem>
-              <br />
-              <NavItem>
-                <Link style={{ textDecoration: "none" }} to="/profile">
-                  <Links>
-                    <i class="fas fa-user" />
-                    &nbsp;&nbsp;Profile
-                  </Links>
-                </Link>
-              </NavItem>
-              <br />
-              <NavItem>
+            <NavbarBrand href="/dashboard" className="mr-auto">
+              <Title>SLEEPSTA</Title>
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+            {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
+            <Collapse isOpen={!this.state.collapsed} navbar>
+              <Nav navbar>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/dashboard">
+                    <Links>
+                      <i class="fas fa-chart-bar" />
+                      &nbsp;&nbsp;Dashboard
+                    </Links>
+                  </Link>
+                </NavItem>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/blogs">
+                    <Links>
+                      <i className="fas fa-bed" />
+                      &nbsp;&nbsp;Sleep Blogs
+                    </Links>
+                  </Link>
+                </NavItem>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/profile">
+                    <Links>
+                      <i class="fas fa-user" />
+                      &nbsp;&nbsp;Account
+                    </Links>
+                  </Link>
+                </NavItem>
+                <br />
+                {/* <NavItem>
                 <Link style={{ textDecoration: "none" }} to="/premium">
                   <Links>
                     <i className="fas fa-dollar-sign" />
                     &nbsp;&nbsp;Payment
                   </Links>
                 </Link>
-              </NavItem>
-              <NavItem>
-              <Links>
-                  <a onClick={this.logout}>
-                    <i class="fas fa-sign-out-alt" />
-                    &nbsp;&nbsp;Logout
-                  </a>
-                </Links>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </NavAll>
-    );
-} else {
-  return (
-    <NavAll>
-    <Navbar className="navBarMobile" color="faded" light>
-      {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
+              </NavItem> */}
+                <NavItem>
+                  <Links>
+                    <a onClick={this.logout}>
+                      <i class="fas fa-sign-out-alt" />
+                      &nbsp;&nbsp;Logout
+                    </a>
+                  </Links>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </NavAll>
+      );
+    } else {
+      return (
+        <NavAll>
+          <Navbar className="navBarMobile" color="faded" light>
+            {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
 
-      <NavbarBrand href="/" className="mr-auto">
-        <Title>SLEEPSTA</Title>
-      </NavbarBrand>
-      <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-      {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
-      <Collapse isOpen={!this.state.collapsed} navbar>
-        <Nav navbar>
-          <br />
-          <NavItem>
-            <Link style={{ textDecoration: "none" }} to="/">
-              <Links>
-              <i class="fas fa-user" />&nbsp;Sign In
-              </Links>
-            </Link>
-          </NavItem>
-          <br />
-          <NavItem>
-            <Link style={{ textDecoration: "none" }} to="/about">
-              <Links>
-              <i class="fas fa-bed"></i>&nbsp;About Us
-              </Links>
-            </Link>
-          </NavItem>
-          <br />
-          <NavItem>
-            <Link style={{ textDecoration: "none" }} to="/privacy">
-              <Links>
-              <i class="fas fa-user-shield"></i>&nbsp;Privacy Policy
-              </Links>
-            </Link>
-          </NavItem>
-        </Nav>
-      </Collapse>
-    </Navbar>
-  </NavAll>
-  )
+            <NavbarBrand href="/" className="mr-auto">
+              <Title>SLEEPSTA</Title>
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+            {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
+            <Collapse isOpen={!this.state.collapsed} navbar>
+              <Nav navbar>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/">
+                    <Links>
+                      <i class="fas fa-user" />
+                      &nbsp;Sign In
+                    </Links>
+                  </Link>
+                </NavItem>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/about">
+                    <Links>
+                      <i class="fas fa-bed" />&nbsp;About Us
+                    </Links>
+                  </Link>
+                </NavItem>
+                <br />
+                <NavItem>
+                  <Link style={{ textDecoration: "none" }} to="/privacy">
+                    <Links>
+                      <i class="fas fa-user-shield" />&nbsp;Privacy Policy
+                    </Links>
+                  </Link>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </NavAll>
+      );
+    }
+  }
+
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.props.history.push("/");
+  };
 }
-}
-
-logout = () => {
-  localStorage.removeItem("jwt");
-  this.props.history.push("/");
-};
-}
-
-
 
 export default withRouter(MobileNav);
