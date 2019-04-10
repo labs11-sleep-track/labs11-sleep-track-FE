@@ -75,7 +75,7 @@ const HoldCaro = styled.div`
   background-color: rgb(0,0,0,.1);
 
   @media (max-width: 800px) {
-        width: 450px;
+        width: 500px;
       }
 
       @media (max-width: 500px) {
