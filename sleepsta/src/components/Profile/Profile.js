@@ -18,7 +18,6 @@ import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
 
 const DarkCard = styled(Card)`
-  font-weight: bold;
   background-color: rgb(255, 255, 255, 0.09);
   padding: 10px;
   margin: 15px auto;
