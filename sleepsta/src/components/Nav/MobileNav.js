@@ -9,7 +9,6 @@ import {
   NavLink
 } from "reactstrap";
 
-import logo from "./sleep.png";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
@@ -25,7 +24,7 @@ const NavAll = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins";
 
   @media (min-width: 500px) {
     display: none;
@@ -45,7 +44,7 @@ const NavAll = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 25px;
+  font-size: 30px;
   padding-top: 20px;
   padding-left: 20px;
   display: flex;
@@ -53,7 +52,7 @@ const Title = styled.h2`
   color: white;
   font-family: "Poppins";
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   width: 100%;
   cursor: pointer;
 
@@ -63,16 +62,19 @@ const Title = styled.h2`
 `;
 
 const Links = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   padding-top: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   border-top: 2px solid #070f1e;
   display: flex;
   justify-content: center;
+  font-family: "Poppins";
+  letter-spacing: 2px;
   cursor: pointer;
 
   &:hover { 
     color: #E34A6F;
+    background-color: white;
   }
 `;
 

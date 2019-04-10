@@ -5,6 +5,8 @@ import { Card, CardImg, CardText, CardBody,
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
 
+import "./About.css";
+
 import D from "./dillon_profile_photo.jpg";
 
 const Cards = styled.div`
@@ -93,6 +95,7 @@ letter-spacing: 1px;
 font-weight: bold;
 width: 90px;
 background-color: #E34A6F;
+border: 1px solid white;
 border-radius: 5px;
 color: white;
 box-shadow: 2px 2px #0A1428;
