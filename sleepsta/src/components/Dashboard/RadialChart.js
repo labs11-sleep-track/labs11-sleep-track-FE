@@ -27,6 +27,7 @@ class RadialChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      viewDetails: false,
       day: "",
       options: {
         chart: {
@@ -105,7 +106,7 @@ class RadialChart extends React.Component {
         stroke: {
           lineCap: "round"
         },
-        labels: ["Quality of Sleep"]
+        labels: ["Sleep Quality"]
       },
       series: []
     };
@@ -121,7 +122,8 @@ class RadialChart extends React.Component {
         .format("dddd");
       this.setState({
         series: [this.props.dailyData.qos_score],
-        day: dayOfWeek
+        day: dayOfWeek,
+        viewDetails: true
       });
     }
   }
@@ -150,6 +152,7 @@ class RadialChart extends React.Component {
           </Chart>
 
           <p>{this.state.day}</p>
+          {this.state.viewDetails && <p>View Details</p>}
         </ChartContainer>
       </div>
     );

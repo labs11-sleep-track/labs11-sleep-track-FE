@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DailyLineGraph from "./DailyLineGraph";
-import "./DailyDataModal.css";
 
 class DailyDataModal extends React.Component {
   constructor(props) {
@@ -14,8 +13,7 @@ class DailyDataModal extends React.Component {
         <Modal
           size="lg"
           style={{
-            background: "#4C546F",
-            border: "#4C546F",
+            backgroundColor: "rgb(255, 255, 255, 0.09)",
             width: "800px",
             fontSize: "18px"
           }}
@@ -24,19 +22,18 @@ class DailyDataModal extends React.Component {
         >
           <ModalHeader
             style={{
-              background: "#4C546F",
               border: "#4C546F",
-              fontFamily: "Roboto"
+              fontFamily: "Poppins"
             }}
             toggle={this.props.hideDailyGraph}
           >
-            Nightly Sleep Motion Analysis
+            Daily Sleep Analysis
           </ModalHeader>
-          <ModalBody style={{ background: "#4C546F", border: "#4C546F" }}>
+          <ModalBody style={{ border: "#4C546F" }}>
             {this.props.sleepData.sleep_notes}
             <DailyLineGraph sleepData={this.props.sleepData} />
           </ModalBody>
-          <ModalFooter style={{ background: "#4C546F", border: "#4C546F" }}>
+          <ModalFooter style={{ border: "#4C546F" }}>
             <Button
               style={{ background: "#E34A6F", border: "#E34A6F" }}
               onClick={this.props.hideDailyGraph}

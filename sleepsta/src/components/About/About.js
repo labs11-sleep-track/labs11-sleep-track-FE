@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardBody,
+  CardTitle, CardSubtitle } from 'reactstrap';
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
 
@@ -70,15 +70,15 @@ text-shadow: 2px 2px #0A1428;
 
 `
 
-const Text = styled.p`
-font-size: 15px;
-font-weight: bold;
-letter-spacing: 1px; 
-display: flex;
-justify-content: space-evenly;
-padding-bottom: 10px;
+// const Text = styled.p`
+// font-size: 15px;
+// font-weight: bold;
+// letter-spacing: 1px; 
+// display: flex;
+// justify-content: space-evenly;
+// padding-bottom: 10px;
 
-`
+// `
 
 const ButtonThing = styled.div`
 display: flex;

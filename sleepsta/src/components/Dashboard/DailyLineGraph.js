@@ -30,32 +30,54 @@ class DailyLineGraph extends Component {
 
   render() {
     const options = {
-      backgroundColor: "#4C546F",
+      backgroundColor: "rgb(255, 255, 255, 0.00)",
       title: {
-        fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF"
-        // text: "Nightly Sleep Motion Analysis"
       },
       axisY: {
         title: "Movement",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF"
       },
       axisX: {
         title: "Time",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "splineArea",
           xValueType: "dateTime",
-          lineColor: "#9AD2CB",
-          markerColor: "#9AD2CB",
+          color: "#9EE493",
           dataPoints: this.state.dps
         }
       ]

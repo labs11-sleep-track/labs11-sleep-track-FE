@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+const CanvasJS = CanvasJSReact.CanvasJS;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+CanvasJS.addColorSet("sleepstaShades", [
+  //colorSet Array
+
+  "#9EE493",
+  "#E34A6F",
+  "#9AD2CB"
+]);
 
 class WeeklyBarChart extends Component {
   constructor() {
@@ -23,13 +32,25 @@ class WeeklyBarChart extends Component {
     ];
     for (let i = 0; i < 7; i++) {
       if (typeof this.props.filteredDailyData[i] === "object") {
-        let sleepTime =
-          (this.props.filteredDailyData[i].waketime -
-            this.props.filteredDailyData[i].sleeptime) /
-          3600;
-        dataArr[i].y = sleepTime;
-      } else {
-        dataArr[i].y = 0;
+        let sleepTime = this.props.filteredDailyData[i].sleeptime;
+        let formattedTime = new Date(sleepTime * 1000);
+        var days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ];
+        let dayOfWeek = days[formattedTime.getDay()];
+        let totalSleep =
+          (this.props.filteredDailyData[i].waketime - sleepTime) / 3600;
+        for (let x = 0; x < 7; x++) {
+          if (dataArr[x].label === dayOfWeek) {
+            dataArr[x].y = totalSleep;
+          }
+        }
       }
     }
     this.setState({ dps: dataArr });
@@ -38,15 +59,14 @@ class WeeklyBarChart extends Component {
   setAvg() {
     let total = 0;
     let count = 0;
-    let average = (total / count).toFixed(1);
+
     for (let i = 0; i < this.state.dps.length; i++) {
       if (this.state.dps[i].y !== 0) {
         total += this.state.dps[i].y;
         count++;
-      } else {
-        average = 0;
       }
     }
+    let average = count === 0 ? 0 : (total / count).toFixed(1);
     this.setState({ average });
   }
 
@@ -61,38 +81,64 @@ class WeeklyBarChart extends Component {
       this.setAvg();
     }
   }
+
   render() {
     const options = {
-      backgroundColor: "#4C546F",
+      colorSet: "sleepstaShades",
+      backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
-        fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
-        text: "Weekly Sleep Analysis"
+        text: "Picked week date range"
       },
       subtitles: [
         {
-          fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
           fontColor: "#F7F7FF",
           text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
         title: "Hours Slept",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF",
         suffix: "hr",
         maximum: 12
       },
       axisX: {
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "column",
-          indexLabelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          indexLabelFontFamily: [
+            "Poppins",
+            "Roboto",
+            "Arimo",
+            "Work Sans",
+            "Pacifico"
+          ],
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
           yValueFormatString: "#.# 'hr'",

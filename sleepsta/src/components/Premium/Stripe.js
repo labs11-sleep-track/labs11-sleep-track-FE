@@ -4,24 +4,24 @@ import { StripeProvider, Elements } from "react-stripe-elements";
 import styled from "styled-components";
 import jumboImage from "./img/jumbo.jpg";
 
-
 const keyPublishable = process.env.REACT_APP_PUBLISHABLE_KEY;
 const keySecret = process.env.REACT_APP_SECRET_KEY;
 
 const PremJumbo = styled.div`
   background-image: url(${jumboImage});
-  background-position: center;
+  background-position: 50% 75%;
   background-size: cover;
-  height: 350px;
+  height: 390px;
   margin: 0px 30px;
   margin-bottom: 15px;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-	   -moz-box-shadow: 0 8px 6px -6px black;
-          box-shadow: 0 8px 6px -6px black;
+  -webkit-box-shadow: 0 8px 6px -6px rgb(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 8px 6px -6px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 8px 6px -6px rgb(0, 0, 0, 0.5);
+  border-radius: 15px;
 `;
 
 const PremBene = styled.div`
-    margin: 0px 30px;
+  margin: 0px 30px;
 `;
 
 const RealH1 = styled.h1`
@@ -31,7 +31,7 @@ const RealH1 = styled.h1`
   padding-top: 10px;
   font-size: 3.75em;
   color: white;
-  text-shadow: 2px 2px 3px #000000;
+  text-shadow: 3px 1px 3px #000000;
   font-family: "Roboto", "Rubik", Arial, Helvetica, sans-serif;
 `;
 
@@ -60,7 +60,7 @@ const NewOL = styled.ol`
 `;
 
 const NewLI = styled.li`
-  font-size: .95em;
+  font-size: 0.95em;
 `;
 
 const StripeHold = styled.div`
@@ -71,7 +71,7 @@ class Stripe extends React.Component {
   render() {
     return (
       <div>
-        <PremJumbo>
+        {/* <PremJumbo>
           <RealH1>Premium</RealH1>
         </PremJumbo>
         <PremBene>
@@ -81,9 +81,9 @@ class Stripe extends React.Component {
             <NewLI>You're cool cause you're premium.</NewLI>
             <NewLI>You're apart of the premium club</NewLI>
           </NewOL>
-        </PremBene>
+        </PremBene> */}
 
-        <RealH3>Cost? $10.</RealH3>
+        {/* <RealH3>Cost? $10.</RealH3> */}
         <StripeHold>
           <StripeProvider apiKey={keyPublishable}>
             <Elements>
