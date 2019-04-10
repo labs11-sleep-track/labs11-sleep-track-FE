@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 const CanvasJS = CanvasJSReact.CanvasJS;
@@ -11,6 +12,9 @@ CanvasJS.addColorSet("sleepstaShades", [
   "#B0E9A8",
   "#6D9F66"
 ]);
+
+let fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
+
 class MonthlyBarChart extends Component {
   constructor() {
     super();
@@ -66,31 +70,35 @@ class MonthlyBarChart extends Component {
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
-        fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontFamily: fontFamily,
         fontColor: "#F7F7FF",
-        text: "Monthly Sleep Analysis"
+        text: `${moment
+          .unix(this.props.firstMonthDay)
+          .format("MMM Do")} - ${moment
+          .unix(this.props.lastMonthDay)
+          .format("MMM Do")}`
       },
       subtitles: [
         {
-          fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontFamily: fontFamily,
           fontColor: "#F7F7FF",
           text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
         title: "Hours Slept",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF",
         suffix: "hr",
         maximum: 12
       },
       axisX: {
         title: "Day of Month",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF",
         interval: 1
       },

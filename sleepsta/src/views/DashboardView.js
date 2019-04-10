@@ -5,8 +5,7 @@ import moment from "moment";
 
 import { fetchUserDailyData } from "../actions/index";
 import RadialChart from "../components/Dashboard/RadialChart";
-import DailyLineGraph from "../components/Dashboard/DailyLineGraph";
-import WeeklyLineGraph from "../components/Dashboard/WeeklyBarChart";
+import WeeklyBarChart from "../components/Dashboard/WeeklyBarChart";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
@@ -69,7 +68,7 @@ const DashboardWrapper = styled.div`
   }
 `;
 
-const LineGraphwrapper = styled.div`
+const BarChartWrapper = styled.div`
   margin-top: 30px;
 `;
 
@@ -216,16 +215,13 @@ class DashboardView extends React.Component {
               {/* {this.state.dailyDisplayed ? (
                 <DailyLineGraph sleepData={this.state.sleepData} />
               ) : ( */}
-              <LineGraphwrapper>
-                <WeeklyLineGraph
+              <BarChartWrapper>
+                <WeeklyBarChart
                   filteredDailyData={this.state.filteredDailyData}
+                  firstWeekDay={this.state.firstWeekDay}
+                  lastWeekDay={this.state.lastWeekDay}
                 />
-              </LineGraphwrapper>
-
-              {/* )} */}
-              {/* {this.state.dailyDisplayed && (
-                <button onClick={this.showWeeklyGraph}>View Weekly Data</button>
-              )} */}
+              </BarChartWrapper>
             </Week>
             <br />
             <Month>
