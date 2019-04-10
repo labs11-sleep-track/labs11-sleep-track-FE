@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   width: 100%;
+  font-family: "Poppins", sans-serif;
 }
 
 #sidebar {
@@ -105,7 +106,7 @@ a:focus {
 
 #sidebar ul li a {
   padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   display: block;
   /* border-top: 1px solid darkgrey; */
 }
@@ -128,12 +129,12 @@ ul ul a {
 
 .sleepTitle {
   font-size: 22px;
-  font-family: Roboto;
+  font-family: "Poppins", sans-serif;
 }
 
 .catchPhrase {
   font-size: 13px;
-  font-family: Roboto;
+  font-family: "Poppins", sans-serif;
   /* font-style: italic; */
   display: flex;
   justify-content: center;
@@ -163,7 +164,7 @@ ul ul a {
   font-size: 40px;
   margin-bottom: 20px;
   letter-spacing: 3px;
-  font-family: Roboto;
+  font-family: "Poppins", sans-serif;
   text-shadow: 2px 2px 5px black;
 }
 
