@@ -31,7 +31,7 @@ const BlogsWrapper = styled.div`
 
 const DarkCard = styled(Card)`
   font-weight: bold;
-  background-color: rgb(255, 255, 255, 0.12);
+  background-color: rgb(255, 255, 255, 0.09);
 `;
 
 const ArticlesWrapper = styled.div`

@@ -24,7 +24,7 @@ const RadialCharts = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   max-width: 100%;
-  background-color: rgb(255, 255, 255, 0.12);
+  background-color: rgb(255, 255, 255, 0.09);
   padding-bottom: 40px;
 
   @media (min-width: 1920px) {
