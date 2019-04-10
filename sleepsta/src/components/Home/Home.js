@@ -41,7 +41,7 @@ const JumboHome = styled.div`
       }
     }
 
-    @media (max-width: 800px) {
+      @media (max-width: 800px) {
         height: 150px;
       }
 
@@ -62,29 +62,56 @@ const TaglineBar = styled.div`
 const SecondDiv = styled.div`
   margin-top: 25px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 `;
 
-const HoldCaro = styled.div`
-  width: 650px;
-  padding: 5px;
-  border-radius: 15px;
+const DivBlock0 = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DivBlock1 = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ScreenShotHold = styled.div`
   background-color: rgb(0,0,0,.1);
+  padding: 20px;
+  border-radius: 5px;
+  height: fill;
+  width: 80%;
+`;
 
-  @media (max-width: 800px) {
-        width: 500px;
-      }
+const ScreenShot1 = styled.div`
+  background-image: url(${jum1});
+  background-size: cover;
+  height: 380px;
+`;
 
-      @media (max-width: 500px) {
-        display: none;
-      }
+const ScreenShot2 = styled.div`
+  background-image: url(${jum2});
+  background-size: cover;
+  height: 380px;
+`;
+
+const ScreenShot3 = styled.div`
+  background-image: url(${jum3});
+  background-size: cover;
+  height: 380px;
 `;
 
 const LoginButtonWrapper = styled.div`
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 
 
@@ -120,76 +147,9 @@ const Team = styled.div`
   }
 `;
 
-
-const items = [
-  {
-    src: jum1,
-    altText: 'Sleep Tracking',
-    caption: 'Sleep Tracking'
-  },
-  {
-    src: jum2,
-    altText: 'Motion Data',
-    caption: 'Motion Data from App'
-  },
-  {
-    src: jum3,
-    altText: 'Sleep Blogs',
-    caption: 'Sleep Blogs'
-  }
-];
-
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeIndex: 0 };
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.goToIndex = this.goToIndex.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
-  }
-
-  onExiting() {
-    this.animating = true;
-  }
-
-  onExited() {
-    this.animating = false;
-  }
-
-  next() {
-    if (this.animating) return;
-    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  previous() {
-    if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  goToIndex(newIndex) {
-    if (this.animating) return;
-    this.setState({ activeIndex: newIndex });
-  }
 
 render() {
-  const { activeIndex } = this.state;
-
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={this.onExiting}
-        onExited={this.onExited}
-        key={item.src}
-      >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-      </CarouselItem>
-    );
-  });
   return (
     <Main>
       <JumboHome>
@@ -199,28 +159,28 @@ render() {
         Sleep Hard. Live Smarter.
         </TaglineBar>
         <SecondDiv>
-
-
-        <HoldCaro>
-          <Carousel
-          activeIndex={activeIndex}
-          next={this.next}
-          previous={this.previous}
-        >
-          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-          {slides}
-          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-        </Carousel>
-        </HoldCaro>
-
-
-
-          <LoginButtonWrapper>
+          <DivBlock0>
+            <ScreenShotHold>
+              <ScreenShot1 />
+            </ScreenShotHold>
+          </DivBlock0>
+          <DivBlock1>
+            CONTENT
+          </DivBlock1>
+        </SecondDiv>
+        <SecondDiv>
+          <DivBlock1>
+            CONTENT
+          </DivBlock1>
+          <DivBlock0>
+            <ScreenShotHold>
+              <ScreenShot2 />
+            </ScreenShotHold>
+          </DivBlock0>
+        </SecondDiv>
+        <LoginButtonWrapper>
             <LoginForm />
           </LoginButtonWrapper>
-        </SecondDiv>
-
         <Team>
           <TeamP>
             Meet the <Link to="/about">SLEEPSTA Team</Link>
