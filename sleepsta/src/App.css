@@ -137,32 +137,30 @@ body {
   font-family: "Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico";
   color: #f7f7ff;
   margin: 0 auto;
-  padding-left: 240px;
-  padding-right: 40px;
 }
 
 hr {
   background: #e34a6f;
 }
 
-@media (max-width: 800px) {
-  /* body {
-    padding: 0 215px;
-  } */
-}
-
-@media (max-width: 500px) {
-  body {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 
 .stripeCard {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
   margin: 10px 3px;
+}
+
+.navHolder {
+  padding-left: 240px;
+  padding-right: 40px;
+}
+
+@media (max-width: 500px){
+  .navHolder {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 * {

@@ -17,7 +17,7 @@ const ProfileWrapper = styled.div`
 
 function ProfileView(props) {
   return (
-    <div>
+    <div className="navHolder">
       <div>
         <DashboardNav>
           <LoggedInSideNav />
