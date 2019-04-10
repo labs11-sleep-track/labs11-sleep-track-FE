@@ -73,11 +73,7 @@ class MonthlyBarChart extends Component {
         fontSize: 24,
         fontFamily: fontFamily,
         fontColor: "#F7F7FF",
-        text: `${moment
-          .unix(this.props.firstMonthDay)
-          .format("MMM Do")} - ${moment
-          .unix(this.props.lastMonthDay)
-          .format("MMM Do")}`
+        text: `${moment.unix(this.props.firstMonthDay).format("MMMM")}`
       },
       subtitles: [
         {
