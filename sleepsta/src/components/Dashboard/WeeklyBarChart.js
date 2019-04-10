@@ -87,34 +87,58 @@ class WeeklyBarChart extends Component {
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0.09)",
       title: {
-        fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
         fontColor: "#F7F7FF",
-        text: "Week: Picked week range"
+        text: "Picked week date range"
       },
       subtitles: [
         {
-          fontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          fontFamily: ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"],
           fontColor: "#F7F7FF",
           text: "Average: " + this.state.average + "hr"
         }
       ],
       axisY: {
         title: "Hours Slept",
-        titleFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        titleFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         titleFontColor: "#F7F7FF",
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF",
         suffix: "hr",
         maximum: 12
       },
       axisX: {
-        labelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+        labelFontFamily: [
+          "Poppins",
+          "Roboto",
+          "Arimo",
+          "Work Sans",
+          "Pacifico"
+        ],
         labelFontColor: "#F7F7FF"
       },
       data: [
         {
           type: "column",
-          indexLabelFontFamily: ["Roboto", "Arimo", "Work Sans", "Pacifico"],
+          indexLabelFontFamily: [
+            "Poppins",
+            "Roboto",
+            "Arimo",
+            "Work Sans",
+            "Pacifico"
+          ],
           indexLabelFontColor: "#F7F7FF",
           labelFontColor: "#F7F7FF",
           yValueFormatString: "#.# 'hr'",
