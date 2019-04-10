@@ -39,7 +39,6 @@ const CardText = styled.p`
   color: white;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
-  margin-left: 15px;
 
   @media (max-width: 500px) {
     font-size: 14px;
