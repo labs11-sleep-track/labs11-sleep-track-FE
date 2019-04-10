@@ -13,7 +13,7 @@ CanvasJS.addColorSet("sleepstaShades", [
   "#6D9F66"
 ]);
 
-let fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
+const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
 
 class MonthlyBarChart extends Component {
   constructor() {

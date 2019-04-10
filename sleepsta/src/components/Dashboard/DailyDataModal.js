@@ -1,6 +1,13 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DailyLineGraph from "./DailyLineGraph";
+import styled from "styled-components";
+import "./DailyDataModal.css";
+
+const Header = styled(ModalHeader)`
+  // border: rgb(255, 255, 255, 0.09);
+  font-family: [Poppins, Roboto, Arimo, Work Sans, Pacifico];
+`;
 
 class DailyDataModal extends React.Component {
   constructor(props) {
@@ -11,24 +18,24 @@ class DailyDataModal extends React.Component {
     return (
       <div>
         <Modal
+          fontSize="24"
           size="lg"
           style={{
             backgroundColor: "rgb(255, 255, 255, 0.09)",
-            width: "80%",
-            fontSize: "18px"
+            width: "80%"
+            // fontSize: "18px"
           }}
           isOpen={this.props.dailyDisplayed}
           className={this.props.className}
         >
-          <ModalHeader
-            style={{
-              border: "#4C546F",
-              fontFamily: "Poppins"
-            }}
+          <Header
             toggle={this.props.hideDailyGraph}
+            style={{
+              fontSize: "24px"
+            }}
           >
             Daily Sleep Analysis
-          </ModalHeader>
+          </Header>
           <ModalBody style={{ border: "#4C546F" }}>
             {this.props.sleepData.sleep_notes}
             <DailyLineGraph sleepData={this.props.sleepData} />
