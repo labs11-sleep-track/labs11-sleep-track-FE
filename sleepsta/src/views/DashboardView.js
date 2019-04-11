@@ -44,13 +44,14 @@ const Chart = styled.div`
 `;
 
 const Week = styled.div`
+  padding-bottom: 15px;
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Month = styled.div`
-  padding-top: 15px;
+  // padding-top: 15px;
   @media (min-width: 1920px) {
     width: 49%;
   }
