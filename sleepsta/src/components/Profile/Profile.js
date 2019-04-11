@@ -34,7 +34,7 @@ const CardTitle = styled.div`
   @media (max-width: 800px) {
     font-size: 22px;
   }
-  
+
   @media (max-width: 500px) {
     font-size: 22px;
   }
@@ -95,7 +95,7 @@ const PinkButton = styled(Button)`
 `;
 
 const ProfilePremium = styled.div`
-  max-width: 60%;
+  max-width: 100%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -165,7 +165,7 @@ class Profile extends Component {
     // console.log(localStorage);
     // console.log(document.getElementsByClassName("notif"));
 
-    if (this.props.inputs.account_type === "premium") {
+    if (this.props.inputs.account_type === "user") {
       return (
         <ProfilePremium>
           <DarkCard>
