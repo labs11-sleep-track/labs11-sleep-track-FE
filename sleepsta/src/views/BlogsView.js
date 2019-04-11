@@ -12,6 +12,8 @@ import {
   Button
 } from "reactstrap";
 
+import Banner from "./SLEEPSTA5.png";
+
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
     max-width: 1650px;
@@ -532,6 +534,15 @@ class BlogView extends React.Component {
                   </P>
                 </a>
               </CardBody>
+
+                <CardImg
+                top
+                height="100%"
+                width="100%"
+                src={Banner}
+                alt="Night sketch"
+              />
+
               {/* <CardImg
                 top
                 height="150px"
