@@ -166,7 +166,7 @@ const About = (props) => {
         </Title>
 
         <SubTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardSubtitle>Full Stack Web Developer</CardSubtitle>
         </SubTitle>
 
         {/* <Text>
@@ -178,8 +178,8 @@ const About = (props) => {
         </Text> */}
 
         <ButtonThing>
-          <A class="btn btn-default" href="https://www.linkedin.com/in/olivia-osborn-73616011a/" role="button">LinkedIn</A>
-          <A class="btn btn-default" href="https://github.com/olivia-osborn" role="button">GitHub</A>
+          <A class="btn btn-default" href="www.linkedin.com/in/kanek-perez-a0b569157" role="button">LinkedIn</A>
+          <A class="btn btn-default" href="https://github.com/KROHNICK" role="button">GitHub</A>
         </ButtonThing>
 
         </CardBody>
@@ -302,7 +302,7 @@ const About = (props) => {
         </Title>
 
         <SubTitle>
-          <CardSubtitle>Full Stack Web Dev</CardSubtitle>
+          <CardSubtitle>Full Stack Web Developer</CardSubtitle>
         </SubTitle>
 
         {/* <Text>
