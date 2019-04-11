@@ -53,6 +53,7 @@ class DailyLineGraph extends Component {
       },
       data: [
         {
+          markerType: "none",
           type: "splineArea",
           xValueType: "dateTime",
           color: "#9EE493",
