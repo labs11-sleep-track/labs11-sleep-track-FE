@@ -350,8 +350,6 @@ class BlogView extends React.Component {
             <DarkCard>
               <CardImg
                 top
-                width="100%"
-                height="100px"
                 src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
                 alt="Humans and Animals Sleeping "
               />
