@@ -6,6 +6,7 @@ import "./Home.css";
 import jum1 from './img/jum1.jpg';
 import jum2 from './img/jum2.jpg';
 import jum3 from './img/jum3.jpg';
+import stats from './img/stats.PNG';
 
 const Main = styled.div`
   font-family: "Poppins","Roboto";
@@ -17,68 +18,88 @@ const Main = styled.div`
   height: 100%;
 `;
 
+const Top = styled.div`
+ display: flex;
+ flex-direction: column;
+  height: 80%;
+  width: 100%;
+`;
+
 const TopBar = styled.div`
   display: flex;
   justify-content: right;
   align-items: right;
+  text-align: right;
+  right: 0;
   width: 100%;
+  height: 46px;
+  padding: 10px;
 `;
 
-const LoginButtonWrapper = styled.div`
-  padding-top: 20px;
-  display: flex;
-  justify-content: right;
-  padding-right: 15px;
-  width: 100%;
-`;
 
 const LandingContent = styled.div`
-  height: 100%;
   display: flex;
   justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
 
   @media(max-width: 500px){
+    margin-top: 36px;
     flex-direction: column;
   }
 `;
 
+const AttentionHold = styled.div`
+ width: 50%;
+
+ @media(max-width: 500px){
+   display: grid;
+   justify-items: center;
+   width: 95%;
+   height: 100%;
+ }
+`;
+
 const AttentionGrab = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url("${stats}");
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:100%;
 `;
 
 const HeaderHold = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 500px){
+    padding-top: 20px;
+    width: 100%;
+ }
 `;
 
 const HeaderH1 = styled.h1` 
-  text-align: center;
   font-family: "Poppins", "Roboto";
-  font-size: 7em;
+  font-size: 6em;
   z-index: 1;
 
   @media (max-width: 800px) {
     padding-top: 10px;
-    font-size: 5em;
+    font-size: 6em;
   }
 
   @media (max-width: 500px) {
     padding-top: 5px;
-    font-size: 3em;
+    font-size: 4em;
   }
   `;
 
 const TaglineBar = styled.div`
   width: 100%;
-  padding: 10px 5px;
   background-color: rgb(255,255,255,.05);
-  text-align: center;
-  font-family: "Poppins", "Roboto";
   border-top: 1px solid #e34a6f;
-  z-index: 1;
+  z-index: 3;
 `;
 
 const SecondDiv = styled.div`
@@ -195,20 +216,21 @@ class Home extends Component {
 render() {
   return (
     <Main>
-      <TopBar>
-      <LoginButtonWrapper>
-            <LoginForm />
-          </LoginButtonWrapper>
-        </TopBar>
-      <LandingContent>
-        <HeaderHold>
-          <HeaderH1>SLEEPSTA</HeaderH1>
-        </HeaderHold>
-        <AttentionGrab>!</AttentionGrab>
-      </LandingContent>
-      <TaglineBar>
-        Sleep Hard. Live Smarter.
-        </TaglineBar>
+      <Top>
+        <TopBar>
+              <LoginForm />
+          </TopBar>
+        <LandingContent>
+          <HeaderHold>
+            <HeaderH1>SLEEPSTA</HeaderH1>
+            <h2> Sleep Hard. Live Smarter.</h2>
+          </HeaderHold>
+          <AttentionHold>
+            <AttentionGrab></AttentionGrab>
+          </AttentionHold>
+        </LandingContent>
+      </Top>
+      <TaglineBar />
         <SecondDiv>
           <DivBlock0>
             <ScreenShotHold>
