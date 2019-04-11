@@ -56,7 +56,7 @@ const Month = styled.div`
 `;
 
 const Daily = styled.div`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #0a1429;
   padding: 30px;
 `;
 
@@ -256,10 +256,10 @@ class DashboardView extends React.Component {
           <Daily>
             <H2> Daily Sleep Analysis</H2>
             <RadialCharts>
-              {this.state.filteredDailyData.map(dailyData => {
+              {this.state.filteredDailyData.map((dailyData, index) => {
                 return (
                   <RadialChart
-                    key={dailyData.id}
+                    key={index}
                     dailyData={dailyData}
                     showDailyGraph={this.showDailyGraph}
                   />
@@ -275,7 +275,6 @@ class DashboardView extends React.Component {
             hideDailyGraph={this.hideDailyGraph}
           />
         </DashboardWrapper>
-
       </Div>
     );
   }
