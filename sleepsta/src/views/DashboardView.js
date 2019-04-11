@@ -80,6 +80,17 @@ const H2 = styled.div`
   font-size: 24px;
   padding-top: 40px;
   padding-bottom: 15px;
+
+  @media (min-width: 1920px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 22px;
+  }
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 class DashboardView extends React.Component {

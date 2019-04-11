@@ -26,17 +26,22 @@ const DarkCard = styled(Card)`
 `;
 
 const CardTitle = styled.div`
-  font-size: 26px;
-  @media (max-width: 800px) {
-    font-size: 26px;
+  font-size: 24px;
+  @media (max-width: 1920px) {
+    font-size: 30px;
   }
+
+  @media (max-width: 800px) {
+    font-size: 22px;
+  }
+  
   @media (max-width: 500px) {
     font-size: 22px;
   }
 `;
 
 const CardText = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   letter-spacing: 1px;
 
