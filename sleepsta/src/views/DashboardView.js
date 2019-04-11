@@ -11,8 +11,6 @@ import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 import DailyDataModal from "../components/Dashboard/DailyDataModal";
 
 const Div = styled.div`
-  margin: 0 auto;
-  width: 90%;
   @media (min-width: 1920px) {
     max-width: 1450px;
     margin: 0 auto;
@@ -23,9 +21,7 @@ const RadialCharts = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 100%;
-  background-color: rgb(255, 255, 255, 0.09);
-  padding-bottom: 40px;
+  width: 100%;
   @media (min-width: 1920px) {
     display: flex;
     justify-content: center;
@@ -44,27 +40,32 @@ const Chart = styled.div`
 `;
 
 const Week = styled.div`
-  padding-bottom: 15px;
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Month = styled.div`
-  // padding-top: 15px;
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
     width: 49%;
   }
 `;
 
 const Daily = styled.div`
-  padding-top: 15px;
+  background-color: rgb(255, 255, 255, 0.09);
+  padding: 30px;
 `;
 
 const DashboardWrapper = styled.div`
+  margin: 0 auto;
+  width: 95%;
   padding-bottom: 15px;
   @media (max-width: 500px) {
-    padding: 0 20px;
+    padding: 20px;
   }
 `;
 
@@ -78,18 +79,11 @@ const DashboardNav = styled.div`
 
 const H2 = styled.div`
   font-size: 24px;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 15px;
-
-  @media (min-width: 1920px) {
-    font-size: 30px;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 22px;
-  }
   @media (max-width: 500px) {
-    text-align: center;
+    padding-top: 20px;
+    font-size: 22px;
   }
 `;
 
@@ -233,31 +227,32 @@ class DashboardView extends React.Component {
                 />
               </Graphwrapper>
             </Week>
+            <br />
+            <div>
+              {this.props.currentUser.account_type === "premium" && (
+                <Month>
+                  <div>
+                    <H2> Monthly Sleep Analysis</H2>
+                    <input
+                      type="month"
+                      name="month"
+                      value={this.state.month}
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
 
-            <Month>
-              {this.props.currentUser.account_type === "premium" && (
-                <div>
-                  <H2> Monthly Sleep Analysis</H2>
-                  <input
-                    type="month"
-                    name="month"
-                    value={this.state.month}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
+                  <Graphwrapper>
+                    <MonthlyBarChart
+                      filteredMonthlyData={this.state.filteredMonthlyData}
+                      firstMonthDay={this.state.firstMonthDay}
+                      lastMonthDay={this.state.lastMonthDay}
+                    />
+                  </Graphwrapper>
+                </Month>
               )}
-              {this.props.currentUser.account_type === "premium" && (
-                <Graphwrapper>
-                  <MonthlyBarChart
-                    filteredMonthlyData={this.state.filteredMonthlyData}
-                    firstMonthDay={this.state.firstMonthDay}
-                    lastMonthDay={this.state.lastMonthDay}
-                  />
-                </Graphwrapper>
-              )}
-            </Month>
+            </div>
           </Chart>
-
+          <br />
           <Daily>
             <H2> Daily Sleep Analysis</H2>
             <RadialCharts>
