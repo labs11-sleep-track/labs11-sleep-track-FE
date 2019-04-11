@@ -143,10 +143,6 @@ hr {
   background: #e34a6f;
 }
 
-.card {
-  background-color: rgb(255, 255, 255, 0.09);
-}
-
 .stripeCard {
   background-color: white;
   padding: 10px;

@@ -18,7 +18,9 @@ const BlogViews = styled.div`
     margin: 50px auto;
   }
 `;
-
+const DarkCard = styled(Card)`
+  background-color: rgb(255, 255, 255, 0.09);
+`;
 const DashboardNav = styled.div`
   width: 100%;
 `;
@@ -348,7 +350,7 @@ class BlogView extends React.Component {
 
         <BlogsWrapper>
           <div>
-            <Card>
+            <DarkCard>
               <CardImg
                 top
                 src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
@@ -375,10 +377,10 @@ class BlogView extends React.Component {
                   physical health, and quality of life.
                 </P>
               </CardBody>
-            </Card>
+            </DarkCard>
 
             <CardWrapper>
-              <Card>
+              <DarkCard>
                 <CardBody>
                   <H2>Quick Tips To Maintain Healthy Sleep Habits</H2>
                   <hr />
@@ -411,7 +413,7 @@ class BlogView extends React.Component {
                   </P>
                   <br />
                 </CardBody>
-              </Card>
+              </DarkCard>
             </CardWrapper>
           </div>
           <ArticlesWrapper>
@@ -421,7 +423,7 @@ class BlogView extends React.Component {
                 <Columns>
                   {this.state.articles.map(article => {
                     return (
-                      <Card key={article.id}>
+                      <DarkCard key={article.id}>
                         <CardImg
                           top
                           width="100%"
@@ -440,7 +442,7 @@ class BlogView extends React.Component {
                             <PinkButton>Read more</PinkButton>
                           </a>
                         </CardBody>
-                      </Card>
+                      </DarkCard>
                     );
                   })}
                 </Columns>
@@ -450,7 +452,7 @@ class BlogView extends React.Component {
             <EditorsPicksWrapper>
               <H3>Editors Picks</H3>
               <CardWrapper>
-                <Card>
+                <DarkCard>
                   <CardImg
                     top
                     width="100%"
@@ -477,10 +479,10 @@ class BlogView extends React.Component {
                       <PinkButton>Read more</PinkButton>
                     </a>
                   </CardBody>
-                </Card>
+                </DarkCard>
               </CardWrapper>
               <CardWrapper>
-                <Card>
+                <DarkCard>
                   <CardImg
                     top
                     width="100%"
@@ -507,13 +509,13 @@ class BlogView extends React.Component {
                       <PinkButton>Read more</PinkButton>
                     </a>
                   </CardBody>
-                </Card>
+                </DarkCard>
               </CardWrapper>
             </EditorsPicksWrapper>
           </ArticlesWrapper>
 
           <CardWrapper>
-            <Card>
+            <DarkCard>
               <CardBody>
                 <H3>To Learn More About Sleep Visit: </H3>
                 <hr />
@@ -532,12 +534,12 @@ class BlogView extends React.Component {
               </CardBody>
               <CardImg
                 top
-                height="160px"
+                height="150px"
                 width="100%"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
               />
-            </Card>
+            </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
       </BlogViews>
