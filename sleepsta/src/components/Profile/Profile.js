@@ -50,6 +50,36 @@ const CardText = styled.p`
   }
 `;
 
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Header = styled(ModalHeader)`
+  border: none;
+`;
+
+const XButton = styled(Button)`
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 24px;
+  padding: 1rem;
+  :hover {
+    cursor: pointer;
+    background: transparent;
+    border: transparent;
+    color: #e34a6f;
+  }
+`;
+
+const Body = styled(ModalBody)`
+  border-top: 1px solid #e34a6f;
+  padding: 1rem 0;
+  margin: 0 1rem;
+`;
+
 const PinkButton = styled(Button)`
   background: #e34a6f;
   color: white;
@@ -162,11 +192,12 @@ class Profile extends Component {
             toggle={this.toggle}
             className={this.props.className}
           >
-            <ModalHeader toggle={this.toggle} className="header">
-              Update User Form
-            </ModalHeader>
-
-            <ModalBody>
+            {/* toggle={this.toggle}  */}
+            <HeaderContainer>
+              <Header className="header">Update User Form</Header>
+              <XButton onClick={this.toggle}>X</XButton>
+            </HeaderContainer>
+            <Body>
               <Form>
                 <div className="fNameDiv">
                   <Label className="label">First Name *</Label>
@@ -205,7 +236,7 @@ class Profile extends Component {
               </PinkButton>
 
               <PinkButton onClick={this.toggle}>Cancel</PinkButton>
-            </ModalBody>
+            </Body>
           </Modal>
 
           <div className="notif">
