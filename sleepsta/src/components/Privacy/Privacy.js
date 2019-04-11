@@ -133,7 +133,7 @@ const Privacy = (props) => {
 <MobileNav />
 </div>
 
-    <All>
+<All>
 
 
 <Title>Sleepsta Privacy Policy</Title>
