@@ -206,6 +206,7 @@ class LoggedInSideNav extends React.Component {
     localStorage.removeItem("jwt");
     this.props.history.push("/");
   };
+  
 }
 
 export default withRouter(LoggedInSideNav);
