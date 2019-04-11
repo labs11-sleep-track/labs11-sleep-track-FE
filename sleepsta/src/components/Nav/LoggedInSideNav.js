@@ -30,9 +30,12 @@ class LoggedInSideNav extends React.Component {
   render() {
     if (localStorage.getItem("jwt")) {
       return (
-        <div class="wrapper">
+        <div className="wrapper">
           <div id="content">
-            <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
+            <nav
+              id="menuButton"
+              className="navbar navbar-expand-lg navbar-light "
+            >
               <div className="container-fluid">
                 {/* possible title */}
 
@@ -65,7 +68,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <NavLink style={{ textDecoration: "none" }} href="/dashboard">
                   <div>
-                    <i class="fas fa-chart-bar" />
+                    <i className="fas fa-chart-bar" />
                     &nbsp;&nbsp;Dashboard
                   </div>
                 </NavLink>
@@ -83,7 +86,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/profile">
                   <div>
-                    <i class="fas fa-user-circle" />
+                    <i className="fas fa-user-circle" />
                     &nbsp;&nbsp;Account
                   </div>
                 </Link>
@@ -120,7 +123,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <div>
                   <a onClick={this.logout}>
-                    <i class="fas fa-sign-out-alt" />
+                    <i className="fas fa-sign-out-alt" />
                     &nbsp;&nbsp;Logout
                   </a>
                 </div>
@@ -131,9 +134,12 @@ class LoggedInSideNav extends React.Component {
       );
     } else {
       return (
-        <div class="wrapper">
+        <div className="wrapper">
           <div id="content">
-            <nav id="menuButton" class="navbar navbar-expand-lg navbar-light ">
+            <nav
+              id="menuButton"
+              className="navbar navbar-expand-lg navbar-light "
+            >
               <div className="container-fluid">
                 {/* possible title */}
 
@@ -166,7 +172,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/">
                   <div>
-                    <i class="fas fa-user" />
+                    <i className="fas fa-user" />
                     &nbsp;Sign In
                   </div>
                 </Link>
@@ -175,7 +181,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/about">
                   <div>
-                    <i class="fas fa-bed" />
+                    <i className="fas fa-bed" />
                     &nbsp;About
                   </div>
                 </Link>
@@ -184,7 +190,7 @@ class LoggedInSideNav extends React.Component {
               <li>
                 <Link style={{ textDecoration: "none" }} to="/privacy">
                   <div>
-                    <i class="fas fa-user-shield" />
+                    <i className="fas fa-user-shield" />
                     &nbsp;Privacy Policy
                   </div>
                 </Link>
@@ -200,7 +206,6 @@ class LoggedInSideNav extends React.Component {
     localStorage.removeItem("jwt");
     this.props.history.push("/");
   };
-  
 }
 
 export default withRouter(LoggedInSideNav);
