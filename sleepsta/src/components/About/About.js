@@ -81,18 +81,16 @@ const A = styled.a`
   justify-content: space-evenly;
   padding-top: 12px;
   padding-bottom: 12px;
-  letter-spacing: 1px;
-  font-size: 14px;
-  font-weight: bold;
-  width: 90px;
-  background-color: #e34a6f;
-  border-radius: 5px;
+    width: 90px;
+  background: #e34a6f;
   color: white;
-  box-shadow: 2px 2px #0a1428;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
 
   &:hover {
+    background: white;
     color: #e34a6f;
-    background-color: white;
   }
 `;
 
