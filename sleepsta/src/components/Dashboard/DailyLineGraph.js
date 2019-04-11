@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -34,6 +35,8 @@ class DailyLineGraph extends Component {
     const options = {
       backgroundColor: "rgb(255, 255, 255, 0.00)",
       title: {
+        text: `${moment(this.props.sleepData[0].x).format("dddd")}`,
+        fontSize: 24,
         fontFamily: fontFamily,
         fontColor: "#F7F7FF"
       },
