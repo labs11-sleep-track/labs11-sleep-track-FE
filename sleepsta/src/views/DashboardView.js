@@ -175,12 +175,14 @@ class DashboardView extends React.Component {
   }
 
   //used when clicking on daily radial chart to display line graph of sleep movement from that day
-  showDailyGraph = (e, data) => {
+  showDailyGraph = (e, isData, data) => {
     e.preventDefault();
-    this.setState({
-      dailyDisplayed: true,
-      sleepData: data
-    });
+    if (isData) {
+      this.setState({
+        dailyDisplayed: true,
+        sleepData: data
+      });
+    }
   };
 
   // //used when clicking on "show weekly data" button to display weekly data again

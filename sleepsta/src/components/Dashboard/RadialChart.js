@@ -40,7 +40,7 @@ class RadialChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewDetails: false,
+      isData: false,
       day: "",
       options: {
         chart: {
@@ -136,7 +136,7 @@ class RadialChart extends React.Component {
       this.setState({
         series: [this.props.dailyData.qos_score],
         day: dayOfWeek,
-        viewDetails: true
+        isData: true
       });
     }
   }
@@ -149,6 +149,7 @@ class RadialChart extends React.Component {
             onClick={e =>
               this.props.showDailyGraph(
                 e,
+                this.state.isData,
                 window.location.hostname === "localhost"
                   ? JSON.parse(this.props.dailyData.night_data)
                   : this.props.dailyData.night_data
@@ -164,7 +165,7 @@ class RadialChart extends React.Component {
           </Chart>
 
           <Day>{this.state.day}</Day>
-          {this.state.viewDetails && <ViewDetails>View Details</ViewDetails>}
+          {this.state.isData && <ViewDetails>View Details</ViewDetails>}
         </ChartContainer>
       </div>
     );
