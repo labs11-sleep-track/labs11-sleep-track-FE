@@ -42,7 +42,7 @@ const Image = styled.div`
   justify-content: space-evenly;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 22px;
   letter-spacing: 2px;
   display: flex;
@@ -51,9 +51,10 @@ const Title = styled.h1`
   text-shadow: 2px 2px #0a1428;
 `;
 
-const SubTitle = styled.h2`
-  font-size: 15px;
+const SubTitle = styled.p`
+  font-size: 14px;
   letter-spacing: 2px;
+  color: white;
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 20px;
@@ -81,6 +82,7 @@ const A = styled.a`
   padding-top: 12px;
   padding-bottom: 12px;
   letter-spacing: 1px;
+  font-size: 14px;
   font-weight: bold;
   width: 90px;
   background-color: #e34a6f;
