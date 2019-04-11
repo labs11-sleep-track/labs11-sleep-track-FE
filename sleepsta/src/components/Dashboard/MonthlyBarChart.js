@@ -68,7 +68,7 @@ class MonthlyBarChart extends Component {
   render() {
     const options = {
       colorSet: "sleepstaShades",
-      backgroundColor: "rgb(255, 255, 255, 0.09)",
+      backgroundColor: "rgb(255, 255, 255, 0)",
       title: {
         fontSize: 24,
         fontFamily: fontFamily,
