@@ -256,10 +256,10 @@ class DashboardView extends React.Component {
           <Daily>
             <H2> Daily Sleep Analysis</H2>
             <RadialCharts>
-              {this.state.filteredDailyData.map(dailyData => {
+              {this.state.filteredDailyData.map((dailyData, index) => {
                 return (
                   <RadialChart
-                    key={dailyData.id}
+                    key={index}
                     dailyData={dailyData}
                     showDailyGraph={this.showDailyGraph}
                   />
