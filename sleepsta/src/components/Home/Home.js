@@ -3,13 +3,6 @@ import styled from "styled-components";
 import LoginForm from "../Login/LoginForm";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
 import jum1 from './img/jum1.jpg';
 import jum2 from './img/jum2.jpg';
 import jum3 from './img/jum3.jpg';
@@ -81,6 +74,10 @@ const SecondDiv = styled.div`
   justify-content: center;
   width: 100%;
   z-index: 1;
+  
+  @media(max-width: 800px){
+    flex-direction: column;
+  }
 `;
 
 const DivBlock0 = styled.div`
@@ -95,6 +92,7 @@ const DivBlock1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   flex-direction: column;
 `;
 
@@ -103,12 +101,17 @@ const ScreenShotHold = styled.div`
   padding: 20px;
   border-radius: 5px;
   height: fill;
-  width: 80%;
+  width: 85%;
+
+  @media(max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const ScreenShot1 = styled.div`
   background-image: url(${jum1});
   background-size: cover;
+  background-position: left;
   height: 380px;
 `;
 
