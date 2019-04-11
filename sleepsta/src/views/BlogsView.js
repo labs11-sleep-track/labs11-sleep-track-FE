@@ -40,7 +40,7 @@ const ArticlesWrapper = styled.div`
   margin-top: 40px;
   letter-spacing: 1px;
 
-  @media (max-width: 1042px) {
+  @media (max-width: 1240px) {
     display: flex;
     flex-direction: column-reverse;
     padding: 0;
@@ -101,7 +101,7 @@ const PopularArticlesWrapper = styled.div`
     padding-right: 0;
   }
 
-  @media (max-width: 1042px) {
+  @media (max-width: 1240px) {
     width: 100%;
     padding-right: 0;
   }
@@ -125,7 +125,7 @@ const EditorsPicksWrapper = styled.div`
   padding-left: 40px;
   height: fit-content;
 
-   @media (max-width: 1042px) {
+   @media (max-width: 1240px) {
     border-left: none;
     width: 100%;
     padding-left: 0;
@@ -350,8 +350,6 @@ class BlogView extends React.Component {
             <DarkCard>
               <CardImg
                 top
-                width="100%"
-                height="100px"
                 src="http://images2.fanpop.com/image/photos/12600000/Sleeping-Banner-sleep-12633600-800-100.jpg"
                 alt="Humans and Animals Sleeping "
               />
@@ -533,8 +531,6 @@ class BlogView extends React.Component {
               </CardBody>
               <CardImg
                 top
-                width="100%"
-                height="120px"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
               />
