@@ -18,7 +18,6 @@ import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
 
 const DarkCard = styled(Card)`
-  background-color: #0a1429;
   padding: 10px;
   margin: 15px auto;
   width: 90%;
@@ -37,7 +36,6 @@ const CardTitle = styled.div`
 const CardText = styled.p`
   font-size: 16px;
   color: white;
-  font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
 
   @media (max-width: 500px) {
@@ -48,9 +46,8 @@ const CardText = styled.p`
 const PinkButton = styled(Button)`
   background: #e34a6f;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
-  font-family: "Roboto", "Rubik";
   width: 125px;
   border: none;
 
