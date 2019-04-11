@@ -56,7 +56,7 @@ const Month = styled.div`
 `;
 
 const Daily = styled.div`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #0a1429;
   padding: 30px;
 `;
 
@@ -275,7 +275,6 @@ class DashboardView extends React.Component {
             hideDailyGraph={this.hideDailyGraph}
           />
         </DashboardWrapper>
-
       </Div>
     );
   }
