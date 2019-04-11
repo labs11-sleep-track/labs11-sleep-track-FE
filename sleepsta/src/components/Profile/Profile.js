@@ -165,7 +165,7 @@ class Profile extends Component {
     // console.log(localStorage);
     // console.log(document.getElementsByClassName("notif"));
 
-    if (this.props.inputs.account_type === "user") {
+    if (this.props.inputs.account_type === "premium") {
       return (
         <ProfilePremium>
           <DarkCard>
