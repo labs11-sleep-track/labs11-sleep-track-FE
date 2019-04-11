@@ -7,12 +7,16 @@ import "./DailyDataModal.css";
 const Header = styled(ModalHeader)`
   border: rgb(255, 255, 255, 0.09);
   font-family: Poppins, Roboto, Arimo, Work Sans, Pacifico;
+  padding: 0;
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #e34a6f;
+  padding: 1rem 0;
+  margin: 0 1rem;
 `;
 
 const XButton = styled(Button)`
@@ -20,7 +24,8 @@ const XButton = styled(Button)`
   border: transparent;
   color: white;
   font-size: 24px;
-  padding: 1rem;
+  padding: 0rem;
+  height: 40px;
 
   :hover {
     cursor: pointer;
