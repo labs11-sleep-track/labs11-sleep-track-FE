@@ -149,12 +149,11 @@ const About = props => {
           </Card>
         </SingleCard>
 
-        <Cards>
         <SingleCard>
           <Card>
             <Image>
               <CardImg
-                src="https://avatars2.githubusercontent.com/u/44785921?s=460&v=4"
+                src="https://avatars0.githubusercontent.com/u/44517455?s=460&v=4"
                 alt="Card image cap"
               />
             </Image>
@@ -191,19 +190,6 @@ const About = props => {
             </Body>
           </Card>
         </SingleCard>
-
-      <SingleCard>
-      <Card>
-
-      <Image>
-        <CardImg src="https://avatars1.githubusercontent.com/u/44754360?s=460&v=4" alt="Card image cap" />
-      </Image>
-
-        <CardBody>
-
-        <Title>
-          <CardTitle>Olivia Osborn</CardTitle>
-        </Title>
 
         <SingleCard>
           <Card>
@@ -336,11 +322,25 @@ const About = props => {
           </Card>
         </SingleCard>
 
-        <SubTitle>
-          <CardSubtitle>Full Stack Web Developer</CardSubtitle>
-        </SubTitle>
+        <SingleCard>
+          <Card>
+          <Image>
+              <CardImg
+                src="https://avatars1.githubusercontent.com/u/44475921?s=460&v=4"
+                alt="Card image cap"
+              />
+            </Image>
 
-        {/* <Text>
+            <Body>
+              <Title>
+                <CardTitle>Kelli Rae Hanson</CardTitle>
+              </Title>
+
+              <SubTitle>
+             <CardSubtitle>Full Stack Web Developer</CardSubtitle>
+            </SubTitle>
+
+              {/* <Text>
           <CardText>
             Favorite Sleep Remedy: 
             <br/>
@@ -364,12 +364,17 @@ const About = props => {
                   GitHub
                 </A>
               </ButtonThing>
-            </CardBody>
+            </Body>
           </Card>
         </SingleCard>
+
+       
+              
+              
       </Cards>
-    </Cards>
+    </div>
   );
 };
+
 
 export default About;
