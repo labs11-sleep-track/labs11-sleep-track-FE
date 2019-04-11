@@ -8,7 +8,7 @@ import jum2 from './img/jum2.jpg';
 import jum3 from './img/jum3.jpg';
 
 const Main = styled.div`
-  font-family: "Roboto", "Poppins";
+  font-family: "Poppins","Roboto";
   background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%);
   position: sticky;
   position: absolute;
@@ -24,27 +24,41 @@ const TopBar = styled.div`
   width: 100%;
 `;
 
-const JumboHome = styled.div`
+const LoginButtonWrapper = styled.div`
+  padding-top: 20px;
+  display: flex;
+  justify-content: right;
+  padding-right: 15px;
   width: 100%;
-  height: 200px;
-    }
+`;
 
-      @media (max-width: 800px) {
-        height: 150px;
-      }
+const LandingContent = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
 
-      @media (max-width: 500px) {
-        height: 100px;
-      }
+  @media(max-width: 500px){
+    flex-direction: column;
+  }
+`;
+
+const AttentionGrab = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const HeaderHold = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const HeaderH1 = styled.h1` 
   text-align: center;
-  padding: 35px;
   font-family: "Poppins", "Roboto";
   font-size: 7em;
   z-index: 1;
-  height: 100%;
 
   @media (max-width: 800px) {
     padding-top: 10px;
@@ -85,6 +99,14 @@ const DivBlock0 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 800px){
+    width: 80%;
+  }
+
+  @media(max-width: 500px){
+    width: 100%;
+  }
 `;
 
 const DivBlock1 = styled.div`
@@ -94,6 +116,14 @@ const DivBlock1 = styled.div`
   align-items: center;
   padding: 20px;
   flex-direction: column;
+
+  @media(max-width: 800px){
+    width: 80%;
+  }
+
+  @media(max-width: 500px){
+    width: 100%;
+  }
 `;
 
 const ScreenShotHold = styled.div`
@@ -125,13 +155,6 @@ const ScreenShot3 = styled.div`
   background-image: url(${jum3});
   background-size: cover;
   height: 380px;
-`;
-
-const LoginButtonWrapper = styled.div`
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
 `;
 
 
@@ -177,7 +200,12 @@ render() {
             <LoginForm />
           </LoginButtonWrapper>
         </TopBar>
-      <HeaderH1>SLEEPSTA</HeaderH1>
+      <LandingContent>
+        <HeaderHold>
+          <HeaderH1>SLEEPSTA</HeaderH1>
+        </HeaderHold>
+        <AttentionGrab>!</AttentionGrab>
+      </LandingContent>
       <TaglineBar>
         Sleep Hard. Live Smarter.
         </TaglineBar>
