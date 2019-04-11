@@ -43,10 +43,6 @@ button {
   display: none;
 } */
 
-.card-body {
-  background-color: rgb(255, 255, 255, 0.09);
-}
-
 .modal-content {
   background-color: #2a3855;
   font-family: "Poppins", sans-serif;

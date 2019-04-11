@@ -143,7 +143,6 @@ hr {
   background: #e34a6f;
 }
 
-
 .stripeCard {
   background-color: white;
   padding: 10px;
@@ -156,7 +155,7 @@ hr {
   padding-right: 40px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px) {
   .navHolder {
     padding-left: 0px;
     padding-right: 0px;

@@ -18,7 +18,9 @@ const BlogViews = styled.div`
     margin: 50px auto;
   }
 `;
-
+const DarkCard = styled(Card)`
+  background-color: rgb(255, 255, 255, 0.09);
+`;
 const DashboardNav = styled.div`
   width: 100%;
 `;
@@ -29,10 +31,6 @@ const BlogsWrapper = styled.div`
   @media (max-width: 500px) {
     padding: 20px;
   }
-`;
-
-const DarkCard = styled(Card)`
-  background-color: rgb(255, 255, 255, 0.09);
 `;
 
 const ArticlesWrapper = styled.div`
@@ -69,8 +67,9 @@ const H2 = styled.div`
 
 const P = styled.p`
   font-size: 14px;
-  letter-spacing: 0.7px;
   color: white;
+  letter-spacing: 0.5px;
+  line-height: 1.7em;
 `;
 
 const H3 = styled.h3`
@@ -114,6 +113,7 @@ const PopularArticles = styled.div`
 `;
 
 const Columns = styled(CardColumns)`
+  //column-count: 2;
   @media (max-width: 770px) {
     column-count: 1;
   }
@@ -139,8 +139,8 @@ const CardWrapper = styled.div`
 const Title = styled(CardTitle)`
   font-size: 16px;
   line-height: 22px;
-  letter-spacing: 1px;
-
+  letter-spacing: 0.8px;
+  margin-bottom: 5px;
   @media (min-width: 1920px) {
     font-size: 22px;
   }
@@ -152,6 +152,8 @@ const Title = styled(CardTitle)`
 const CardSubtitle = styled.div`
   font-size: 13px;
   color: #999;
+  line-height: 1.3em;
+  letter-spacing: 0.3px;
 
   @media (min-width: 1920px) {
     font-size: 16px;
@@ -163,9 +165,10 @@ const CardSubtitle = styled.div`
 `;
 
 const Text = styled(CardText)`
-  font-size: 13px;
+  font-size: 14px;
   color: white;
-  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.5em;
 `;
 
 const PinkButton = styled(Button)`
@@ -317,7 +320,7 @@ class BlogView extends React.Component {
           url:
             "https://greatist.com/happiness/27-easy-ways-sleep-better-tonight",
           image:
-            "https://www.helpguide.org/wp-content/uploads/2018/11/woman-in-bed-with-comforter-500.jpg",
+            "https://greatist.com/sites/default/files/styles/article_main/public/MORE-SLEEP_COMFORTABLE-ENVIRONMENT.jpg?itok=8KWTN5Qd%20564w",
           description:
             "Over time, lack of sleep can contribute to obesity, diabetes, and—of course—a chronic bad attitude. So whether or not you're a morning person, check out our list on how to get better sleep. You can thank us in the morning."
         },
@@ -457,7 +460,7 @@ class BlogView extends React.Component {
                     alt="Waking up"
                   />
                   <CardBody>
-                    <CardTitle>All About Sleep: Why is it Important?</CardTitle>
+                    <Title>All About Sleep: Why is it Important?</Title>
                     <CardSubtitle>
                       Author: Leah Perri, Nov 5th, 2017
                     </CardSubtitle>
@@ -487,9 +490,9 @@ class BlogView extends React.Component {
                     alt="Sleep Stages"
                   />
                   <CardBody>
-                    <CardTitle>
+                    <Title>
                       Listening to Your Sleep Cycles: A Wellness Guide
-                    </CardTitle>
+                    </Title>
                     <CardSubtitle>
                       Author: Molly Livingston, Nov 22, 2017
                     </CardSubtitle>
@@ -531,6 +534,8 @@ class BlogView extends React.Component {
               </CardBody>
               <CardImg
                 top
+                height="150px"
+                width="100%"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
               />
