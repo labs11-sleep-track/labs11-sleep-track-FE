@@ -126,6 +126,7 @@ font-weight: bold;
 
 const Privacy = (props) => {
   return (
+<div className="navHolder">
 
 
 
@@ -171,6 +172,7 @@ Please note that account deletion should be done within the Sleepsta website, no
 
     
     </All>
+    </div>
   );
 };
 
