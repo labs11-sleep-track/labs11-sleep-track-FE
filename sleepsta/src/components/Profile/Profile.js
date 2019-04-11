@@ -22,6 +22,7 @@ const DarkCard = styled(Card)`
   padding: 10px;
   margin: 15px auto;
   width: 90%;
+  border: none;
 `;
 
 const CardTitle = styled.div`
