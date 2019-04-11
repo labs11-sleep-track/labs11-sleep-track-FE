@@ -5,7 +5,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem
+  NavItem,
 } from "reactstrap";
 
 import styled from "styled-components";
@@ -36,7 +36,7 @@ const NavAll = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     // margin-bottom: 20px;
     // padding-bottom: 20px;
   }

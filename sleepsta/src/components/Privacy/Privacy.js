@@ -17,7 +17,7 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: row;
 // justify-content: space-evenly;
-font-size: 35px;
+font-size: 24px;
 font-weight: bold;
 padding-bottom: 20px;
 padding-top: 20px;
@@ -25,21 +25,21 @@ letter-spacing: 2px;
 border-bottom: 2px solid white;
 
 @media (min-width: 1920px) {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   @media (max-width: 800px) {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   @media (max-width: 500px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 `
 
 const SubTitle = styled.h3`
 display: flex;
-font-size: 25px;
+font-size: 22px;
 padding-top: 20px;
 padding-bottom: 5px;
 font-weight: bold;
@@ -47,55 +47,55 @@ letter-spacing: 1px;
 border-bottom: 2px solid white;
 
 @media (min-width: 1920px) {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   @media (max-width: 800px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: 500px) {
-    font-size: 15px;
+    font-size: 18px;
   }
 `
 
 const H4 = styled.h4`
 display: flex;
-font-size: 20px;
+font-size: 18px;
 padding-top: 20px;
 padding-bottom: 5px;
 font-weight: bold;
 letter-spacing: 1px;
 
 @media (min-width: 1920px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: 800px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: 500px) {
-    font-size: 15px;
+    font-size: 18px;
   }
 `
 
 const P = styled.p`
-font-size: 15px;
+font-size: 14px;
 color: white;
 padding-bottom: 10px;
 padding-top: 10px;
 
 @media (min-width: 1920px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   @media (max-width: 800px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   @media (max-width: 500px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 
 `
@@ -128,11 +128,12 @@ const Privacy = (props) => {
   return (
 <div className="navHolder">
 
-
-
-    <All>
+<div>
 <LoggedInSideNav />
 <MobileNav />
+</div>
+
+<All>
 
 
 <Title>Sleepsta Privacy Policy</Title>

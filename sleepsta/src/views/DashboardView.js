@@ -269,6 +269,7 @@ class DashboardView extends React.Component {
             hideDailyGraph={this.hideDailyGraph}
           />
         </DashboardWrapper>
+
       </Div>
     );
   }
