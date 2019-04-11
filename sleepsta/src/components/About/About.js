@@ -122,7 +122,7 @@ const About = props => {
               </Title>
 
               <SubTitle>
-                <CardSubtitle>Full Stack Web Dev</CardSubtitle>
+                <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
 
               {/* <Text>
@@ -206,7 +206,7 @@ const About = props => {
               </Title>
 
               <SubTitle>
-                <CardSubtitle>Full Stack Web Dev</CardSubtitle>
+                <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
 
               {/* <Text>
@@ -252,7 +252,7 @@ const About = props => {
               </Title>
 
               <SubTitle>
-                <CardSubtitle>Full Stack Web Dev</CardSubtitle>
+                <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
 
               {/* <Text>
