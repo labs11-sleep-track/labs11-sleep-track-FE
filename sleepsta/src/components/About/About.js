@@ -176,7 +176,11 @@ const About = props => {
         </Text> */}
 
               <ButtonThing>
-                <A class="btn btn-default" href="www.linkedin.com/in/kanek-perez-a0b569157" role="button">
+                <A
+                  class="btn btn-default"
+                  href="www.linkedin.com/in/kanek-perez-a0b569157"
+                  role="button"
+                >
                   LinkedIn
                 </A>
                 <A
@@ -324,7 +328,7 @@ const About = props => {
 
         <SingleCard>
           <Card>
-          <Image>
+            <Image>
               <CardImg
                 src="https://avatars1.githubusercontent.com/u/44475921?s=460&v=4"
                 alt="Card image cap"
@@ -337,8 +341,8 @@ const About = props => {
               </Title>
 
               <SubTitle>
-             <CardSubtitle>Full Stack Web Developer</CardSubtitle>
-            </SubTitle>
+                <CardSubtitle>Full Stack Web Developer</CardSubtitle>
+              </SubTitle>
 
               {/* <Text>
           <CardText>
@@ -367,14 +371,9 @@ const About = props => {
             </Body>
           </Card>
         </SingleCard>
-
-       
-              
-              
       </Cards>
     </div>
   );
 };
-
 
 export default About;

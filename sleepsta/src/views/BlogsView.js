@@ -27,7 +27,7 @@ const DashboardNav = styled.div`
 
 const BlogsWrapper = styled.div`
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
   @media (max-width: 500px) {
     padding: 20px;
   }
@@ -532,13 +532,13 @@ class BlogView extends React.Component {
                   </P>
                 </a>
               </CardBody>
-              <CardImg
+              {/* <CardImg
                 top
                 height="150px"
                 width="100%"
                 src="http://easysleepinc.com/images/banner_1NEW.png"
                 alt="Night sketch"
-              />
+              /> */}
             </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
