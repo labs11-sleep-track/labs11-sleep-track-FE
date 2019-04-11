@@ -5,7 +5,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
+  NavItem
 } from "reactstrap";
 
 import styled from "styled-components";
@@ -78,6 +78,10 @@ const Links = styled.div`
   }
 `;
 
+const Hamburger = styled.i`
+  font-size: 30px;
+  margin-right: 20px;
+`;
 class MobileNav extends React.Component {
   constructor(props) {
     super(props);
@@ -103,8 +107,10 @@ class MobileNav extends React.Component {
             <NavbarBrand href="/dashboard" className="mr-auto">
               <Title>SLEEPSTA</Title>
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-
+            {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> */}
+            <div onClick={this.toggleNavbar}>
+              <Hamburger className="fas fa-bars" />
+            </div>
             {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
 
             <Collapse isOpen={!this.state.collapsed} navbar>
