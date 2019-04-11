@@ -90,6 +90,15 @@ const PinkButton = styled(Button)`
   }
 `;
 
+const ProfilePremium = styled.div`
+  max-width: 60%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 5%;
+`;
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -154,7 +163,7 @@ class Profile extends Component {
 
     if (this.props.inputs.account_type === "premium") {
       return (
-        <div className="profile">
+        <ProfilePremium>
           <DarkCard>
             <CardBody>
               <CardTitle>Profile </CardTitle>
@@ -229,7 +238,7 @@ class Profile extends Component {
           <div className="notif">
             <Notifications update={this.state.update} />
           </div>
-        </div>
+        </ProfilePremium>
       );
     } else {
       return (
