@@ -535,7 +535,9 @@ class BlogView extends React.Component {
                 </a>
               </CardBody>
 
+
               <CardImg
+
                 top
                 height="100%"
                 width="100%"
