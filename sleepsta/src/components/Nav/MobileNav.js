@@ -5,7 +5,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
+  NavItem
 } from "reactstrap";
 
 import styled from "styled-components";
@@ -24,11 +24,9 @@ const NavAll = styled.div`
   align-items: center;
   width: 100%;
   font-family: "Poppins";
-
   @media (min-width: 500px) {
     display: none;
   }
-
   @media (max-width: 500px) {
     background-color: rgb(255, 255, 255, 0.09);
     color: white;
@@ -55,7 +53,6 @@ const Title = styled.h2`
   width: 100%;
   cursor: pointer;
   padding-bottom: 20px;
-
   &:hover {
     color: #e34a6f;
   }
@@ -71,13 +68,16 @@ const Links = styled.div`
   font-family: "Poppins";
   letter-spacing: 2px;
   cursor: pointer;
-
   &:hover {
     color: #e34a6f;
     background-color: white;
   }
 `;
 
+const Hamburger = styled.i`
+  font-size: 30px;
+  margin-right: 20px;
+`;
 class MobileNav extends React.Component {
   constructor(props) {
     super(props);
@@ -103,19 +103,21 @@ class MobileNav extends React.Component {
             <NavbarBrand href="/dashboard" className="mr-auto">
               <Title>SLEEPSTA</Title>
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-
+            {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> */}
+            <div onClick={this.toggleNavbar}>
+              <Hamburger className="fas fa-bars" />
+            </div>
             {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
 
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <Link style={{ textDecoration: "none" }} to="/dashboard">
+                  <a style={{ textDecoration: "none" }} href="/dashboard">
                     <Links>
-                      <i class="fas fa-chart-bar" />
+                      <i className="fas fa-chart-bar" />
                       &nbsp;&nbsp;Dashboard
                     </Links>
-                  </Link>
+                  </a>
                 </NavItem>
 
                 <NavItem>
@@ -130,7 +132,7 @@ class MobileNav extends React.Component {
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/profile">
                     <Links>
-                      <i class="fas fa-user" />
+                      <i className="fas fa-user" />
                       &nbsp;&nbsp;Account
                     </Links>
                   </Link>
@@ -148,7 +150,7 @@ class MobileNav extends React.Component {
                 <NavItem>
                   <Links>
                     <a onClick={this.logout}>
-                      <i class="fas fa-sign-out-alt" />
+                      <i className="fas fa-sign-out-alt" />
                       &nbsp;&nbsp;Logout
                     </a>
                   </Links>
@@ -175,7 +177,7 @@ class MobileNav extends React.Component {
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/">
                     <Links>
-                      <i class="fas fa-user" />
+                      <i className="fas fa-user" />
                       &nbsp;Sign In
                     </Links>
                   </Link>
@@ -184,7 +186,7 @@ class MobileNav extends React.Component {
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/about">
                     <Links>
-                      <i class="fas fa-bed" />
+                      <i className="fas fa-bed" />
                       &nbsp;About Us
                     </Links>
                   </Link>
@@ -193,7 +195,7 @@ class MobileNav extends React.Component {
                 <NavItem>
                   <Link style={{ textDecoration: "none" }} to="/privacy">
                     <Links>
-                      <i class="fas fa-user-shield" />
+                      <i className="fas fa-user-shield" />
                       &nbsp;Privacy Policy
                     </Links>
                   </Link>

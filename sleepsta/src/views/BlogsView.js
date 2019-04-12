@@ -423,9 +423,9 @@ class BlogView extends React.Component {
               <H3> Popular Articles</H3>
               <PopularArticles>
                 <Columns>
-                  {this.state.articles.map(article => {
+                  {this.state.articles.map((article, index) => {
                     return (
-                      <DarkCard key={article.id}>
+                      <DarkCard key={index}>
                         <CardImg
                           top
                           width="100%"
@@ -535,7 +535,9 @@ class BlogView extends React.Component {
                 </a>
               </CardBody>
 
-                <CardImg
+
+              <CardImg
+
                 top
                 height="100%"
                 width="100%"
