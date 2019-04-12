@@ -12,7 +12,7 @@ import {
   Button
 } from "reactstrap";
 
-import Banner from "./SLEEPSTA5.png";
+import Banner from "./s.png";
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
