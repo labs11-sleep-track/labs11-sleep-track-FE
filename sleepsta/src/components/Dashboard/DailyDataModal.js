@@ -4,10 +4,20 @@ import DailyLineGraph from "./DailyLineGraph";
 import styled from "styled-components";
 import "./DailyDataModal.css";
 
+const StyledModal = styled(Modal)`
+  background-color: rgb(255, 255, 255, 0.09);
+  width: 70%;
+  margin: auto;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+`;
 const Header = styled(ModalHeader)`
   border: rgb(255, 255, 255, 0.09);
   font-family: Poppins, Roboto, Arimo, Work Sans, Pacifico;
   padding: 0;
+  font-size: 24px;
 `;
 
 const HeaderContainer = styled.div`
@@ -43,12 +53,8 @@ class DailyDataModal extends React.Component {
   render() {
     return (
       <div>
-        <Modal
+        <StyledModal
           size="lg"
-          style={{
-            backgroundColor: "rgb(255, 255, 255, 0.09)",
-            width: "70%"
-          }}
           isOpen={this.props.dailyDisplayed}
           className={this.props.className}
         >
@@ -68,7 +74,7 @@ class DailyDataModal extends React.Component {
               Cancel
             </Button>
           </ModalFooter>
-        </Modal>
+        </StyledModal>
       </div>
     );
   }
