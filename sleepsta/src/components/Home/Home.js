@@ -51,11 +51,10 @@ const LandingContent = styled.div`
 
 const AttentionHold = styled.div`
  width: 50%;
+ padding: 20px 20px 0px 20px;
 
  @media(max-width: 500px){
-   display: grid;
-   justify-items: center;
-   width: 95%;
+   width: 100%:
    height: 100%;
  }
 `;
@@ -77,6 +76,10 @@ const HeaderHold = styled.div`
     padding-top: 20px;
     width: 100%;
  }
+
+  h2{
+    padding-bottom: 10px;
+  }
 `;
 
 const HeaderH1 = styled.h1` 
@@ -217,13 +220,11 @@ render() {
   return (
     <Main>
       <Top>
-        <TopBar>
-              <LoginForm />
-          </TopBar>
         <LandingContent>
           <HeaderHold>
             <HeaderH1>SLEEPSTA</HeaderH1>
             <h2> Sleep Hard. Live Smarter.</h2>
+            <LoginForm />
           </HeaderHold>
           <AttentionHold>
             <AttentionGrab></AttentionGrab>
