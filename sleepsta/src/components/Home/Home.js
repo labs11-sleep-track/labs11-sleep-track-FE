@@ -51,11 +51,10 @@ const LandingContent = styled.div`
 
 const AttentionHold = styled.div`
  width: 50%;
+ padding: 20px 20px 0px 20px;
 
  @media(max-width: 500px){
-   display: grid;
-   justify-items: center;
-   width: 95%;
+   width: 100%:
    height: 100%;
  }
 `;
@@ -77,6 +76,10 @@ const HeaderHold = styled.div`
     padding-top: 20px;
     width: 100%;
  }
+
+  h2{
+    padding-bottom: 10px;
+  }
 `;
 
 const HeaderH1 = styled.h1` 
@@ -106,8 +109,10 @@ const SecondDiv = styled.div`
   margin-top: 25px;
   display: flex;
   align-items: center;
+  padding: 10px;
   justify-content: center;
   width: 100%;
+  background-color: rgb(0,0,0,.1);
   z-index: 1;
   
   @media(max-width: 800px){
@@ -217,13 +222,11 @@ render() {
   return (
     <Main>
       <Top>
-        <TopBar>
-              <LoginForm />
-          </TopBar>
         <LandingContent>
           <HeaderHold>
             <HeaderH1>SLEEPSTA</HeaderH1>
             <h2> Sleep Hard. Live Smarter.</h2>
+            <LoginForm />
           </HeaderHold>
           <AttentionHold>
             <AttentionGrab></AttentionGrab>
@@ -240,9 +243,22 @@ render() {
           <DivBlock1>
             <p>In tandem with the IOS app</p>
             <ul>
+              <li>See your sleep habits</li>
+              </ul>
+              </DivBlock1>
+        </SecondDiv>
+        <SecondDiv>
+          <DivBlock1>
+            <p>In tandem with the IOS app</p>
+            <ul>
               <li>Track nightly sleep data</li>
               </ul>
               </DivBlock1>
+              <DivBlock0>
+            <ScreenShotHold>
+              <ScreenShot2 />
+            </ScreenShotHold>
+          </DivBlock0>
         </SecondDiv>
         <Team>
           <TeamP>
