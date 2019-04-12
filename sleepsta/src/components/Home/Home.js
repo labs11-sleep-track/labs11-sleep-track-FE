@@ -7,10 +7,11 @@ import jum1 from './img/jum1.jpg';
 import jum2 from './img/jum2.jpg';
 import jum3 from './img/jum3.jpg';
 import stats from './img/stats.PNG';
+import bg from './img/bg.jpg';
 
 const Main = styled.div`
   font-family: "Poppins","Roboto";
-  background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%);
+  /* background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%); */
   position: sticky;
   position: absolute;
   z-index: -5;
@@ -21,6 +22,9 @@ const Main = styled.div`
 const Top = styled.div`
  display: flex;
  flex-direction: column;
+ background-image: url("${bg}");
+ background-size: cover;
+ background-position: center;
   height: 80%;
   width: 100%;
 `;
@@ -43,7 +47,7 @@ const LandingContent = styled.div`
   height: 100%;
   width: 100%;
 
-  @media(max-width: 500px){
+  @media(max-width: 650px){
     margin-top: 36px;
     flex-direction: column;
   }
@@ -53,7 +57,7 @@ const AttentionHold = styled.div`
  width: 50%;
  padding: 20px 20px 0px 20px;
 
- @media(max-width: 500px){
+ @media(max-width: 650px){
    width: 100%:
    height: 100%;
  }
@@ -112,7 +116,7 @@ const SecondDiv = styled.div`
   padding: 10px;
   justify-content: center;
   width: 100%;
-  background-color: rgb(0,0,0,.1);
+  background-color: rgb(0,0,0,.2);
   z-index: 1;
   
   @media(max-width: 800px){
@@ -233,7 +237,7 @@ render() {
           </AttentionHold>
         </LandingContent>
       </Top>
-      <TaglineBar />
+      <TaglineBar> </TaglineBar>
         <SecondDiv>
           <DivBlock0>
             <ScreenShotHold>
