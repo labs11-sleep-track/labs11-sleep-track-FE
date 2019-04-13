@@ -9,6 +9,8 @@ import jum3 from './img/jum3.jpg';
 import stats from './img/stats.PNG';
 import bg from './img/bg.jpg';
 
+//CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
+
 const Main = styled.div`
   font-family: "Poppins","Roboto";
   /* background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%); */
@@ -252,17 +254,17 @@ render() {
               </DivBlock1>
         </SecondDiv>
         <SecondDiv>
+        <DivBlock0>
+            <ScreenShotHold>
+              <ScreenShot2 />
+            </ScreenShotHold>
+          </DivBlock0>
           <DivBlock1>
             <p>In tandem with the IOS app</p>
             <ul>
               <li>Track nightly sleep data</li>
               </ul>
               </DivBlock1>
-              <DivBlock0>
-            <ScreenShotHold>
-              <ScreenShot2 />
-            </ScreenShotHold>
-          </DivBlock0>
         </SecondDiv>
         <Team>
           <TeamP>
