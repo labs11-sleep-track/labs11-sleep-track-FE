@@ -3,17 +3,26 @@ import styled from "styled-components";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
+import Footer from "../Footer/Footer.js";
 
 import D from "./dillon_profile_photo.jpg";
 
 const Cards = styled.div`
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   height: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
+  background-color: rgb(255, 255, 255, 0.09);
+  padding: 20px;
+
+  @media (max-width: 500px) {
+    margin: 20px auto;
+    // margin-right: 20px;
+    // margin-left: 20px;
+  }
 `;
 
 const SingleCard = styled.div`
@@ -93,7 +102,8 @@ const A = styled.a`
 `;
 
 const Body = styled(CardBody)`
-  background-color: #303848;
+  // background-color: #303848;
+  background-color: #0a1429;
 `;
 
 const About = props => {
@@ -122,14 +132,6 @@ const About = props => {
               <SubTitle>
                 <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
-
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
 
               <ButtonThing>
                 <A
@@ -169,14 +171,6 @@ const About = props => {
                 <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
 
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
-
               <ButtonThing>
                 <A
                   class="btn btn-default"
@@ -214,14 +208,6 @@ const About = props => {
               <SubTitle>
                 <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
-
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
 
               <ButtonThing>
                 <A
@@ -261,14 +247,6 @@ const About = props => {
                 <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
 
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
-
               <ButtonThing>
                 <A class="btn btn-default" href="" role="button">
                   LinkedIn
@@ -302,14 +280,6 @@ const About = props => {
               <SubTitle>
                 <CardSubtitle>Full Stack Web Developer</CardSubtitle>
               </SubTitle>
-
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
 
               <ButtonThing>
                 <A
@@ -346,14 +316,6 @@ const About = props => {
                 <CardSubtitle>iOS Developer</CardSubtitle>
               </SubTitle>
 
-              {/* <Text>
-          <CardText>
-            Favorite Sleep Remedy: 
-            <br/>
-            Ideal amount of sleep: 
-            </CardText>
-        </Text> */}
-
               <ButtonThing>
                 <A
                   class="btn btn-default"
@@ -374,6 +336,9 @@ const About = props => {
           </Card>
         </SingleCard>
       </Cards>
+        <div>
+          <Footer />
+        </div>
     </div>
   );
 };
