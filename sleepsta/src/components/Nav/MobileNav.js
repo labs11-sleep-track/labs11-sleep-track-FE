@@ -103,12 +103,9 @@ class MobileNav extends React.Component {
             <NavbarBrand href="/dashboard" className="mr-auto">
               <Title>SLEEPSTA</Title>
             </NavbarBrand>
-            {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> */}
             <div onClick={this.toggleNavbar}>
               <Hamburger className="fas fa-bars" />
             </div>
-            {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
-
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
@@ -169,8 +166,9 @@ class MobileNav extends React.Component {
             <NavbarBrand href="/" className="mr-auto">
               <Title>SLEEPSTA</Title>
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            {/*<NavbarToggler onClick={this.toggleNavbar} className="mr-2"><img src={logo} alt="sleep"></img></NavbarToggler> */}
+            <div onClick={this.toggleNavbar}>
+              <Hamburger className="fas fa-bars" />
+            </div>
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <br />
