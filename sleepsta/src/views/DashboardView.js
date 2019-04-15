@@ -93,6 +93,7 @@ class DashboardView extends React.Component {
     super(props);
     this.state = {
       sleepData: [],
+      notes: "",
       dailyDisplayed: false,
       month: moment().format("YYYY-MM"),
       week: moment().format("YYYY-[W]WW"),
@@ -187,7 +188,11 @@ class DashboardView extends React.Component {
     if (isData) {
       this.setState({
         dailyDisplayed: true,
-        sleepData: data
+        notes: data.sleep_notes,
+        sleepData:
+          window.location.hostname === "localhost"
+            ? JSON.parse(data.night_data)
+            : data.night_data
       });
     }
   };
@@ -271,6 +276,7 @@ class DashboardView extends React.Component {
 
           <DailyDataModal
             sleepData={this.state.sleepData}
+            notes={this.state.notes}
             dailyDisplayed={this.state.dailyDisplayed}
             // showDailyGraph={this.showDailyGraph}
             hideDailyGraph={this.hideDailyGraph}

@@ -20,6 +20,15 @@ const Header = styled(ModalHeader)`
   font-size: 24px;
 `;
 
+const NotesHeader = styled(ModalHeader)`
+  border-bottom: rgb(255, 255, 255, 0.09);
+  border-top: 1px solid #e34a6f;
+  border-radius: 0px;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  font-size: 24px;
+`;
+
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -34,8 +43,8 @@ const XButton = styled(Button)`
   border: transparent;
   color: white;
   font-size: 24px;
-  padding: 0rem;
-  height: 40px;
+  margin: 0;
+  padding: 0;
 
   :hover {
     cursor: pointer;
@@ -63,8 +72,13 @@ class DailyDataModal extends React.Component {
             <XButton onClick={this.props.hideDailyGraph}>X</XButton>
           </HeaderContainer>
           <ModalBody style={{ border: "#4C546F" }}>
-            {this.props.sleepData.sleep_notes}
-            <DailyLineGraph sleepData={this.props.sleepData} />
+            {this.props.sleepData ? (
+              <DailyLineGraph sleepData={this.props.sleepData} />
+            ) : (
+              <h3>No motion data.</h3>
+            )}
+            <NotesHeader>Sleep notes:</NotesHeader>
+            {this.props.notes ? this.props.notes : <h3>No sleep notes.</h3>}
           </ModalBody>
           <ModalFooter style={{ border: "#4C546F" }}>
             <Button
