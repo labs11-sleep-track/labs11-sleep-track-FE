@@ -110,6 +110,41 @@ const TaglineBar = styled.div`
   z-index: 3;
 `;
 
+const WelcomeHold = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const WelcomeTo = styled.div`
+  width: 95%;
+  background-color: rgb(255,255,255,.9);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  height: 500px;
+  color: rgb(15,15,15);
+`;
+
+const WelcomeLeft = styled.div`
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+img {
+    width: 100%;
+    padding: 30px;
+  } 
+`;
+
+const WelcomeRight = styled.div`
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const FeatureBlocks = styled.div`
   margin-top: 20px;
   width: 100%;
@@ -198,6 +233,18 @@ render() {
         </LandingContent>
       </Top>
       <TaglineBar> </TaglineBar>
+
+      <WelcomeHold>
+        <WelcomeTo>
+          <WelcomeLeft>
+            <img src={dreamsvg} />
+          </WelcomeLeft>
+          <WelcomeRight>
+            Welcome to Sleepsta
+          </WelcomeRight>
+        </WelcomeTo>
+      </WelcomeHold>
+
         <FeatureBlocks>
           <FBHold>
             <SVGHold>
@@ -206,7 +253,7 @@ render() {
           </FBHold>
           <FBHold>
               <SVGHold>
-                <img src={dreamsvg} />
+                <img src={happysvg} />
               </SVGHold>
           </FBHold>
           <FBHold>
