@@ -14,34 +14,26 @@ const FormHold = styled.div`
   background-color: rgb(0, 0, 0, 0.25);
   border: 1.25px solid rgb(255, 255, 255, 0.15);
   border-radius: 15px;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
 `;
 
 const TheForm = styled.form`
   display: flex;
   flex-direction: column;
+  font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
 `;
 
-const FormLabel = styled.p`
+const FormLabel = styled.div`
+  font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
   color: white;
-  padding: 3px;
+  padding: 7px;
 `;
 
 const TopForm = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 5px;
-  input {
-    width: 50%;
-  }
-
-  @media (max-width: 920px) {
-    display: flex;
-    flex-direction: column;
-    input {
-      width: 100%;
-    }
-  }
+  flex-direction: column;
+  margin-bottom: 15px;
 `;
 
 const StripeInput = styled.input`
@@ -55,7 +47,7 @@ const StripeButton = styled.button`
   background: #e34a6f
   color: white;
   text-align: center;
-  font-family: "Roboto", "Rubik";
+  font-family: "Poppins", "Roboto", "Rubik";
   width: 125px;
   border: none;
   padding: 10px;
@@ -92,10 +84,6 @@ const NewH6 = styled.h6`
   color: rgb(244, 244, 244);
 `;
 
-const P = styled.p`
-  color: white;
-  margin-left: 10px;
-`;
 
 class InjectForm extends Component {
   constructor(props) {
@@ -114,6 +102,8 @@ class InjectForm extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  //Function starts the process of a purchase of premium tier by creating a token using the users email. This is then sent to the backend where the transaction is processed.
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -140,7 +130,8 @@ class InjectForm extends Component {
           account_type: "premium"
         };
         await this.props.updateUser(user);
-        alert("Premium Purchased!");
+        await alert("Premium Purchased!");
+        this.props.history.push("/")
       } catch (e) {
         throw e;
       }
@@ -150,26 +141,29 @@ class InjectForm extends Component {
     return (
       <FormHold>
         <TheForm onSubmit={this.handleSubmit}>
-          {/* <StripeInput value={this.state.email} onChange={this.handleChange} name="email" /> */}
-
-          <br />
 
           <TopForm>
-            {/* <P>First Name</P> */}
+            <FormLabel>
+              First Name
+            </FormLabel>
             <StripeInput
               value={this.state.fname}
               onChange={this.handleChange}
               name="fname"
             />
-            {/* <P>Last Name</P> */}
+            <FormLabel>
+              Last Name
+            </FormLabel>
             <StripeInput
               value={this.state.lname}
               onChange={this.handleChange}
               name="lname"
             />
           </TopForm>
+          <NewH6>
+            Payments handled securely through Stripe
+          </NewH6>
           <CardElement className="stripeCard" />
-          <P>Payments handled securely through Stripe</P>
           <StripeButton>Buy Premium</StripeButton>
         </TheForm>
       </FormHold>

@@ -7,10 +7,13 @@ import jum1 from './img/jum1.jpg';
 import jum2 from './img/jum2.jpg';
 import jum3 from './img/jum3.jpg';
 import stats from './img/stats.PNG';
+import bg from './img/bg.jpg';
+
+//CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
 
 const Main = styled.div`
   font-family: "Poppins","Roboto";
-  background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%);
+  /* background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%); */
   position: sticky;
   position: absolute;
   z-index: -5;
@@ -21,6 +24,9 @@ const Main = styled.div`
 const Top = styled.div`
  display: flex;
  flex-direction: column;
+ background-image: url("${bg}");
+ background-size: cover;
+ background-position: center;
   height: 80%;
   width: 100%;
 `;
@@ -43,7 +49,7 @@ const LandingContent = styled.div`
   height: 100%;
   width: 100%;
 
-  @media(max-width: 500px){
+  @media(max-width: 650px){
     margin-top: 36px;
     flex-direction: column;
   }
@@ -51,11 +57,10 @@ const LandingContent = styled.div`
 
 const AttentionHold = styled.div`
  width: 50%;
+ padding: 20px 20px 0px 20px;
 
- @media(max-width: 500px){
-   display: grid;
-   justify-items: center;
-   width: 95%;
+ @media(max-width: 650px){
+   width: 100%:
    height: 100%;
  }
 `;
@@ -77,6 +82,10 @@ const HeaderHold = styled.div`
     padding-top: 20px;
     width: 100%;
  }
+
+  h2{
+    padding-bottom: 10px;
+  }
 `;
 
 const HeaderH1 = styled.h1` 
@@ -106,8 +115,10 @@ const SecondDiv = styled.div`
   margin-top: 25px;
   display: flex;
   align-items: center;
+  padding: 10px;
   justify-content: center;
   width: 100%;
+  background-color: rgb(0,0,0,.2);
   z-index: 1;
   
   @media(max-width: 800px){
@@ -217,24 +228,35 @@ render() {
   return (
     <Main>
       <Top>
-        <TopBar>
-              <LoginForm />
-          </TopBar>
         <LandingContent>
           <HeaderHold>
             <HeaderH1>SLEEPSTA</HeaderH1>
             <h2> Sleep Hard. Live Smarter.</h2>
+            <LoginForm />
           </HeaderHold>
           <AttentionHold>
             <AttentionGrab></AttentionGrab>
           </AttentionHold>
         </LandingContent>
       </Top>
-      <TaglineBar />
+      <TaglineBar> </TaglineBar>
         <SecondDiv>
           <DivBlock0>
             <ScreenShotHold>
               <ScreenShot1 />
+            </ScreenShotHold>
+          </DivBlock0>
+          <DivBlock1>
+            <p>In tandem with the IOS app</p>
+            <ul>
+              <li>See your sleep habits</li>
+              </ul>
+              </DivBlock1>
+        </SecondDiv>
+        <SecondDiv>
+        <DivBlock0>
+            <ScreenShotHold>
+              <ScreenShot2 />
             </ScreenShotHold>
           </DivBlock0>
           <DivBlock1>
