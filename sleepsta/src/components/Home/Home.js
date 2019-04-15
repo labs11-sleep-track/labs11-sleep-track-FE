@@ -29,8 +29,12 @@ const Top = styled.div`
  background-image: url("${bg}");
  background-size: cover;
  background-position: center;
-  height: 80%;
+  height: 85%;
   width: 100%;
+
+  @media(max-width: 800px){
+    height: 60%;
+  }
 `;
 
 const LandingContent = styled.div`
@@ -59,7 +63,7 @@ const AttentionGrab = styled.div`
   background-image: url("${stats}");
   background-repeat:no-repeat;
   background-size:cover;
-  height:100%;
+  height: 100%;
 `;
 
 const HeaderHold = styled.div`
@@ -74,7 +78,8 @@ const HeaderHold = styled.div`
  }
 
   h2{
-    padding-bottom: 10px;
+    text-align: right;
+    padding: 3px;
   }
 `;
 
@@ -82,8 +87,9 @@ const HeadBG = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0,0,0,.15);
+  background-color: rgb(0,0,0,.5);
   padding: 20px;
+  margin: 10px;
   border-radius: 15px;
 `
 
@@ -118,31 +124,51 @@ const WelcomeHold = styled.div`
 `;
 
 const WelcomeTo = styled.div`
-  width: 95%;
+  width: 92%;
   background-color: rgb(255,255,255,.9);
   border-radius: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 500px;
-  color: rgb(15,15,15);
+  color: rgb(25,25,25);
+  overflow: hidden;
+  padding: 30px;
+
+  @media(max-width: 800px){
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 800px;
+  }
 `;
 
 const WelcomeLeft = styled.div`
-  width: 48%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
 img {
-    width: 100%;
-    padding: 30px;
+    width: 95%;
+    height: 95%;
   } 
+  @media(max-width: 800px){
+    width: 100%;
+
+  }
 `;
 
 const WelcomeRight = styled.div`
-  width: 48%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2.4em;
+
+  @media(max-width: 800px){
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+  }
 `;
 
 const FeatureBlocks = styled.div`
@@ -160,7 +186,7 @@ const FeatureBlocks = styled.div`
 
 const FBHold = styled.div`
   width: 30%;
-  height: 500px;
+  height: 800px;
   margin: 10px;
   border-radius: 15px;
   background-color: rgb(255,255,255,.05);
@@ -182,6 +208,7 @@ const SVGHold = styled.div`
 
 
 const TeamP = styled.p`
+  padding: 3px 0px;
   font-size: .9em;
 
   @media (max-width: 800px) {
