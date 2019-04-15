@@ -277,7 +277,6 @@ class DashboardView extends React.Component {
             sleepData={this.state.sleepData}
             notes={this.state.notes}
             dailyDisplayed={this.state.dailyDisplayed}
-            // showDailyGraph={this.showDailyGraph}
             hideDailyGraph={this.hideDailyGraph}
           />
         </DashboardWrapper>
