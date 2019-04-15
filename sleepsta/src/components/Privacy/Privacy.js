@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
+import Footer from "../Footer/Footer.js";
 
 const PrivacyWrapper = styled.div`
   margin: 0 auto;
@@ -238,6 +239,9 @@ const Privacy = props => {
           website, not via email requests, for security reasons.
         </P>
       </PrivacyWrapper>
+      <div>
+          <Footer />
+      </div>
     </div>
   );
 };
