@@ -86,6 +86,7 @@ const TextSleep = styled.p`
 
  &:hover {
     color: #e34a6f;
+    cursor: pointer;
   }
 
   @media (max-width: 1000px) {
@@ -120,7 +121,7 @@ export default class Footer extends React.Component {
     return (
       <FooterAll>
         <Navbar expand="md">
-          <Text><NavLink href="/">ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</NavLink></Text>
+          <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <TextSleep><NavLink href="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</NavLink></TextSleep>

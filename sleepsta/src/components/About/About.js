@@ -32,7 +32,6 @@ const SingleCard = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   color: white;
-  // box-shadow: 5px 2px 2px grey;
 `;
 
 const AboutNav = styled.div`
@@ -67,16 +66,6 @@ const SubTitle = styled.p`
   padding-bottom: 20px;
   text-shadow: 2px 2px #0a1428;
 `;
-
-// const Text = styled.p`
-// font-size: 15px;
-// font-weight: bold;
-// letter-spacing: 1px;
-// display: flex;
-// justify-content: space-evenly;
-// padding-bottom: 10px;
-
-// `
 
 const ButtonThing = styled.div`
   display: flex;
