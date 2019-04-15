@@ -23,6 +23,7 @@ const Chart = styled.div`
 
 const Day = styled.p`
   font-size: 18px;
+  color: white;
 `;
 
 const ViewDetails = styled.p`
