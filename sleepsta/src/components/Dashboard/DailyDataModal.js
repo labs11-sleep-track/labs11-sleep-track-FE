@@ -43,8 +43,8 @@ const XButton = styled(Button)`
   border: transparent;
   color: white;
   font-size: 24px;
-  padding: 0rem;
-  height: 40px;
+  margin: 0;
+  padding: 0;
 
   :hover {
     cursor: pointer;
