@@ -146,8 +146,9 @@ hr {
 .stripeCard {
   background-color: white;
   padding: 10px;
+  margin: 10px 0px;
   border-radius: 10px;
-  margin: 10px 3px;
+  font-family: "Robbins", "Roboto", "Rubik", Arial, Helvetica, sans-serif;
 }
 
 .navHolder {
