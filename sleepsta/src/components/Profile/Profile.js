@@ -116,21 +116,24 @@ class Profile extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  // gets user account info
   componentDidMount() {
     this.props.getUser();
-    console.log("while mounting", this.props.inputs);
   }
 
+  // toggles display for pop-up modal form
   toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
   }
 
+  // input changes on form
   handleChanges = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // submits update request form
   handleSubmit = e => {
     e.preventDefault();
     const user = {
@@ -160,12 +163,10 @@ class Profile extends Component {
     this.toggle();
   };
 
+  //display 1 of two options, depending on account type, either free or premium
   render() {
-    console.log("while rendering", this.props.inputs);
-    // console.log(localStorage);
-    // console.log(document.getElementsByClassName("notif"));
-
     if (this.props.inputs.account_type === "premium") {
+      // for premium users, does not contain stripe form
       return (
         <ProfilePremium>
           <DarkCard>
@@ -192,7 +193,6 @@ class Profile extends Component {
             toggle={this.toggle}
             className={this.props.className}
           >
-            {/* toggle={this.toggle}  */}
             <HeaderContainer>
               <Header className="header">Update User Form</Header>
               <XButton onClick={this.toggle}>X</XButton>
@@ -209,9 +209,7 @@ class Profile extends Component {
                     onChange={this.handleChanges}
                   />
                 </div>
-
                 <br />
-
                 <div className="lNameDiv">
                   <Label className="label">Last Name *</Label>
                   <Input
@@ -223,11 +221,8 @@ class Profile extends Component {
                   />
                 </div>
               </Form>
-
               <br />
-
               <br />
-
               <PinkButton
                 onClick={this.handleSubmit}
                 onMouseUp={() => notify("notif")}
@@ -245,6 +240,7 @@ class Profile extends Component {
         </ProfilePremium>
       );
     } else {
+      // for free users, contains stripe form for account upgrade
       return (
         <div className="profile">
           <DarkCard>
@@ -265,6 +261,7 @@ class Profile extends Component {
             </CardBody>
           </DarkCard>
 
+          {/* Pop-up form for updating user profile */}
           <Modal
             isOpen={this.state.modal}
             fade={false}
@@ -287,9 +284,7 @@ class Profile extends Component {
                     onChange={this.handleChanges}
                   />
                 </div>
-
                 <br />
-
                 <div className="lNameDiv">
                   <Label className="label">Last Name *</Label>
                   <Input
@@ -301,11 +296,8 @@ class Profile extends Component {
                   />
                 </div>
               </Form>
-
               <br />
-
               <br />
-
               <PinkButton
                 onClick={this.handleSubmit}
                 onMouseUp={() => notify("notif")}
@@ -317,10 +309,12 @@ class Profile extends Component {
             </ModalBody>
           </Modal>
 
+          {/* Off-screen notification, notifies user if successful or failed update */}
           <div className="notif">
             <Notifications update={this.state.update} />
           </div>
 
+          {/* Stripe form */}
           <DarkCard>
             <CardBody>
               <CardTitle>Upgrade?</CardTitle>
@@ -345,10 +339,10 @@ class Profile extends Component {
   }
 }
 
+// access to account info
 const mapStateToProps = state => {
   return {
-    inputs: state.auth.inputs,
-    isUpdated: state.auth.isUpdated
+    inputs: state.auth.inputs
   };
 };
 
