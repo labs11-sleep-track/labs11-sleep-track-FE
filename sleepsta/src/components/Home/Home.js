@@ -33,7 +33,7 @@ const Top = styled.div`
   width: 100%;
 
   @media(max-width: 800px){
-    height: 60%;
+    height: 70%;
   }
 `;
 
@@ -45,6 +45,10 @@ const LandingContent = styled.div`
 
   @media(max-width: 800px){
     margin-top: 36px;
+    flex-direction: column;
+  }
+
+  @media(max-height: 500px){
     flex-direction: column;
   }
 `;
@@ -64,6 +68,7 @@ const AttentionGrab = styled.div`
   background-repeat:no-repeat;
   background-size:cover;
   height: 100%;
+  width: 100%;
 `;
 
 const HeaderHold = styled.div`
@@ -72,10 +77,14 @@ const HeaderHold = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 500px){
+  @media(max-width: 800px){
     padding-top: 20px;
     width: 100%;
  }
+
+  @media(max-height: 500px){
+    flex-direction: row;
+  }
 
   h2{
     text-align: right;
@@ -100,13 +109,9 @@ const HeaderH1 = styled.h1`
 
   @media (max-width: 800px) {
     padding-top: 10px;
-    font-size: 6em;
+    font-size: 4.5em;
   }
 
-  @media (max-width: 500px) {
-    padding-top: 5px;
-    font-size: 4em;
-  }
   `;
 
 const TaglineBar = styled.div`
@@ -125,7 +130,7 @@ const WelcomeHold = styled.div`
 
 const WelcomeTo = styled.div`
   width: 92%;
-  background-color: rgb(255,255,255,.9);
+  background-color: rgb(255,255,255,.95);
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -133,6 +138,7 @@ const WelcomeTo = styled.div`
   color: rgb(25,25,25);
   overflow: hidden;
   padding: 30px;
+  box-shadow: 3px 3px 0px 1.5px black;
 
   @media(max-width: 800px){
     flex-direction: column;
@@ -148,12 +154,16 @@ const WelcomeLeft = styled.div`
   justify-content: center;
   align-items: center;
 img {
-    width: 95%;
-    height: 95%;
+    width: 90%;
+    height: 90%;
   } 
   @media(max-width: 800px){
     width: 100%;
 
+    img{ 
+      width: 80%;
+      height: 80%;
+    }
   }
 `;
 
@@ -162,6 +172,7 @@ const WelcomeRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 2.4em;
 
   @media(max-width: 800px){
@@ -198,9 +209,11 @@ const FBHold = styled.div`
 
 const SVGHold = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
   
   img {
-    width: 100%;
+    width: 85%;
     padding: 30px;
   }
 `
@@ -212,10 +225,6 @@ const TeamP = styled.p`
   font-size: .9em;
 
   @media (max-width: 800px) {
-    font-size: .8em;
-  }
-
-  @media (max-width: 500px) {
     font-size: .75em;
   }
 `;
