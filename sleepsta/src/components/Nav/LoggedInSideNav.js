@@ -2,10 +2,9 @@ import React from "react";
 import logo from "./sleep.png";
 // import styled from "styled-components";
 import { NavLink } from "reactstrap";
-
+import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-
 import "./SideBarNav.css";
 
 class LoggedInSideNav extends React.Component {
@@ -197,6 +196,7 @@ class LoggedInSideNav extends React.Component {
               </li>
             </ul>
           </nav>
+          <Footer />
         </div>
       );
     }
@@ -206,7 +206,6 @@ class LoggedInSideNav extends React.Component {
     localStorage.removeItem("jwt");
     this.props.history.push("/");
   };
-  
 }
 
 export default withRouter(LoggedInSideNav);
