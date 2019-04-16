@@ -10,6 +10,7 @@ import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -53,6 +54,10 @@ class App extends Component {
         {user && <Route exact path="/blogs" component={BlogsView} />}
         {user && <Route path="/profile" component={ProfileView} />}
         {user && <Route path="/dashboard" component={DashboardView} />}
+
+        <footer>
+          <Footer />
+        </footer>
       </div>
     );
   }

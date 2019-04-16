@@ -1,9 +1,10 @@
 .profile {
-  max-width: 60%;
+  max-width: 75%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  height: 93vh;
 }
 
 .label {

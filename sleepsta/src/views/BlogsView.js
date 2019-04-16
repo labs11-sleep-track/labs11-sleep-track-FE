@@ -14,9 +14,9 @@ import {
 } from "reactstrap";
 
 const BlogViews = styled.div`
+  margin: 15px auto;
   @media (min-width: 1920px) {
     max-width: 1650px;
-    margin: 50px auto;
   }
 `;
 const DarkCard = styled(Card)`
@@ -536,9 +536,6 @@ class BlogView extends React.Component {
             </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
-        <div>
-          <Footer />
-        </div>
       </BlogViews>
     );
   }
