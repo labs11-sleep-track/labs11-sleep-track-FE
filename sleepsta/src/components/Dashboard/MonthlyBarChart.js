@@ -1,19 +1,17 @@
 import moment from "moment";
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
+import { setAvg, fontFamily } from "./common";
 const CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 CanvasJS.addColorSet("sleepstaShades", [
   //colorSet Array
-
   "#9EE493",
   "#CEF1C9",
   "#B0E9A8",
   "#6D9F66"
 ]);
-
-const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
 
 class MonthlyBarChart extends Component {
   constructor() {
@@ -30,7 +28,8 @@ class MonthlyBarChart extends Component {
       if (this.props.filteredMonthlyData[i]) {
         let wakeTime = this.props.filteredMonthlyData[i].waketime;
         let sleepTime = this.props.filteredMonthlyData[i].sleeptime;
-        let totalSleep = (wakeTime - sleepTime) / 3600;
+        const secondsInHour = 3600;
+        let totalSleep = (wakeTime - sleepTime) / secondsInHour;
         dataArr.push({
           label: new Date(sleepTime * 1000).getDate(),
           y: totalSleep
@@ -40,33 +39,24 @@ class MonthlyBarChart extends Component {
     this.setState({ dps: dataArr });
   };
 
-  setAvg() {
-    let total = 0;
-    let count = 0;
-    if (this.state.dps.length) {
-      for (let i = 0; i < this.state.dps.length; i++) {
-        total += this.state.dps[i].y;
-        count++;
-      }
-      this.setState({ average: (total / count).toFixed(1) });
-    } else {
-      this.setState({ average: 0 });
-    }
-  }
-
   async componentDidMount() {
     await this.initializeState();
-    this.setAvg();
+    let average = setAvg(this.state.dps);
+    this.setState({ average });
   }
 
-  async componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps) {
     if (prevProps.filteredMonthlyData !== this.props.filteredMonthlyData) {
       await this.initializeState();
-      this.setAvg();
+      let average = setAvg(this.state.dps);
+      this.setState({ average });
     }
   }
   render() {
     const options = {
+      toolTip: {
+        content: "{y}"
+      },
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0)",
       title: {
@@ -89,6 +79,7 @@ class MonthlyBarChart extends Component {
         labelFontFamily: fontFamily,
         labelFontColor: "#F7F7FF",
         suffix: "hr",
+        minimum: 0,
         maximum: 12
       },
       axisX: {

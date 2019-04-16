@@ -45,7 +45,8 @@ class DailyLineGraph extends Component {
         titleFontFamily: fontFamily,
         titleFontColor: "#F7F7FF",
         labelFontFamily: fontFamily,
-        labelFontColor: "#F7F7FF"
+        labelFontColor: "#F7F7FF",
+        minimum: 0
       },
       axisX: {
         title: "Time",

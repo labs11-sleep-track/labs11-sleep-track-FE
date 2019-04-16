@@ -106,18 +106,23 @@ class DashboardView extends React.Component {
   }
 
   setDay = () => {
+    const unixFormat = "X";
+    const secondsInWeek = 604799;
     //get first/last day of the week based on what week is selected:
     const week = moment(this.state.week)._d;
-    const firstWeekDay = parseInt(moment(week).format("X"));
-    const lastWeekDay = parseInt(moment(week).format("X")) + 604800;
+    const firstWeekDay = parseInt(moment(week).format(unixFormat));
+    const lastWeekDay =
+      parseInt(moment(week).format(unixFormat)) + secondsInWeek;
 
-    //get first/last day of the week based on what week is selected:
+    //get first/last day of the month based on what month is selected:
     const month = moment(this.state.month).format("M");
     const year = moment(this.state.month).format("YYYY");
     const firstMonthDay = parseInt(
-      moment(new Date(year, month - 1, 1)).format("X")
+      moment(new Date(year, month - 1, 1)).format(unixFormat)
     );
-    const lastMonthDay = parseInt(moment(new Date(year, month, 0)).format("X"));
+    const lastMonthDay = parseInt(
+      moment(new Date(year, month, 0)).format(unixFormat)
+    );
     this.setState({
       firstWeekDay,
       lastWeekDay,
@@ -132,7 +137,6 @@ class DashboardView extends React.Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    //set firstWeekDay and lastWeekDay to unix times based on what week user has inputted:
     if (
       prevProps.userDailyData.length !== this.props.userDailyData.length ||
       prevState.week !== this.state.week ||
@@ -140,6 +144,7 @@ class DashboardView extends React.Component {
     ) {
       await this.setDay();
 
+      //filters userDailyData to only include days selected by month input
       const filteredMonth = this.props.userDailyData.filter(dailyData => {
         return (
           this.state.firstMonthDay <= dailyData.sleeptime &&
@@ -150,7 +155,7 @@ class DashboardView extends React.Component {
       let sortedFilteredMonth = filteredMonth.sort(function(a, b) {
         return a.sleeptime - b.sleeptime;
       });
-      //filters dailyData to only include days selected by week input
+      //filters userDailyData to only include days selected by week input
       const filteredWeek = this.props.userDailyData.filter(dailyData => {
         return (
           this.state.firstWeekDay <= dailyData.sleeptime &&
@@ -188,6 +193,7 @@ class DashboardView extends React.Component {
       this.setState({
         dailyDisplayed: true,
         notes: data.sleep_notes,
+        //conditionally renders sleepdata because it is in different formats on localhost and on netlify
         sleepData:
           window.location.hostname === "localhost"
             ? JSON.parse(data.night_data)
@@ -196,7 +202,7 @@ class DashboardView extends React.Component {
     }
   };
 
-  // //used when clicking on "show weekly data" button to display weekly data again
+  //used when clicking on "show weekly data" button to display weekly data again
   hideDailyGraph = e => {
     e.preventDefault();
     this.setState({ dailyDisplayed: false });
@@ -245,7 +251,6 @@ class DashboardView extends React.Component {
                       onChange={this.handleInputChange}
                     />
                   </div>
-
                   <Graphwrapper>
                     <MonthlyBarChart
                       filteredMonthlyData={this.state.filteredMonthlyData}
@@ -272,7 +277,6 @@ class DashboardView extends React.Component {
               })}
             </RadialCharts>
           </Daily>
-
           <DailyDataModal
             sleepData={this.state.sleepData}
             notes={this.state.notes}
