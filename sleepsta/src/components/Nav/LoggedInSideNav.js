@@ -29,25 +29,6 @@ class LoggedInSideNav extends React.Component {
     if (localStorage.getItem("jwt")) {
       return (
         <div className="wrapper">
-          <div id="content">
-            <nav
-              id="menuButton"
-              className="navbar navbar-expand-lg navbar-light "
-            >
-              <div className="container-fluid">
-                {/* possible title */}
-
-                {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
-
-                {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
-                  <div className="buttonTitle">
-                      <span>SLEEPSTA</span>
-                      </div>
-                  </button> */}
-              </div>
-            </nav>
-          </div>
-
           <nav id="sidebar">
             <div className="sidebar-header">
               <NavLink href="/dashboard">
@@ -99,30 +80,14 @@ class LoggedInSideNav extends React.Component {
               </li>
             </ul>
           </nav>
+          <footer>
+            <Footer />
+          </footer>
         </div>
       );
     } else {
       return (
         <div className="wrapper">
-          <div id="content">
-            <nav
-              id="menuButton"
-              className="navbar navbar-expand-lg navbar-light "
-            >
-              <div className="container-fluid">
-                {/* possible title */}
-
-                {/* <a href="#" id="sidebarCollapse" className="SleepstaTitle">SLEEPSTA</a> */}
-
-                {/* <button type="button" id="sidebarCollapse" className="btn btn-info">
-                  <div className="buttonTitle">
-                      <span>SLEEPSTA</span>
-                      </div>
-                  </button> */}
-              </div>
-            </nav>
-          </div>
-
           <nav id="sidebar">
             <div className="sidebar-header">
               <NavLink href="/">
@@ -163,9 +128,11 @@ class LoggedInSideNav extends React.Component {
                   </div>
                 </Link>
               </li>
-              <Footer />
             </ul>
           </nav>
+          <footer>
+            <Footer />
+          </footer>
         </div>
       );
     }
