@@ -120,9 +120,9 @@ export default class Footer extends React.Component {
               </TextSleep>
             </NavItem>
           </Nav>
-          <Text>
+          <TextSleep>
             <NavLink href="/privacy">PRIVACY POLICY</NavLink>
-          </Text>
+          </TextSleep>
         </Navbar>
       </FooterAll>
     );
