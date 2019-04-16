@@ -4,6 +4,7 @@ import {
   injectStripe,
   ReactStripeElements
 } from "react-stripe-elements";
+import { withRouter, Route } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions";
@@ -84,7 +85,6 @@ const NewH6 = styled.h6`
   color: rgb(244, 244, 244);
 `;
 
-
 class InjectForm extends Component {
   constructor(props) {
     super(props);
@@ -131,7 +131,7 @@ class InjectForm extends Component {
         };
         await this.props.updateUser(user);
         await alert("Premium Purchased!");
-        this.props.history.push("/")
+        this.props.history.push("/dashboard");
       } catch (e) {
         throw e;
       }
@@ -141,28 +141,21 @@ class InjectForm extends Component {
     return (
       <FormHold>
         <TheForm onSubmit={this.handleSubmit}>
-
           <TopForm>
-            <FormLabel>
-              First Name
-            </FormLabel>
+            <FormLabel>First Name</FormLabel>
             <StripeInput
               value={this.state.fname}
               onChange={this.handleChange}
               name="fname"
             />
-            <FormLabel>
-              Last Name
-            </FormLabel>
+            <FormLabel>Last Name</FormLabel>
             <StripeInput
               value={this.state.lname}
               onChange={this.handleChange}
               name="lname"
             />
           </TopForm>
-          <NewH6>
-            Payments handled securely through Stripe
-          </NewH6>
+          <NewH6>Payments handled securely through Stripe</NewH6>
           <CardElement className="stripeCard" />
           <StripeButton>Buy Premium</StripeButton>
         </TheForm>
@@ -181,4 +174,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { updateUser }
-)(injectStripe(InjectForm));
+)(withRouter(injectStripe(InjectForm)));
