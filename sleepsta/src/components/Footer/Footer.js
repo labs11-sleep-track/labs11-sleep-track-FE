@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Navbar, Nav, NavItem, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const FooterAll = styled.div`
   position: fixed;
@@ -119,6 +120,9 @@ export default class Footer extends React.Component {
               </TextSleep>
             </NavItem>
           </Nav>
+          <Text>
+            <NavLink href="/privacy">PRIVACY POLICY</NavLink>
+          </Text>
         </Navbar>
       </FooterAll>
     );
