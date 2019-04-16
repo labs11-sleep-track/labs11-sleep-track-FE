@@ -43,7 +43,7 @@ const Week = styled.div`
   padding: 30px;
   background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
-    width: 560px;
+    width: 565px;
   }
 `;
 
@@ -51,7 +51,7 @@ const Month = styled.div`
   padding: 30px;
   background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
-    width: 560px;
+    width: 565px;
   }
 `;
 
