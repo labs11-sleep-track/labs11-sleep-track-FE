@@ -10,7 +10,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 94.5%;
+  height: 92%;
   z-index: 999;
   background-color: rgb(255, 255, 255, 0.12);
   color: #fff;
@@ -173,6 +173,7 @@ ul ul a {
 @media (min-width: 1920px) {
   #sidebar {
     width: 250px;
+    height: 94.5%;
   }
   .catchPhrase p {
     font-size: 13px;
