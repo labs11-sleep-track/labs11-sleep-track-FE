@@ -1,18 +1,17 @@
 import moment from "moment";
 import React, { Component } from "react";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
+import { setAvg, fontFamily } from "./common";
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 CanvasJS.addColorSet("sleepstaShades", [
   //colorSet Array
-
   "#9EE493",
-  "#E34A6F",
-  "#9AD2CB"
+  "#CEF1C9",
+  "#B0E9A8",
+  "#6D9F66"
 ]);
-
-const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
 
 class WeeklyBarChart extends Component {
   constructor() {
@@ -24,69 +23,43 @@ class WeeklyBarChart extends Component {
   }
 
   initializeState() {
-    let dataArr = [
-      { label: "Monday", y: 0 },
-      { label: "Tuesday", y: 0 },
-      { label: "Wednesday", y: 0 },
-      { label: "Thursday", y: 0 },
-      { label: "Friday", y: 0 },
-      { label: "Saturday", y: 0 },
-      { label: "Sunday", y: 0 }
-    ];
-    for (let i = 0; i < 7; i++) {
+    let dataArr = [];
+    for (let i = 0; i < this.props.filteredDailyData.length; i++) {
       if (typeof this.props.filteredDailyData[i] === "object") {
         let sleepTime = this.props.filteredDailyData[i].sleeptime;
-        let formattedTime = new Date(sleepTime * 1000);
-        var days = [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ];
-        let dayOfWeek = days[formattedTime.getDay()];
+        let dayOfWeek = moment.unix(sleepTime).format("dddd");
+        const secondsInHour = 3600;
         let totalSleep =
-          (this.props.filteredDailyData[i].waketime - sleepTime) / 3600;
-        for (let x = 0; x < 7; x++) {
-          if (dataArr[x].label === dayOfWeek) {
-            dataArr[x].y = totalSleep;
-          }
-        }
+          (this.props.filteredDailyData[i].waketime - sleepTime) /
+          secondsInHour;
+
+        dataArr.push({ label: dayOfWeek, y: totalSleep });
+      } else {
+        dataArr.push({ label: this.props.filteredDailyData[i], y: 0 });
       }
     }
     this.setState({ dps: dataArr });
   }
 
-  setAvg() {
-    let total = 0;
-    let count = 0;
-
-    for (let i = 0; i < this.state.dps.length; i++) {
-      if (this.state.dps[i].y !== 0) {
-        total += this.state.dps[i].y;
-        count++;
-      }
-    }
-    let average = count === 0 ? 0 : (total / count).toFixed(1);
-    this.setState({ average });
-  }
-
   async componentDidMount() {
     await this.initializeState();
-    this.setAvg();
+    let average = setAvg(this.state.dps);
+    this.setState({ average });
   }
 
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.filteredDailyData !== this.props.filteredDailyData) {
       await this.initializeState();
-      this.setAvg();
+      let average = setAvg(this.state.dps);
+      this.setState({ average });
     }
   }
 
   render() {
     const options = {
+      toolTip: {
+        content: "{y}"
+      },
       colorSet: "sleepstaShades",
       backgroundColor: "rgb(255, 255, 255, 0)",
       title: {
@@ -96,7 +69,7 @@ class WeeklyBarChart extends Component {
         text: `${moment
           .unix(this.props.firstWeekDay)
           .format("MMM Do")} - ${moment
-          .unix(this.props.lastWeekDay)
+          .unix(this.props.lastWeekDay - 1)
           .format("MMM Do")}`
       },
       subtitles: [

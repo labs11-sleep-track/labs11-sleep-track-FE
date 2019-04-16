@@ -33,10 +33,6 @@ const ViewDetails = styled.p`
   }
 `;
 
-const ApexChart = styled(ReactApexChart)`
-  height: 240px;
-`;
-
 class RadialChart extends React.Component {
   constructor(props) {
     super(props);
@@ -61,7 +57,7 @@ class RadialChart extends React.Component {
             hollow: {
               margin: 0,
               padding: 0,
-              size: "50%",
+              size: "60%",
               background: "#fff",
               position: "front",
               dropShadow: {
@@ -74,7 +70,7 @@ class RadialChart extends React.Component {
             },
             track: {
               background: "#fff",
-              strokeWidth: "50%",
+              strokeWidth: "58%",
               margin: 0, // margin is in pixels
               padding: 0,
               dropShadow: {
@@ -122,7 +118,7 @@ class RadialChart extends React.Component {
         },
         labels: ["Sleep Quality"]
       },
-      series: []
+      series: [0]
     };
   }
 

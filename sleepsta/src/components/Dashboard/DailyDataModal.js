@@ -73,7 +73,7 @@ class DailyDataModal extends React.Component {
           </HeaderContainer>
           {/* conditionally renders graph/text based on whether or not there is data to display: */}
           <ModalBody style={{ border: "#4C546F" }}>
-            {this.props.sleepData.length ? (
+            {this.props.sleepData && this.props.sleepData.length ? (
               <DailyLineGraph sleepData={this.props.sleepData} />
             ) : (
               <h3>No motion data.</h3>
@@ -86,7 +86,7 @@ class DailyDataModal extends React.Component {
               style={{ background: "#E34A6F", border: "#E34A6F" }}
               onClick={this.props.hideDailyGraph}
             >
-              Cancel
+              Close
             </Button>
           </ModalFooter>
         </StyledModal>
