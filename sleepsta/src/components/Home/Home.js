@@ -96,7 +96,8 @@ const HeadBG = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0,0,0,.5);
+  background-color: rgb(0,0,0,.65);
+  border: 1px solid rgb(255,255,255,.15);
   padding: 20px;
   margin: 10px;
   border-radius: 15px;
@@ -209,6 +210,7 @@ const FBHold = styled.div`
 
 const SVGHold = styled.div`
   width: 100%;
+  height: 50%;
   display: flex;
   justify-content: center;
   
@@ -218,7 +220,20 @@ const SVGHold = styled.div`
   }
 `
 
+const FBTextHold = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+`;
 
+const FBTextHead = styled.h3`
+
+`;
+
+const FBTextContent = styled.p`
+
+`;
 
 const TeamP = styled.p`
   padding: 3px 0px;
@@ -285,17 +300,29 @@ render() {
           <FBHold>
             <SVGHold>
               <img src={datasvg} />
-            </SVGHold>        
+            </SVGHold>
+            <FBTextHold>
+                <FBTextHead>Header</FBTextHead>
+                <FBTextContent>Content goes here</FBTextContent>
+            </FBTextHold>
           </FBHold>
           <FBHold>
               <SVGHold>
                 <img src={happysvg} />
               </SVGHold>
+              <FBTextHold>
+                <FBTextHead>Header</FBTextHead>
+                <FBTextContent>Content goes here</FBTextContent>
+              </FBTextHold>
           </FBHold>
           <FBHold>
               <SVGHold>
                 <img src={loadsvg} />
               </SVGHold>
+              <FBTextHold>
+                <FBTextHead>Header</FBTextHead>
+                <FBTextContent>Content goes here</FBTextContent>
+              </FBTextHold>
           </FBHold>
         </FeatureBlocks>
 
