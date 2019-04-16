@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
 import Footer from "../Footer/Footer.js";
