@@ -9,9 +9,6 @@ import BlogsView from "./views/BlogsView";
 import ProfileView from "./views/ProfileView";
 import DashboardView from "./views/DashboardView";
 import TokenView from "./views/TokenView";
-import PremiumPage from "./views/PremiumPage";
-import Sleep from "./components/Survey/Sleep";
-import Wake from "./components/Survey/Wake";
 import "./App.css";
 
 class App extends Component {
