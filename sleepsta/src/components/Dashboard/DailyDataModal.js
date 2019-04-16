@@ -55,10 +55,6 @@ const XButton = styled(Button)`
 `;
 
 class DailyDataModal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
