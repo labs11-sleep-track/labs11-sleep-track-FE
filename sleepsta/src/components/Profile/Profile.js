@@ -259,7 +259,7 @@ class Profile extends Component {
       // for premium users, does not contain stripe form
       return (
         <ProfilePremium>
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Profile </CardTitle>
               <hr />
@@ -335,6 +335,10 @@ class Profile extends Component {
                 SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
               </Link>
             </TextSleep>
+
+            <TextSleep>
+              <Link href="/privacy">PRIVACY POLICY</Link>
+            </TextSleep>
           </FooterPremium>
         </ProfilePremium>
       );
@@ -342,7 +346,7 @@ class Profile extends Component {
       // for free users, contains stripe form for account upgrade
       return (
         <div className="profile">
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Profile </CardTitle>
               <hr />
@@ -415,7 +419,7 @@ class Profile extends Component {
           </div>
 
           {/* Stripe form */}
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Upgrade?</CardTitle>
               <hr />
@@ -440,6 +444,10 @@ class Profile extends Component {
               <Link to="/about">
                 SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
               </Link>
+            </TextSleep>
+
+            <TextSleep>
+              <Link href="/privacy">PRIVACY POLICY</Link>
             </TextSleep>
           </FooterAll>
         </div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import LoginForm from "../Login/LoginForm";
-import { Link } from "react-router-dom";
 import "./Home.css";
 import stats from "./img/stats.PNG";
 import bg from "./img/bg.jpg";
@@ -9,6 +8,7 @@ import datasvg from "./img/data.svg";
 import dreamsvg from "./img/dream.svg";
 import happysvg from "./img/happy.svg";
 import loadsvg from "./img/load.svg";
+import { Link } from "react-router-dom";
 
 //CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
 
@@ -354,6 +354,10 @@ class Home extends Component {
 
           <TextSleep>
             <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
+          </TextSleep>
+
+          <TextSleep>
+            <Link href="/privacy">PRIVACY POLICY</Link>
           </TextSleep>
         </FooterAll>
       </Main>

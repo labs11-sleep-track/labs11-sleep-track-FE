@@ -4,7 +4,10 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 
 const FooterAll = styled.div`
-  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   font-family: "Poppins", sans-serif;
   background-color: rgb(255, 255, 255, 0.09);
   position: fixed;
@@ -89,6 +92,10 @@ export default class Footer extends React.Component {
 
         <TextSleep>
           <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
+        </TextSleep>
+
+        <TextSleep>
+          <Link href="/privacy">PRIVACY POLICY</Link>
         </TextSleep>
       </FooterAll>
     );

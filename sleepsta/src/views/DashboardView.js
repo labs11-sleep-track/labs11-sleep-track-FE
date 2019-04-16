@@ -44,7 +44,7 @@ const Week = styled.div`
   padding: 30px;
   background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
-    width: 49%;
+    width: 565px;
   }
 `;
 
@@ -52,7 +52,7 @@ const Month = styled.div`
   padding: 30px;
   background-color: rgb(255, 255, 255, 0.09);
   @media (min-width: 1920px) {
-    width: 49%;
+    width: 565px;
   }
 `;
 
@@ -350,6 +350,10 @@ class DashboardView extends React.Component {
 
           <TextSleep>
             <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
+          </TextSleep>
+
+          <TextSleep>
+            <Link href="/privacy">PRIVACY POLICY</Link>
           </TextSleep>
         </FooterAll>
       </Div>

@@ -603,6 +603,10 @@ class BlogView extends React.Component {
           <TextSleep>
             <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
           </TextSleep>
+
+          <TextSleep>
+            <Link href="/privacy">PRIVACY POLICY</Link>
+          </TextSleep>
         </FooterAll>
       </BlogViews>
     );
