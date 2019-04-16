@@ -11,9 +11,9 @@ import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 import DailyDataModal from "../components/Dashboard/DailyDataModal";
 
 const Div = styled.div`
+  margin: 15px auto;
   @media (min-width: 1920px) {
     max-width: 1450px;
-    margin: 0 auto;
   }
 `;
 
@@ -22,6 +22,7 @@ const RadialCharts = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+
   @media (min-width: 1920px) {
     display: flex;
     justify-content: center;
@@ -35,7 +36,6 @@ const Chart = styled.div`
   @media (min-width: 1920px) {
     display: flex;
     justify-content: space-between;
-    margin-top: 75px;
   }
 `;
 
