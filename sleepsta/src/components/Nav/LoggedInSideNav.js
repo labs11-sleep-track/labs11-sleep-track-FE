@@ -1,11 +1,8 @@
 import React from "react";
 import logo from "./sleep.png";
-// import styled from "styled-components";
 import { NavLink } from "reactstrap";
-
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-
 import "./SideBarNav.css";
 
 class LoggedInSideNav extends React.Component {
@@ -55,7 +52,6 @@ class LoggedInSideNav extends React.Component {
               <NavLink href="/dashboard">
                 <div className="sleepTitle">
                   <img src={logo} className="logo" alt="sleep" />
-                  {/* SLEEP<i>STA</i> */}
                 </div>
               </NavLink>
             </div>
@@ -90,34 +86,6 @@ class LoggedInSideNav extends React.Component {
                     &nbsp;&nbsp;Account
                   </div>
                 </Link>
-                {/* <a
-                  href="#pageSubmenu"
-                  data-toggle="collapse"
-                  aria-expanded="false"
-                  class="dropdown-toggle"
-                >
-                  <i class="fas fa-user-circle" />
-                  &nbsp;&nbsp;Account
-                </a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                    <Link style={{ textDecoration: "none" }} to="/profile">
-                      <div>
-                        <i class="fas fa-user" />
-                        &nbsp;&nbsp;Profile
-                      </div>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link style={{ textDecoration: "none" }} to="/premium">
-                      <div>
-                        <i className="fas fa-dollar-sign" />
-                        &nbsp;&nbsp;Payment
-                      </div>
-                    </Link>
-                  </li>
-                </ul> */}
               </li>
 
               <li>
@@ -159,7 +127,6 @@ class LoggedInSideNav extends React.Component {
               <NavLink href="/">
                 <div className="sleepTitle">
                   <img src={logo} className="logo" alt="sleep" />
-                  {/* SLEEP<i>STA</i> */}
                 </div>
               </NavLink>
             </div>
