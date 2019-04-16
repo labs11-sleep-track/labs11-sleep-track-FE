@@ -2,10 +2,8 @@ import React from "react";
 import { Collapse, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 import styled from "styled-components";
-
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-
 import "./SideBarNav.css";
 
 const NavAll = styled.div`
@@ -17,6 +15,7 @@ const NavAll = styled.div`
   align-items: center;
   width: 100%;
   font-family: "Poppins";
+
   @media (min-width: 500px) {
     display: none;
   }
@@ -28,8 +27,6 @@ const NavAll = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: "Poppins", sans-serif;
-    // margin-bottom: 20px;
-    // padding-bottom: 20px;
   }
 `;
 
@@ -127,15 +124,6 @@ class MobileNav extends React.Component {
                     </Links>
                   </Link>
                 </NavItem>
-
-                {/* <NavItem>
-                <Link style={{ textDecoration: "none" }} to="/premium">
-                  <Links>
-                    <i className="fas fa-dollar-sign" />
-                    &nbsp;&nbsp;Payment
-                  </Links>
-                </Link>
-              </NavItem> */}
 
                 <NavItem>
                   <Links>
