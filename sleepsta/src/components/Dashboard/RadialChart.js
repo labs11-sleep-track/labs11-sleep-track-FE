@@ -23,6 +23,7 @@ const Chart = styled.div`
 
 const Day = styled.p`
   font-size: 18px;
+  color: white;
 `;
 
 const ViewDetails = styled.p`
@@ -30,10 +31,6 @@ const ViewDetails = styled.p`
   :hover {
     color: #e34a6f;
   }
-`;
-
-const ApexChart = styled(ReactApexChart)`
-  height: 240px;
 `;
 
 class RadialChart extends React.Component {
@@ -60,7 +57,7 @@ class RadialChart extends React.Component {
             hollow: {
               margin: 0,
               padding: 0,
-              size: "50%",
+              size: "60%",
               background: "#fff",
               position: "front",
               dropShadow: {
@@ -73,7 +70,7 @@ class RadialChart extends React.Component {
             },
             track: {
               background: "#fff",
-              strokeWidth: "50%",
+              strokeWidth: "58%",
               margin: 0, // margin is in pixels
               padding: 0,
               dropShadow: {
@@ -121,7 +118,7 @@ class RadialChart extends React.Component {
         },
         labels: ["Sleep Quality"]
       },
-      series: []
+      series: [0]
     };
   }
 
@@ -150,9 +147,7 @@ class RadialChart extends React.Component {
               this.props.showDailyGraph(
                 e,
                 this.state.isData,
-                window.location.hostname === "localhost"
-                  ? JSON.parse(this.props.dailyData.night_data)
-                  : this.props.dailyData.night_data
+                this.props.dailyData
               )
             }
           >

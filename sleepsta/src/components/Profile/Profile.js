@@ -65,7 +65,8 @@ const XButton = styled(Button)`
   border: transparent;
   color: white;
   font-size: 24px;
-  padding: 1rem;
+  margin: 0 1rem;
+  padding: 0;
   :hover {
     cursor: pointer;
     background: transparent;
@@ -268,11 +269,12 @@ class Profile extends Component {
             toggle={this.toggle}
             className={this.props.className}
           >
-            <ModalHeader toggle={this.toggle} className="header">
-              Update User Form
-            </ModalHeader>
+            <HeaderContainer>
+              <Header className="header">Update User Form</Header>
+              <XButton onClick={this.toggle}>X</XButton>
+            </HeaderContainer>
 
-            <ModalBody>
+            <Body>
               <Form>
                 <div className="fNameDiv">
                   <Label className="label">First Name *</Label>
@@ -306,7 +308,7 @@ class Profile extends Component {
               </PinkButton>
 
               <PinkButton onClick={this.toggle}>Cancel</PinkButton>
-            </ModalBody>
+            </Body>
           </Modal>
 
           {/* Off-screen notification, notifies user if successful or failed update */}
