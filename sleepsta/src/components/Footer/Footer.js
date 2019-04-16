@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Navbar, Nav, NavItem, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const FooterAll = styled.div`
-  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   font-family: "Poppins", sans-serif;
   background-color: rgb(255, 255, 255, 0.09);
-  position: relative;
-  bottom: 0;
   border-top: 1px solid #e34a6f;
 
   @media (max-width: 1000px) {
@@ -118,6 +120,9 @@ export default class Footer extends React.Component {
               </TextSleep>
             </NavItem>
           </Nav>
+          <Text>
+            <NavLink href="/privacy">PRIVACY POLICY</NavLink>
+          </Text>
         </Navbar>
       </FooterAll>
     );
