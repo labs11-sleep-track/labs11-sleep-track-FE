@@ -67,7 +67,7 @@ const H2 = styled.div`
 `;
 
 const P = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   color: white;
   letter-spacing: 0.5px;
   line-height: 1.7em;
@@ -138,7 +138,7 @@ const CardWrapper = styled.div`
 `;
 
 const Title = styled(CardTitle)`
-  font-size: 16px;
+  font-size: 18px;
   line-height: 22px;
   letter-spacing: 0.8px;
   margin-bottom: 5px;
@@ -151,7 +151,7 @@ const Title = styled(CardTitle)`
 `;
 
 const CardSubtitle = styled.div`
-  font-size: 13px;
+  font-size: 14px;
   color: #999;
   line-height: 1.3em;
   letter-spacing: 0.3px;
@@ -161,12 +161,12 @@ const CardSubtitle = styled.div`
   }
   @media (max-width: 500px) {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
 const Text = styled(CardText)`
-  font-size: 14px;
+  font-size: 16px;
   color: white;
   letter-spacing: 0.5px;
   line-height: 1.5em;
@@ -533,14 +533,6 @@ class BlogView extends React.Component {
                   </P>
                 </a>
               </CardBody>
-
-              {/* <CardImg
-                top
-                height="150px"
-                width="100%"
-                src="http://easysleepinc.com/images/banner_1NEW.png"
-                alt="Night sketch"
-              /> */}
             </DarkCard>
           </CardWrapper>
         </BlogsWrapper>

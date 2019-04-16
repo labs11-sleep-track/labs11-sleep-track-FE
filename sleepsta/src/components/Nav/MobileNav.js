@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem
-} from "reactstrap";
+import { Collapse, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 import styled from "styled-components";
 
