@@ -1,22 +1,14 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavLink } from 'reactstrap';
+import { Navbar, Nav, NavItem, NavLink } from "reactstrap";
 
-  const FooterAll = styled.div`
+const FooterAll = styled.div`
   margin: 0 auto;
-  width: 95%;
-  margin-top: 20px;
   font-family: "Poppins", sans-serif;
   background-color: rgb(255, 255, 255, 0.09);
-
-  @media (min-width: 1920px) {
-    max-width: 1450px;
-    margin: 0 auto;
-  }
+  position: relative;
+  bottom: 0;
+  border-top: 1px solid #e34a6f;
 
   @media (max-width: 1000px) {
     display: flex;
@@ -24,8 +16,6 @@ import {
   }
 
   @media (max-width: 800px) {
-    background-color: rgb(255, 255, 255, 0.09);
-    width: 95%;
     height: 50%;
     color: white;
     display: flex;
@@ -34,8 +24,6 @@ import {
   }
 
   @media (max-width: 500px) {
-    background-color: rgb(255, 255, 255, 0.09);
-    width: 100%;
     height: 50%;
     color: white;
     display: flex;
@@ -45,13 +33,13 @@ import {
 `;
 
 const Text = styled.p`
- font-size: 11px;
- letter-spacing: 1px;
- padding: 5px;
- display: flex;
- justify-content: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 
- @media (min-width: 1920px) {
+  @media (min-width: 1920px) {
     width: 49%;
   }
 
@@ -60,7 +48,7 @@ const Text = styled.p`
     justify-content: center;
   }
 
- @media (max-width: 800px) {
+  @media (max-width: 800px) {
     font-size: 10px;
   }
 
@@ -72,7 +60,7 @@ const Text = styled.p`
     font-size: 8px;
   }
 
- @media (max-width: 500px) {
+  @media (max-width: 500px) {
     font-size: 10px;
     display: flex;
     justify-content: center;
@@ -80,28 +68,27 @@ const Text = styled.p`
 `;
 
 const TextSleep = styled.p`
- font-size: 11px;
- letter-spacing: 1px;
- padding: 5px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 5px;
 
- &:hover {
+  &:hover {
     color: #e34a6f;
     cursor: pointer;
   }
 
   @media (max-width: 1000px) {
-    display:  none;
+    display: none;
   }
 
- @media (max-width: 800px) {
+  @media (max-width: 800px) {
     display: none;
- }
+  }
 
- @media (max-width: 500px) {
-     display: none;
+  @media (max-width: 500px) {
+    display: none;
   }
 `;
-
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -122,11 +109,15 @@ export default class Footer extends React.Component {
       <FooterAll>
         <Navbar expand="md">
           <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <TextSleep><NavLink href="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</NavLink></TextSleep>
-              </NavItem>
-            </Nav>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <TextSleep>
+                <NavLink href="/about">
+                  SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
+                </NavLink>
+              </TextSleep>
+            </NavItem>
+          </Nav>
         </Navbar>
       </FooterAll>
     );

@@ -96,12 +96,11 @@ const PinkButton = styled(Button)`
 `;
 
 const ProfilePremium = styled.div`
-  max-width: 100%;
+  max-width: 75%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 5%;
 `;
 
 class Profile extends Component {
