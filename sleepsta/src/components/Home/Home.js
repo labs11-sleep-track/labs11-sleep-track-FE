@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import styled from "styled-components";
 import LoginForm from "../Login/LoginForm";
-import { Link } from "react-router-dom";
+import {
+  Link
+} from "react-router-dom";
 import "./Home.css";
 import stats from './img/stats.PNG';
 import bg from './img/bg.jpg';
@@ -12,7 +16,7 @@ import loadsvg from './img/load.svg';
 
 //CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
 
-const Main = styled.div`
+const Main = styled.div `
   font-family: "Poppins","Roboto";
   /* background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%); */
   position: sticky;
@@ -22,7 +26,7 @@ const Main = styled.div`
   height: 100%;
 `;
 
-const Top = styled.div`
+const Top = styled.div `
  display: flex;
  flex-direction: column;
  background-image: url("${bg}");
@@ -36,7 +40,7 @@ const Top = styled.div`
   }
 `;
 
-const LandingContent = styled.div`
+const LandingContent = styled.div `
   display: flex;
   justify-content: space-evenly;
   height: 100%;
@@ -52,7 +56,7 @@ const LandingContent = styled.div`
   }
 `;
 
-const AttentionHold = styled.div`
+const AttentionHold = styled.div `
  width: 50%;
  padding: 20px 20px 0px 20px;
 
@@ -62,7 +66,7 @@ const AttentionHold = styled.div`
  }
 `;
 
-const AttentionGrab = styled.div`
+const AttentionGrab = styled.div `
   background-image: url("${stats}");
   background-repeat:no-repeat;
   background-size:cover;
@@ -70,7 +74,7 @@ const AttentionGrab = styled.div`
   width: 100%;
 `;
 
-const HeaderHold = styled.div`
+const HeaderHold = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,7 +95,7 @@ const HeaderHold = styled.div`
   }
 `;
 
-const HeadBG = styled.div`
+const HeadBG = styled.div `
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -102,7 +106,7 @@ const HeadBG = styled.div`
   border-radius: 15px;
 `
 
-const HeaderH1 = styled.h1` 
+const HeaderH1 = styled.h1 ` 
   font-family: "Poppins", "Roboto";
   font-size: 6em;
   z-index: 1;
@@ -114,21 +118,21 @@ const HeaderH1 = styled.h1`
 
   `;
 
-const TaglineBar = styled.div`
+const TaglineBar = styled.div `
   width: 100%;
   background-color: rgb(255,255,255,.05);
   border-top: 1px solid #e34a6f;
   z-index: 3;
 `;
 
-const WelcomeHold = styled.div`
+const WelcomeHold = styled.div `
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
 `;
 
-const WelcomeTo = styled.div`
+const WelcomeTo = styled.div `
   width: 92%;
   background-color: rgb(255,255,255,.95);
   border-radius: 15px;
@@ -148,7 +152,7 @@ const WelcomeTo = styled.div`
   }
 `;
 
-const WelcomeLeft = styled.div`
+const WelcomeLeft = styled.div `
   width: 60%;
   display: flex;
   justify-content: center;
@@ -167,7 +171,7 @@ img {
   }
 `;
 
-const WelcomeRight = styled.div`
+const WelcomeRight = styled.div `
   width: 60%;
   display: flex;
   justify-content: center;
@@ -182,7 +186,7 @@ const WelcomeRight = styled.div`
   }
 `;
 
-const FeatureBlocks = styled.div`
+const FeatureBlocks = styled.div `
   margin-top: 20px;
   width: 100%;
   display: flex;
@@ -195,7 +199,7 @@ const FeatureBlocks = styled.div`
   }
 `;
 
-const FBHold = styled.div`
+const FBHold = styled.div `
   width: 30%;
   height: 800px;
   margin: 10px;
@@ -207,7 +211,7 @@ const FBHold = styled.div`
   }
 `;
 
-const SVGHold = styled.div`
+const SVGHold = styled.div `
   width: 100%;
   height: 50%;
   display: flex;
@@ -219,85 +223,119 @@ const SVGHold = styled.div`
   }
 `
 
-const FBTextHold = styled.div`
+const FBTextHold = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 50%;
 `;
 
-const FBTextHead = styled.h3`
+const FBTextHead = styled.h3 `
 
 `;
 
-const FBTextContent = styled.p`
+const FBTextContent = styled.p `
 
 `;
 
 class Home extends Component {
 
-render() {
-  return (
-    <Main>
-      <Top>
-        <LandingContent>
-          <HeaderHold>
-            <HeadBG>
-              <HeaderH1>SLEEPSTA</HeaderH1>
-              <h2> Sleep Hard. Live Smarter.</h2>
-            </HeadBG>
-            <LoginForm />
-          </HeaderHold>
-          <AttentionHold>
-            <AttentionGrab></AttentionGrab>
-          </AttentionHold>
-        </LandingContent>
-      </Top>
-      <TaglineBar> </TaglineBar>
+  render() {
+    return ( <
+      Main >
+      <
+      Top >
+      <
+      LandingContent >
+      <
+      HeaderHold >
+      <
+      HeadBG >
+      <
+      HeaderH1 > SLEEPSTA < /HeaderH1> <
+      h2 > Sleep Hard.Live Smarter. < /h2> <
+      /HeadBG> <
+      LoginForm / >
+      <
+      /HeaderHold> <
+      AttentionHold >
+      <
+      AttentionGrab > < /AttentionGrab> <
+      /AttentionHold> <
+      /LandingContent> <
+      /Top> <
+      TaglineBar > < /TaglineBar>
 
-      <WelcomeHold>
-        <WelcomeTo>
-          <WelcomeLeft>
-            <img src={dreamsvg} />
-          </WelcomeLeft>
-          <WelcomeRight>
-            Welcome to Sleepsta
-          </WelcomeRight>
-        </WelcomeTo>
-      </WelcomeHold>
+      <
+      WelcomeHold >
+      <
+      WelcomeTo >
+      <
+      WelcomeLeft >
+      <
+      img src = {
+        dreamsvg
+      }
+      /> <
+      /WelcomeLeft> <
+      WelcomeRight >
+      Welcome to Sleepsta <
+      /WelcomeRight> <
+      /WelcomeTo> <
+      /WelcomeHold>
 
-        <FeatureBlocks>
-          <FBHold>
-            <SVGHold>
-              <img src={datasvg} />
-            </SVGHold>
-            <FBTextHold>
-                <FBTextHead>Header</FBTextHead>
-                <FBTextContent>Content goes here</FBTextContent>
-            </FBTextHold>
-          </FBHold>
-          <FBHold>
-              <SVGHold>
-                <img src={happysvg} />
-              </SVGHold>
-              <FBTextHold>
-                <FBTextHead>Header</FBTextHead>
-                <FBTextContent>Content goes here</FBTextContent>
-              </FBTextHold>
-          </FBHold>
-          <FBHold>
-              <SVGHold>
-                <img src={loadsvg} />
-              </SVGHold>
-              <FBTextHold>
-                <FBTextHead>Header</FBTextHead>
-                <FBTextContent>Content goes here</FBTextContent>
-              </FBTextHold>
-          </FBHold>
-        </FeatureBlocks>
-    </Main>
-  );
-};
+      <
+      FeatureBlocks >
+      <
+      FBHold >
+      <
+      SVGHold >
+      <
+      img src = {
+        datasvg
+      }
+      /> <
+      /SVGHold> <
+      FBTextHold >
+      <
+      FBTextHead > Header < /FBTextHead> <
+      FBTextContent > Content goes here < /FBTextContent> <
+      /FBTextHold> <
+      /FBHold> <
+      FBHold >
+      <
+      SVGHold >
+      <
+      img src = {
+        happysvg
+      }
+      /> <
+      /SVGHold> <
+      FBTextHold >
+      <
+      FBTextHead > Header < /FBTextHead> <
+      FBTextContent > Content goes here < /FBTextContent> <
+      /FBTextHold> <
+      /FBHold> <
+      FBHold >
+      <
+      SVGHold >
+      <
+      img src = {
+        loadsvg
+      }
+      /> <
+      /SVGHold> <
+      FBTextHold >
+      <
+      FBTextHead > Header < /FBTextHead> <
+      FBTextContent > Content goes here < /FBTextContent> <
+      /FBTextHold> <
+      /FBHold> <
+      /FeatureBlocks> <
+      /Main>
+    );
+  };
 }
 
 export default Home;
