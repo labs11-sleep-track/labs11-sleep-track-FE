@@ -1,6 +1,7 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
+import Footer from "../components/Footer/Footer.js";
 import styled from "styled-components";
 import {
   Card,
@@ -11,8 +12,6 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
-
-import Banner from "./SLEEPSTA5.png";
 
 const BlogViews = styled.div`
   @media (min-width: 1920px) {
@@ -535,16 +534,6 @@ class BlogView extends React.Component {
                 </a>
               </CardBody>
 
-
-              <CardImg
-
-                top
-                height="100%"
-                width="100%"
-                src={Banner}
-                alt="Night sketch"
-              />
-
               {/* <CardImg
                 top
                 height="150px"
@@ -555,6 +544,9 @@ class BlogView extends React.Component {
             </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
+        <div>
+          <Footer />
+        </div>
       </BlogViews>
     );
   }

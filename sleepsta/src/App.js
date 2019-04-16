@@ -51,15 +51,11 @@ class App extends Component {
         <Route path="/auth/google/:token" component={TokenView} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/about" component={About} />
-        {/* <Route path="/sleep" component={Sleep} />
-        <Route path="/wake" component={Wake} /> */}
 
         {/* Following are protected routes, user must be logged in to route */}
-        {/* {user && <Route exact path="/about" component={About} />} */}
         {user && <Route exact path="/blogs" component={BlogsView} />}
         {user && <Route path="/profile" component={ProfileView} />}
         {user && <Route path="/dashboard" component={DashboardView} />}
-        {/* {user && <Route path="/premium" component={PremiumPage} />} */}
       </div>
     );
   }

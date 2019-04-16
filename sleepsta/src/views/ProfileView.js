@@ -28,6 +28,7 @@ function ProfileView(props) {
         <Profile />
       </ProfileWrapper>
     </div>
+    
   );
 }
 
