@@ -9,7 +9,6 @@ import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 import DailyDataModal from "../components/Dashboard/DailyDataModal";
-import Footer from "../components/Footer/Footer.js";
 
 const Div = styled.div`
   @media (min-width: 1920px) {
@@ -285,9 +284,6 @@ class DashboardView extends React.Component {
             hideDailyGraph={this.hideDailyGraph}
           />
         </DashboardWrapper>
-        <div>
-          <Footer />
-        </div>
       </Div>
     );
   }
