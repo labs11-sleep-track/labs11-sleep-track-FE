@@ -4,7 +4,6 @@
 Sleepsta is a mobile application that uses motion tracking to measure your sleep. The Sleepsta web application allows you to visualize your sleep analysis and shows you how to sleep your way to better health.
 
 ## Deployment
-
 You can see our Front End deployment here:
 
 https://sleepsta.netlify.com/
@@ -29,13 +28,11 @@ https://sleepsta.netlify.com/
 |     Dillon McElhinney  | https://github.com/dillon-mce     | iOS Developer             |
 
 ### Motivation
-
 Sleepsta is a website based off of an app. It was created to make viewing and understanding your sleep quality quick and easy. Maintaining a journal of the amount of sleep you get every month can be a difficult task. Sleepsta is a intuitive and easy-to-use application and website that will do the heavy lifting for you. Just register [here](https://sleepsta.netlify.com/), download the app and start your Sleepsta experience! 
 
 The technical design document for this project is [here](https://docs.google.com/document/d/1lgsDKrwKYQDkBN5p4uRPz3knToZykJBENgGD-aW8E3U/edit?usp=sharing). It outlines the rationale for our tech stack as well as our architectural decisions.
 
 ### Features
-
 - Secure User Authentication using OAuth
 - Billing utilizing Stripe payment
 - Dashboard to view daily, weekly and monthly graphs of sleep data recieved from the Sleepsta app.
@@ -47,7 +44,6 @@ The technical design document for this project is [here](https://docs.google.com
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `yarn start` - but first =>
@@ -113,6 +109,5 @@ Sleep Blogs is a page with helpful information where you can learn healthy ways 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## Acknowledgements
-
 Thank you for your interest in Sleepsta; we look forward to your feedback! 
 —Kelli, Kanek, Olivia, Bhumi, Leland & Dillon
