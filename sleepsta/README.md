@@ -81,7 +81,7 @@ You will need the following dependencies:
 ## Installation
 After forking, clone a copy on your machine with the git clone <repo name> 
 
-Runs the app in the development mode.<br>
+Run the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
@@ -104,6 +104,8 @@ Sleep Blogs is a page with helpful information where you can learn healthy ways 
 * Bootstrap, with Reactstrap and react-bootstrap
 * React
 * Redux
+* Apexcharts
+* CanvasJS
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
