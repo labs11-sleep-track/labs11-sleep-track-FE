@@ -90,7 +90,7 @@ const H2 = styled.div`
 const FooterAll = styled.div`
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: relative;
   bottom: 0;
   border-top: 1px solid grey;
