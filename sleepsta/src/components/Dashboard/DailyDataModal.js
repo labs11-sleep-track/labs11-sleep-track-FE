@@ -5,7 +5,7 @@ import styled from "styled-components";
 import "./DailyDataModal.css";
 
 const StyledModal = styled(Modal)`
-  background-color: rgb(255, 255, 255, 0.09);
+  //background-color: #222d44;
   width: 70%;
   margin: auto;
 
@@ -14,14 +14,14 @@ const StyledModal = styled(Modal)`
   }
 `;
 const Header = styled(ModalHeader)`
-  border: rgb(255, 255, 255, 0.09);
+  border: #222d44;
   font-family: Poppins, Roboto, Arimo, Work Sans, Pacifico;
   padding: 0;
   font-size: 24px;
 `;
 
 const NotesHeader = styled(ModalHeader)`
-  border-bottom: rgb(255, 255, 255, 0.09);
+  border-bottom: #222d44;
   border-top: 1px solid #e34a6f;
   border-radius: 0px;
   margin-top: 1rem;

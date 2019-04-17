@@ -41,7 +41,7 @@ const Chart = styled.div`
 
 const Week = styled.div`
   padding: 30px;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   @media (min-width: 1920px) {
     width: 565px;
   }
@@ -49,14 +49,14 @@ const Week = styled.div`
 
 const Month = styled.div`
   padding: 30px;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   @media (min-width: 1920px) {
     width: 565px;
   }
 `;
 
 const Daily = styled.div`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   padding: 30px;
 `;
 
