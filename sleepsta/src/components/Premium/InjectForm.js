@@ -8,6 +8,7 @@ import { withRouter, Route } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions";
+import PremiumNotif, { notify } from "../Notifications/PremiumNotif";
 
 const FormHold = styled.div`
   // margin: 10px;
@@ -91,7 +92,8 @@ class InjectForm extends Component {
     this.state = {
       email: this.props.inputs.email,
       fname: this.props.inputs.f_name,
-      lname: this.props.inputs.l_name
+      lname: this.props.inputs.l_name,
+      alreadyPremium: false
     };
   }
 
@@ -108,7 +110,9 @@ class InjectForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     if (this.props.inputs.account_type === "premium") {
-      return alert("You already are premium!");
+      // return alert("You already are premium!");
+      this.setState({ alreadyPremium: true });
+      notify("notif");
     } else {
       try {
         let email = this.state.email;
@@ -130,8 +134,8 @@ class InjectForm extends Component {
           account_type: "premium"
         };
         await this.props.updateUser(user);
-        await alert("Premium Purchased!");
-        this.props.history.push("/dashboard");
+        // await alert("Premium Purchased!");
+        await notify("notif");
       } catch (e) {
         throw e;
       }
@@ -139,27 +143,32 @@ class InjectForm extends Component {
   };
   render() {
     return (
-      <FormHold>
-        <TheForm onSubmit={this.handleSubmit}>
-          <TopForm>
-            <FormLabel>First Name</FormLabel>
-            <StripeInput
-              value={this.state.fname}
-              onChange={this.handleChange}
-              name="fname"
-            />
-            <FormLabel>Last Name</FormLabel>
-            <StripeInput
-              value={this.state.lname}
-              onChange={this.handleChange}
-              name="lname"
-            />
-          </TopForm>
-          <NewH6>Payments handled securely through Stripe</NewH6>
-          <CardElement className="stripeCard" />
-          <StripeButton>Buy Premium</StripeButton>
-        </TheForm>
-      </FormHold>
+      <>
+        <FormHold>
+          <TheForm onSubmit={this.handleSubmit}>
+            <TopForm>
+              <FormLabel>First Name</FormLabel>
+              <StripeInput
+                value={this.state.fname}
+                onChange={this.handleChange}
+                name="fname"
+              />
+              <FormLabel>Last Name</FormLabel>
+              <StripeInput
+                value={this.state.lname}
+                onChange={this.handleChange}
+                name="lname"
+              />
+            </TopForm>
+            <NewH6>Payments handled securely through Stripe</NewH6>
+            <CardElement className="stripeCard" />
+            <StripeButton>Buy Premium</StripeButton>
+          </TheForm>
+        </FormHold>
+        <div className="notif">
+          <PremiumNotif alreadyPremium={this.state.alreadyPremium} />
+        </div>
+      </>
     );
   }
 }
