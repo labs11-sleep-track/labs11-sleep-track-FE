@@ -104,6 +104,8 @@ Sleep Blogs is a page with helpful information where you can learn healthy ways 
 * Bootstrap, with Reactstrap and react-bootstrap
 * React
 * Redux
+* Apexcharts
+* CanvasJS
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
