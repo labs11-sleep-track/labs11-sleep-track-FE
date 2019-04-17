@@ -8,6 +8,7 @@ import datasvg from "./img/data.svg";
 import dreamsvg from "./img/dream.svg";
 import happysvg from "./img/happy.svg";
 import loadsvg from "./img/load.svg";
+import nightsvg from "./img/night.svg";
 import { Link } from "react-router-dom";
 
 //CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
@@ -30,7 +31,6 @@ const Top = styled.div`
  background-position: center;
   height: 85%;
   width: 100%;
-
   @media(max-width: 800px){
     height: 70%;
   }
@@ -41,12 +41,10 @@ const LandingContent = styled.div`
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
-
   @media (max-width: 800px) {
     margin-top: 36px;
     flex-direction: column;
   }
-
   @media (max-height: 500px) {
     flex-direction: column;
   }
@@ -55,7 +53,6 @@ const LandingContent = styled.div`
 const AttentionHold = styled.div`
  width: 50%;
  padding: 20px 20px 0px 20px;
-
  @media(max-width: 800px){
    width: 100%:
    height: 100%;
@@ -75,16 +72,13 @@ const HeaderHold = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   @media (max-width: 800px) {
     padding-top: 20px;
     width: 100%;
   }
-
   @media (max-height: 500px) {
     flex-direction: row;
   }
-
   h2 {
     text-align: right;
     padding: 3px;
@@ -106,7 +100,6 @@ const HeaderH1 = styled.h1`
   font-family: "Poppins", "Roboto";
   font-size: 6em;
   z-index: 1;
-
   @media (max-width: 800px) {
     padding-top: 10px;
     font-size: 4.5em;
@@ -138,7 +131,6 @@ const WelcomeTo = styled.div`
   overflow: hidden;
   padding: 30px;
   box-shadow: 3px 3px 0px 1.5px black;
-
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: space-evenly;
@@ -158,7 +150,6 @@ const WelcomeLeft = styled.div`
   }
   @media (max-width: 800px) {
     width: 100%;
-
     img {
       width: 80%;
       height: 80%;
@@ -173,7 +164,6 @@ const WelcomeRight = styled.div`
   align-items: center;
   text-align: center;
   font-size: 2.4em;
-
   @media (max-width: 800px) {
     width: 100%;
     text-align: center;
@@ -188,7 +178,6 @@ const FeatureBlocks = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
   @media (max-width: 800px) {
     flex-direction: column;
   }
@@ -200,7 +189,6 @@ const FBHold = styled.div`
   margin: 10px;
   border-radius: 15px;
   background-color: rgb(255, 255, 255, 0.05);
-
   @media (max-width: 800px) {
     width: 90%;
   }
@@ -217,6 +205,17 @@ const SVGHold = styled.div`
     padding: 30px;
   }
 `;
+
+const FBTextHold = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+`;
+
+const FBTextHead = styled.h3``;
+
+const FBTextContent = styled.p``;
 
 const FooterAll = styled.div`
   margin: 0 auto;
@@ -275,17 +274,6 @@ const TextSleep = styled.p`
   }
 `;
 
-const FBTextHold = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 50%;
-`;
-
-const FBTextHead = styled.h3``;
-
-const FBTextContent = styled.p``;
-
 class Home extends Component {
   render() {
     return (
@@ -294,8 +282,8 @@ class Home extends Component {
           <LandingContent>
             <HeaderHold>
               <HeadBG>
-                <HeaderH1>SLEEPSTA</HeaderH1>
-                <h2> Sleep Hard. Live Smarter.</h2>
+                <HeaderH1> SLEEPSTA </HeaderH1>
+                <h2> Sleep Hard.Live Smarter. </h2>
               </HeadBG>
               <LoginForm />
             </HeaderHold>
@@ -304,44 +292,54 @@ class Home extends Component {
             </AttentionHold>
           </LandingContent>
         </Top>
-        <TaglineBar> </TaglineBar>
-
+        <TaglineBar> </TaglineBar>
         <WelcomeHold>
           <WelcomeTo>
             <WelcomeLeft>
               <img src={dreamsvg} />
             </WelcomeLeft>
-            <WelcomeRight>Welcome to Sleepsta</WelcomeRight>
+            <WelcomeRight> Welcome to Sleepsta </WelcomeRight>
           </WelcomeTo>
         </WelcomeHold>
-
         <FeatureBlocks>
           <FBHold>
             <SVGHold>
               <img src={datasvg} />
             </SVGHold>
+            <FBTextHold>
+              <FBTextHead> Header </FBTextHead>
+              <FBTextContent> Content goes here </FBTextContent>
+            </FBTextHold>
           </FBHold>
           <FBHold>
             <SVGHold>
               <img src={happysvg} />
             </SVGHold>
+            <FBTextHold>
+              <FBTextHead> Header </FBTextHead>
+              <FBTextContent> Content goes here </FBTextContent>
+            </FBTextHold>
           </FBHold>
           <FBHold>
             <SVGHold>
               <img src={loadsvg} />
             </SVGHold>
+            <FBTextHold>
+              <FBTextHead> Header </FBTextHead>
+              <FBTextContent> Content goes here </FBTextContent>
+            </FBTextHold>
           </FBHold>
         </FeatureBlocks>
-
         <FooterAll>
-          <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-
+          <Text> ALL CONTENT© 2019 SLEEPSTA.ALL RIGHTS RESERVED </Text>
           <TextSleep>
-            <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
+            <Link to="/about">
+              
+              SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
+            </Link>
           </TextSleep>
-
           <TextSleep>
-            <Link to="/privacy">PRIVACY POLICY</Link>
+            <Link to="/privacy"> PRIVACY POLICY </Link>
           </TextSleep>
         </FooterAll>
       </Main>
