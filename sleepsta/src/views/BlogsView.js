@@ -19,7 +19,7 @@ const BlogViews = styled.div`
   }
 `;
 const DarkCard = styled(Card)`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
 `;
 const DashboardNav = styled.div`
   width: 100%;
