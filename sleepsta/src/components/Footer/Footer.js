@@ -1,92 +1,73 @@
 import React from "react";
 import styled from "styled-components";
-import { Navbar, Nav, NavItem, NavLink } from "reactstrap";
+import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const FooterAll = styled.div`
-  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   font-family: "Poppins", sans-serif;
   background-color: rgb(255, 255, 255, 0.09);
-  position: relative;
+  position: fixed;
   bottom: 0;
-  border-top: 1px solid #e34a6f;
+  left: 0;
+  border-top: 1px solid grey;
+  width: 190px;
 
-  @media (max-width: 1000px) {
-    display: flex;
-    justify-content: center;
+  @media (min-width: 1920px) {
+    width: 250px;
   }
 
   @media (max-width: 800px) {
-    height: 50%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
+    width: 200px;
   }
 
   @media (max-width: 500px) {
-    height: 50%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
+    display: none;
   }
 `;
 
 const Text = styled.p`
   font-size: 11px;
   letter-spacing: 1px;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-
-  @media (min-width: 1920px) {
-    width: 49%;
-  }
-
-  @media (max-width: 1000px) {
-    display: flex;
-    justify-content: center;
-  }
+  padding: 10px;
 
   @media (max-width: 800px) {
     font-size: 10px;
   }
-
   @media (max-width: 700px) {
     font-size: 8px;
   }
-
   @media (max-width: 600px) {
     font-size: 8px;
   }
-
   @media (max-width: 500px) {
     font-size: 10px;
-    display: flex;
-    justify-content: center;
   }
 `;
 
 const TextSleep = styled.p`
   font-size: 11px;
   letter-spacing: 1px;
-  padding: 5px;
+  padding: 10px;
 
   &:hover {
     color: #e34a6f;
     cursor: pointer;
   }
-
-  @media (max-width: 1000px) {
-    display: none;
-  }
-
   @media (max-width: 800px) {
-    display: none;
+    font-size: 10px;
   }
-
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
   @media (max-width: 500px) {
-    display: none;
+    font-size: 10px;
   }
 `;
 
@@ -107,18 +88,15 @@ export default class Footer extends React.Component {
   render() {
     return (
       <FooterAll>
-        <Navbar expand="md">
-          <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <TextSleep>
-                <NavLink href="/about">
-                  SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
-                </NavLink>
-              </TextSleep>
-            </NavItem>
-          </Nav>
-        </Navbar>
+        <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+
+        <TextSleep>
+          <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
+        </TextSleep>
+
+        <TextSleep>
+          <Link to="/privacy">PRIVACY POLICY</Link>
+        </TextSleep>
       </FooterAll>
     );
   }

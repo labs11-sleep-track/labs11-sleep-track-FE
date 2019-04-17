@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
-import Footer from "../Footer/Footer.js";
 
 const PrivacyWrapper = styled.div`
   margin: 0 auto;
@@ -123,6 +122,43 @@ const A = styled.a`
   }
 `;
 
+const FooterAll = styled.div`
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: relative;
+  bottom: 0;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
+`;
+
 const Privacy = props => {
   return (
     <div className="navHolder">
@@ -238,9 +274,11 @@ const Privacy = props => {
           website, not via email requests, for security reasons.
         </P>
       </PrivacyWrapper>
-      <div>
-          <Footer />
-      </div>
+      <footer>
+        <FooterAll>
+          <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+        </FooterAll>
+      </footer>
     </div>
   );
 };
