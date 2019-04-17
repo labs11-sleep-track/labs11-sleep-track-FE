@@ -1,10 +1,55 @@
 import React from "react";
 import logo from "./sleep.png";
 import { NavLink } from "reactstrap";
-import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./SideBarNav.css";
+import styled from "styled-components";
+
+const FooterAll = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid grey;
+  width: 190px;
+
+  @media (min-width: 1920px) {
+    width: 250px;
+  }
+
+  @media (max-width: 800px) {
+    width: 200px;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
+`;
 
 class LoggedInSideNav extends React.Component {
   constructor(props) {
@@ -81,7 +126,9 @@ class LoggedInSideNav extends React.Component {
             </ul>
           </nav>
           <footer>
-            <Footer />
+            <FooterAll>
+              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+            </FooterAll>
           </footer>
         </div>
       );
@@ -131,7 +178,9 @@ class LoggedInSideNav extends React.Component {
             </ul>
           </nav>
           <footer>
-            <Footer />
+            <FooterAll>
+              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+            </FooterAll>
           </footer>
         </div>
       );

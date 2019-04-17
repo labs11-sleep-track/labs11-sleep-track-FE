@@ -203,39 +203,6 @@ const SVGHold = styled.div`
   }
 `;
 
-const TeamP = styled.p`
-  padding: 3px 0px;
-  font-size: 0.9em;
-
-  @media (max-width: 800px) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 0.75em;
-  }
-`;
-
-const Team = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 12px;
-  padding-top: 20px;
-  font-family: "Roboto", sans-serif;
-
-  @media (max-width: 500px) {
-    font-size: 10px;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 10px;
-  }
-`;
-
 const FooterAll = styled.div`
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
@@ -340,15 +307,6 @@ class Home extends Component {
           </FBHold>
         </FeatureBlocks>
 
-        <Team>
-          <TeamP>
-            Meet the <Link to="/about">SLEEPSTA Team</Link>
-          </TeamP>
-          <TeamP>
-            <Link to="/privacy">Privacy Policy</Link>
-          </TeamP>
-        </Team>
-
         <FooterAll>
           <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
 
@@ -357,7 +315,7 @@ class Home extends Component {
           </TextSleep>
 
           <TextSleep>
-            <Link href="/privacy">PRIVACY POLICY</Link>
+            <Link to="/privacy">PRIVACY POLICY</Link>
           </TextSleep>
         </FooterAll>
       </Main>

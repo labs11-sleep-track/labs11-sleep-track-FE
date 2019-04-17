@@ -16,7 +16,6 @@ import Stripe from "../Premium/Stripe";
 import "./Profile.css";
 import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const DarkCard = styled(Card)`
   background-color: rgb(255, 255, 255, 0.09);
@@ -112,7 +111,7 @@ const ProfilePremium = styled.div`
 `;
 
 const FooterAll = styled.div`
-  margin: 0 auto;
+  margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: rgb(255, 255, 255, 0.09);
   position: relative;
@@ -156,29 +155,6 @@ const Text = styled.p`
   letter-spacing: 1px;
   padding: 10px;
 
-  @media (max-width: 800px) {
-    font-size: 10px;
-  }
-  @media (max-width: 700px) {
-    font-size: 8px;
-  }
-  @media (max-width: 600px) {
-    font-size: 8px;
-  }
-  @media (max-width: 500px) {
-    font-size: 10px;
-  }
-`;
-
-const TextSleep = styled.p`
-  font-size: 11px;
-  letter-spacing: 1px;
-  padding: 10px;
-
-  &:hover {
-    color: #e34a6f;
-    cursor: pointer;
-  }
   @media (max-width: 800px) {
     font-size: 10px;
   }
@@ -329,16 +305,6 @@ class Profile extends Component {
           </div>
           <FooterPremium>
             <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-
-            <TextSleep>
-              <Link to="/about">
-                SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
-              </Link>
-            </TextSleep>
-
-            <TextSleep>
-              <Link href="/privacy">PRIVACY POLICY</Link>
-            </TextSleep>
           </FooterPremium>
         </ProfilePremium>
       );
@@ -439,16 +405,6 @@ class Profile extends Component {
           </DarkCard>
           <FooterAll>
             <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-
-            <TextSleep>
-              <Link to="/about">
-                SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
-              </Link>
-            </TextSleep>
-
-            <TextSleep>
-              <Link href="/privacy">PRIVACY POLICY</Link>
-            </TextSleep>
           </FooterAll>
         </div>
       );

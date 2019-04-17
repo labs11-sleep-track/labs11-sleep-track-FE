@@ -1,7 +1,6 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
-import Footer from "../components/Footer/Footer.js";
 import styled from "styled-components";
 import {
   Card,
@@ -12,7 +11,6 @@ import {
   CardColumns,
   Button
 } from "reactstrap";
-import { Link } from "react-router-dom";
 
 const BlogViews = styled.div`
   margin: 15px auto;
@@ -205,29 +203,6 @@ const TextS = styled.p`
   letter-spacing: 1px;
   padding: 10px;
 
-  @media (max-width: 800px) {
-    font-size: 10px;
-  }
-  @media (max-width: 700px) {
-    font-size: 8px;
-  }
-  @media (max-width: 600px) {
-    font-size: 8px;
-  }
-  @media (max-width: 500px) {
-    font-size: 10px;
-  }
-`;
-
-const TextSleep = styled.p`
-  font-size: 11px;
-  letter-spacing: 1px;
-  padding: 10px;
-
-  &:hover {
-    color: #e34a6f;
-    cursor: pointer;
-  }
   @media (max-width: 800px) {
     font-size: 10px;
   }
@@ -599,14 +574,6 @@ class BlogView extends React.Component {
         </BlogsWrapper>
         <FooterAll>
           <TextS>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</TextS>
-
-          <TextSleep>
-            <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
-          </TextSleep>
-
-          <TextSleep>
-            <Link href="/privacy">PRIVACY POLICY</Link>
-          </TextSleep>
         </FooterAll>
       </BlogViews>
     );

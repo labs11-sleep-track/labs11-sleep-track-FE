@@ -9,7 +9,6 @@ import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
 import MonthlyBarChart from "../components/Dashboard/MonthlyBarChart";
 import DailyDataModal from "../components/Dashboard/DailyDataModal";
-import { Link } from "react-router-dom";
 
 const Div = styled.div`
   margin: 15px auto;
@@ -111,29 +110,6 @@ const Text = styled.p`
   letter-spacing: 1px;
   padding: 10px;
 
-  @media (max-width: 800px) {
-    font-size: 10px;
-  }
-  @media (max-width: 700px) {
-    font-size: 8px;
-  }
-  @media (max-width: 600px) {
-    font-size: 8px;
-  }
-  @media (max-width: 500px) {
-    font-size: 10px;
-  }
-`;
-
-const TextSleep = styled.p`
-  font-size: 11px;
-  letter-spacing: 1px;
-  padding: 10px;
-
-  &:hover {
-    color: #e34a6f;
-    cursor: pointer;
-  }
   @media (max-width: 800px) {
     font-size: 10px;
   }
@@ -347,14 +323,6 @@ class DashboardView extends React.Component {
         </DashboardWrapper>
         <FooterAll>
           <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-
-          <TextSleep>
-            <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
-          </TextSleep>
-
-          <TextSleep>
-            <Link href="/privacy">PRIVACY POLICY</Link>
-          </TextSleep>
         </FooterAll>
       </Div>
     );

@@ -95,7 +95,7 @@ export default class Footer extends React.Component {
         </TextSleep>
 
         <TextSleep>
-          <Link href="/privacy">PRIVACY POLICY</Link>
+          <Link to="/privacy">PRIVACY POLICY</Link>
         </TextSleep>
       </FooterAll>
     );
