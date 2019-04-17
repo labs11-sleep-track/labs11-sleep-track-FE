@@ -58,7 +58,7 @@ class MonthlyBarChart extends Component {
         content: "{y}"
       },
       colorSet: "sleepstaShades",
-      backgroundColor: "rgb(255, 255, 255, 0)",
+      backgroundColor: "#222d44",
       title: {
         fontSize: 24,
         fontFamily: fontFamily,
