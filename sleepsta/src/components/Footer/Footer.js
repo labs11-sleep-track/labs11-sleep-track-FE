@@ -9,7 +9,7 @@ const FooterAll = styled.div`
   right: 0;
   left: 0;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: fixed;
   bottom: 0;
   left: 0;
