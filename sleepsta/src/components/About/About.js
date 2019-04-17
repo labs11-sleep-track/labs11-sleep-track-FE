@@ -161,7 +161,7 @@ const About = props => {
               <ButtonThing>
                 <A
                   class="btn btn-default"
-                  href="www.linkedin.com/in/kanek-perez-a0b569157"
+                  href="https://www.linkedin.com/"
                   role="button"
                 >
                   LinkedIn
@@ -199,7 +199,7 @@ const About = props => {
               <ButtonThing>
                 <A
                   class="btn btn-default"
-                  href="www.linkedin.com/in/kanek-perez-a0b569157"
+                  href="https://www.linkedin.com/in/kanek-perez-a0b569157"
                   role="button"
                 >
                   LinkedIn

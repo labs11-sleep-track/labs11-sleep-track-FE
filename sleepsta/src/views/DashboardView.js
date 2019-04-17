@@ -43,7 +43,7 @@ const Week = styled.div`
   padding: 30px;
   background-color: #222d44;
   @media (min-width: 1920px) {
-    width: 565px;
+    width: ${props => (props.account === "premium" ? "565px" : "100%")};
   }
 `;
 
@@ -259,7 +259,7 @@ class DashboardView extends React.Component {
         </DashboardNav>
         <DashboardWrapper>
           <Chart>
-            <Week>
+            <Week account={this.props.currentUser.account_type}>
               <H2> Weekly Sleep Analysis </H2>
               <input
                 type="week"
