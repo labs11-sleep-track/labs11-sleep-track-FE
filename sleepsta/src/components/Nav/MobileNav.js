@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 import "./SideBarNav.css";
 
 const NavAll = styled.div`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   color: white;
   display: flex;
   justify-content: center;
@@ -20,7 +20,6 @@ const NavAll = styled.div`
     display: none;
   }
   @media (max-width: 500px) {
-    background-color: rgb(255, 255, 255, 0.09);
     color: white;
     display: flex;
     justify-content: center;
