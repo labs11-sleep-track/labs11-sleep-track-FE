@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ee from "event-emitter";
-import { connect } from "react-redux";
+import { withRouter, Route } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #e34a6f;
@@ -24,11 +24,11 @@ export const notify = msg => {
   emitter.emit("notification", msg);
 };
 
-class Notifications extends Component {
+class PremiumNotif extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      top: -100,
+      top: -500,
       msg: ""
     };
     this.timeout = null;
@@ -43,7 +43,7 @@ class Notifications extends Component {
       clearTimeout(this.timeout);
       this.setState(
         {
-          top: -100
+          top: -500
         },
         () => {
           this.timeout = setTimeout(() => {
@@ -59,31 +59,38 @@ class Notifications extends Component {
   showNotification = msg => {
     this.setState(
       {
-        top: 16,
+        top: -300,
         msg
       },
       () => {
         this.timeout = setTimeout(() => {
           this.setState({
-            top: -100
+            top: -505
           });
-        }, 3000);
+        }, 2000);
       }
     );
   };
 
+  redirect = () => {
+    this.props.history.push("/dashboard");
+    window.location.reload();
+  };
   render() {
-    if (this.props.update > 0) {
+    {
+      this.state.top === -505 && this.redirect();
+    }
+    if (this.props.alreadyPremium) {
       return (
         <Container top={this.state.top} className="notif">
-          <span>Failed to update profile. </span>
+          <span>You already are premium!</span>
           <i className="fa fa-bell" />
         </Container>
       );
     } else {
       return (
         <Container top={this.state.top} className="notif">
-          <span>Profile successfully updated. </span>
+          <span>Premium purchased!</span>
           <i className="fa fa-bell" />
         </Container>
       );
@@ -91,13 +98,4 @@ class Notifications extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isUpdated: state.auth.isUpdated
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  {}
-)(Notifications);
+export default withRouter(PremiumNotif);
