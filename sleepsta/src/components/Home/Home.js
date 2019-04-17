@@ -19,14 +19,18 @@ const Main = styled.div`
   z-index: -5;
   width: 100%;
   height: 100%;
+  background-color: transparent;
 `;
 
 const Top = styled.div`
  display: flex;
  flex-direction: column;
  background-image: url("${bg}");
+  // background: #222d44; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to top, #222d44, #161e2d, #000000); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to top, #222d44, #161e2d, #000000);
  background-size: cover;
- background-position: center;
+ background-position: top center;
   height: 85%;
   width: 100%;
   @media(max-width: 800px){
@@ -228,7 +232,7 @@ const FBTextContent = styled.p`
 const FooterAll = styled.div`
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: relative;
   bottom: 0;
   border-top: 1px solid grey;
