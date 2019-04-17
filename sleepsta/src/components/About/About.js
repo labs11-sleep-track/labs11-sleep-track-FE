@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
-import Footer from "../Footer/Footer.js";
 
 import D from "./dillon_profile_photo.jpg";
 
@@ -93,6 +92,43 @@ const A = styled.a`
 const Body = styled(CardBody)`
   // background-color: #303848;
   background-color: #0a1429;
+`;
+
+const FooterAll = styled.div`
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: relative;
+  bottom: 0;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 `;
 
 const About = props => {
@@ -325,9 +361,11 @@ const About = props => {
           </Card>
         </SingleCard>
       </Cards>
-        <div>
-          <Footer />
-        </div>
+      <footer>
+        <FooterAll>
+          <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+        </FooterAll>
+      </footer>
     </div>
   );
 };

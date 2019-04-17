@@ -23,6 +23,10 @@ const DarkCard = styled(Card)`
   margin: 15px auto;
   width: 90%;
   border: none;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const CardTitle = styled.div`
@@ -101,6 +105,68 @@ const ProfilePremium = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  @media (max-width: 500px) {
+    margin: 0 20px;
+  }
+`;
+
+const FooterAll = styled.div`
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const FooterPremium = styled.div`
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 `;
 
 class Profile extends Component {
@@ -169,7 +235,7 @@ class Profile extends Component {
       // for premium users, does not contain stripe form
       return (
         <ProfilePremium>
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Profile </CardTitle>
               <hr />
@@ -237,13 +303,16 @@ class Profile extends Component {
           <div className="notif">
             <Notifications update={this.state.update} />
           </div>
+          <FooterPremium>
+            <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+          </FooterPremium>
         </ProfilePremium>
       );
     } else {
       // for free users, contains stripe form for account upgrade
       return (
         <div className="profile">
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Profile </CardTitle>
               <hr />
@@ -316,7 +385,7 @@ class Profile extends Component {
           </div>
 
           {/* Stripe form */}
-          <DarkCard>
+          <DarkCard className="black">
             <CardBody>
               <CardTitle>Upgrade?</CardTitle>
               <hr />
@@ -334,6 +403,9 @@ class Profile extends Component {
               <Stripe />
             </CardBody>
           </DarkCard>
+          <FooterAll>
+            <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+          </FooterAll>
         </div>
       );
     }

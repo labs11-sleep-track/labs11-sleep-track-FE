@@ -1,7 +1,6 @@
 import React from "react";
 import LoggedInSideNav from "../components/Nav/LoggedInSideNav.js";
 import MobileNav from "../components/Nav/MobileNav.js";
-import Footer from "../components/Footer/Footer.js";
 import styled from "styled-components";
 import {
   Card,
@@ -178,6 +177,43 @@ const PinkButton = styled(Button)`
   &:hover {
     background: white;
     color: #e34a6f;
+  }
+`;
+
+const FooterAll = styled.div`
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255, 0.09);
+  position: relative;
+  bottom: 0;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const TextS = styled.p`
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
+  @media (max-width: 700px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media (max-width: 500px) {
+    font-size: 10px;
   }
 `;
 
@@ -536,6 +572,9 @@ class BlogView extends React.Component {
             </DarkCard>
           </CardWrapper>
         </BlogsWrapper>
+        <FooterAll>
+          <TextS>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</TextS>
+        </FooterAll>
       </BlogViews>
     );
   }
