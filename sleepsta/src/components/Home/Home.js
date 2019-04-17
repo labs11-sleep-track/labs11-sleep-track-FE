@@ -15,8 +15,6 @@ import { Link } from "react-router-dom";
 
 const Main = styled.div`
   font-family: "Poppins", "Roboto";
-  /* background-image: linear-gradient(to top, #0a1429 0%, #0f1e3f 100%); */
-  position: sticky;
   position: absolute;
   z-index: -5;
   width: 100%;
@@ -80,6 +78,7 @@ const HeaderHold = styled.div`
     flex-direction: row;
   }
   h2 {
+    font-size: 0.8em;
     text-align: right;
     padding: 3px;
   }
@@ -98,11 +97,11 @@ const HeadBG = styled.div`
 
 const HeaderH1 = styled.h1`
   font-family: "Poppins", "Roboto";
-  font-size: 6em;
+  font-size: 5em;
   z-index: 1;
   @media (max-width: 800px) {
     padding-top: 10px;
-    font-size: 4.5em;
+    font-size: 4em;
   }
 `;
 
@@ -121,6 +120,7 @@ const WelcomeHold = styled.div`
 `;
 
 const WelcomeTo = styled.div`
+  margin-top: 10px;
   width: 92%;
   background-color: rgb(255, 255, 255, 0.95);
   border-radius: 15px;
@@ -135,7 +135,7 @@ const WelcomeTo = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 800px;
+    height: 400px;
   }
 `;
 
@@ -163,7 +163,7 @@ const WelcomeRight = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 2.4em;
+  font-size: 2.2em;
   @media (max-width: 800px) {
     width: 100%;
     text-align: center;
@@ -172,7 +172,7 @@ const WelcomeRight = styled.div`
 `;
 
 const FeatureBlocks = styled.div`
-  margin-top: 20px;
+  margin: 20px 0px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -185,7 +185,7 @@ const FeatureBlocks = styled.div`
 
 const FBHold = styled.div`
   width: 30%;
-  height: 800px;
+  height: 400px;
   margin: 10px;
   border-radius: 15px;
   background-color: rgb(255, 255, 255, 0.05);
@@ -211,11 +211,19 @@ const FBTextHold = styled.div`
   flex-direction: column;
   align-items: center;
   height: 50%;
+  padding: 10px;
 `;
 
-const FBTextHead = styled.h3``;
+const FBTextHead = styled.h3`
+  font-size: 2em;
+  padding-bottom: 8px;
+`;
 
-const FBTextContent = styled.p``;
+const FBTextContent = styled.p`
+  text-align: center;
+  line-height: 20px;
+  padding: 5px 10px;
+`;
 
 const FooterAll = styled.div`
   margin: 0 auto;
@@ -283,7 +291,7 @@ class Home extends Component {
             <HeaderHold>
               <HeadBG>
                 <HeaderH1> SLEEPSTA </HeaderH1>
-                <h2> Sleep Hard.Live Smarter. </h2>
+                <h2> Sleep Hard. Live Smarter. </h2>
               </HeadBG>
               <LoginForm />
             </HeaderHold>
@@ -307,8 +315,12 @@ class Home extends Component {
               <img src={datasvg} />
             </SVGHold>
             <FBTextHold>
-              <FBTextHead> Header </FBTextHead>
-              <FBTextContent> Content goes here </FBTextContent>
+              <FBTextHead> Track Nightly Stats </FBTextHead>
+              <FBTextContent>
+                {" "}
+                Track your sleep habits to see if you're sleeping enough, at the
+                right times, and in the right ways.{" "}
+              </FBTextContent>
             </FBTextHold>
           </FBHold>
           <FBHold>
@@ -316,8 +328,12 @@ class Home extends Component {
               <img src={happysvg} />
             </SVGHold>
             <FBTextHold>
-              <FBTextHead> Header </FBTextHead>
-              <FBTextContent> Content goes here </FBTextContent>
+              <FBTextHead> Feel Better </FBTextHead>
+              <FBTextContent>
+                {" "}
+                Improved sleep means more energy, an improved mood, and more
+                focus. Sleepsta helps you achieve happiness.{" "}
+              </FBTextContent>
             </FBTextHold>
           </FBHold>
           <FBHold>
@@ -333,10 +349,7 @@ class Home extends Component {
         <FooterAll>
           <Text> ALL CONTENT© 2019 SLEEPSTA.ALL RIGHTS RESERVED </Text>
           <TextSleep>
-            <Link to="/about">
-              
-              SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM
-            </Link>
+            <Link to="/about">SITE DESIGNED + DEVELOPED BY SLEEPSTA TEAM</Link>
           </TextSleep>
           <TextSleep>
             <Link to="/privacy"> PRIVACY POLICY </Link>
