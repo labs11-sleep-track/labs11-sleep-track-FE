@@ -18,7 +18,7 @@ import Notifications, { notify } from "../Notifications/index";
 import styled from "styled-components";
 
 const DarkCard = styled(Card)`
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   padding: 10px;
   margin: 15px auto;
   width: 90%;
@@ -113,7 +113,7 @@ const ProfilePremium = styled.div`
 const FooterAll = styled.div`
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: relative;
   bottom: 0;
   left: 0;
@@ -133,7 +133,7 @@ const FooterAll = styled.div`
 const FooterPremium = styled.div`
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: fixed;
   bottom: 0;
   left: 0;
