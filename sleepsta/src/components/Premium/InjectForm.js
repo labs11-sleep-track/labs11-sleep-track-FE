@@ -111,11 +111,6 @@ class InjectForm extends Component {
     e.preventDefault();
     if (this.props.inputs.account_type === "premium") {
       // return alert("You already are premium!");
-      // return (
-      //   <div className="notif">
-      //     <PremiumNotif message="You already are premium!" />
-      //   </div>
-      // );
       this.setState({ alreadyPremium: true });
       notify("notif");
     } else {
@@ -141,11 +136,6 @@ class InjectForm extends Component {
         await this.props.updateUser(user);
         // await alert("Premium Purchased!");
         await notify("notif");
-        // return (
-        //   <div className="notif">
-        //     <PremiumNotif message="Premium purchased!" />
-        //   </div>
-        // );
       } catch (e) {
         throw e;
       }
