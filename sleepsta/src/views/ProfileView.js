@@ -9,11 +9,7 @@ const DashboardNav = styled.div`
   width: 100%;
 `;
 
-const ProfileWrapper = styled.div`
-  @media (max-width: 500px) {
-    padding: 0 20px;
-  }
-`;
+const ProfileWrapper = styled.div``;
 
 function ProfileView(props) {
   return (
