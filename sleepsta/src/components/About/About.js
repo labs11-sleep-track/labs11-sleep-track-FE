@@ -161,7 +161,7 @@ const About = props => {
               <ButtonThing>
                 <A
                   class="btn btn-default"
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/bhumi-patel-28000a184/"
                   role="button"
                 >
                   LinkedIn
