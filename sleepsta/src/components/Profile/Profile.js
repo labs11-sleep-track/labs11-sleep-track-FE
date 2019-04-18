@@ -106,7 +106,7 @@ const ProfilePremium = styled.div`
   flex-direction: column;
   margin: 0 auto;
   @media (max-width: 500px) {
-    margin: 0 20px;
+    max-width: 100%;
   }
 `;
 
