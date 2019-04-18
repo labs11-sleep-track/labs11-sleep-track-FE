@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import CanvasJSReact from "../../canvasjs_assets/canvasjs.react";
-
+import { fontFamily } from "./common";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-const fontFamily = ["Poppins", "Roboto", "Arimo", "Work Sans", "Pacifico"];
 
 class DailyLineGraph extends Component {
   constructor() {
@@ -21,7 +19,7 @@ class DailyLineGraph extends Component {
     this.setState({ dps: multipliedTimeArr });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.sleepData !== this.props.sleepData) {
       let multipliedTimeArr = this.props.sleepData.map(data => {
         data.x = data.x * 1000;
