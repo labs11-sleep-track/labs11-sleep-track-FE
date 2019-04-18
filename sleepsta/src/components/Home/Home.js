@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import LoginForm from "../Login/LoginForm";
+import LoginAlt from "../Login/LoginAlt";
 import "./Home.css";
 import stats from "./img/stats.PNG";
 import bg from "./img/bg.jpg";
@@ -25,17 +25,18 @@ const Main = styled.div`
 const Top = styled.div`
  display: flex;
  flex-direction: column;
+ align-items: center;
+ justify-content: center;
  background-image: url("${bg}");
   // background: #222d44; /* fallback for old browsers */
   // background: -webkit-linear-gradient(to top, #222d44, #161e2d, #000000); /* Chrome 10-25, Safari 5.1-6 */
   // background: linear-gradient(to top, #222d44, #161e2d, #000000);
  background-size: cover;
  background-position: top center;
-  height: 85%;
+  height: 95%;
   width: 100%;
-  @media(max-width: 800px){
-    height: 70%;
-  }
+  z-index: -999;
+  overflow: hidden;
 `;
 
 const LandingContent = styled.div`
@@ -44,29 +45,32 @@ const LandingContent = styled.div`
   height: 100%;
   width: 100%;
   @media (max-width: 800px) {
-    margin-top: 36px;
     flex-direction: column;
-  }
-  @media (max-height: 500px) {
-    flex-direction: column;
+    padding-top: 100px;
   }
 `;
 
 const AttentionHold = styled.div`
- width: 50%;
- padding: 20px 20px 0px 20px;
- @media(max-width: 800px){
-   width: 100%:
-   height: 100%;
- }
+  height: 100%;
+  box-sizing: border-box;
+  @media(max-width: 800px){
+    width: 85%;
+    margin: auto;
+  }
+  @media (max-height: 500px) {
+    display: none;
+  }
 `;
 
 const AttentionGrab = styled.div`
-  background-image: url("${stats}");
-  background-repeat:no-repeat;
-  background-size:cover;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 115%;
+  img{
+    height: 100%;
+    padding: 15px;
+  }
 `;
 
 const HeaderHold = styled.div`
@@ -75,16 +79,16 @@ const HeaderHold = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 800px) {
-    padding-top: 20px;
     width: 100%;
+  }
+  h2 {
+    font-size: 0.95em;
+    text-align: right;
+    padding: 3px;
   }
   @media (max-height: 500px) {
     flex-direction: row;
-  }
-  h2 {
-    font-size: 0.8em;
-    text-align: right;
-    padding: 3px;
+    justify-content: space-evenly;
   }
 `;
 
@@ -101,7 +105,7 @@ const HeadBG = styled.div`
 
 const HeaderH1 = styled.h1`
   font-family: "Poppins", "Roboto";
-  font-size: 5em;
+  font-size: 6em;
   z-index: 1;
   @media (max-width: 800px) {
     padding-top: 10px;
@@ -164,10 +168,14 @@ const WelcomeLeft = styled.div`
 const WelcomeRight = styled.div`
   width: 60%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 2.2em;
+  h3 {
+    font-size: 2.2em;
+    padding: 5px 0px;
+  }
   @media (max-width: 800px) {
     width: 100%;
     text-align: center;
@@ -214,17 +222,19 @@ const FBTextHold = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   height: 50%;
   padding: 10px;
 `;
 
 const FBTextHead = styled.h3`
-  font-size: 2em;
+  font-size: 1.9em;
   padding-bottom: 8px;
 `;
 
 const FBTextContent = styled.p`
   text-align: center;
+  font-size: .95em;
   line-height: 20px;
   padding: 5px 10px;
 `;
@@ -297,10 +307,10 @@ class Home extends Component {
                 <HeaderH1> SLEEPSTA </HeaderH1>
                 <h2> Sleep Hard. Live Smarter. </h2>
               </HeadBG>
-              <LoginForm />
+              <LoginAlt />
             </HeaderHold>
             <AttentionHold>
-              <AttentionGrab />
+              <AttentionGrab><img src={stats} /></AttentionGrab>
             </AttentionHold>
           </LandingContent>
         </Top>
@@ -310,7 +320,12 @@ class Home extends Component {
             <WelcomeLeft>
               <img src={dreamsvg} />
             </WelcomeLeft>
-            <WelcomeRight> Welcome to Sleepsta </WelcomeRight>
+            <WelcomeRight> <h3>
+              Welcome to Sleepsta
+            </h3> 
+            <h4>
+              The app that helps you sleep better.
+            </h4></WelcomeRight>
           </WelcomeTo>
         </WelcomeHold>
         <FeatureBlocks>
@@ -345,8 +360,8 @@ class Home extends Component {
               <img src={loadsvg} />
             </SVGHold>
             <FBTextHold>
-              <FBTextHead> Header </FBTextHead>
-              <FBTextContent> Content goes here </FBTextContent>
+              <FBTextHead> Develop Better Habits </FBTextHead>
+              <FBTextContent> Use the data collected over time to find the best ways to optimize your sleep patterns. </FBTextContent>
             </FBTextHold>
           </FBHold>
         </FeatureBlocks>
