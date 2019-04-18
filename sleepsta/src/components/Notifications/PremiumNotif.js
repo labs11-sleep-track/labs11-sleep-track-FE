@@ -59,7 +59,7 @@ class PremiumNotif extends Component {
   showNotification = msg => {
     this.setState(
       {
-        top: -300,
+        top: -280,
         msg
       },
       () => {

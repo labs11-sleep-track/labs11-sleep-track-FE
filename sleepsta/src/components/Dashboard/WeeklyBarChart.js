@@ -48,7 +48,7 @@ class WeeklyBarChart extends Component {
     this.setState({ average });
   }
 
-  async componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps) {
     if (prevProps.filteredDailyData !== this.props.filteredDailyData) {
       await this.initializeState();
       let average = setAvg(this.state.dps);
