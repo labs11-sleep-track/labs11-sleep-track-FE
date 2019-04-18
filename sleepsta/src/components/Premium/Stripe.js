@@ -2,7 +2,6 @@ import React from "react";
 import InjectForm from "./InjectForm";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import styled from "styled-components";
-import jumboImage from "./img/jumbo.jpg";
 
 const keyPublishable = process.env.REACT_APP_PUBLISHABLE_KEY;
 const keySecret = process.env.REACT_APP_SECRET_KEY;
@@ -15,13 +14,13 @@ const StripeHold = styled.div`
 class Stripe extends React.Component {
   render() {
     return (
-        <StripeHold>
-          <StripeProvider apiKey={keyPublishable}>
-            <Elements>
-              <InjectForm />
-            </Elements>
-          </StripeProvider>
-        </StripeHold>
+      <StripeHold>
+        <StripeProvider apiKey={keyPublishable}>
+          <Elements>
+            <InjectForm />
+          </Elements>
+        </StripeProvider>
+      </StripeHold>
     );
   }
 }

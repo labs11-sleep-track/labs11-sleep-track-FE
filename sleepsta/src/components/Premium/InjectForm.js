@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-  CardElement,
-  injectStripe,
-  ReactStripeElements
-} from "react-stripe-elements";
-import { withRouter, Route } from "react-router-dom";
+import { CardElement, injectStripe } from "react-stripe-elements";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { updateUser } from "../../actions";
@@ -110,16 +106,13 @@ class InjectForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     if (this.props.inputs.account_type === "premium") {
-      // return alert("You already are premium!");
       this.setState({ alreadyPremium: true });
       notify("notif");
     } else {
       try {
-        let email = this.state.email;
         let { token } = await this.props.stripe.createToken({
           name: this.state.email
         });
-        console.log(token);
         await fetch("https://sleepsta.herokuapp.com/api/stripe/", {
           method: "POST",
           headers: {
@@ -134,7 +127,6 @@ class InjectForm extends Component {
           account_type: "premium"
         };
         await this.props.updateUser(user);
-        // await alert("Premium Purchased!");
         await notify("notif");
       } catch (e) {
         throw e;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ee from "event-emitter";
-import { withRouter, Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #e34a6f;
@@ -59,7 +59,7 @@ class PremiumNotif extends Component {
   showNotification = msg => {
     this.setState(
       {
-        top: -300,
+        top: -280,
         msg
       },
       () => {
@@ -77,9 +77,7 @@ class PremiumNotif extends Component {
     window.location.reload();
   };
   render() {
-    {
-      this.state.top === -505 && this.redirect();
-    }
+    this.state.top === -505 && this.redirect();
     if (this.props.alreadyPremium) {
       return (
         <Container top={this.state.top} className="notif">
