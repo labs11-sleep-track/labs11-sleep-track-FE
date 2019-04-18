@@ -1,6 +1,5 @@
 import React from "react";
 import { Collapse, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
-
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -83,11 +82,11 @@ class MobileNav extends React.Component {
     });
   }
   render() {
+    //if the user has a logged in token they will see this mobile nav
     if (localStorage.getItem("jwt")) {
       return (
         <NavAll>
           <Navbar className="navBarMobile" color="faded" light>
-            {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
 
             <NavbarBrand href="/dashboard" className="mr-auto">
               <Title>SLEEPSTA</Title>
@@ -139,9 +138,9 @@ class MobileNav extends React.Component {
       );
     } else {
       return (
+        // if the user does not have a token they will see this mobile nav
         <NavAll>
           <Navbar className="navBarMobile" color="faded" light>
-            {/* <NavbarBrand className="navBarBrand" href="/dashboard" className="mr-auto"><Title>SLEEPSTA</Title></NavbarBrand>  */}
 
             <NavbarBrand href="/" className="mr-auto">
               <Title>SLEEPSTA</Title>

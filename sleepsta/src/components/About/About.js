@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import LoggedInSideNav from "../Nav/LoggedInSideNav.js";
 import MobileNav from "../Nav/MobileNav.js";
-
 import D from "./dillon_profile_photo.jpg";
 
 const Cards = styled.div`
@@ -90,7 +89,6 @@ const A = styled.a`
 `;
 
 const Body = styled(CardBody)`
-  // background-color: #303848;
   background-color: #0a1429;
 `;
 
