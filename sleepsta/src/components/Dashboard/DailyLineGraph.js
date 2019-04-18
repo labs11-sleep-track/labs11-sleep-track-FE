@@ -31,7 +31,7 @@ class DailyLineGraph extends Component {
 
   render() {
     const options = {
-      backgroundColor: "rgb(255, 255, 255, 0.00)",
+      backgroundColor: "#222d44",
       title: {
         text: `${moment(this.props.sleepData[0].x).format("dddd")}`,
         fontSize: 24,

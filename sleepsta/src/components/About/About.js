@@ -14,7 +14,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   padding: 20px;
 
   @media (max-width: 500px) {
@@ -97,7 +97,7 @@ const Body = styled(CardBody)`
 const FooterAll = styled.div`
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: relative;
   bottom: 0;
   border-top: 1px solid grey;
@@ -161,7 +161,7 @@ const About = props => {
               <ButtonThing>
                 <A
                   class="btn btn-default"
-                  href="www.linkedin.com/in/kanek-perez-a0b569157"
+                  href="https://www.linkedin.com/"
                   role="button"
                 >
                   LinkedIn
@@ -199,7 +199,7 @@ const About = props => {
               <ButtonThing>
                 <A
                   class="btn btn-default"
-                  href="www.linkedin.com/in/kanek-perez-a0b569157"
+                  href="https://www.linkedin.com/in/kanek-perez-a0b569157"
                   role="button"
                 >
                   LinkedIn

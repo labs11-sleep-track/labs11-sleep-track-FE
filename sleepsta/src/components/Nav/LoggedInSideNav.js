@@ -12,7 +12,7 @@ const FooterAll = styled.div`
   right: 0;
   left: 0;
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3f4454;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -124,12 +124,12 @@ class LoggedInSideNav extends React.Component {
                 </div>
               </li>
             </ul>
+            <footer>
+              <FooterAll>
+                <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+              </FooterAll>
+            </footer>
           </nav>
-          <footer>
-            <FooterAll>
-              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-            </FooterAll>
-          </footer>
         </div>
       );
     } else {
@@ -176,12 +176,12 @@ class LoggedInSideNav extends React.Component {
                 </Link>
               </li>
             </ul>
+            <footer>
+              <FooterAll>
+                <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+              </FooterAll>
+            </footer>
           </nav>
-          <footer>
-            <FooterAll>
-              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-            </FooterAll>
-          </footer>
         </div>
       );
     }
