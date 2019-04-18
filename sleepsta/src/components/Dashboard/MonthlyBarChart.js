@@ -6,7 +6,7 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 CanvasJS.addColorSet("sleepstaShades", [
-  //colorSet Array
+  //bar chart colorSet Array
   "#9EE493",
   "#CEF1C9",
   "#B0E9A8",
@@ -23,6 +23,7 @@ class MonthlyBarChart extends Component {
   }
 
   initializeState = () => {
+    //sets dps in state (datapoints)
     let dataArr = [];
     for (let i = 0; i < this.props.filteredMonthlyData.length; i++) {
       if (this.props.filteredMonthlyData[i]) {

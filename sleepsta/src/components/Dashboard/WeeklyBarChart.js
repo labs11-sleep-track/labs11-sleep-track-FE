@@ -6,7 +6,7 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 CanvasJS.addColorSet("sleepstaShades", [
-  //colorSet Array
+  //bar chart colorSet Array
   "#9EE493",
   "#CEF1C9",
   "#B0E9A8",
@@ -23,6 +23,7 @@ class WeeklyBarChart extends Component {
   }
 
   initializeState() {
+    //sets dps in state (datapoints)
     let dataArr = [];
     for (let i = 0; i < this.props.filteredDailyData.length; i++) {
       if (typeof this.props.filteredDailyData[i] === "object") {
@@ -47,7 +48,7 @@ class WeeklyBarChart extends Component {
     this.setState({ average });
   }
 
-  async componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps) {
     if (prevProps.filteredDailyData !== this.props.filteredDailyData) {
       await this.initializeState();
       let average = setAvg(this.state.dps);
@@ -69,7 +70,7 @@ class WeeklyBarChart extends Component {
         text: `${moment
           .unix(this.props.firstWeekDay)
           .format("MMM Do")} - ${moment
-          .unix(this.props.lastWeekDay - 1)
+          .unix(this.props.lastWeekDay)
           .format("MMM Do")}`
       },
       subtitles: [
