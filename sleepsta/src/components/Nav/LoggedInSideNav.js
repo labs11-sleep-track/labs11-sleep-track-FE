@@ -66,11 +66,13 @@ class LoggedInSideNav extends React.Component {
     });
   }
 
+  // Moved this commponentDidMount inside the render below
   // componentDidMount() {
   //   const token = localStorage.getItem("jwt");
   // }
 
   render() {
+    //if the user have a logged in token they will see this sidenav
     if (localStorage.getItem("jwt")) {
       return (
         <div className="wrapper">
@@ -133,6 +135,7 @@ class LoggedInSideNav extends React.Component {
         </div>
       );
     } else {
+      // if the user does not have a token they will see this sidenav 
       return (
         <div className="wrapper">
           <nav id="sidebar">
