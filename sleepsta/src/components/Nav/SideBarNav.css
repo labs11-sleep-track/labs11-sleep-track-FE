@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   font-family: "Poppins", sans-serif;
-  /* cursor: pointer; */
 }
 
 #sidebar {
@@ -12,7 +11,7 @@
   left: 0;
   height: 100vh;
   z-index: 999;
-  background-color: rgb(255, 255, 255, 0.12);
+  background-color: #222d44;
   color: #fff;
   transition: all 0.3s;
   font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
@@ -25,7 +24,7 @@
   width: 100vw;
   height: 100vh;
   /* transparent black */
-  background: rgba(0, 0, 0, 0.7);
+  background: #222d44;
   /* middle layer, i.e. appears below the sidebar */
   z-index: 998;
   opacity: 0;
@@ -82,7 +81,7 @@ a:focus {
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   color: #fff;
   transition: all 0.3s;
   letter-spacing: 1px;
@@ -91,7 +90,7 @@ a:focus {
 #sidebar .sidebar-header {
   padding: 20px;
   letter-spacing: 3px;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3F4454;
   display: flex;
   justify-content: center;
 }
@@ -110,7 +109,6 @@ a:focus {
   font-size: 16px;
   display: block;
   cursor: pointer;
-  /* border-top: 1px solid darkgrey; */
 }
 #sidebar ul li a:hover {
   color: #e34a6f;
@@ -120,12 +118,12 @@ a:focus {
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
   color: #fff;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #3F4454;
 }
 ul ul a {
   font-size: 14px !important;
   padding-left: 50px !important;
-  background-color: rgb(255, 255, 255, 0.09);
+  background-color: #222d44;
   border-top: 1px solid grey;
 }
 
@@ -137,7 +135,6 @@ ul ul a {
 .catchPhrase {
   font-size: 10px;
   font-family: "Poppins", sans-serif;
-  /* font-style: italic; */
   display: flex;
   justify-content: center;
   border-bottom: 1px solid darkgrey;
@@ -158,7 +155,7 @@ ul ul a {
 }
 
 .buttonTitle:active {
-  background: rgba(0, 0, 0, 0.7);
+  background: #3F4454;
   border: none;
 }
 
@@ -181,12 +178,11 @@ ul ul a {
     padding: 20px;
     font-size: 20px;
     display: block;
-    /* border-top: 1px solid darkgrey; */
   }
   ul ul a {
     font-size: 16px !important;
     padding-left: 50px !important;
-    background-color: rgb(255, 255, 255, 0.09);
+    background-color: #222d44;
     border-top: 1px solid grey;
   }
 }
