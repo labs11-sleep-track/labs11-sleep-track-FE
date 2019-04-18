@@ -72,6 +72,17 @@ const P = styled.p`
   line-height: 1.7em;
 `;
 
+const PLinks = styled.p`
+  font-size: 16px;
+  color: white;
+  letter-spacing: 0.5px;
+  line-height: 1.7em;
+
+  &:hover {
+    color: #e34a6f;
+  }
+`;
+
 const H3 = styled.h3`
   font-size: 22px;
   padding-bottom: 10px;
@@ -558,15 +569,15 @@ class BlogView extends React.Component {
                 <hr />
 
                 <a href="https://www.sleepfoundation.org/">
-                  <P>
+                  <PLinks>
                     <li>National Sleep Foundation </li>
-                  </P>
+                  </PLinks>
                 </a>
 
                 <a href="https://www.sleepassociation.org/">
-                  <P>
+                  <PLinks>
                     <li>American Sleep Association </li>
-                  </P>
+                  </PLinks>
                 </a>
               </CardBody>
             </DarkCard>
