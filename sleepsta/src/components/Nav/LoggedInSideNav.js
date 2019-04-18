@@ -124,12 +124,12 @@ class LoggedInSideNav extends React.Component {
                 </div>
               </li>
             </ul>
+            <footer>
+              <FooterAll>
+                <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+              </FooterAll>
+            </footer>
           </nav>
-          <footer>
-            <FooterAll>
-              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-            </FooterAll>
-          </footer>
         </div>
       );
     } else {
@@ -176,12 +176,12 @@ class LoggedInSideNav extends React.Component {
                 </Link>
               </li>
             </ul>
+            <footer>
+              <FooterAll>
+                <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
+              </FooterAll>
+            </footer>
           </nav>
-          <footer>
-            <FooterAll>
-              <Text>ALL CONTENT © 2019 SLEEPSTA. ALL RIGHTS RESERVED</Text>
-            </FooterAll>
-          </footer>
         </div>
       );
     }
