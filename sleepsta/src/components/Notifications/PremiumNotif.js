@@ -28,7 +28,7 @@ class PremiumNotif extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      top: -500,
+      top: -800,
       msg: ""
     };
     this.timeout = null;
@@ -43,7 +43,7 @@ class PremiumNotif extends Component {
       clearTimeout(this.timeout);
       this.setState(
         {
-          top: -500
+          top: -800
         },
         () => {
           this.timeout = setTimeout(() => {
@@ -59,13 +59,13 @@ class PremiumNotif extends Component {
   showNotification = msg => {
     this.setState(
       {
-        top: -280,
+        top: -310,
         msg
       },
       () => {
         this.timeout = setTimeout(() => {
           this.setState({
-            top: -505
+            top: -805
           });
         }, 2000);
       }
@@ -77,7 +77,7 @@ class PremiumNotif extends Component {
     window.location.reload();
   };
   render() {
-    this.state.top === -505 && this.redirect();
+    this.state.top === -805 && this.redirect();
     if (this.props.alreadyPremium) {
       return (
         <Container top={this.state.top} className="notif">
