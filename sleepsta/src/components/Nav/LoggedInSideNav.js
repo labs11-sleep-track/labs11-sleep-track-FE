@@ -119,7 +119,11 @@ class LoggedInSideNav extends React.Component {
 
               <li>
                 <div>
-                  <a onClick={this.logout}>
+                  {/* <button className="logoutbut" onClick={this.logout}>
+                    <i className="fas fa-sign-out-alt" />
+                    &nbsp;&nbsp;Logout
+                  </button> */}
+                    <a onClick={this.logout}>
                     <i className="fas fa-sign-out-alt" />
                     &nbsp;&nbsp;Logout
                   </a>

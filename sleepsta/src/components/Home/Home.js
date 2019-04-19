@@ -8,7 +8,6 @@ import datasvg from "./img/data.svg";
 import dreamsvg from "./img/dream.svg";
 import happysvg from "./img/happy.svg";
 import loadsvg from "./img/load.svg";
-import nightsvg from "./img/night.svg";
 import logosimple from "./img/bed.png";
 import { Link } from "react-router-dom";
 
@@ -319,7 +318,7 @@ class Home extends Component {
             <HeaderHold>
               <HeadBG>
                 <LogoWrap>
-                  <img src={logosimple} />
+                  <img src={logosimple} alt="Sleepsta logo" />
                 </LogoWrap>
                 <HeaderH1> SLEEPSTA </HeaderH1>
                 <h2> Sleep Hard. Live Smarter. </h2>
@@ -327,7 +326,7 @@ class Home extends Component {
               <LoginAlt />
             </HeaderHold>
             <AttentionHold>
-              <AttentionGrab><img src={stats} /></AttentionGrab>
+              <AttentionGrab><img src={stats} alt="Stats" /></AttentionGrab>
             </AttentionHold>
           </LandingContent>
         </Top>
@@ -335,7 +334,7 @@ class Home extends Component {
         <WelcomeHold>
           <WelcomeTo>
             <WelcomeLeft>
-              <img src={dreamsvg} />
+              <img src={dreamsvg} alt="Dream" />
             </WelcomeLeft>
             <WelcomeRight> <h3>
               Welcome to Sleepsta
@@ -348,7 +347,7 @@ class Home extends Component {
         <FeatureBlocks>
           <FBHold>
             <SVGHold>
-              <img src={datasvg} />
+              <img src={datasvg} alt="Data" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Track Nightly Stats </FBTextHead>
@@ -361,7 +360,7 @@ class Home extends Component {
           </FBHold>
           <FBHold>
             <SVGHold>
-              <img src={happysvg} />
+              <img src={happysvg} alt="Happy" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Feel Better </FBTextHead>
@@ -374,7 +373,7 @@ class Home extends Component {
           </FBHold>
           <FBHold>
             <SVGHold>
-              <img src={loadsvg} />
+              <img src={loadsvg} alt="Load" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Develop Better Habits </FBTextHead>
