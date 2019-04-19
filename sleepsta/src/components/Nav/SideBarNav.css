@@ -185,6 +185,16 @@ ul ul a {
     background-color: #222d44;
     border-top: 1px solid grey;
   }
+  .logoutbut {
+    padding: 20px;
+    font-size: 20px;
+    display: block;
+    color: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    background-color: #222d44;
+  }
 }
 
 @media (max-width: 800px) {

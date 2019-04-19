@@ -8,7 +8,7 @@ import datasvg from "./img/data.svg";
 import dreamsvg from "./img/dream.svg";
 import happysvg from "./img/happy.svg";
 import loadsvg from "./img/load.svg";
-import nightsvg from "./img/night.svg";
+import logosimple from "./img/bed.png";
 import { Link } from "react-router-dom";
 
 //CSS Reset is imported above for homepage. All homepage styling handled within their respective components.
@@ -92,6 +92,18 @@ const HeaderHold = styled.div`
   }
 `;
 
+const LogoWrap = styled.div`
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  img{
+    height: 100%;
+    margin: 20px;
+    // border: 3px solid rgb(255,255,255,.2);
+    // border-radius: 50%;
+  }
+`;
+
 const HeadBG = styled.div`
   flex-direction: column;
   justify-content: center;
@@ -138,7 +150,7 @@ const WelcomeTo = styled.div`
   color: rgb(25, 25, 25);
   overflow: hidden;
   padding: 30px;
-  box-shadow: 3px 3px 0px 1.5px black;
+  box-shadow: 3px 3px 0px 1.5px rgb(0,0,0,.75);
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: space-evenly;
@@ -201,6 +213,7 @@ const FBHold = styled.div`
   margin: 10px;
   border-radius: 15px;
   background-color: rgb(255, 255, 255, 0.05);
+  box-shadow: 3px 3px 0px 1.5px rgb(0,0,0,.15);
   @media (max-width: 800px) {
     width: 90%;
   }
@@ -304,13 +317,16 @@ class Home extends Component {
           <LandingContent>
             <HeaderHold>
               <HeadBG>
+                <LogoWrap>
+                  <img src={logosimple} alt="Sleepsta logo" />
+                </LogoWrap>
                 <HeaderH1> SLEEPSTA </HeaderH1>
                 <h2> Sleep Hard. Live Smarter. </h2>
               </HeadBG>
               <LoginAlt />
             </HeaderHold>
             <AttentionHold>
-              <AttentionGrab><img src={stats} /></AttentionGrab>
+              <AttentionGrab><img src={stats} alt="Stats" /></AttentionGrab>
             </AttentionHold>
           </LandingContent>
         </Top>
@@ -318,7 +334,7 @@ class Home extends Component {
         <WelcomeHold>
           <WelcomeTo>
             <WelcomeLeft>
-              <img src={dreamsvg} />
+              <img src={dreamsvg} alt="Dream" />
             </WelcomeLeft>
             <WelcomeRight> <h3>
               Welcome to Sleepsta
@@ -331,7 +347,7 @@ class Home extends Component {
         <FeatureBlocks>
           <FBHold>
             <SVGHold>
-              <img src={datasvg} />
+              <img src={datasvg} alt="Data" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Track Nightly Stats </FBTextHead>
@@ -344,7 +360,7 @@ class Home extends Component {
           </FBHold>
           <FBHold>
             <SVGHold>
-              <img src={happysvg} />
+              <img src={happysvg} alt="Happy" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Feel Better </FBTextHead>
@@ -357,7 +373,7 @@ class Home extends Component {
           </FBHold>
           <FBHold>
             <SVGHold>
-              <img src={loadsvg} />
+              <img src={loadsvg} alt="Load" />
             </SVGHold>
             <FBTextHold>
               <FBTextHead> Develop Better Habits </FBTextHead>
